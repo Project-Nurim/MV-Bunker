@@ -46,7 +46,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/review/home"); // 로그인 성공시 갈 곳
 
         security.logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/user/login")) // 로그아웃 요청 주소
+                .logoutRequestMatcher(new AntPathRequestMatcher("/user/logout")) // 로그아웃 요청 주소
                 .logoutSuccessUrl("/user/login")// 로그인 성공시
                 .invalidateHttpSession(true);
 

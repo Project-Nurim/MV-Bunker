@@ -1,8 +1,10 @@
 package com.nurim.mvbunker.hashtag;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller("/hashtag")
+@Controller
+@RequestMapping("/hashtag")
 public class HashtagController {
 
 }
