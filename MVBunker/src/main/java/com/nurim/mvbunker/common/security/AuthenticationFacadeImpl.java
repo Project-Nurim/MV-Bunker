@@ -1,6 +1,6 @@
 package com.nurim.mvbunker.common.security;
 
-import com.nurim.mvbunker.user.model.UserDomain;
+import com.nurim.mvbunker.user.model.UserEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
@@ -9,9 +9,9 @@ import org.springframework.stereotype.Component;
 public class AuthenticationFacadeImpl implements IAuthenticationFacade{
 
     @Override
-    public UserDomain getLoginUser() {
+    public UserEntity getLoginUser() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        UserDetailsImpl userDetails = (UserDetailsImpl) auth.getPrincipal();
+        CustomUserPrincipal userDetails = (CustomUserPrincipal) auth.getPrincipal();
         return userDetails.getUser();
     }
 

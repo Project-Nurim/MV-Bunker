@@ -102,6 +102,11 @@
             <groupId>org.thymeleaf.extras</groupId>
             <artifactId>thymeleaf-extras-springsecurity5</artifactId>
         </dependency>
+        <!-- 소셜로그인할 때 사용 할 oauth2 세팅 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-oauth2-client</artifactId>
+        </dependency>
 
         <!-- 빈 발리데이션 -->
         <!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->

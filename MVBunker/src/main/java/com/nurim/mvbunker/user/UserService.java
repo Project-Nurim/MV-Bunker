@@ -14,5 +14,4 @@ public class UserService {
     @Autowired private EmailServiceImpl emailService;
     @Autowired private PasswordEncoder passwordEncoder;
     @Autowired private MyFileUtils fileUtils;
-
 }
