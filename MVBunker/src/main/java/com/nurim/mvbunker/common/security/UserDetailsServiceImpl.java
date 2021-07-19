@@ -1,5 +1,6 @@
 package com.nurim.mvbunker.common.security;
 
+import com.nurim.mvbunker.common.security.model.CustomUserPrincipals;
 import com.nurim.mvbunker.user.UserMapper;
 import com.nurim.mvbunker.user.model.UserDomain;
 import com.nurim.mvbunker.user.model.UserEntity;
@@ -24,6 +25,18 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         if(loginUser == null) {
             return null;
         }
-        return new UserDetailsImpl(loginUser);
+        return new CustomUserPrincipals(loginUser);
+    }
+
+    public UserDomain loadUserByUsernameAndProvider(String uid, String provider) throws UsernameNotFoundException {
+        UserEntity param = new UserEntity();
+        param.setProvider(provider);
+        param.setUid(uid);
+        return mapper.selUser(param);
+    }
+
+    public int join(UserEntity param) {
+        if(param == null) { return 0; }
+        return mapper.insUser(param);
     }
 }

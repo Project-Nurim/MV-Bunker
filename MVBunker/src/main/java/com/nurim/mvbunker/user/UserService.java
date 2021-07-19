@@ -4,6 +4,7 @@ import com.nurim.mvbunker.common.file.MyFileUtils;
 import com.nurim.mvbunker.common.mailsender.EmailServiceImpl;
 import com.nurim.mvbunker.common.auth.RandomCodeGenerator;
 import com.nurim.mvbunker.common.security.IAuthenticationFacade;
+import com.nurim.mvbunker.common.security.UserDetailsServiceImpl;
 import com.nurim.mvbunker.user.model.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -17,6 +18,7 @@ public class UserService {
     @Autowired private PasswordEncoder passwordEncoder;
     @Autowired private MyFileUtils fileUtils;
     @Autowired private IAuthenticationFacade auth;
+    @Autowired private UserDetailsServiceImpl userDetailsService;
 
     public int join(UserEntity param) {
         String authCd = codeGenerator.getRandomCode(5);
@@ -25,7 +27,8 @@ public class UserService {
         String hashedPw = passwordEncoder.encode(param.getUpw());
         param.setUpw(hashedPw);
         param.setAuth(authCd);
-        int result = mapper.insUser(param);
+        param.setProvider("local");
+        int result = userDetailsService.join(param);
 
         if(result == 1) {
             String subject = "[Movie-Bunker] 인증 메일입니다.";

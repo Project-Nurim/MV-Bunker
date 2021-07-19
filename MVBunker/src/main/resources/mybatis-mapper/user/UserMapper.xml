@@ -19,4 +19,8 @@
         FROM t_user
         WHERE uid = #{uid}
     </select>
+    <delete id="delUser">
+        delete from t_user
+        where uid = #{uid} and
+    </delete>
 </mapper>
