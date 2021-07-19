@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserEntity {
+    private String provider;
     private int i_user;
     private String uid;
     private String ex_key;

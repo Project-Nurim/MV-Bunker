@@ -19,12 +19,12 @@ public class RandomCodeGenerator {
         }
     }
 
-    public String getRandomCode(int len) {
+    public String getRandomCode(int len) { //facebook_clone에서는UserService join()에서 입력했었다.
         StringBuilder randVal = new StringBuilder();
         for(int i = 0; i < len; i++) {
             if(Math.random() > 0.5) {
                 randVal.append(getRandomInteger(9));
-            }else {
+            } else {
                 randVal.append(getRandomChar());
             }
         }

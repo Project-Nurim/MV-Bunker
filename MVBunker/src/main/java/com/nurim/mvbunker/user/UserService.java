@@ -17,6 +17,7 @@ public class UserService {
     @Autowired private EmailServiceImpl emailService;
     @Autowired private PasswordEncoder passwordEncoder;
     @Autowired private MyFileUtils fileUtils;
+
     @Autowired private IAuthenticationFacade auth;
     @Autowired private UserDetailsServiceImpl userDetailsService;
 
