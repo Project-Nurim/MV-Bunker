@@ -12,4 +12,4 @@ CREATE TABLE t_user (
         regdt DATETIME DEFAULT NOW(),
         auth VARCHAR(10),
         UNIQUE KEY UK_social (ex_key,provider)
-);
+);o9
