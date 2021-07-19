@@ -10,7 +10,7 @@ import java.util.UUID;
 @Component
 public class MyFileUtils {
 
-    @Value("${spring.servlet.multipart.location") // "D:\res_file\moviebunker"
+    @Value("${spring.servlet.multipart.location}") // "D:\res_file\moviebunker"
     private String uploadFilePath;
 
     // make folder
