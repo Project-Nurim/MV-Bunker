@@ -3,11 +3,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.nurim.mvbunker.user.UserMapper">
-    <insert id="insUser">
+    <insert id="insUser" useGeneratedKeys="true" >
         INSERT INTO t_user
-        (uid, upw, unm, gender, age, unn, profileImg, auth)
+        (uid, ex_key, provider, upw, unm, gender, age, unn, profileImg, auth)
         VALUES
-        (#{uid}, #{upw}, #{unm}, ${gender}, ${age}, #{unn}, #{profileImg}, #{auth})
+        (#{uid}, #{ex_key}, #{provider}, #{upw}, #{unm}, ${gender}, ${age}, #{unn}, #{profileImg}, #{auth})
     </insert>
     <update id="authUser">
         UPDATE t_user
@@ -19,4 +19,8 @@
         FROM t_user
         WHERE uid = #{uid}
     </select>
+    <delete id="delUser">
+        delete from t_user
+        where uid = #{uid} and
+    </delete>
 </mapper>
