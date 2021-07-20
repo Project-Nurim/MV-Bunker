@@ -31,7 +31,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         UserEntity param = new UserEntity();
         param.setProvider(provider);
         param.setUid(uid);
-        return mapper.selUser(param);
+        UserEntity user = mapper.selUser(param);
+        if(user == null) {
+            user = new UserEntity();
+        }
+        return user;
     }
 
     public int join(UserEntity param) {

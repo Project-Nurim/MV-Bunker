@@ -44,7 +44,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/user/login")
                 .usernameParameter("uid")
                 .passwordParameter("upw")
-                .defaultSuccessUrl("/review/home"); // 로그인 성공시 갈 곳
+                .defaultSuccessUrl("/review/home") // 로그인 성공시 갈 곳
+                .failureUrl("/user/login?error");
 
         security.oauth2Login()
                 .loginPage("/user/login")

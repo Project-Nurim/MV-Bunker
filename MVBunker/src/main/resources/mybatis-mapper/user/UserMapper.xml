@@ -17,7 +17,7 @@
     <select id="selUser" resultType="UserEntity">
         SELECT *
         FROM t_user
-        WHERE uid = #{uid}
+        WHERE uid = #{uid} AND auth IS NULL AND provider = #{provider}
     </select>
     <delete id="delUser">
         delete from t_user
