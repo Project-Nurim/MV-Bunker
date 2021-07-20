@@ -42,23 +42,21 @@ spring:
       client:
         registration:
           google:
-            client-id: 331534589280-n8hggqoddss0te2lnt8m4ob5i9u5j9cn.apps.googleusercontent.com#아이디
+            client-id: 331534589280-n8hggqoddss0te2lnt8m4ob5i9u5j9cn.apps.googleusercontent.com #아이디
             client-secret: lSUIjzBlIVt4qb4pJl3MACfh #비밀번호
             scope:
               - public-profile #프로필사진
               - email #email
           kakao:
             authorization-grant-type: authorization_code
-              client-id: a182ea9a450c7fd987cb0fea99312a92 # your-client-id, 요약정보에 있는 REST API키를 넣어 준다
-              client-secret: GdcuWbpUkbTgECdDdNKtIAfiRF1ndID3 #your-client-secret, 여기에 Kakao Development > 보안에 있는 Client Secret에 생성된 코드를 넣어준다
-              redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
-              scope: # 동의항목에서 필수동의로 설정했던 두 가지, 이용자로부터 받아오고자 하는 정보의 범위를 말한다.
-                - profile_nickname
-                - profile_image
-                - gender
-                - email
-              client-authentication-method: POST
-              client-name: Kakao
+            client-id: a182ea9a450c7fd987cb0fea99312a92 # your-client-id, 요약정보에 있는 REST API키를 넣어 준다
+            client-secret: GdcuWbpUkbTgECdDdNKtIAfiRF1ndID3 #your-client-secret, 여기에 Kakao Development > 보안에 있는 Client Secret에 생성된 코드를 넣어준다
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            scope: # 동의항목에서 필수동의로 설정했던 두 가지, 이용자로부터 받아오고자 하는 정보의 범위를 말한다.
+              - profile_nickname
+              - profile_image
+            client-authentication-method: POST
+            client-name: Kakao
           naver:
             authorization-grant-type: authorization_code
             client-id: Y43iUtqYUnlw_q4NW8Rn #your-client-id

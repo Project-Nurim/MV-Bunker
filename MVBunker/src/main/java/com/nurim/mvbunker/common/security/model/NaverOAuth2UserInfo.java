@@ -25,20 +25,6 @@ public class NaverOAuth2UserInfo extends OAuth2UserInfo {
     }
 
     @Override
-    public int getGender() {
-        char gender_ch = (char) attributes.get("gender");
-        switch (gender_ch) {
-            case 'F':
-                return 2;
-            case 'M':
-                return 1;
-            case 'U':
-                return 0;
-        }
-        return 0;
-    }
-
-    @Override
     public int getAge() {
         return (int) attributes.get("age");
     }

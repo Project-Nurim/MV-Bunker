@@ -32,6 +32,9 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
         OAuth2UserInfo userInfo = getOauth2UserInfo(registrationId, modifyAttributes);
 
         UserEntity user = convertOauthToUserEntity(userInfo);
+        if(user.getUid().length() == 0) {
+            user.setUid(user.getEx_key());
+        }
         UserEntity chkUser = myUserService.loadUserByUsernameAndProvider(user.getUid(), user.getProvider());
         if(chkUser == null) {
             myUserService.join(user);
@@ -49,7 +52,6 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
                 .provider(userInfo.getProvider())
                 .ex_key(userInfo.getId())
                 .age(userInfo.getAge())
-                .gender(userInfo.getGender())
                 .profileImg(userInfo.getImageUrl())
                 .unn(userInfo.getNickname())
                 .build();
