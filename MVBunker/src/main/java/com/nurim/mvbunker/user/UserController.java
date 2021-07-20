@@ -20,6 +20,12 @@ public class UserController {
     @GetMapping("/join")
     public void toJoinPage() {}
 
+    @GetMapping("/auth")
+    public String authenticationLocal(UserEntity param) {
+        service.auth(param);
+        return "redirect:/user/login";
+    }
+
     @PostMapping("/join")
     public String JoinUser(UserEntity param, Model model) {
         model.addAttribute("needAuth", 1);
