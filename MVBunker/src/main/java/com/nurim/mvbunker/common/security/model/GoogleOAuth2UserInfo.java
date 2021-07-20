@@ -25,10 +25,6 @@ public class GoogleOAuth2UserInfo extends OAuth2UserInfo {
         return (String) attributes.get("email");
     }
 
-    @Override
-    public int getGender() {
-        return 0;
-    }
 
     @Override
     public int getAge() {

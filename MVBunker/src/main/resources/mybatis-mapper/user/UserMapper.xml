@@ -5,22 +5,22 @@
 <mapper namespace="com.nurim.mvbunker.user.UserMapper">
     <insert id="insUser" useGeneratedKeys="true" >
         INSERT INTO t_user
-        (uid, ex_key, provider, upw, unm, gender, age, unn, profileImg, auth)
+        (uid, ex_key, provider, upw, unm, age, unn, profileImg, auth)
         VALUES
-        (#{uid}, #{ex_key}, #{provider}, #{upw}, #{unm}, ${gender}, ${age}, #{unn}, #{profileImg}, #{auth})
+        (#{uid}, #{ex_key}, #{provider}, #{upw}, #{unm}, ${age}, #{unn}, #{profileImg}, #{auth})
     </insert>
     <update id="authUser">
         UPDATE t_user
         SET auth = null
         WHERE uid = #{uid} AND auth = #{auth}
     </update>
-    <select id="selUser" resultType="UserDomain">
+    <select id="selUser" resultType="UserEntity">
         SELECT *
         FROM t_user
         WHERE uid = #{uid}
     </select>
     <delete id="delUser">
         delete from t_user
-        where uid = #{uid} and
+        where uid = #{uid} and upw = #{upw}
     </delete>
 </mapper>

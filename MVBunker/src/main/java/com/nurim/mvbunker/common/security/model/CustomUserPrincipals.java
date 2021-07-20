@@ -1,6 +1,5 @@
 package com.nurim.mvbunker.common.security.model;
 
-import com.nurim.mvbunker.user.model.UserDomain;
 import com.nurim.mvbunker.user.model.UserEntity;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
@@ -40,7 +39,8 @@ public class CustomUserPrincipals implements UserDetails, OAuth2User {
 
     @Override
     public String getUsername() {
-        return user.getUid();
+        if(user.getUid() != null) return user.getUid();
+        return user.getEx_key();
     }
 
     @Override
