@@ -26,7 +26,7 @@ public class NaverOAuth2UserInfo extends OAuth2UserInfo {
 
     @Override
     public int getAge() {
-        return (int) attributes.get("age");
+        return (int) (attributes.get("age") != null? attributes.get("age") : 0);
     }
 
     @Override

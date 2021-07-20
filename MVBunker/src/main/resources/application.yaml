@@ -42,36 +42,37 @@ spring:
       client:
         registration:
           google:
-            client-id: 331534589280-n8hggqoddss0te2lnt8m4ob5i9u5j9cn.apps.googleusercontent.com #아이디
-            client-secret: lSUIjzBlIVt4qb4pJl3MACfh #비밀번호
+            client-id: 757245212301-7do5b71ok1aicnvtkirgthlgrdfiln9q.apps.googleusercontent.com #아이디
+            client-secret: 5-zrTd_LBDVnj88z8eyGOTlf #비밀번호
             scope:
-              - public-profile #프로필사진
-              - email #email
+              - profile
+              - email
           kakao:
             authorization-grant-type: authorization_code
-            client-id: a182ea9a450c7fd987cb0fea99312a92 # your-client-id, 요약정보에 있는 REST API키를 넣어 준다
-            client-secret: GdcuWbpUkbTgECdDdNKtIAfiRF1ndID3 #your-client-secret, 여기에 Kakao Development > 보안에 있는 Client Secret에 생성된 코드를 넣어준다
+            client-id: 89dcfd3c7b09505ca0418f23242ca3aa # your-client-id, 요약정보에 있는 REST API키를 넣어 준다
+            client-secret: sJewH7IumICiFyVmJkYRycNSN4nTxFEV #your-client-secret, 여기에 Kakao Development > 보안에 있는 Client Secret에 생성된 코드를 넣어준다
             redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
             scope: # 동의항목에서 필수동의로 설정했던 두 가지, 이용자로부터 받아오고자 하는 정보의 범위를 말한다.
               - profile_nickname
               - profile_image
+              - account_email
             client-authentication-method: POST
             client-name: Kakao
           naver:
             authorization-grant-type: authorization_code
-            client-id: Y43iUtqYUnlw_q4NW8Rn #your-client-id
-            client-secret: meG6L7DaSH #your-client-secret
+            client-id: GCpbP4RQN_YazH7hxyvo #your-client-id
+            client-secret: t0ToKSqMUF #your-client-secret
             redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
             # 이용자로부터 받아오고자 하는 정보의 범위
-            scope: name,profile_image
+            scope:
             client-name: Naver
           facebook:
-            client-id: 1726792610824331 #← 요거는 테스트 앱 아이디 #337722741185819 #your-client-id
-            client-secret: 648981559334f4e10438f40256e9f795 #← 요거는 테스트 앱 시크릿코드 #af3435a15ea92696a2b50887660f4581 #your-client-secret
+            client-id: 251577713084836 #← 요거는 테스트 앱 아이디 #337722741185819 #your-client-id
+            client-secret: 820efa1704d0a438b42dee1cfad56394 #← 요거는 테스트 앱 시크릿코드 #af3435a15ea92696a2b50887660f4581 #your-client-secret
             #redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
             scope: # 동의항목에서 필수동의로 설정했던 두 가지
-              - profile_nickname
-              - profile_image
+              - email
+              - public_profile
 
         provider:
           kakao:

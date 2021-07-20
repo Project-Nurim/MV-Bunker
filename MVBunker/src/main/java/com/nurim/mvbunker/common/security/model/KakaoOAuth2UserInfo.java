@@ -22,7 +22,7 @@ public class KakaoOAuth2UserInfo extends OAuth2UserInfo {
 
     @Override
     public String getEmail() { //카카오는 이메일 정보 제공 X
-        return "";
+        return (String) attributes.get("email");
     }
 
     @Override
