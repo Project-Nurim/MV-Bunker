@@ -32,14 +32,14 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         param.setUid(id);
 
 
-        UserDomain loginUser = mapper.selUser(param);
+        UserEntity loginUser = mapper.selUser(param);
         if(loginUser == null) {
             return null;
         }
         return new CustomUserPrincipals(loginUser);
     }
 
-    public UserDomain loadUserByUsernameAndProvider(String uid, String provider) throws UsernameNotFoundException {
+    public UserEntity loadUserByUsernameAndProvider(String uid, String provider) throws UsernameNotFoundException {
         UserEntity param = new UserEntity();
         param.setProvider(provider);
         param.setUid(uid);
