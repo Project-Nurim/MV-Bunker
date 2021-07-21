@@ -49,15 +49,10 @@ spring:
               - email
           kakao:
             authorization-grant-type: authorization_code
-            client-id: 89dcfd3c7b09505ca0418f23242ca3aa # your-client-id, 요약정보에 있는 REST API키를 넣어 준다
-            client-secret: sJewH7IumICiFyVmJkYRycNSN4nTxFEV #your-client-secret, 여기에 Kakao Development > 보안에 있는 Client Secret에 생성된 코드를 넣어준다
             redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
             scope: # 동의항목에서 필수동의로 설정했던 두 가지, 이용자로부터 받아오고자 하는 정보의 범위를 말한다.
               - profile_nickname
               - profile_image
-              - account_email
-            client-authentication-method: POST
-            client-name: Kakao
           naver:
             authorization-grant-type: authorization_code
             client-id: GCpbP4RQN_YazH7hxyvo #your-client-id
