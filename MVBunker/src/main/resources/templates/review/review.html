@@ -1,10 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="basicLayout">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <th:block layout:fragment="css">
+        <link rel="stylesheet" th:href="@{/css/user/review.css}">
+    </th:block>
+    <th:block layout:fragment="js">
+        <script defer th:src="@{/js/user/review.js}"></script>
+    </th:block>
+    <title>로그인</title>
 </head>
 <body>
 <!-- 각 영화의 포스터 + 작성자 + 평점 + 리뷰가 뜨는 페이지 -->
+<th:block layout:fragment="content">
+
+</th:block>
 </body>
 </html>

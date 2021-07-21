@@ -1,10 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="basicLayout">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <th:block layout:fragment="css">
+        <link rel="stylesheet" th:href="@{/css/user/genreDetail.css}">
+    </th:block>
+    <th:block layout:fragment="js">
+        <script defer th:src="@{/js/user/genreDetail.js}"></script>
+    </th:block>
+    <title>로그인</title>
 </head>
 <body>
 <!-- 장르페이지에서 more을 눌렀을 때 해당 장르 영화가 쭉 뜨는 페이지(인피니티스크롤 구현) -->
+<th:block layout:fragment="content">
+
+</th:block>
 </body>
 </html>
