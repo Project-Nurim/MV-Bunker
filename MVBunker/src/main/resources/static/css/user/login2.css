@@ -1,0 +1,57 @@
+#popup_open_btn::before {
+    content: 'Login';
+}
+#popup_open_btn:hover{
+    animation-play-state: paused;
+}
+#popup_open_btn:hover::before{
+    content: '로그인';
+}
+
+
+
+#mypage::before {
+    content: 'mypage';
+}
+
+#mypage:hover{
+    animation-play-state: paused;
+}
+#mypage:hover::before {
+    content: '마이페이지';
+}
+
+
+.reviewer::before {
+    content: 'following reviewer';
+}
+
+.reviewer:hover{
+    animation-play-state: paused;
+}
+.reviewer:hover::before {
+    content: '내가 구독한 리뷰어';
+}
+
+.movie::before {
+    content: 'my favorite movie';
+}
+
+.movie:hover{
+    animation-play-state: paused;
+}
+.movie:hover::before {
+    content: '내가 찜한 영화';
+}
+
+
+.qna::before {
+    content: 'QnA';
+}
+
+.qna:hover{
+    animation-play-state: paused;
+}
+.qna:hover::before {
+    content: '자주 묻는 질문';
+}

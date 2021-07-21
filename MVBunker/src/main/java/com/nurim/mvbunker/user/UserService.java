@@ -1,8 +1,8 @@
 package com.nurim.mvbunker.user;
 
 import com.nurim.mvbunker.common.file.MyFileUtils;
-import com.nurim.mvbunker.common.mailsender.EmailServiceImpl;
 import com.nurim.mvbunker.common.auth.RandomCodeGenerator;
+import com.nurim.mvbunker.common.mailsender.EmailServiceImpl;
 import com.nurim.mvbunker.common.security.IAuthenticationFacade;
 import com.nurim.mvbunker.common.security.UserDetailsServiceImpl;
 import com.nurim.mvbunker.user.model.UserEntity;

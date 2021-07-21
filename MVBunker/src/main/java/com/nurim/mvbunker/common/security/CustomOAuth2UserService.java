@@ -32,8 +32,14 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
         OAuth2UserInfo userInfo = getOauth2UserInfo(registrationId, modifyAttributes);
 
         UserEntity user = convertOauthToUserEntity(userInfo);
+        if(user.getUid().length() == 0) {
+            user.setUid(user.getEx_key());
+        }
+        if(user.getUnn() == null && user.getUnm() != null) {
+            user.setUnn(user.getUnm());
+        }
         UserEntity chkUser = myUserService.loadUserByUsernameAndProvider(user.getUid(), user.getProvider());
-        if(chkUser == null) {
+        if(chkUser.getI_user() == 0) {
             myUserService.join(user);
             chkUser = user;
         }
@@ -49,7 +55,6 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
                 .provider(userInfo.getProvider())
                 .ex_key(userInfo.getId())
                 .age(userInfo.getAge())
-                .gender(userInfo.getGender())
                 .profileImg(userInfo.getImageUrl())
                 .unn(userInfo.getNickname())
                 .build();
@@ -79,7 +84,10 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
                 mod.remove("response"); // 필요없는 response 는 지워준다.
                 break;
             case "kakao":
-                LinkedHashMap propertiesData = (LinkedHashMap) mod.get("properties"); // 카카오는 properties 안에 있다.
+                LinkedHashMap propertiesData = (LinkedHashMap) mod.get("kakao_account");
+                mod.putAll(propertiesData);
+                mod.remove("kakao_account");
+                propertiesData = (LinkedHashMap) mod.get("properties"); // 카카오는 properties 안에 있다.
                 mod.putAll(propertiesData);
                 mod.remove("properties");
                 break;

@@ -24,26 +24,18 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 //        if(loginUser == null) {
 //            return null;
 //        }
-        return new CustomUserPrincipal(loadUserByUsernameAndProvider(uid, "local"));
-    }
-    public UserEntity loadUserByUsernameAndProvider(String id, String provider) throws UsernameNotFoundException{
-        UserEntity param = new UserEntity();
-        param.setProvider(provider);
-        param.setUid(id);
-
-
-        UserEntity loginUser = mapper.selUser(param);
-        if(loginUser == null) {
-            return null;
-        }
-        return new CustomUserPrincipals(loginUser);
+        return new CustomUserPrincipals(loadUserByUsernameAndProvider(uid, "local"));
     }
 
     public UserEntity loadUserByUsernameAndProvider(String uid, String provider) throws UsernameNotFoundException {
         UserEntity param = new UserEntity();
         param.setProvider(provider);
         param.setUid(uid);
-        return mapper.selUser(param);
+        UserEntity user = mapper.selUser(param);
+        if(user == null) {
+            user = new UserEntity();
+        }
+        return user;
     }
 
     public int join(UserEntity param) {
