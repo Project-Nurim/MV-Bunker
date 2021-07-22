@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/공통css파일명.css}">
+    <script defer th:href="@{/js/공통js파일명.js}"></script>
+    <title layout:title-pattern="$LAYOUT_TITLE"></title>
+    <th:block layout:fragment="css"></th:block>
+    <th:block layout:fragment="js"></th:block>
+</head>
+<body>
+<div id="container">
+    <th:block th:replace="헤더파일명 :: 헤더프래그먼트명"></th:block>
+    <th:block th:replace="기둥파일명 :: 기둥프래그먼트명"></th:block>
+    <th:block layout:fragment="content"></th:block>
+    <th:block th:replace="commonFooter :: footer"></th:block>
+</div>
+</body>
+</html>
