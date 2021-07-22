@@ -26,4 +26,23 @@ public class UserController {
         service.join(param);
         return "redirect:/user/login";
     }
+
+    @GetMapping("/favReview")
+    public void favReview(){}
+
+    @GetMapping("/followingReviewer")
+    public void followReviewer(){}
+
+    @GetMapping("/myReview")
+    public void myReview(){}
+
+    @GetMapping("/myReviewCmt")
+    public void myReviewCmt(){}
+
+    @GetMapping("/profile")
+    public void profile(){}
+
+    @GetMapping("/profileMod")
+    public void profileMod(){}
+
 }

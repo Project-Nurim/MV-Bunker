@@ -14,7 +14,6 @@ public class UserEntity {
     private int i_user;
     private String uid;
     private String ex_key;
-    private String provider;
     private String upw;
     private String unm;
     private int gender;
