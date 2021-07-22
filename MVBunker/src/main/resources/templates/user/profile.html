@@ -4,15 +4,12 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorator="basicLayout">
 <head>
-    <head>
-        <th:block layout:fragment="css">
-            <link rel="stylesheet" th:href="@{/css/user/prifle.css}">
-        </th:block>
-        <th:block layout:fragment="js">
-            <script defer th:src="@{/js/user/profile.js}"></script>
-        </th:block>
-        <title>로그인</title>
-    </head>
+    <th:block layout:fragment="css">
+        <link rel="stylesheet" th:href="@{/css/user/prifle.css}">
+    </th:block>
+    <th:block layout:fragment="js">
+        <script defer th:src="@{/js/user/profile.js}"></script>
+    </th:block>
     <title>로그인</title>
 </head>
 <body>
