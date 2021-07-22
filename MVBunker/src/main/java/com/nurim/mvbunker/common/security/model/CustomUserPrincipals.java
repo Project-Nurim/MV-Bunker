@@ -39,7 +39,8 @@ public class CustomUserPrincipals implements UserDetails, OAuth2User {
 
     @Override
     public String getUsername() {
-        return user.getUid();
+        if(user.getUid() != null) return user.getUid();
+        return user.getEx_key();
     }
 
     @Override

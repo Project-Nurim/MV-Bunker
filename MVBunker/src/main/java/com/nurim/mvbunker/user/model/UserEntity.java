@@ -16,7 +16,6 @@ public class UserEntity {
     private String ex_key;
     private String upw;
     private String unm;
-    private int gender;
     private int age;
     private String unn;
     private String profileImg;
