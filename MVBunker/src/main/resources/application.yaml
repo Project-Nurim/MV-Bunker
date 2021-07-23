@@ -14,7 +14,7 @@ spring:
   datasource: # 히카리는 기본 세팅으로 되어있기 때문에 이렇게만 해줘도 알아서 히카리로다가 거시기 해준다.
     url: jdbc:mysql://localhost:3308/moviebunker
     username: root
-    password: kjy132
+    password: wncks335
     driver-class-name: org.mariadb.jdbc.Driver
   servlet:
     multipart:
@@ -50,16 +50,20 @@ spring:
           kakao:
             authorization-grant-type: authorization_code
             redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            client-id: a182ea9a450c7fd987cb0fea99312a92
+            client-secret: GdcuWbpUkbTgECdDdNKtIAfiRF1ndID3
             scope: # 동의항목에서 필수동의로 설정했던 두 가지, 이용자로부터 받아오고자 하는 정보의 범위를 말한다.
               - profile_nickname
               - profile_image
+            client-authentication-method: POST
+            client-name: Kakao
           naver:
             authorization-grant-type: authorization_code
             client-id: GCpbP4RQN_YazH7hxyvo #your-client-id
             client-secret: t0ToKSqMUF #your-client-secret
             redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
             # 이용자로부터 받아오고자 하는 정보의 범위
-            scope:
+            scope: name,profile_image
             client-name: Naver
           facebook:
             client-id: 251577713084836 #← 요거는 테스트 앱 아이디 #337722741185819 #your-client-id
