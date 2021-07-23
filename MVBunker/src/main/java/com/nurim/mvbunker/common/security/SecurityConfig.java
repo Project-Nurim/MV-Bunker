@@ -37,7 +37,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         security.csrf().disable();
 
         security.authorizeRequests() // 로그인 없이 갈 수 있는 곳
-                .antMatchers("/user/login", "/user/join", "/user/auth").permitAll()
+                .antMatchers("/user/login", "/user/join", "/user/auth"
+                , "/movies/boxoffice").permitAll()
                 .anyRequest().authenticated();
 
         security.formLogin()
