@@ -3,9 +3,11 @@ package com.nurim.mvbunker.movies;
 
 
 import info.movito.themoviedbapi.model.MovieDb;
+import org.springframework.stereotype.Component;
 
 import java.util.Comparator;
 
+@Component
 public class MiniComparator
  implements Comparator<MovieDb> {
     @Override

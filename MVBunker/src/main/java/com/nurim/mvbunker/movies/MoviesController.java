@@ -25,12 +25,12 @@ public class MoviesController {
 
     @GetMapping("/genre")
     public void genre(Model model){
-        model.addAttribute("genreList",);
+        model.addAttribute("genreList",null);
     }
 
     @GetMapping("/genreDetail")
     public void genreDetail(Model model){
-        model.addAttribute("movieInfo");
+        model.addAttribute("movieInfo", null);
     }
 
     @GetMapping("/recommendation")
