@@ -1,20 +1,8 @@
 <!DOCTYPE html>
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorator="레이아웃파일명">
-<head>
-    <th:block layout:fragment="css">
-        <link rel="stylesheet" th:href="@{/css/파일경로.css}">
-    </th:block>
-    <th:block layout:fragment="js">
-        <script defer th:src="@{/js/파일경로.js}"></script>
-    </th:block>
-    <title>제목</title>
-</head>
-<body>
-<th:block layout:fragment="content">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<th:block layout:fragment="header">
 
 </th:block>
-</body>
 </html>
