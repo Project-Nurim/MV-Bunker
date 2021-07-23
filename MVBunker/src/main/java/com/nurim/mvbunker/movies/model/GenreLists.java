@@ -17,7 +17,7 @@ import java.util.Map;
 public class GenreLists {
     @Autowired TmdbApi tmdbApi;
 
-    List<Genre> genreList = tmdbApi.getGenre().getGenreList("ko-KR");
+    @Autowired List<Genre> genreList;
 
     public Map<Integer, String> getGenreMap() {
         Map<Integer,String> genreMap = new HashMap<>();
