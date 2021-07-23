@@ -3,7 +3,6 @@ package com.nurim.mvbunker.movies;
 import com.nurim.mvbunker.movies.model.MyMovieDb;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -34,6 +33,8 @@ public class MoviesController {
     }
 
     @GetMapping("/recommendation")
-    public void recommendation(){}
+    public void recommendation(){
+
+    }
 
 }
