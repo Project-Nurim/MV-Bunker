@@ -2,7 +2,6 @@ package com.nurim.mvbunker.movies;
 
 import com.nurim.mvbunker.movies.model.GenreLists;
 import com.nurim.mvbunker.movies.model.MyMovieDb;
-import com.nurim.mvbunker.movies.model.MyMovieResultsPage;
 import info.movito.themoviedbapi.TmdbApi;
 import info.movito.themoviedbapi.model.Genre;
 import info.movito.themoviedbapi.model.core.MovieResultsPage;
