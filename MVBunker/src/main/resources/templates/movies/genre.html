@@ -12,10 +12,24 @@
     </th:block>
     <title>로그인</title>
 </head>
+<!-- 장르별 영화 포스터 출력 예제
+<th:block th:each="genre : ${genreList}"> 전체 장르로 반복문(액션, 모험..)
+    <div th:text="${genre.key}"></div> 각 장르별 이름("액션", "모험"..)
+    <th:block th:each="movie : ${genre.value}"> 각 장르로 반복(액션 영화 모두 뿌리기)
+        <img th:src="'https://image.tmdb.org/t/p/w500/' + ${movie.posterPath}">
+    </th:block>
+</th:block>
+각 장르별로 20개씩 넘어온다. 정렬은 인기순
+-->
 <body>
 <!-- 장르별로 5개씩 영화포스터가 뜨는 페이지 -->
 <th:block layout:fragment="content">
-
+<th:block th:each="genre : ${genreList}">
+    <div th:text="${genre.key}"></div>
+    <th:block th:each="movie : ${genre.value}">
+        <img th:src="'https://image.tmdb.org/t/p/w500/' + ${movie.posterPath}">
+    </th:block>
+</th:block>
 </th:block>
 </body>
 </html>

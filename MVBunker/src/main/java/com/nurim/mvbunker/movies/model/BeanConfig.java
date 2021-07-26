@@ -22,10 +22,16 @@ public class BeanConfig {
         return new TmdbApi(api_key);
     }
 
-    @Bean(name="genreMap")
-    public Map<Integer, String> getGenreList() {
+    @Bean(name="OriginalGenres")
+    public List<Genre> getOriginGenreList() {
         TmdbApi tmdbApi = new TmdbApi(api_key);
         List<Genre> genreList = tmdbApi.getGenre().getGenreList("ko-KR");
+        return genreList;
+    }
+
+    @Bean(name="genreMap")
+    public Map<Integer, String> getGenreList() {
+        List<Genre> genreList = getOriginGenreList();
 
         Map<Integer,String> genreMap = new HashMap<>();
         for(int i = 0; i < genreList.size(); i++) {
