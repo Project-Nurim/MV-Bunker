@@ -14,8 +14,31 @@
 </head>
 <body>
 <!-- 지민이가 해야하는 멋들어지는 360도 이미지 슬라이드가 들어가는 박스오피스 페이지 -->
+<!--  출력 예제
+<table>
+    <tr th:each="movie : ${boxofficeList}">
+        <td><img th:src="'https://image.tmdb.org/t/p/w500/' + ${movie.backdropPath}"></td>
+        <td><img th:src="'https://image.tmdb.org/t/p/original/' + ${movie.posterPath}"></td>
+        <td th:text="${movie.title}"></td>
+        <td th:text="${movie.overview}"></td>
+        <th:block th:each="genre : ${movie.genreNames}">
+            <td th:text="${genre}"> </td>
+        </th:block>
+    </tr>
+    </table>
+    이미지 경로에 w500 : 가로 500px, original : 원래 크기
+-->
 <th:block layout:fragment="content">
-    <h1 th:text="${boxofficeList.title}"></h1>
+    <table>
+        <tr th:each="movie : ${boxofficeList}">
+            <td><img th:src="'https://image.tmdb.org/t/p/w500/' + ${movie.posterPath}"></td>
+            <td th:text="${movie.title}"></td>
+            <td th:text="${movie.overview}"></td>
+            <th:block th:each="genre : ${movie.genreNames}">
+                <td th:text="${genre}"> </td>
+            </th:block>
+        </tr>
+    </table>
 </th:block>
 </body>
 </html>
