@@ -6,6 +6,7 @@ import info.movito.themoviedbapi.TmdbApi;
 import info.movito.themoviedbapi.model.Genre;
 import info.movito.themoviedbapi.model.core.MovieResultsPage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -18,6 +19,8 @@ public class MoviesService {
     private TmdbApi tmdbApi;
     @Autowired
     private GenreLists MyGenreList;
+    @Autowired
+    private MyTmdbApi myTmdbApi;
 
     public List<MyMovieDb> getPopularMovies() {
         MiniComparator comp = new MiniComparator();
@@ -25,5 +28,9 @@ public class MoviesService {
         popMovieList.sort(comp);
 
         return popMovieList;
+    }
+
+    public List<MyMovieDb> getGenreMovies(int genreId) {
+        return MyGenreList.getMovieListWithGenresName(myTmdbApi.getMoviesWithGenre(genreId));
     }
 }

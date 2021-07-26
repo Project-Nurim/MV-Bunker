@@ -21,4 +21,5 @@ public class UserEntity {
     private String profileImg;
     private String regdt;
     private String auth;
+    private String introduce;
 }
