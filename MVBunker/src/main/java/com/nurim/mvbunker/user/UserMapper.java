@@ -8,4 +8,5 @@ public interface UserMapper {
     int insUser(UserEntity param);
     int authUser(UserEntity param);
     UserEntity selUser(UserEntity param);
+    int updUser(UserEntity param);
 }

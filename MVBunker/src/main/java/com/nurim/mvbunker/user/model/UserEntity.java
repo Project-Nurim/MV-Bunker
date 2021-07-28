@@ -18,7 +18,9 @@ public class UserEntity {
     private String unm;
     private int age;
     private String unn;
+    private String mainProfile;
     private String profileImg;
     private String regdt;
     private String auth;
+    private String introduce;
 }
