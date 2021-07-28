@@ -33,4 +33,7 @@ public class MoviesService {
     public List<MyMovieDb> getGenreMovies(int genreId) {
         return MyGenreList.getMovieListWithGenresName(myTmdbApi.getMoviesWithGenre(genreId));
     }
+    public List<MyMovieDb> getGenreMovies(int genreId, int page) {
+        return MyGenreList.getMovieListWithGenresName(myTmdbApi.getMoviesWithGenre(genreId, page));
+    }
 }

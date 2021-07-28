@@ -40,5 +40,16 @@ public class BeanConfig {
         return genreMap;
     }
 
+    @Bean(name="reversGenreMap")
+    public Map<String, Integer> getReverseGenreMap() {
+        List<Genre> genreList = getOriginGenreList();
+
+        Map<String, Integer> reversGenreMap = new HashMap<>();
+        for(int i = 0; i < genreList.size(); i++) {
+            reversGenreMap.put(genreList.get(i).getName(), genreList.get(i).getId());
+        }
+        return reversGenreMap;
+    }
+
 
 }

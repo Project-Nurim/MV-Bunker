@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
 import java.util.List;
@@ -19,9 +20,11 @@ public class MoviesController {
 
     @Autowired
     private MoviesService service;
+
     @Autowired
-    @Qualifier("genreMap")
-    Map<Integer, String> genreMap;
+    @Qualifier("reversGenreMap")
+    Map<String, Integer> reversGenreMap;
+
     @Autowired
     @Qualifier("OriginalGenres")
     List<Genre> OriginalGenres;
@@ -36,14 +39,22 @@ public class MoviesController {
     public void genre(Model model){
         Map<String, List<MyMovieDb>> genreList = new HashMap<>();
         for(int i = 0; i < OriginalGenres.size(); i++) {
-            genreList.put(OriginalGenres.get(i).getName(), service.getGenreMovies(OriginalGenres.get(i).getId()));
+            List<MyMovieDb> list = service.getGenreMovies(OriginalGenres.get(i).getId());
+            genreList.put(OriginalGenres.get(i).getName(), list);
         }
         model.addAttribute("genreList", genreList);
+        model.addAttribute("reverseGenreMap", reversGenreMap);
     }
 
     @GetMapping("/genreDetail")
-    public void genreDetail(Model model){
-        model.addAttribute("movieInfo", null);
+    public void genreDetail(Model model, int genreId){
+        List<MyMovieDb> list = service.getGenreMovies(genreId);
+        model.addAttribute("movieInfo", list);
+    }
+    @ResponseBody
+    @GetMapping("/genreDetailScrolling")
+    public List<MyMovieDb> genreDetailAjax(int genreId, int page) {
+        return service.getGenreMovies(genreId, page);
     }
 
     @GetMapping("/recommendation")
