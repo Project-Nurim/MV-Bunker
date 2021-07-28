@@ -53,6 +53,7 @@ public class MyMovieDb extends MovieDb {
         this.setHomepage(origin.getHomepage());
         this.setOverview(origin.getOverview());
         this.setImdbID(origin.getImdbID());
+        this.setId(origin.getId());
         this.setOriginalLanguage(origin.getOriginalLanguage());
         this.setProductionCompanies(origin.getProductionCompanies());
         this.setProductionCountries(origin.getProductionCountries());

@@ -24,7 +24,6 @@ public class MyTmdbApi {
     private String baseUrl = "https://api.themoviedb.org/3/";
 
     public <T> T getRestApi(UriComponents builder, Class<T> valueType) {
-        String url = baseUrl + "discover/movie";
 
         RestTemplate rest = new RestTemplate();
         rest.getMessageConverters().add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
@@ -86,6 +85,19 @@ public class MyTmdbApi {
         UriComponents builder = UriComponentsBuilder.fromHttpUrl(url)
                 .queryParam("api_key", api_key)
                 .queryParam("with_genres", genreId)
+                .queryParam("language", "ko")
+                .build();
+
+        MovieResultsPage mrp = getRestApi(builder, MovieResultsPage.class);
+        return mrp;
+    }
+
+    public MovieResultsPage getMoviesWithGenre(int genreId, int page) {
+        String url = baseUrl + "discover/movie";
+        UriComponents builder = UriComponentsBuilder.fromHttpUrl(url)
+                .queryParam("api_key", api_key)
+                .queryParam("with_genres", genreId)
+                .queryParam("page", page)
                 .queryParam("language", "ko")
                 .build();
 
