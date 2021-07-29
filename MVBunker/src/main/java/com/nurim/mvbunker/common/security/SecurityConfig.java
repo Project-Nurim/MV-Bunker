@@ -38,7 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         security.authorizeRequests() // 로그인 없이 갈 수 있는 곳
 //                .antMatchers("/user/login", "/user/join", "/user/auth", "/movies/boxoffice")
-                .antMatchers("/user/**", "/movies/**") // test 용
+                .antMatchers("/user/**", "/movies/**", "/review/**") // test 용
                 .permitAll()
                 .anyRequest().authenticated();
 
