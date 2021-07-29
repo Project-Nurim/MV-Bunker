@@ -1,11 +1,19 @@
 package com.nurim.mvbunker.user;
+import com.nurim.mvbunker.common.MyConst;
+import com.nurim.mvbunker.common.security.model.CustomUserPrincipals;
 import com.nurim.mvbunker.user.model.UserEntity;
+import com.nurim.mvbunker.user.model.UserProfileEntity;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.Map;
 
 @Controller
 @RequestMapping("/user")
@@ -13,6 +21,9 @@ public class UserController {
 
     @Autowired
     private UserService service;
+
+    @Autowired
+    private MyConst myconst;
 
     @GetMapping("/login")
     public void toLoginPage() {}
@@ -46,9 +57,31 @@ public class UserController {
     public void myReviewCmt(){}
 
     @GetMapping("/profile")
-    public void profile(){}
+    public void profile(Model model, @AuthenticationPrincipal CustomUserPrincipals userDetails){
+        UserEntity loginUser = userDetails.getUser();
+        model.addAttribute(myconst.PROFILE, service.selProfileImg(loginUser));
+        System.out.println(userDetails.getUser().getI_user());
+    }
+
+    @PostMapping("/profileImg")
+    public String profileImg(MultipartFile img){
+        service.profileImg(img);
+        return "redirect:profile";
+    }
+
+    @ResponseBody
+    @GetMapping("/mainProfile")
+    public Map<String, Object> mainProfile(UserProfileEntity param){
+        return service.updUserMainProfile(param);
+    }
 
     @GetMapping("/profileMod")
     public void profileMod(){}
+
+    @PostMapping("/profileMod")
+    public void profileMod(Model model, @AuthenticationPrincipal CustomUserPrincipals userDetails){
+        UserEntity loginUser = userDetails.getUser();
+        model.addAttribute(myconst.PROFILE, service.selProfileImg(loginUser));
+    }
 
 }

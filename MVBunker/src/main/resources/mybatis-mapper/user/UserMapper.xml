@@ -23,4 +23,21 @@
         delete from t_user
         where uid = #{uid} and upw = #{upw}
     </delete>
+
+    <update id="updUser">
+        <set>
+            <if test="profileImg != null and profileImg != ''">
+                profileImg = #{profileImg}
+            </if>
+            <if test="upw != null and upw != ''">
+                upw = #{upw}
+            </if>
+            <if test="unn != null and unn != ''">
+                unn = #{unn}
+            </if>
+            <if test="introduce != null and introduce != ''">
+                introduce = #{introduce}
+            </if>
+        </set>
+    </update>
 </mapper>

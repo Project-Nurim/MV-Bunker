@@ -2,6 +2,7 @@
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
         layout:decorator="basicLayout">
 <head>
     <title>로그인</title>
@@ -27,8 +28,11 @@
         <ul>
             <div class="link-1">
 
-                <li>
+                <li sec:authorize="isAnonymous()">
                     <a href="#"><span class="a" id="popup_open_btn"></span></a>
+                </li>
+                <li sec:authorize="isAuthenticated()">
+                    <a href="/user/logout"><span class="a" id="none-popup"></span></a>
                 </li>
                 <li>
                     <a class="a"><span id="mypage"></span></a>

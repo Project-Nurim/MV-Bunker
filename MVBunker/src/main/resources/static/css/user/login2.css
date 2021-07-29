@@ -9,6 +9,17 @@
 }
 
 
+#none-popup::before{
+    content: 'Logout';
+}
+
+#none-popup:hover{
+    animation-play-state: paused;
+}
+#none-popup:hover::before{
+    content: '로그아웃';
+}
+
 
 #mypage::before {
     content: 'mypage';
