@@ -15,7 +15,17 @@
 <body>
 <!-- ↓ 마이페이지 > 내 프로필 > 내 계정에 들어갈 내용 <td th:text="${auth.nnm}"></td> 필요한 내용은 요로케 쓰면 됨미다.>  -->
 <th:block layout:fragment="content" th:with="auth=${#authentication.getPrincipal().getUser()}">
-
+    <table>
+        <tr>
+            <td th:text="${auth.uid}"></td>
+        </tr>
+        <tr>
+            <td th:text="${auth.unm}"></td>
+        </tr>
+        <tr>
+            <td th:text="${auth.introduce}"></td>
+        </tr>
+    </table>
 </th:block>
 </body>
 </html>

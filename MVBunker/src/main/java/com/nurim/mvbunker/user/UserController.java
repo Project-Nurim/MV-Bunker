@@ -80,6 +80,8 @@ public class UserController {
 
     @PostMapping("/profileMod")
     public void profileMod(Model model, @AuthenticationPrincipal CustomUserPrincipals userDetails){
+        UserEntity loginUser = userDetails.getUser();
+        model.addAttribute(myconst.PROFILE, service.selProfileImg(loginUser));
     }
 
 }

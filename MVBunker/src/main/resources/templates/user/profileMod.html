@@ -15,7 +15,17 @@
 <body>
 <!-- profile.html과 사용방법은 같습니다.-->
 <th:block layout:fragment="content" th:with="auth=${#authentication.getPrincipal().getUser()}">
-
+    <table>
+        <tr>
+            <td th:text="${auth.uid}"></td>
+        </tr>
+        <tr>
+<!--            <td th:text="${auth.unm}"></td>-->
+        </tr>
+        <tr>
+            <td th:text="${auth.introduce}"></td>
+        </tr>
+    </table>
 </th:block>
 </body>
 </html>
