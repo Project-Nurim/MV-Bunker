@@ -36,4 +36,8 @@ public class GenreLists {
         return results;
     }
 
+    public MyMovieDb getMovieWithGenre(MovieDb movie) {
+        return new MyMovieDb(movie);
+    }
+
 }

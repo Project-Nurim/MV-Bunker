@@ -5,17 +5,18 @@
       layout:decorator="basicLayout">
 <head>
     <th:block layout:fragment="css">
-        <link rel="stylesheet" th:href="@{/css/user/reviewDetail.css}">
+        <link rel="stylesheet" th:href="@{/css/review/reviewDetail.css}">
     </th:block>
     <th:block layout:fragment="js">
-        <script defer th:src="@{/js/user/reviewDetail.js}"></script>
+        <script defer th:src="@{/js/review/reviewDetail.js}"></script>
     </th:block>
     <title>로그인</title>
 </head>
 <body>
 <!-- 우리 사이트의 꽃!!! 리뷰페이지!!! -->
 <th:block layout:fragment="content">
-
+    <input id="movieIdInput" type="hidden" th:value="${param.movieId}">
+    <div id="video" th:data-movie-id="${videos.get(0).key}"></div>
 </th:block>
 </body>
 </html>

@@ -4,6 +4,7 @@ import com.nurim.mvbunker.movies.model.GenreLists;
 import com.nurim.mvbunker.movies.model.MyMovieDb;
 import info.movito.themoviedbapi.TmdbApi;
 import info.movito.themoviedbapi.model.Genre;
+import info.movito.themoviedbapi.model.Video;
 import info.movito.themoviedbapi.model.core.MovieResultsPage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -35,5 +36,11 @@ public class MoviesService {
     }
     public List<MyMovieDb> getGenreMovies(int genreId, int page) {
         return MyGenreList.getMovieListWithGenresName(myTmdbApi.getMoviesWithGenre(genreId, page));
+    }
+    public MyMovieDb getMovieDetail(int movieId) {
+        return MyGenreList.getMovieWithGenre(tmdbApi.getMovies().getMovie(movieId, "ko-KR"));
+    }
+    public List<Video> getMovieVideo(int movieId) {
+        return tmdbApi.getMovies().getVideos(movieId, "ko-KR");
     }
 }
