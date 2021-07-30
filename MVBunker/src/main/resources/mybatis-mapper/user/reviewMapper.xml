@@ -5,9 +5,9 @@
     <!-- 리뷰 작성 후 DB에 저장 -->
     <insert id="insReview">
         insert into t_review
-            ( i_user, imdbID, re_ctnt)
+            ( i_user, id, re_ctnt)
         values
-            ( #{i_user}, #{imdbID}, #{re_ctnt} )
+            ( #{i_user}, #{id}, #{re_ctnt} )
     </insert>
     <!-- 내가 작성한 리뷰 수 카운트 -->
     <select id="countMyReview">
@@ -19,7 +19,33 @@
     <!-- 내가 작성한 댓글 수 카운트 -->
     <select id="countMyCmt">
         select count(*)
-        from t_
+        from t_review_cmt
+        WHERE i_user = ${iuser}
     </select>
+
+    <!-- 평가 -->
+    <insert id="insEval">
+        INSERT INTO t_eval
+        (i_user, id, production, performance, visual_beauty, music, plot)
+        VALUES
+        (${i_user}, ${id}, ${production}, ${performance}, ${visual_beauty}, ${music}, ${plot})
+    </insert>
+    <select id="selEval" resultType="EvalEntity">
+        SELECT AVG(production) AS production, AVG(performance) AS performance, AVG(visual_beauty) AS visual_beauty
+        , AVG(music) AS music, AVG(plot) AS plot
+        FROM t_eval
+        WHERE id = ${id}
+    </select>
+    <select id="selMyEval" resultType="EvalEntity">
+        SELECT *
+        FROM t_eval
+        WHERE id = ${id} AND i_user = ${i_user}
+    </select>
+    <update id="updEval">
+        UPDATE t_eval
+        SET production = ${production}, performance = ${performance}, visual_beauty = ${visual_beauty}
+          , music = ${music}, plot = ${plot}
+        WHERE i_user = ${i_user} AND id = ${id}
+    </update>
 
 </mapper>
