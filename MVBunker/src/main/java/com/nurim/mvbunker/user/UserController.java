@@ -79,9 +79,9 @@ public class UserController {
     public void profileMod(){}
 
     @PostMapping("/profileMod")
-    public void profileMod(Model model, @AuthenticationPrincipal CustomUserPrincipals userDetails){
+    public void profileMod(@AuthenticationPrincipal CustomUserPrincipals userDetails){
         UserEntity loginUser = userDetails.getUser();
-        model.addAttribute(myconst.PROFILE, service.selProfileImg(loginUser));
+//        model.addAttribute(myconst.PROFILE, service.selProfileImg(loginUser));
     }
 
 }

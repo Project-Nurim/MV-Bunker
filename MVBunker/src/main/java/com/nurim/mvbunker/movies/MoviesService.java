@@ -27,7 +27,6 @@ public class MoviesService {
         MiniComparator comp = new MiniComparator();
         List<MyMovieDb> popMovieList = MyGenreList.getMovieListWithGenresName(tmdbApi.getMovies().getPopularMovies("ko-KR", 1));
         popMovieList.sort(comp);
-
         return popMovieList;
     }
 

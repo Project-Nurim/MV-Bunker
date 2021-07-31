@@ -5,12 +5,16 @@
     <!-- 리뷰 작성 후 DB에 저장 -->
     <insert id="insReview">
         insert into t_review
-            ( i_user, imdbID, re_ctnt)
+            ( i_user, id, re_ctnt)
         values
-            ( #{i_user}, #{imdbID}, #{re_ctnt} )
+            ( #{i_user}, #{id}, #{re_ctnt} )
     </insert>
+    
+    <select id="selMyReview">
+        select *
+    </select>
     <!-- 내가 작성한 리뷰 수 카운트 -->
-    <select id="countMyReview">
+    <select id="countMyReview" resultType="Integer">
         select count(*)
         from t_review
         where i_user = #{i_user};
@@ -19,7 +23,14 @@
     <!-- 내가 작성한 댓글 수 카운트 -->
     <select id="countMyCmt">
         select count(*)
-        from t_
+        from t_review
+        where i_user = #{i_user};
     </select>
 
+    <!-- 내 리뷰에 달린 댓글 수 카운트 -->
+    <select id="countMyreview_cmt">
+        select count(*)
+        from t_review_cmt
+        where i_user = #{i_user};
+    </select>
 </mapper>
