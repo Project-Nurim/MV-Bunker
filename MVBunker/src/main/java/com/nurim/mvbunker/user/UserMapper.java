@@ -9,4 +9,8 @@ public interface UserMapper {
     int authUser(UserEntity param);
     UserEntity selUser(UserEntity param);
     int updUser(UserEntity param);
+    int delUser(UserEntity parma);
+
+    int countMyReview(UserEntity param);
+    int countMyCmt(UserEntity param);
 }

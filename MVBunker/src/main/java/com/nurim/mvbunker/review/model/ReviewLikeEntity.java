@@ -6,4 +6,5 @@ import lombok.Data;
 public class ReviewLikeEntity {
     private int i_review;
     private int i_user;
+    private int disLike;
 }

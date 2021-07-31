@@ -40,4 +40,19 @@
             </if>
         </set>
     </update>
+
+
+    <!-- 내가 작성한 리뷰 수 카운트 -->
+    <select id="countMyReview">
+        select count(*)
+        from t_review
+        where i_user = #{i_user};
+    </select>
+
+    <!-- 내가 작성한 댓글 수 카운트 -->
+    <select id="countMyCmt">
+        select count(*)
+        from t_review_cmt
+        WHERE i_user = ${iuser}
+    </select>
 </mapper>

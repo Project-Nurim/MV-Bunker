@@ -3,7 +3,7 @@ CREATE TABLE t_user (
         uid VARCHAR(20) UNIQUE,
         ex_key VARCHAR(50),
         provider VARCHAR(15) NOT NULL DEFAULT 'local',
-        upw VARCHAR(40),
+        upw VARCHAR(100),
         unm VARCHAR(10) NOT NULL,
         age INT(3),
         unn VARCHAR(20),
@@ -17,15 +17,19 @@ CREATE TABLE t_user (
 CREATE TABLE t_review (
     i_review INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     id INT UNSIGNED NOT NULL,
+    m_title VARCHAR(100) not null,
+    poster varchar(100),
     i_user INT UNSIGNED,
     re_ctnt VARCHAR(500) NOT NULL,
     regdt DATETIME DEFAULT NOW(),
-    FOREIGN KEY (i_user) REFERENCES t_user (i_user) ON DELETE CASCADE
+    FOREIGN KEY (i_user) REFERENCES t_user (i_user) ON DELETE CASCADE,
+    UNIQUE key chk_revw(id, i_user)
 );
 
 CREATE TABLE t_review_like (
     i_review INT UNSIGNED,
     i_user INT UNSIGNED,
+    disLike int default 0 check (disLike in(0,1)),
     PRIMARY KEY (i_review, i_user),
     FOREIGN KEY (i_review) REFERENCES t_review (i_review) ON DELETE CASCADE,
     FOREIGN KEY (i_user) REFERENCES t_user (i_user) ON DELETE CASCADE
@@ -51,6 +55,8 @@ CREATE TABLE t_review_cmt_like (
 CREATE TABLE t_movie_fav (
     id INT UNSIGNED,
     i_user INT UNSIGNED,
+    m_title VARCHAR(100) not null,
+    poster varchar(100),
     PRIMARY KEY (id, i_user),
     FOREIGN KEY (i_user) REFERENCES t_user (i_user) ON DELETE CASCADE
 );
@@ -58,13 +64,14 @@ CREATE TABLE t_movie_fav (
 CREATE TABLE t_eval (
     i_user INT UNSIGNED,
     id INT UNSIGNED NOT NULL,
-    production INT UNSIGNED NOT NULL CHECK (production <= 5),
-    performance INT UNSIGNED NOT NULL CHECK (performance <= 5),
-    visual_beauty INT UNSIGNED NOT NULL CHECK (visual_beauty <= 5),
-    music INT UNSIGNED NOT NULL CHECK (music <= 5),
-    plot INT UNSIGNED NOT NULL CHECK (plot <= 5),
+    production float UNSIGNED NOT NULL CHECK (production <= 5),
+    performance float UNSIGNED NOT NULL CHECK (performance <= 5),
+    visual_beauty float UNSIGNED NOT NULL CHECK (visual_beauty <= 5),
+    music float UNSIGNED NOT NULL CHECK (music <= 5),
+    plot float UNSIGNED NOT NULL CHECK (plot <= 5),
     PRIMARY KEY (i_user, id),
-    FOREIGN KEY (i_user) REFERENCES t_user (i_user)  ON DELETE CASCADE
+    FOREIGN KEY (i_user) REFERENCES t_user (i_user)  ON DELETE CASCADE,
+    foreign key (id) references t_review(id)
 );
 
 CREATE TABLE t_sub (
@@ -74,3 +81,7 @@ CREATE TABLE t_sub (
     FOREIGN KEY (sub_ing_user) REFERENCES t_user (i_user) ON DELETE CASCADE,
     FOREIGN KEY (sub_ed_user) REFERENCES t_user (i_user) ON DELETE CASCADE
 );
+
+
+
+# review 추가
