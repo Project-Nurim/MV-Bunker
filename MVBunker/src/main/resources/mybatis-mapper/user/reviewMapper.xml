@@ -9,19 +9,58 @@
         values
             ( #{i_user}, #{id}, #{re_ctnt} )
     </insert>
-    <!-- 내가 작성한 리뷰 수 카운트 -->
-    <select id="countMyReview">
-        select count(*)
-        from t_review
-        where i_user = #{i_user};
+    <!-- 그 영화의 리뷰들 - default가 좋아요 순 -->
+    <select id="selReview" resultType="ReviewDomain">
+        SELECT A.*, COUNT(CASE WHEN B.disLike = 0 THEN 1 END) AS review_like_cnt,
+               COUNT(CASE WHEN B.disLike = 1 THEN 1 END) AS review_dislike_cnt,
+               COUNT(C.i_cmt) AS review_cmt_cnt
+        FROM t_review A
+        LEFT JOIN t_review_like B
+        ON A.i_review = B.i_review
+        LEFT JOIN t_review_cmt C
+        ON A.i_review = C.i_review
+        WHERE A.id = ${id}
+        ORDER BY review_like_cnt DESC;
     </select>
 
-    <!-- 내가 작성한 댓글 수 카운트 -->
-    <select id="countMyCmt">
-        select count(*)
-        from t_review_cmt
-        WHERE i_user = ${iuser}
+    <!-- 그 영화의 리뷰들 - 최신순-->
+    <select id="selReview_desc" resultType="ReviewDomain">
+        SELECT A.*, COUNT(CASE WHEN B.disLike = 0 THEN 1 END) AS review_like_cnt,
+               COUNT(CASE WHEN B.disLike = 1 THEN 1 END) AS review_dislike_cnt,
+               COUNT(C.i_cmt) AS review_cmt_cnt
+        FROM t_review A
+                 LEFT JOIN t_review_like B
+                           ON A.i_review = B.i_review
+                 LEFT JOIN t_review_cmt C
+                           ON A.i_review = C.i_review
+        WHERE A.id = ${id}
+        order by A.i_review DESC;
     </select>
+
+    <!-- 그 영화의 리뷰들 - 과거순 -->
+    <select id="selReview_asc" resultType="ReviewDomain">
+        SELECT A.*, COUNT(CASE WHEN B.disLike = 0 THEN 1 END) AS review_like_cnt,
+               COUNT(CASE WHEN B.disLike = 1 THEN 1 END) AS review_dislike_cnt,
+               COUNT(C.i_cmt) AS review_cmt_cnt
+        FROM t_review A
+                 LEFT JOIN t_review_like B
+                           ON A.i_review = B.i_review
+                 LEFT JOIN t_review_cmt C
+                           ON A.i_review = C.i_review
+        WHERE A.id = ${id}
+        order by A.i_review;
+    </select>
+
+    <update id="updReview">
+        update t_review
+        set re_ctnt = ${re_ctnt}
+        where i_user = #{i_user} and id = #{id}
+    </update>
+
+    <delete id="delReview">
+       delete from t_review
+        where i_user = #{i_user} and id = #{id}
+    </delete>
 
     <!-- 평가 -->
     <insert id="insEval">
@@ -47,5 +86,12 @@
           , music = ${music}, plot = ${plot}
         WHERE i_user = ${i_user} AND id = ${id}
     </update>
+
+<!--    <select id="selMovieEval" resultType="EvalEntity">-->
+
+<!--    </select>-->
+
+
+
 
 </mapper>
