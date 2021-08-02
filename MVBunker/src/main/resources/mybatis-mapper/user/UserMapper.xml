@@ -53,13 +53,15 @@
     <select id="countMyCmt">
         select count(*)
         from t_review_cmt
-        WHERE i_user = ${iuser}
+        WHERE i_user = ${i_user}
     </select>
 
     <!-- 내가 작성한 답글 수 카운트 -->
     <select id="countMyReply">
         select count(*)
+
         from t_reply
         where i_user = ${i_user}
     </select>
+
 </mapper>

@@ -52,6 +52,7 @@ CREATE TABLE t_review_cmt_like (
     PRIMARY KEY (i_cmt, i_user)
 );
 
+#
 CREATE TABLE t_movie_fav (
     id INT UNSIGNED,
     i_user INT UNSIGNED,
@@ -82,6 +83,10 @@ CREATE TABLE t_sub (
     FOREIGN KEY (sub_ed_user) REFERENCES t_user (i_user) ON DELETE CASCADE
 );
 
-
-
-# review 추가
+create table t_qna(
+    i_user int unsigned auto_increment,
+    i_que int unsigned auto_increment primary key,
+    que_title varchar(50) not null,
+    que_ctnt varchar(500) not null,
+    foreign key (i_user) references t_user(i_user) on delete CASCADE
+);

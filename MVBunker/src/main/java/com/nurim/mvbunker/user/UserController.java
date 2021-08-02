@@ -1,7 +1,11 @@
 package com.nurim.mvbunker.user;
 import com.nurim.mvbunker.common.MyConst;
 import com.nurim.mvbunker.common.security.model.CustomUserPrincipals;
-import com.nurim.mvbunker.user.model.MyActivity;
+
+import com.nurim.mvbunker.movies.MoviesService;
+import com.nurim.mvbunker.review.model.ReviewEntity;
+import com.nurim.mvbunker.user.model.Activity;
+
 import com.nurim.mvbunker.user.model.UserEntity;
 import com.nurim.mvbunker.user.model.UserProfileEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -60,14 +66,11 @@ public class UserController {
     @GetMapping("/profile")
     public void profile(Model model, @AuthenticationPrincipal CustomUserPrincipals userDetails){
         UserEntity loginUser = userDetails.getUser();
+
 //        model.addAttribute(myconst.PROFILE, service.selProfileImg(loginUser));
 //        System.out.println(userDetails.getUser().getI_user());
-        MyActivity myActivity = new MyActivity();
-        myActivity.setCountMyReview(service.CountMyActivity(loginUser).getCountMyReview());
-        myActivity.setCountMyReview_cmt(service.CountMyActivity(loginUser).getCountMyReview_cmt());
-        myActivity.setCountMyReply(service.CountMyActivity(loginUser).getCountMyReply());
-
-        model.addAttribute("myActivity", myActivity);
+        Activity activity = service.MyActivity(loginUser);
+        model.addAttribute("activity", myActivity);
     }
 
     @PostMapping("/profileImg")
