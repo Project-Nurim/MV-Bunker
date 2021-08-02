@@ -13,4 +13,5 @@ public interface UserMapper {
 
     int countMyReview(UserEntity param);
     int countMyCmt(UserEntity param);
+    int countMyReply(UserEntity param);
 }
