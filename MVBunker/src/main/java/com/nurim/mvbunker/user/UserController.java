@@ -1,6 +1,7 @@
 package com.nurim.mvbunker.user;
 import com.nurim.mvbunker.common.MyConst;
 import com.nurim.mvbunker.common.security.model.CustomUserPrincipals;
+import com.nurim.mvbunker.user.model.MyActivity;
 import com.nurim.mvbunker.user.model.UserEntity;
 import com.nurim.mvbunker.user.model.UserProfileEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,8 +60,14 @@ public class UserController {
     @GetMapping("/profile")
     public void profile(Model model, @AuthenticationPrincipal CustomUserPrincipals userDetails){
         UserEntity loginUser = userDetails.getUser();
-        model.addAttribute(myconst.PROFILE, service.selProfileImg(loginUser));
-        System.out.println(userDetails.getUser().getI_user());
+//        model.addAttribute(myconst.PROFILE, service.selProfileImg(loginUser));
+//        System.out.println(userDetails.getUser().getI_user());
+        MyActivity myActivity = new MyActivity();
+        myActivity.setCountMyReview(service.CountMyActivity(loginUser).getCountMyReview());
+        myActivity.setCountMyReview_cmt(service.CountMyActivity(loginUser).getCountMyReview_cmt());
+        myActivity.setCountMyReply(service.CountMyActivity(loginUser).getCountMyReply());
+
+        model.addAttribute("myActivity", myActivity);
     }
 
     @PostMapping("/profileImg")

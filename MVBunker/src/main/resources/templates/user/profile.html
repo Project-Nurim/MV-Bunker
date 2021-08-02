@@ -26,6 +26,18 @@
             <td th:text="${auth.introduce}"></td>
         </tr>
     </table>
+    <table>
+        <tr>
+            <td>내가 작성한 리뷰 수</td>
+            <td>내가 작성한 댓글 수</td>
+            <td>내가 작성한 답글 수</td>
+        </tr>
+        <tr>
+            <td th:text="${myActivity.countMyReview}"></td>
+            <td th:text="${myActivity.countMyReview_cmt}"></td>
+            <td th:text="${myActivity.countMyReply}"></td>
+        </tr>
+    </table>
 </th:block>
 </body>
 </html>
