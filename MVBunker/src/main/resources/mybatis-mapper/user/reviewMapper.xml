@@ -20,7 +20,7 @@
         on A.i_review = B.i_review
         left join t_review_cmt C
         on A.i_review = C.i_review
-        order by
+        order by A.i_review DESC;
     </select>
     
     <!-- 그 영화의 리뷰들 - default가 좋아요 순 -->

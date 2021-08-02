@@ -84,7 +84,7 @@ CREATE TABLE t_sub (
 );
 
 create table t_qna(
-    i_user int unsigned auto_increment,
+    i_user int unsigned,
     i_que int unsigned auto_increment primary key,
     que_title varchar(50) not null,
     que_ctnt varchar(500) not null,
