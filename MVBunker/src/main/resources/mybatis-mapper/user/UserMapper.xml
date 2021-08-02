@@ -43,23 +43,29 @@
 
 
     <!-- 내가 작성한 리뷰 수 카운트 -->
-    <select id="countMyReview">
+    <select id="countMyReview"  resultType="int">
         select count(*)
         from t_review
-        where i_user = #{i_user};
+        where i_user = ${i_user};
     </select>
 
     <!-- 내가 작성한 댓글 수 카운트 -->
-    <select id="countMyCmt">
+    <select id="countMyCmt" resultType="int">
         select count(*)
         from t_review_cmt
-        WHERE i_user = ${iuser}
+        WHERE i_user = ${i_user}
     </select>
 
     <!-- 내가 작성한 답글 수 카운트 -->
-    <select id="countMyReply">
+    <select id="countMyReply" resultType="int">
         select count(*)
         from t_reply
-        where i_user = ${i_user}
+        where i_reply_user = ${i_user}
+    </select>
+
+    <!-- 내가 팔로우한 유저목록 띄우기 -->
+    <select id="mySubUser">
+        select * from t_sub
+        where sub_ing_user = ${i_user}
     </select>
 </mapper>

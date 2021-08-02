@@ -66,7 +66,6 @@ public class UserController {
         myActivity.setCountMyReview(service.CountMyActivity(loginUser).getCountMyReview());
         myActivity.setCountMyReview_cmt(service.CountMyActivity(loginUser).getCountMyReview_cmt());
         myActivity.setCountMyReply(service.CountMyActivity(loginUser).getCountMyReply());
-
         model.addAttribute("myActivity", myActivity);
     }
 

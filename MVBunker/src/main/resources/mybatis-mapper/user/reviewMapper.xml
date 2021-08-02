@@ -5,9 +5,9 @@
     <!-- 리뷰 작성 후 DB에 저장 -->
     <insert id="insReview">
         insert into t_review
-            ( i_user, id, re_ctnt)
+            ( i_user, id, m_title, poster, re_ctnt)
         values
-            ( #{i_user}, #{id}, #{re_ctnt} )
+            ( #{i_user}, #{id}, #{m_title}, #{poster}, #{re_ctnt} )
     </insert>
     <!-- 그 영화의 리뷰들 - default가 좋아요 순 -->
     <select id="selReview" resultType="ReviewDomain">

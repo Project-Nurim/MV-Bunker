@@ -96,9 +96,10 @@ public class UserService {
 
     public MyActivity CountMyActivity(UserEntity param){
         MyActivity myActivity = new MyActivity();
-        myActivity.setCountMyReview(param.getI_user());
-        myActivity.setCountMyReview_cmt(param.getI_user());
-        myActivity.setCountMyReply(param.getI_user());
+        myActivity.setCountMyReview(mapper.countMyReview(param));
+        myActivity.setCountMyReview_cmt(mapper.countMyCmt(param));
+        myActivity.setCountMyReply(mapper.countMyReply(param));
+//        System.out.println("내가 작성한 리뷰 수" + myActivity.getCountMyReview(param));
 
         return myActivity;
     }
