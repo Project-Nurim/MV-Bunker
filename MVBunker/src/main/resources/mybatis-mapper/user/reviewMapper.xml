@@ -9,6 +9,20 @@
         values
             ( #{i_user}, #{id}, #{m_title}, #{poster}, #{re_ctnt} )
     </insert>
+
+    <!-- 전체리뷰목록 - default=최신순 -->
+    <select id="selAllReview" resultType="ReviewDomain">
+        select A.*, COUNT(CASE WHEN B.disLike = 0 THEN 1 END) AS review_like_cnt,
+               COUNT(CASE WHEN B.disLike = 1 THEN 1 END) AS review_dislike_cnt,
+               COUNT(C.i_cmt) AS review_cmt_cnt
+        from t_review A
+        left join t_review_like B
+        on A.i_review = B.i_review
+        left join t_review_cmt C
+        on A.i_review = C.i_review
+        order by
+    </select>
+    
     <!-- 그 영화의 리뷰들 - default가 좋아요 순 -->
     <select id="selReview" resultType="ReviewDomain">
         SELECT A.*, COUNT(CASE WHEN B.disLike = 0 THEN 1 END) AS review_like_cnt,

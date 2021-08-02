@@ -5,7 +5,9 @@ import com.nurim.mvbunker.common.auth.RandomCodeGenerator;
 import com.nurim.mvbunker.common.mailsender.EmailServiceImpl;
 import com.nurim.mvbunker.common.security.IAuthenticationFacade;
 import com.nurim.mvbunker.common.security.UserDetailsServiceImpl;
+
 import com.nurim.mvbunker.user.model.MyActivity;
+
 import com.nurim.mvbunker.user.model.UserEntity;
 import com.nurim.mvbunker.user.model.UserProfileEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -94,6 +96,7 @@ public class UserService {
         return res;
     }
 
+
     public MyActivity CountMyActivity(UserEntity param){
         MyActivity myActivity = new MyActivity();
         myActivity.setCountMyReview(mapper.countMyReview(param));
@@ -102,6 +105,7 @@ public class UserService {
 //        System.out.println("내가 작성한 리뷰 수" + myActivity.getCountMyReview(param));
 
         return myActivity;
+
     }
 
 }

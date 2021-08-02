@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nurim.mvbunker.user.QnaMapper">
+    <insert id="insQna">
+        insert into t_qna
+        ( que_title, que_ctnt)
+        values
+        ( #{que_title}, #{que_ctnt})
+    </insert>
+
+<!--    <update id="updQna">-->
+<!--        update t_qna-->
+<!--        set que_title = #{que_title} and que_ctnt = #{que_ctnt}-->
+<!--    </update>-->
+
+<!--    <select id="selAllQna" resultType="qna도메인맹글기">-->
+<!--        select * from t_qna-->
+<!--    </select>-->
+
+<!--    <select id="selMyQna" resultType="qna도메인맹글기">-->
+<!--        select * from t_qna-->
+<!--        where i_user = #{i_user}-->
+<!--    </select>-->
+
+<!--    <delete id="delQna">-->
+<!--        delete from t_qna-->
+<!--        where uid = #{uid}-->
+<!--    </delete>-->
+</mapper>

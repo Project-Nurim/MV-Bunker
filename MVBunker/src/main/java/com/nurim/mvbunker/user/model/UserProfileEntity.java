@@ -10,5 +10,4 @@ public class UserProfileEntity {
     private int i_user;
     private String imgPath;
     private String regdt;
-
 }

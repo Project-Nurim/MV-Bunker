@@ -59,6 +59,7 @@
     <!-- 내가 작성한 답글 수 카운트 -->
     <select id="countMyReply" resultType="int">
         select count(*)
+
         from t_reply
         where i_reply_user = ${i_user}
     </select>
@@ -68,4 +69,5 @@
         select * from t_sub
         where sub_ing_user = ${i_user}
     </select>
+
 </mapper>
