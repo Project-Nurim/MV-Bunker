@@ -40,6 +40,9 @@ public class MoviesController {
         Map<String, List<MyMovieDb>> genreList = new HashMap<>();
         for(int i = 0; i < OriginalGenres.size(); i++) {
             List<MyMovieDb> list = service.getGenreMovies(OriginalGenres.get(i).getId());
+            for(int j = list.size() - 1 ; j > 9 ; j -- ) {
+                list.remove(j);
+            }
             genreList.put(OriginalGenres.get(i).getName(), list);
         }
         model.addAttribute("genreList", genreList);
