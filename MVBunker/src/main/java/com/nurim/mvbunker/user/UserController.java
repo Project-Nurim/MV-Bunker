@@ -70,7 +70,7 @@ public class UserController {
 //        model.addAttribute(myconst.PROFILE, service.selProfileImg(loginUser));
 //        System.out.println(userDetails.getUser().getI_user());
         Activity activity = service.MyActivity(loginUser);
-        model.addAttribute("activity", myActivity);
+        model.addAttribute("activity", activity);
     }
 
     @PostMapping("/profileImg")
