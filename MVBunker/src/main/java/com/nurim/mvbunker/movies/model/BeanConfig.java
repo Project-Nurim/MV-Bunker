@@ -25,7 +25,7 @@ public class BeanConfig {
     @Bean(name="OriginalGenres")
     public List<Genre> getOriginGenreList() {
         TmdbApi tmdbApi = new TmdbApi(api_key);
-        List<Genre> genreList = tmdbApi.getGenre().getGenreList("ko-KR");
+        List<Genre> genreList = tmdbApi.getGenre().getGenreList("en-US");
         return genreList;
     }
 

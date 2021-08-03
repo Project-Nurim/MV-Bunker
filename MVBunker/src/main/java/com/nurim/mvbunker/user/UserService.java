@@ -6,6 +6,7 @@ import com.nurim.mvbunker.common.mailsender.EmailServiceImpl;
 import com.nurim.mvbunker.common.security.IAuthenticationFacade;
 import com.nurim.mvbunker.common.security.UserDetailsServiceImpl;
 
+import com.nurim.mvbunker.user.model.Activity;
 import com.nurim.mvbunker.user.model.MyActivity;
 
 import com.nurim.mvbunker.user.model.UserEntity;

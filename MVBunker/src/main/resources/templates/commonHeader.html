@@ -4,6 +4,26 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <th:block th:fragment="header">
+    <section class="hero">
+        <div>
+            <nav>
+                <ul>
+                    <li class="active"><a class="ALL" href="" onMouseOver='this.innerHTML="박스오피스"'
+                                          onMouseOut='this.innerHTML="BOX OFFICE"'>BOX OFFICE</a></li>
+                    <li class="a"><a class="ALL" href="" onMouseOver='this.innerHTML="리뷰"'
+                                     onMouseOut='this.innerHTML="REVIEW"'>REVIEW</a>
+                    </li>
+                    <!-- <li class="a_1"><a class="ALL" href=""></a></li> -->
+                    <li class="b"><a class="ALL" href="" onMouseOver='this.innerHTML="장르"'
+                                     onMouseOut='this.innerHTML="GENRE"'>GENRE</a>
+                    </li>
+                    <li class="c"><a class="ALL" href="" onMouseOver='this.innerHTML="추천 영화"'
+                                     onMouseOut='this.innerHTML="RECOMMENDATION"'>RECOMMENDATION</a></li>
+                </ul>
+            </nav>
+            <!-- <img class="tape" src="../누림/img/tape.png"> -->
+        </div>
 
+    </section>
 </th:block>
 </html>
