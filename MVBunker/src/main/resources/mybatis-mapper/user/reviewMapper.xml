@@ -5,9 +5,9 @@
     <!-- 리뷰 작성 후 DB에 저장 -->
     <insert id="insReview">
         insert into t_review
-            ( i_user, id, re_ctnt)
+            ( i_user, id, re_ctnt, m_title, poster)
         values
-            ( #{i_user}, #{id}, #{re_ctnt} )
+            ( #{i_user}, #{id}, #{re_ctnt}, #{m_title}, #{poster})
     </insert>
 
     <!-- 전체리뷰목록 - default=최신순 -->
@@ -20,10 +20,22 @@
         on A.i_review = B.i_review
         left join t_review_cmt C
         on A.i_review = C.i_review
-        order by A.i_review DESC;
+        <choose>
+        <when test="orderby == 0">
+            order by A.i_review DESC
+        </when>
+        <when test="orderby == 1">
+            order by review_like_cnt DESC
+        </when>
+        <when test="orderby == 2">
+            order by A.i_review
+        </when>
+        </choose>
+        LIMIT ${minIndex}, ${maxIndex};
     </select>
     
-    <!-- 그 영화의 리뷰들 - default가 좋아요 순 -->
+    <!-- 그 영화의 리뷰들 - default가 좋아요 순
+    orderby == 1 : 최신순, == 2 : 과거순 -->
     <select id="selReview" resultType="ReviewDomain">
         SELECT A.*, COUNT(CASE WHEN B.disLike = 0 THEN 1 END) AS review_like_cnt,
                COUNT(CASE WHEN B.disLike = 1 THEN 1 END) AS review_dislike_cnt,
@@ -34,35 +46,17 @@
         LEFT JOIN t_review_cmt C
         ON A.i_review = C.i_review
         WHERE A.id = ${id}
-        ORDER BY review_like_cnt DESC;
-    </select>
-
-    <!-- 그 영화의 리뷰들 - 최신순-->
-    <select id="selReview_desc" resultType="ReviewDomain">
-        SELECT A.*, COUNT(CASE WHEN B.disLike = 0 THEN 1 END) AS review_like_cnt,
-               COUNT(CASE WHEN B.disLike = 1 THEN 1 END) AS review_dislike_cnt,
-               COUNT(C.i_cmt) AS review_cmt_cnt
-        FROM t_review A
-                 LEFT JOIN t_review_like B
-                           ON A.i_review = B.i_review
-                 LEFT JOIN t_review_cmt C
-                           ON A.i_review = C.i_review
-        WHERE A.id = ${id}
-        order by A.i_review DESC;
-    </select>
-
-    <!-- 그 영화의 리뷰들 - 과거순 -->
-    <select id="selReview_asc" resultType="ReviewDomain">
-        SELECT A.*, COUNT(CASE WHEN B.disLike = 0 THEN 1 END) AS review_like_cnt,
-               COUNT(CASE WHEN B.disLike = 1 THEN 1 END) AS review_dislike_cnt,
-               COUNT(C.i_cmt) AS review_cmt_cnt
-        FROM t_review A
-                 LEFT JOIN t_review_like B
-                           ON A.i_review = B.i_review
-                 LEFT JOIN t_review_cmt C
-                           ON A.i_review = C.i_review
-        WHERE A.id = ${id}
-        order by A.i_review;
+        <choose>
+        <when test="orderby == 0">
+            ORDER BY review_like_cnt DESC;
+        </when>
+        <when test="orderby == 1">
+            order by A.i_review DESC;
+        </when>
+        <when test="orderby == 2">
+            order by A.i_review;
+        </when>
+        </choose>
     </select>
 
     <update id="updReview">
