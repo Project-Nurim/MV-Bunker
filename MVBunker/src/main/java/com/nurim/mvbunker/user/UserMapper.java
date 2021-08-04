@@ -1,7 +1,11 @@
 package com.nurim.mvbunker.user;
 
+import com.nurim.mvbunker.user.model.UserDomain;
 import com.nurim.mvbunker.user.model.UserEntity;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface UserMapper {
@@ -11,7 +15,5 @@ public interface UserMapper {
     int updUser(UserEntity param);
     int delUser(UserEntity parma);
 
-    int countMyReview(UserEntity param);
-    int countMyCmt(UserEntity param);
-    int countMyReply(UserEntity param);
+    List<UserDomain> selUserProfile(UserEntity param);
 }
