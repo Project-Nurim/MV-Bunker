@@ -3,6 +3,7 @@ package com.nurim.mvbunker.review;
 import com.nurim.mvbunker.common.security.model.CustomUserPrincipals;
 import com.nurim.mvbunker.movies.MoviesService;
 import com.nurim.mvbunker.user.model.UserEntity;
+import com.nurim.mvbunker.review.model.ReviewDomain;
 import info.movito.themoviedbapi.model.Video;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -27,6 +28,12 @@ public class ReviewController {
     @GetMapping("/review")
     public void review(){}
 
+    @ResponseBody
+    @GetMapping("/getAllReview")
+    public List<ReviewDomain> getAllReview(int page, int orderby) {
+        return service.selAllReview(page, orderby);
+    }
+
     @GetMapping("/reviewDetail")
     public void reviewDetail(Model model, int movieId){
         model.addAttribute("movie", moviesService.getMovieDetail(movieId));
@@ -44,5 +51,6 @@ public class ReviewController {
 //    public List<Video> getMovieVideo(@PathVariable(name="movieId") int movieId) {
 //        return moviesService.getMovieVideo(movieId);
 //    }
+
 
 }

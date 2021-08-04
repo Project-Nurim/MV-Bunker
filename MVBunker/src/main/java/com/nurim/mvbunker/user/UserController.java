@@ -62,9 +62,9 @@ public class UserController {
     public void profile(Model model, @AuthenticationPrincipal CustomUserPrincipals userDetails){
         UserEntity loginUser = userDetails.getUser();
 //        model.addAttribute(myconst.PROFILE, service.selProfileImg(loginUser));
-        System.out.println(userDetails.getUser().getI_user());
-        List<UserDomain> myActivity = service.selUserProfile(loginUser);
-        model.addAttribute("myActivity", myActivity);
+//        System.out.println(userDetails.getUser().getI_user());
+        Activity activity = service.MyActivity(loginUser);
+        model.addAttribute("activity", activity);
     }
 
     @PostMapping("/profileImg")
