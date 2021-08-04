@@ -6,17 +6,17 @@ import com.nurim.mvbunker.common.mailsender.EmailServiceImpl;
 import com.nurim.mvbunker.common.security.IAuthenticationFacade;
 import com.nurim.mvbunker.common.security.UserDetailsServiceImpl;
 
-import com.nurim.mvbunker.user.model.Activity;
-import com.nurim.mvbunker.user.model.MyActivity;
+import com.nurim.mvbunker.user.model.UserDomain;
 
 import com.nurim.mvbunker.user.model.UserEntity;
-import com.nurim.mvbunker.user.model.UserProfileEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -58,13 +58,13 @@ public class UserService {
 
         String target = "profile/"+iuser;
 
-        UserProfileEntity param = new UserProfileEntity();
+        UserEntity param = new UserEntity();
         param.setI_user(iuser);
 
         String saveFileNm = fileUtils.transferTo(img, target);
 
             if(saveFileNm != null){
-                param.setImgPath(saveFileNm);
+                param.setMainProfile(saveFileNm);
             }
 
             if(profileMapper.insUserProfile(param) == 1 && loginUser.getMainProfile() == null) {
@@ -78,11 +78,11 @@ public class UserService {
             }
         }
 
-    public UserProfileEntity selProfileImg(UserEntity param){
+    public UserEntity selProfileImg(UserEntity param){
         return profileMapper.selUserProfile(param);
     }
     //프로필 메인이미지 변경
-    public Map<String, Object> updUserMainProfile(UserProfileEntity param){
+    public Map<String, Object> updUserMainProfile(UserEntity param){
         UserEntity loginUser = auth.getLoginUser();
         param.setI_user(auth.getLoginUserPk());
 
@@ -92,20 +92,12 @@ public class UserService {
         }
         Map<String, Object> res = new HashMap<>();
         res.put("result", result);
-        res.put("img", param.getImgPath());
+        res.put("img", param.getMainProfile());
 
         return res;
     }
 
-
-    public Activity MyActivity (UserEntity param){
-        Activity activity = new Activity();
-        activity.setMyReview(mapper.countMyReview(param));
-        activity.setMyReviewCmt(mapper.countMyCmt(param));
-        activity.setMyReply(mapper.countMyReply(param));
-
-        return activity;
-
+    public List<UserDomain> selUserProfile(UserEntity param){
+        return mapper.selUserProfile(param);
     }
-
 }

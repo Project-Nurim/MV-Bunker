@@ -10,6 +10,8 @@ import java.util.List;
 
 @Service
 public class ReviewService {
+    @Autowired private ReviewMapper r_mapper;
+
 
     @Autowired
     private ReviewMapper mapper;
