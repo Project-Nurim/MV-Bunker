@@ -62,8 +62,7 @@ public class UserController {
     public void profile(Model model, @AuthenticationPrincipal CustomUserPrincipals userDetails){
         UserEntity loginUser = userDetails.getUser();
 //        model.addAttribute(myconst.PROFILE, service.selProfileImg(loginUser));
-//        System.out.println(userDetails.getUser().getI_user());
-        Activity activity = service.MyActivity(loginUser);
+        UserDomain activity = service.selUserProfile(loginUser);
         model.addAttribute("activity", activity);
     }
 
@@ -80,7 +79,11 @@ public class UserController {
     }
 
     @GetMapping("/profileMod")
-    public void profileMod(){}
+    public void profileMod(@AuthenticationPrincipal CustomUserPrincipals userDetails, Model model){
+        UserEntity loginUser = userDetails.getUser();
+        UserDomain activity = service.selUserProfile(loginUser);
+        model.addAttribute("activity",activity);
+    }
 
     @PostMapping("/profileMod")
     public void profileMod(Model model, @AuthenticationPrincipal CustomUserPrincipals userDetails){
