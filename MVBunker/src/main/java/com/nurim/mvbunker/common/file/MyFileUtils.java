@@ -2,6 +2,7 @@ package com.nurim.mvbunker.common.file;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -41,7 +42,7 @@ public class MyFileUtils {
 
     // get ext
     public String getExt(String fileNm) {
-        return fileNm.substring(fileNm.lastIndexOf(".") + 1);
+        return StringUtils.getFilenameExtension(fileNm);
     }
 
     // save file & return random file name
