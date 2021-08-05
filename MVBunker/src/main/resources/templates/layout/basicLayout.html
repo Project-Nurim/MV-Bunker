@@ -6,15 +6,16 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/css/common.css}">
     <script defer th:src="@{/js/common.js}"></script>
+    <link rel="icon" href="/logo/bunkerfavicon_rf_vuO_icon.ico">
     <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">MOVIE BUNKER</title>
     <th:block layout:fragment="css"></th:block>
     <th:block layout:fragment="js"></th:block>
 </head>
 <body>
     <div id="container">
-        <th:block th:replace="commonHeader :: header"></th:block>
+<!--        <th:block th:replace="layout/commonHeader :: header"></th:block>-->
         <th:block layout:fragment="content"></th:block>
-        <th:block th:replace="commonFooter :: footer"></th:block>
+        <th:block th:replace="layout/commonFooter :: footer"></th:block>
     </div>
 </body>
 </html>
