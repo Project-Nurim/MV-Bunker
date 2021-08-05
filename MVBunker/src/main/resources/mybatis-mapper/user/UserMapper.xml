@@ -26,6 +26,7 @@
     </delete>
 
     <update id="updUser">
+        UPDATE t_user
         <set>
             <if test="profileImg != null and profileImg != ''">
                 profileImg = #{profileImg}
@@ -40,14 +41,17 @@
                 introduce = #{introduce}
             </if>
         </set>
+        WHERE i_user = #{i_user}
     </update>
 
     <!-- 내가 작성한 리뷰 / 댓글 / 답글 수 띄우기 -->
     <select id="selUserProfile" resultType="UserDomain">
-        SELECT
+        SELECT *,
             (SELECT COUNT(A.i_user) FROM t_user A INNER JOIN t_review B ON A.i_user = B.i_user WHERE A.i_user = ${i_user}) AS countMyReview,
             (SELECT COUNT(A.i_user) FROM t_user A INNER JOIN t_review_cmt B ON A.i_user = B.i_user WHERE A.i_user = ${i_user}) AS countMyReviewCmt,
-            (SELECT COUNT(A.i_user) FROM t_user A INNER JOIN t_reply B ON A.i_user = B.i_reply_user WHERE A.i_user = ${i_user}) AS countMyReply;
+            (SELECT COUNT(A.i_user) FROM t_user A INNER JOIN t_reply B ON A.i_user = B.i_reply_user WHERE A.i_user = ${i_user}) AS countMyReply
+        FROM t_user
+        WHERE i_user = ${i_user}
     </select>
 
     <!-- 내가 작성한 리뷰 목록 띄우기 -->

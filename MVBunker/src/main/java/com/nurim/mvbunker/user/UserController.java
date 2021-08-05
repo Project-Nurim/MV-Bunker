@@ -59,10 +59,12 @@ public class UserController {
     public void myReviewCmt(){}
 
     @GetMapping("/profile")
-    public void profile(Model model, @AuthenticationPrincipal CustomUserPrincipals userDetails){
-        UserEntity loginUser = userDetails.getUser();
+    public void profile(Model model, @AuthenticationPrincipal CustomUserPrincipals userDetails, UserEntity param){
+        if(param.getI_user() == 0) {
+            param = userDetails.getUser();
+        }
 //        model.addAttribute(myconst.PROFILE, service.selProfileImg(loginUser));
-        UserDomain activity = service.selUserProfile(loginUser);
+        UserDomain activity = service.selUserProfile(param);
         model.addAttribute("activity", activity);
     }
 
@@ -86,9 +88,9 @@ public class UserController {
     }
 
     @PostMapping("/profileMod")
-    public void profileMod(Model model, @AuthenticationPrincipal CustomUserPrincipals userDetails){
-        UserEntity loginUser = userDetails.getUser();
-        model.addAttribute(myconst.PROFILE, service.selProfileImg(loginUser));
+    public String profileMod(UserEntity param){
+        service.updUserProfile(param);
+        return "redirect:/user/profile";
     }
 
 }
