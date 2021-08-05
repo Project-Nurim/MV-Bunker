@@ -14,12 +14,12 @@
     <link rel="stylesheet" th:href="@{/css/user/login2.css}">
 </th:block>
 <th:block layout:fragment="js">
+    <script defer th:src="@{/js/user/gsap.js}"></script>
     <script defer th:src="@{/js/user/login.js}"></script>
 </th:block>
 
 <section layout:fragment="content">
     <div class="wrapper">
-
 
         <div class="stage_floor"></div>
 
@@ -80,7 +80,7 @@
                 </li>
 
                 <li>
-                    <a class="a"><span class="qna"></span></a>
+                    <a class="#"><span class="qna"></span></a>
                 </li>
 
 <!--                <li>-->
@@ -114,7 +114,7 @@
             <form action="http://127.0.0.1:5500/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/menubarUnderline.html"
                   method="post">
                 <div class="move">
-                    <input type="submit" class="p-button" onclick="login()" value="로그인">
+                    <input type="submit" class="p-button" onclick="show()" value="로그인">
                 </div>
 
                 <div class="login">
@@ -126,7 +126,7 @@
                         <option name="nate" value="네이트">nate.com</option>
                     </select>
                     <div>
-                        <input type="password" name="upw" placeholder="password" class="log2">
+                        <input type="password" placeholder="password" class="log2">
                     </div>
                     <!--<a th:href="@{/oauth2/authorization/naver}">네이버</a>
                     <a th:href="@{/oauth2/authorization/kakao}">카카오</a>
@@ -192,12 +192,5 @@
           <li class="menu--item"><button href="#">YouTube</button></li> -->
         </ul>
     </div>
-    <footer>
-        <p>
-        <pre>고객센터(이용문의)  nurim@bunker.co.kr • 053-123-4567 (유료)   /   제휴 및 대외 협력  https://nurim.team/contact
-    벙커 대한민국 / 대표 김누림 / 대구 중구 중앙대로 366 9층 10층 / 사업자등록번호 123-45-687890 / 대표번호 053-315-0524 / 개인정보 처리 방침 / 청소년 보호정책
-    ⓒ 2021 BUNKER Co., Ltd.All rights reserved.</pre>
-        </p>
-    </footer>
 </section>
 </html>

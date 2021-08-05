@@ -4,6 +4,46 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <th:block th:fragment="header">
-   
+    <div class="header">
+        <img class="logo" src="/css/img/mage/bunkerlogo.png">
+        <ul>
+            <li><a href="#">내 프로필</a></li>
+            <li><a href="#">계정 변경하기</a></li>
+            <li><a href="#">내가 쓴 글</a></li>
+            <li><a href="#">내가 쓴 댓글</a></li>
+            <li><a href="#">좋아요 한 글</a></li>
+            <li><a href="#">좋아요 한 댓글</a></li>
+        </ul>
+    </div>
+
+    <label>
+        <input type="checkbox" id="chk">
+        <span class="menu">
+      <span class='hamburger'></span>
+    </span>
+    </label>
+    <div class="menu-list">
+        <ul>
+            <div class="link-1">
+                <li>
+                    <a href="#"><span class="a" id="popup_open_btn"></span></a>
+                </li>
+                <li>
+                    <a href="#"><span id="mypage"></span></a>
+                </li>
+                <li>
+                    <a href="http://127.0.0.1:5500/%EB%88%84%EB%A6%BC/favM.html#"><span class="movie"></span></a>
+                </li>
+
+                <li>
+                    <a href="http://127.0.0.1:5500/%EB%88%84%EB%A6%BC/reviewer.html#"><span class="reviewer"></span></a>
+                </li>
+
+                <li>
+                    <a href="#"><span class="qna"></span></a>
+                </li>
+            </div>
+        </ul>
+    </div>
 </th:block>
 </html>
