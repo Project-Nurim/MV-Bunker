@@ -16,8 +16,8 @@ CREATE TABLE t_user (
 
 CREATE TABLE t_review (
     i_review INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    id INT UNSIGNED NOT NULL,
-    m_title VARCHAR(100) not null,
+    id INT UNSIGNED NOT NULL ,
+    title VARCHAR(100) not null,
     poster varchar(100),
     i_user INT UNSIGNED,
     re_ctnt VARCHAR(500) NOT NULL,
@@ -56,8 +56,6 @@ CREATE TABLE t_review_cmt_like (
 CREATE TABLE t_movie_fav (
     id INT UNSIGNED,
     i_user INT UNSIGNED,
-    m_title VARCHAR(100) not null,
-    poster varchar(100),
     PRIMARY KEY (id, i_user),
     FOREIGN KEY (i_user) REFERENCES t_user (i_user) ON DELETE CASCADE
 );
@@ -65,11 +63,11 @@ CREATE TABLE t_movie_fav (
 CREATE TABLE t_eval (
     i_user INT UNSIGNED,
     id INT UNSIGNED NOT NULL,
-    production float UNSIGNED NOT NULL CHECK (production <= 5),
-    performance float UNSIGNED NOT NULL CHECK (performance <= 5),
-    visual_beauty float UNSIGNED NOT NULL CHECK (visual_beauty <= 5),
-    music float UNSIGNED NOT NULL CHECK (music <= 5),
-    plot float UNSIGNED NOT NULL CHECK (plot <= 5),
+    production float UNSIGNED CHECK (production <= 5),
+    performance float UNSIGNED CHECK (performance <= 5),
+    visual_beauty float UNSIGNED CHECK (visual_beauty <= 5),
+    music float UNSIGNED CHECK (music <= 5),
+    plot float UNSIGNED CHECK (plot <= 5),
     PRIMARY KEY (i_user, id),
     FOREIGN KEY (i_user) REFERENCES t_user (i_user)  ON DELETE CASCADE,
     foreign key (id) references t_review(id)
@@ -90,3 +88,16 @@ create table t_qna(
     que_ctnt varchar(500) not null,
     foreign key (i_user) references t_user(i_user) on delete CASCADE
 );
+
+create table t_movies(
+    id int unsigned not null PRIMARY KEY, #영화id값
+    title varchar(30) not null,
+    originalTitle varchar(50) not null,
+    backdropPath varchar(100) not null,
+    posterPath varchar(100) not null,
+    releaseDate date not null,
+    adult boolean not null,
+    overview varchar(50),
+    originalLanguage varchar(10),
+    popularity float
+    );
