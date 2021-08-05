@@ -6,6 +6,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.util.Objects;
 import java.util.UUID;
 
 @Component
@@ -50,6 +51,26 @@ public class MyFileUtils {
         String fileNm = getRandomFileNm(mf);
         String basePath = getSavePath(target);
         makeFolders(basePath);
+        File origin = new File(basePath);
+        if( origin.exists() ){ //파일존재여부확인
+            if(origin.isDirectory()){ //파일이 디렉토리인지 확인
+                File[] files = origin.listFiles();
+                for(int i = 0; i< Objects.requireNonNull(files).length; i++){
+                    if( files[i].delete() ) {
+                        System.out.println(files[i].getName()+" 삭제성공");
+                    }else{
+                        System.out.println(files[i].getName()+" 삭제실패");
+                    }
+                }
+            }
+            if(origin.delete()) {
+                System.out.println("파일삭제 성공");
+            }else{
+                System.out.println("파일삭제 실패");
+            }
+        }else{ System.out.println("파일이 존재하지 않습니다."); }
+
+
         File saveFile = new File(basePath, fileNm);
         try{
             mf.transferTo(saveFile);

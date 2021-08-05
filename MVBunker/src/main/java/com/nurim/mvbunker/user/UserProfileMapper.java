@@ -6,7 +6,6 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface UserProfileMapper {
-    UserDomain selUserProfile(UserEntity param);
     int insUserProfile(UserEntity param);
     int updUserMainProfile(UserEntity param);
 }

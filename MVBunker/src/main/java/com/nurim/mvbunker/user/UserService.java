@@ -14,9 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Service
@@ -67,7 +65,7 @@ public class UserService {
                 param.setProfileImg(saveFileNm);
             }
 
-            if(profileMapper.insUserProfile(param) == 1 && loginUser.getProfileImg() == null) {
+            if(mapper.updUser(param) == 1 && loginUser.getProfileImg() == null) {
                 UserEntity param2 = new UserEntity();
                 param2.setI_user(iuser);
                 param2.setProfileImg(saveFileNm);
@@ -78,16 +76,13 @@ public class UserService {
             }
         }
 
-    public UserDomain selProfileImg(UserEntity param){
-        return profileMapper.selUserProfile(param);
-    }
 
     //프로필 메인이미지 변경
     public Map<String, Object> updUserMainProfile(UserEntity param){
         UserEntity loginUser = auth.getLoginUser();
         param.setI_user(auth.getLoginUserPk());
 
-        int result = profileMapper.updUserMainProfile(param);
+        int result = mapper.updUser(param);
         if (result == 1){
             loginUser.setProfileImg("");
         }
@@ -102,5 +97,8 @@ public class UserService {
         return mapper.selUserProfile(param);
     }
 
-
+    // 프로필 변경
+    public int updUserProfile(UserEntity param) {
+        return mapper.updUser(param);
+    }
 }
