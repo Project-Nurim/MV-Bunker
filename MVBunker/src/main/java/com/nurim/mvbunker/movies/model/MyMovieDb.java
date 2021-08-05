@@ -17,27 +17,25 @@ import java.util.Map;
 @NoArgsConstructor
 public class MyMovieDb extends MovieDb {
 
+    private List<Artwork> images;
+    private List<AlternativeTitle> alternativeTitles;
+    private  List<Keyword> keywords;
+    private List<ReleaseInfo> releases;
+    private List<Video> videos;
+    private List<Translation> translations;
+    private List<MovieDb> similarMovies;
+    private List<MovieDb> recommendedMovies;
+    private List<MovieList> lists;
+    private List<Reviews> reviews;
+
     private List<String> genreNames;
 
-    private List<Artwork> images;
-
-    private List<AlternativeTitle> alternativeTitles;
-
-    private  List<Keyword> keywords;
-
-    private List<ReleaseInfo> releases;
-
-    private List<Video> videos;
-
-    private List<Translation> translations;
-
-    private List<MovieDb> similarMovies;
-
-    private List<MovieDb> recommendedMovies;
-
-    private List<MovieList> lists;
-
-    private List<Reviews> reviews;
+    private int production;
+    private int performance;
+    private int visual_beauty;
+    private int music;
+    private int plot;
+    private int mainGenre;
 
     public MyMovieDb(MovieDb origin) {
         this.setTitle(origin.getTitle());

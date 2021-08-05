@@ -16,7 +16,7 @@ CREATE TABLE t_user (
 
 CREATE TABLE t_review (
     i_review INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    id INT UNSIGNED NOT NULL ,
+    id INT UNSIGNED NOT NULL,
     title VARCHAR(100) not null,
     poster varchar(100),
     i_user INT UNSIGNED,
@@ -91,13 +91,13 @@ create table t_qna(
 
 create table t_movies(
     id int unsigned not null PRIMARY KEY, #영화id값
-    title varchar(30) not null,
-    originalTitle varchar(50) not null,
-    backdropPath varchar(100) not null,
-    posterPath varchar(100) not null,
-    releaseDate date not null,
+    title varchar(100) not null,
+    originalTitle varchar(100),
+    backdropPath varchar(100),
+    posterPath varchar(100),
+    releaseDate varchar(15),
     adult boolean not null,
-    overview varchar(50),
+    overview varchar(1000),
     originalLanguage varchar(10),
     popularity float
     );

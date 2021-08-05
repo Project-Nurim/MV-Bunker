@@ -31,6 +31,7 @@ public class GenreLists {
                 results.get(i).getGenreNames()
                         .add(genreMap.get(originList.get(i)
                                 .getGenres().get(j)));
+                results.get(i).setMainGenre(results.get(i).getGenres().get(0));
             }
         }
         return results;

@@ -22,17 +22,26 @@ public class MoviesService {
     private GenreLists MyGenreList;
     @Autowired
     private MyTmdbApi myTmdbApi;
+    @Autowired
+    private MoviesMapper mapper;
 
     public List<MyMovieDb> getPopularMovies() {
         MiniComparator comp = new MiniComparator();
         List<MyMovieDb> popMovieList = MyGenreList.getMovieListWithGenresName(tmdbApi.getMovies().getPopularMovies("ko-KR", 1));
         popMovieList.sort(comp);
+        for(MyMovieDb movie : popMovieList) {
+            mapper.insMovies(movie);
+        }
 
         return popMovieList;
     }
 
     public List<MyMovieDb> getGenreMovies(int genreId) {
-        return MyGenreList.getMovieListWithGenresName(myTmdbApi.getMoviesWithGenre(genreId));
+        List<MyMovieDb> result = MyGenreList.getMovieListWithGenresName(myTmdbApi.getMoviesWithGenre(genreId));
+        for(MyMovieDb movie : result) {
+            mapper.insMovies(movie);
+        }
+        return result;
     }
     public List<MyMovieDb> getGenreMovies(int genreId, int page) {
         return MyGenreList.getMovieListWithGenresName(myTmdbApi.getMoviesWithGenre(genreId, page));

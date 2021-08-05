@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.nurim.mvbunker.movies.MoviesMapper">
+    <insert id="insMovies">
+        INSERT INTO t_movies
+        (id, title, originalTitle, backdropPath, posterPath, releaseDate, adult, overview, originalLanguage, popularity, mainGenre)
+        VALUES
+        (${id}, #{title}, #{originalTitle}, #{backdropPath}, #{posterPath}, #{releaseDate}, #{adult}, #{overview}, #{originalLanguage}, #{popularity}, ${mainGenre})
+        ON DUPLICATE KEY UPDATE popularity = VALUES(popularity)
+    </insert>
+    <select id="selPopMovies" resultType="MovieDomain">
+        SELECT A.*, AVG(B.production) AS production, AVG(B.performance) AS performance,
+               AVG(B.visual_beauty) AS visual_beauty, AVG(B.music) AS music, AVG(B.plot) AS plot
+        FROM t_movies A
+        LEFT JOIN t_eval B
+        ON A.id = B.id
+        GROUP BY A.id
+        ORDER BY MAX(A.popularity) DESC
+        LIMIT 20
+    </select>
+    <select id="selTheMovie" resultType="MyMovieDb">
+        SELECT *
+        FROM t_movies
+        WHERE id = ${id}
+    </select>
+</mapper>
