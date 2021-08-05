@@ -21,7 +21,7 @@
     </select>
 
     <select id="selUserProfile" resultType="UserDomain">
-        SELECT A.uid, A.unm, A.introduce, A.regdt,
+        SELECT A.*,
                count(case when B.i_user = A.i_user then 1 END) AS countMyReview,
                count(case when C.i_user = A.i_user then 1 end )AS countMyReview_cmt,
                count(case when D.i_reply_user = A.i_user then 1 end) AS countMyReply
