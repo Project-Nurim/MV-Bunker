@@ -36,7 +36,9 @@
             <td th:text="${auth.introduce}"></td>
         </tr>
     </table>
+</th:block>
 <br>
+<th:block layout:fragment="content" th:with="activity=${activity}">
     <table>
         <tr>
             <td>내가 작성한 리뷰 수</td>
@@ -44,9 +46,9 @@
             <td>내가 작성한 답글 수</td>
         </tr>
         <tr>
-            <td th:text="${myActivity}"></td>
-<!--            <td th:text="${myActivity.countMyReview_cmt}"></td>-->
-<!--            <td th:text="${myActivity.countMyReply}"></td>-->
+            <td th:text="${activity.countMyReview}"></td>
+            <td th:text="${activity.countMyReview_cmt}"></td>
+            <td th:text="${activity.countMyReply}"></td>
 
         </tr>
     </table>
