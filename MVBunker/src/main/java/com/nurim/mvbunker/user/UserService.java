@@ -98,7 +98,7 @@ public class UserService {
         return res;
     }
 
-    public List<UserDomain> selUserProfile(UserEntity param){
+    public UserDomain selUserProfile(UserEntity param){
         return mapper.selUserProfile(param);
     }
 

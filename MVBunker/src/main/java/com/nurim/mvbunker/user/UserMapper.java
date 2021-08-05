@@ -15,5 +15,5 @@ public interface UserMapper {
     int updUser(UserEntity param);
     int delUser(UserEntity parma);
 
-    List<UserDomain> selUserProfile(UserEntity param);
+    UserDomain selUserProfile(UserEntity param);
 }

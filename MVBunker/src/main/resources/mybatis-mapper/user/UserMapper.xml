@@ -20,21 +20,6 @@
         WHERE uid = #{uid} AND auth IS NULL AND provider = #{provider}
     </select>
 
-    <select id="selUserProfile" resultType="UserDomain">
-        SELECT A.*,
-               count(case when B.i_user = A.i_user then 1 END) AS countMyReview,
-               count(case when C.i_user = A.i_user then 1 end )AS countMyReview_cmt,
-               count(case when D.i_reply_user = A.i_user then 1 end) AS countMyReply
-        FROM t_user A
-                 LEFT JOIN t_review B
-                           ON A.i_user = B.i_user
-                 LEFT JOIN t_review_cmt C
-                           on B.i_user = C.i_user
-                 LEFT JOIN t_reply D
-                           on C.i_user = D.i_reply_user
-        where A.i_user = ${i_user}
-    </select>
-
     <delete id="delUser">
         delete from t_user
         where uid = #{uid} and upw = #{upw}
@@ -57,27 +42,18 @@
         </set>
     </update>
 
-
-    <!-- 내가 작성한 리뷰 수 카운트 -->
-    <select id="countMyReview"  resultType="int">
-        select count(*)
-        from t_review
-        where i_user = ${i_user};
+    <!-- 내가 작성한 리뷰 / 댓글 / 답글 수 띄우기 -->
+    <select id="selUserProfile" resultType="UserDomain">
+        SELECT
+            (SELECT COUNT(A.i_user) FROM t_user A INNER JOIN t_review B ON A.i_user = B.i_user WHERE A.i_user = ${i_user}) AS countMyReview,
+            (SELECT COUNT(A.i_user) FROM t_user A INNER JOIN t_review_cmt B ON A.i_user = B.i_user WHERE A.i_user = ${i_user}) AS countMyReviewCmt,
+            (SELECT COUNT(A.i_user) FROM t_user A INNER JOIN t_reply B ON A.i_user = B.i_reply_user WHERE A.i_user = ${i_user}) AS countMyReply;
     </select>
 
-    <!-- 내가 작성한 댓글 수 카운트 -->
-    <select id="countMyCmt" resultType="int">
-        select count(*)
-        from t_review_cmt
-        WHERE i_user = ${i_user}
-    </select>
+    <!-- 내가 작성한 리뷰 목록 띄우기 -->
+    <select id="selMyReviewList" resultType="ReviewDomain">
+        select A.*, count(case when B.)
 
-    <!-- 내가 작성한 답글 수 카운트 -->
-    <select id="countMyReply" resultType="int">
-        select count(*)
-
-        from t_reply
-        where i_reply_user = ${i_user}
     </select>
 
     <!-- 내가 팔로우한 유저목록 띄우기 -->
