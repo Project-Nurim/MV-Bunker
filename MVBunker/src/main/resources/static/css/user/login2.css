@@ -9,18 +9,6 @@
 }
 
 
-#none-popup::before{
-    content: 'Logout';
-}
-
-#none-popup:hover{
-    animation-play-state: paused;
-}
-#none-popup:hover::before{
-    content: '로그아웃';
-}
-
-
 #mypage::before {
     content: 'mypage';
 }
@@ -65,4 +53,17 @@
 }
 .qna:hover::before {
     content: '자주 묻는 질문';
+}
+
+
+
+.introduction::before{
+    content: 'introduction';
+}
+
+.introduction:hover{
+    animation-play-state: paused;
+}
+.introduction:hover::before{
+    content: '소개글';
 }
