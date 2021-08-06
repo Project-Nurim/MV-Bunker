@@ -10,8 +10,8 @@
             ( #{i_user}, #{id}, #{re_ctnt}, #{m_title}, #{poster})
     </insert>
 
-    <!-- 전체리뷰목록 - default=최신순 -->
-    <select id="selAllReview" resultType="ReviewDomain">
+    <!-- 전체리뷰의 좋/싫, 댓글 수 카운트 목록 - default=최신순 -->
+    <select id="selAllReviewCount" resultType="ReviewDomain">
         select A.*, COUNT(CASE WHEN B.disLike = 0 THEN 1 END) AS review_like_cnt,
                COUNT(CASE WHEN B.disLike = 1 THEN 1 END) AS review_dislike_cnt,
                COUNT(C.i_cmt) AS review_cmt_cnt
@@ -33,18 +33,24 @@
         </choose>
         LIMIT ${minIndex}, ${maxIndex};
     </select>
+
+    <!-- 전체리뷰 목록 - default=최신순 -->
+    <select id="selAllReview" resultType="reviewDomain">
+        select A.*, B.releaseDate from t_review A
+        left join t_moives B
+        on A.id = B.id
+        order by count(case when )
+    </select>
     
     <!-- 그 영화의 리뷰들 - default가 좋아요 순
     orderby == 1 : 최신순, == 2 : 과거순 -->
     <select id="selReview" resultType="ReviewDomain">
-        SELECT A.*, COUNT(CASE WHEN B.disLike = 0 THEN 1 END) AS review_like_cnt,
-               COUNT(CASE WHEN B.disLike = 1 THEN 1 END) AS review_dislike_cnt,
-               COUNT(C.i_cmt) AS review_cmt_cnt
+        SELECT A.*, (select (COUNT(CASE WHEN B.disLike = 0 THEN 1 END)) AS review_like_cnt,
+               (select COUNT(CASE WHEN B.disLike = 1 THEN 1 END)) AS review_dislike_cnt,
+               COUNT(B.i_cmt) AS review_cmt_cnt
         FROM t_review A
-        LEFT JOIN t_review_like B
+        LEFT JOIN t_review_cmt B
         ON A.i_review = B.i_review
-        LEFT JOIN t_review_cmt C
-        ON A.i_review = C.i_review
         WHERE A.id = ${id}
         <choose>
         <when test="orderby == 0">
