@@ -12,9 +12,9 @@ spring:
     mode: HTML
     cache: false
   datasource: # 히카리는 기본 세팅으로 되어있기 때문에 이렇게만 해줘도 알아서 히카리로다가 거시기 해준다.
-    url: jdbc:mysql://localhost:3308/moviebunker
+    url: jdbc:mysql://localhost:3306/nurim
     username: root
-    password: wncks335 #koreait
+    password: wlals1913 #koreait
     driver-class-name: org.mariadb.jdbc.Driver
   servlet:
     multipart:
