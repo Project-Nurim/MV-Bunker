@@ -52,6 +52,9 @@ public class UserController {
     @GetMapping("/followingReviewer")
     public void followReviewer(){}
 
+    @GetMapping("/followingReviewerDetail")
+    public void followReviewerDetail(){}
+
     @GetMapping("/myReview")
     public void myReview(){}
 
