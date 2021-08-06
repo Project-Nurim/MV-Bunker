@@ -93,19 +93,11 @@ create table t_qna(
 
 create table t_movies(
     id int unsigned not null PRIMARY KEY, #영화id값
-<<<<<<< HEAD
     title varchar(100) not null,
     originalTitle varchar(100),
     backdropPath varchar(100),
     posterPath varchar(100),
     releaseDate varchar(15),
-=======
-    title varchar(30) not null,
-    originalTitle varchar(50),
-    backdropPath varchar(100),
-    posterPath varchar(100) not null,
-    releaseDate varchar(20),
->>>>>>> ey
     adult boolean not null,
     overview varchar(1000),
     originalLanguage varchar(10),
