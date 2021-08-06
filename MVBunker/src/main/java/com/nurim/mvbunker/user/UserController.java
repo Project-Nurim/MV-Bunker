@@ -43,7 +43,7 @@ public class UserController {
     public String JoinUser(UserEntity param, Model model) {
         model.addAttribute("needAuth", 1);
         service.join(param);
-        return "redirect:/user/login";
+        return "redirect:/home";
     }
 
     @GetMapping("/favReview")

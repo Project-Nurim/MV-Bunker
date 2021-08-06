@@ -38,7 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         security.authorizeRequests() // 로그인 없이 갈 수 있는 곳
 //                .antMatchers("/user/login", "/user/join", "/user/auth", "/movies/boxoffice")
-                .antMatchers("/user/**", "/movies/**", "/review/**") // test 용
+                .antMatchers("/user/**", "/movies/**", "/review/**", "/home") // test 용
                 .permitAll()
                 .anyRequest().authenticated();
 
@@ -46,19 +46,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/user/login")
                 .usernameParameter("uid")
                 .passwordParameter("upw")
-                .defaultSuccessUrl("/user/login") // 로그인 성공시 갈 곳
-                .failureUrl("/user/login?error");
+                .defaultSuccessUrl("/home") // 로그인 성공시 갈 곳
+                .failureUrl("/home?error");
 
         security.oauth2Login()
                 .loginPage("/user/login")
                 .defaultSuccessUrl("/review/home")
-                .failureUrl("/user/login")
+                .failureUrl("/home")
                 .userInfoEndpoint() //OAuth 2 로그인 성공 이후 사용자 정보를 가져올 때의 설정들을 담당합니다.
                 .userService(customOauth2UserService);
 
         security.logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/user/logout")) // 로그아웃 요청 주소
-                .logoutSuccessUrl("/user/login")// 로그아웃 성공시
+                .logoutSuccessUrl("/home")// 로그아웃 성공시
                 .invalidateHttpSession(true);
 
     }
