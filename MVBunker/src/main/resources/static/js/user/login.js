@@ -42,7 +42,7 @@ function color() {
 function show() {
     let uidElem = document.querySelector(".email");
     let upwElem = document.querySelector(".log2");
-    const mainValue = document.querySelector('#mails');
+    const mailValue = document.querySelector('#mails');
 
     if (uidElem.value === "") {
         alert("아이디를 확인해주세요");
@@ -51,7 +51,7 @@ function show() {
         alert("비밀번호를 확인해주세요");
         return false;
     } else {
-        uidElem.value += '@' + mainValue.value;
+        uidElem.value += mailValue.value;
         return true;
     }
 }
@@ -451,3 +451,7 @@ const elTitle = document.querySelector("#title");
 const glitch = new TextGlitch(elTitle);
 
 glitch.on();
+
+
+
+

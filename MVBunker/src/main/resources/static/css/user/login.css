@@ -1148,7 +1148,7 @@ body {
     position: absolute;
     width: 40vh;
     height: 400vh;
-    background-image: radial-gradient(ellipse, #fae89676, #fae8964c 25%, #fae89676 50%);
+    background-image: radial-gradient(ellipse, #fae89676, #fae8964c 25%, rgba(82, 116, 168, 0) 50%);
     top: -220vh;
     left: 30vw;
     /*55vh에서 30vw로 수정*/
@@ -1168,7 +1168,7 @@ body {
     content: '';
     position: absolute;
     top: -50vh;
-    background-image: radial-gradient(ellipse closest-corner at 75% 75%, #fae89676, #fae89676);
+    background-image: radial-gradient(ellipse closest-corner at 75% 75%, rgba(55, 89, 138, 0.2), rgba(55, 89, 138, 0));
     border-radius: 100%;
     width: 100vh;
     height: 100vh;
