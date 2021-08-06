@@ -46,7 +46,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/user/login")
                 .usernameParameter("uid")
                 .passwordParameter("upw")
-                .defaultSuccessUrl("/home") // 로그인 성공시 갈 곳
+                .defaultSuccessUrl("/home") // 로그인 성공시 갈 곳 *
                 .failureUrl("/home?error");
 
         security.oauth2Login()
@@ -58,7 +58,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         security.logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/user/logout")) // 로그아웃 요청 주소
-                .logoutSuccessUrl("/home")// 로그아웃 성공시
+                .logoutSuccessUrl("/home")// 로그아웃 성공시 *
                 .invalidateHttpSession(true);
 
     }

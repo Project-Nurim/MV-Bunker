@@ -23,6 +23,7 @@ CREATE TABLE t_review (
     re_ctnt VARCHAR(500) NOT NULL,
     regdt DATETIME DEFAULT NOW(),
     FOREIGN KEY (i_user) REFERENCES t_user (i_user) ON DELETE CASCADE,
+    FOREIGN KEY (id) references t_movies(id) on delete CASCADE,
     UNIQUE key chk_revw(id, i_user)
 );
 
@@ -57,7 +58,8 @@ CREATE TABLE t_movie_fav (
     id INT UNSIGNED,
     i_user INT UNSIGNED,
     PRIMARY KEY (id, i_user),
-    FOREIGN KEY (i_user) REFERENCES t_user (i_user) ON DELETE CASCADE
+    FOREIGN KEY (i_user) REFERENCES t_user (i_user) ON DELETE CASCADE,
+    FOREIGN KEY (id) references t_movies(id) on delete CASCADE
 );
 
 CREATE TABLE t_eval (
@@ -70,7 +72,7 @@ CREATE TABLE t_eval (
     plot float UNSIGNED CHECK (plot <= 5),
     PRIMARY KEY (i_user, id),
     FOREIGN KEY (i_user) REFERENCES t_user (i_user)  ON DELETE CASCADE,
-    foreign key (id) references t_review(id)
+    FOREIGN KEY (id) references t_movies(id) on delete CASCADE
 );
 
 CREATE TABLE t_sub (
@@ -99,5 +101,7 @@ create table t_movies(
     adult boolean not null,
     overview varchar(1000),
     originalLanguage varchar(10),
-    popularity float
-    );
+    popularity float,
+    mainGenre int
+);
+
