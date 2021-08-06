@@ -18,7 +18,7 @@ html {
 
 @font-face {
     font-family: 'Provicali.otf';
-    src: url(/폰트/Provicali.otf);
+    /*src: url(/폰트/Provicali.otf);*/
 }
 
 body {
@@ -704,7 +704,7 @@ a {
     position: absolute;
     top: 2300px;
     /* left: 35%; */
-    cursor: -webkit-grab;
+    /*cursor: -webkit-grab;*/
     cursor: grab;
     width: 100%;
 }
@@ -1041,7 +1041,7 @@ body {
 
 @font-face {
     font-family: 'Amazing View italic.otf';
-    src: url(/폰트/Amazing\ Views.otf);
+    /*src: url(/폰트/Amazing\ Views.otf);*/
 }
 
 @media (max-width: 1300px) {
@@ -1117,7 +1117,7 @@ body {
     left: 0;
     right: 0;
     height: 150%;
-    background-image: radial-gradient(rgba(54, 90, 143, 0.9), rgba(54, 90, 143, 0));
+    background-image: radial-gradient(#fae89676, #fae89676);
     transform: scale(1.0, 0.3);
 }
 
@@ -1132,7 +1132,7 @@ body {
     height: 80%;
     /*100% ->*/
     overflow: hidden;
-    background-image: radial-gradient(ellipse closest-side at 50% 82%, #fae89676, rgba(84, 120, 173, 0) 100%);
+    background-image: radial-gradient(ellipse closest-side at 50% 82%, #fae89676, #fae89676 100%);
     animation: move_highlight 5s linear infinite;
 }
 
@@ -1148,7 +1148,7 @@ body {
     position: absolute;
     width: 40vh;
     height: 400vh;
-    background-image: radial-gradient(ellipse, #fae89676, #fae8964c 25%, rgba(82, 116, 168, 0) 50%);
+    background-image: radial-gradient(ellipse, #fae89676, #fae8964c 25%, #fae89676 50%);
     top: -220vh;
     left: 30vw;
     /*55vh에서 30vw로 수정*/
@@ -1168,7 +1168,7 @@ body {
     content: '';
     position: absolute;
     top: -50vh;
-    background-image: radial-gradient(ellipse closest-corner at 75% 75%, rgba(55, 89, 138, 0.2), rgba(55, 89, 138, 0));
+    background-image: radial-gradient(ellipse closest-corner at 75% 75%, #fae89676, #fae89676);
     border-radius: 100%;
     width: 100vh;
     height: 100vh;
