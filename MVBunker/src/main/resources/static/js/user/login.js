@@ -74,24 +74,24 @@ function check() {
     var pw_msg = "";
 
 
-    if (join == "") {
+    if (unm == "") {
         alert("이름을 입력해주세요");
         return false;
-    } else if (nick == "") {
+    } else if (unn == "") {
         alert("닉네임을 입력해주세요");
         return false;
     } else if (age == "") {
         alert("나이를 기입하세요");
         return false;
-    } else if (email == "" || email.length < 6) {
+    } else if (uid == "" || uid.length < 6) {
         alert("이메일을 가입하세요");
-    } else if (pw == "" || pw.length < 6) {
+    } else if (upw == "" || upw.length < 6) {
         alert("비밀번호를 6글자 이상 입력하세요");
         return false;
-    } else if (!num.test(pw) || !eng.test(pw) || !spe.test(pw)) {
+    } else if (!num.test(upw) || !eng.test(upw) || !spe.test(upw)) {
         alert("영문+숫자+특수기호 포함");
         return false;
-    } else if (pw != pw2) {
+    } else if (upw != pw2) {
         alert("비밀번호가 일치하지 않습니다.");
         return false;
     } else {
@@ -110,21 +110,21 @@ function check() {
 }
 
 
-// function sendPost(action, params) {
-//     const form = document.createElement('form');
-//     form.setAttribute('method', 'post');
-//     form.setAttribute('action', action);
-//     document.charset = "utf-8";
-//     for ( var key in params) {
-//         var hiddenField = document.createElement('input');
-//         hiddenField.setAttribute('type', 'hidden');
-//         hiddenField.setAttribute('name', key);
-//         hiddenField.setAttribute('value', params[key]);
-//         form.appendChild(hiddenField);
-//     }
-//     document.body.appendChild(form);
-//     form.submit();
-// }
+function sendPost(action, params) {
+    const form = document.createElement('form');
+    form.setAttribute('method', 'post');
+    form.setAttribute('action', action);
+    document.charset = "utf-8";
+    for ( var key in params) {
+        var hiddenField = document.createElement('input');
+        hiddenField.setAttribute('type', 'hidden');
+        hiddenField.setAttribute('name', key);
+        hiddenField.setAttribute('value', params[key]);
+        form.appendChild(hiddenField);
+    }
+    document.body.appendChild(form);
+    form.submit();
+}
 
 function clear() {
     document.querySelector("#join").value = '';
