@@ -2,11 +2,7 @@
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-<<<<<<< HEAD
-      layout:decorator="/layout/profileLayout">
-=======
       layout:decorator="layout/profileLayout">
->>>>>>> jm
 <head>
     <th:block layout:fragment="css">
         <link rel="stylesheet" th:href="@{/css/user/profile.css}">
@@ -19,44 +15,6 @@
 <body>
 <!-- ↓ 마이페이지 > 내 프로필 > 내 계정에 들어갈 내용 <td th:text="${auth.nnm}"></td> 필요한 내용은 요로케 쓰면 됨미다.>  -->
 <th:block layout:fragment="content" th:with="auth=${#authentication.getPrincipal().getUser()}">
-<<<<<<< HEAD
-    <table>
-        <tr>
-            <td>
-                <div>내 아이디 : </div>
-            </td>
-<!--            <td th:text="${auth.uid}"></td>-->
-            <td/>
-        </tr>
-        <tr>
-            <td>
-                <div>내 닉네임 : </div>
-            </td>
-            <td th:text="${auth.unm}"></td>
-        </tr>
-        <tr>
-            <td>
-                <div>내 소개 : </div>
-            </td>
-            <td th:text="${auth.introduce}"></td>
-        </tr>
-    </table>
-</th:block>
-<br>
-<th:block layout:fragment="content" th:with="activity=${activity}">
-    <table>
-        <tr>
-            <td>내가 작성한 리뷰 수</td>
-            <td>내가 작성한 댓글 수</td>
-            <td>내가 작성한 답글 수</td>
-        </tr>
-        <tr>
-            <td th:text="${activity.countMyReview}"></td>
-            <td th:text="${activity.countMyReview_cmt}"></td>
-            <td th:text="${activity.countMyReply}"></td>
-        </tr>
-    </table>
-=======
     <th:block layout:fragment="content" th:with="activity=${activity}">
 <!--    <table>-->
 <!--        <tr>-->
@@ -127,7 +85,6 @@
 
 <!--        </tr>-->
 <!--    </table>-->
->>>>>>> jm
 </th:block>
 </body>
 </html>
