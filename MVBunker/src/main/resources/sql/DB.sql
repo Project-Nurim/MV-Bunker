@@ -105,3 +105,12 @@ create table t_movies(
     mainGenre int
 );
 
+CREATE TABLE t_reply(
+    i_user INT UNSIGNED,
+    i_cmt INT UNSIGNED,
+    i_reply INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    reply_ctnt VARCHAR(300) NOT NULL,
+    regdt DATE DEFAULT NOW(),
+    FOREIGN KEY(i_user) REFERENCES t_user(i_user),
+    FOREIGN KEY(i_cmt) REFERENCES t_review_cmt(i_cmt)
+);
