@@ -111,8 +111,6 @@
 
     <div id="my_modal">
         <div class="container">
-            <form action="/user/login"
-                  method="post">
             <form action="/user/login" method="post">
                 <div class="move">
                     <input type="submit" class="p-button" onclick="show()" value="로그인">
@@ -127,7 +125,7 @@
                         <option name="nate" value="네이트">nate.com</option>
                     </select>
                     <div>
-                        <input type="password" placeholder="password" class="log2">
+                        <input type="password" placeholder="password" class="log2" name="upw">
                     </div>
                     <!--<a th:href="@{/oauth2/authorization/naver}">네이버</a>
                     <a th:href="@{/oauth2/authorization/kakao}">카카오</a>
@@ -155,8 +153,8 @@
                 <input type="text" placeholder="Name" id="join">
                 <input type="text" placeholder="Age" id="age">
                 <input type="text" placeholder="Nickname" id="nick">
-                <input type="text" placeholder="nurim@bunker.com" id="email">
-                <input type="password" placeholder="password" id="pw"><br>
+                <input type="text" placeholder="nurim@bunker.com" id="email" name="uid">
+                <input type="password" placeholder="password" id="pw" name="upw"><br>
                 <input type="password" placeholder="Confirm password" id="pw2"><br>
                 <p class="normal forgot">Forgot your password?</p>
 

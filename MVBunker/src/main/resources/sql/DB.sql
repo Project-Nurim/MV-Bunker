@@ -1,3 +1,11 @@
+use moviebunker;
+show variables like '%colla%';
+
+create database moviebunker default  character set utf8mb4
+    collate utf8mb4_general_ci ;
+
+
+
 CREATE TABLE t_user (
         i_user INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
         uid VARCHAR(20) UNIQUE,
