@@ -40,16 +40,18 @@ function color() {
 
 
 function show() {
-    var log = document.querySelector(".email").value;
-    var log2 = document.querySelector(".log2").value;
+    let uidElem = document.querySelector(".email");
+    let upwElem = document.querySelector(".log2");
+    const mainValue = document.querySelector('#mails');
 
-    if (log == "") {
+    if (uidElem.value === "") {
         alert("아이디를 확인해주세요");
         return false;
-    } else if (log2 == "") {
+    } else if (upwElem.value === "") {
         alert("비밀번호를 확인해주세요");
         return false;
     } else {
+        uidElem.value += '@' + mainValue.value;
         return true;
     }
 }
@@ -104,21 +106,21 @@ function check() {
 }
 
 
-// function sendPost(action, params) {
-//     const form = document.createElement('form');
-//     form.setAttribute('method', 'post');
-//     form.setAttribute('action', action);
-//     document.charset = "utf-8";
-//     for ( var key in params) {
-//         var hiddenField = document.createElement('input');
-//         hiddenField.setAttribute('type', 'hidden');
-//         hiddenField.setAttribute('name', key);
-//         hiddenField.setAttribute('value', params[key]);
-//         form.appendChild(hiddenField);
-//     }
-//     document.body.appendChild(form);
-//     form.submit();
-// }
+function sendPost(action, params) {
+    const form = document.createElement('form');
+    form.setAttribute('method', 'post');
+    form.setAttribute('action', action);
+    document.charset = "utf-8";
+    for ( var key in params) {
+        var hiddenField = document.createElement('input');
+        hiddenField.setAttribute('type', 'hidden');
+        hiddenField.setAttribute('name', key);
+        hiddenField.setAttribute('value', params[key]);
+        form.appendChild(hiddenField);
+    }
+    document.body.appendChild(form);
+    form.submit();
+}
 
 function clear() {
     document.querySelector("#join").value = '';

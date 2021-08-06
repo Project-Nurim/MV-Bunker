@@ -14,7 +14,7 @@
     <link rel="stylesheet" th:href="@{/css/user/login2.css}">
 </th:block>
 <th:block layout:fragment="js">
-    <script defer th:src="@{/js/user/gsap.js}"></script>
+    <script defer th:src="@{/js/gsap.js}"></script>
     <script defer th:src="@{/js/user/login.js}"></script>
 </th:block>
 
@@ -119,14 +119,14 @@
 
                 <div class="login">
                     <input class="email" name="uid" type="text" placeholder="이메일"><span class="go">@</span>
-                    <select name="job" class="select">
+                    <select id="mails" class="select">
                         <option name="selectBox" value="">선택해주세요</option>
-                        <option name="naver" value="네이버">naver.com</option>
-                        <option name="daum" value="다음">daum.net</option>
-                        <option name="nate" value="네이트">nate.com</option>
+                        <option name="naver" value="naver.com">naver.com</option>
+                        <option name="daum" value="daum.net">daum.net</option>
+                        <option name="nate" value="nate.com">nate.com</option>
                     </select>
                     <div>
-                        <input type="password" placeholder="password" class="log2">
+                        <input type="password" placeholder="password" class="log2" name="upw">
                     </div>
                     <!--<a th:href="@{/oauth2/authorization/naver}">네이버</a>
                     <a th:href="@{/oauth2/authorization/kakao}">카카오</a>
