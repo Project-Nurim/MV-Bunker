@@ -6,9 +6,9 @@ import lombok.Data;
 public class EvalEntity {
     private int i_user;
     private int id;
-    private int production;
-    private int performance;
-    private int visual_beauty;
-    private int music;
-    private int plot;
+    private double production;
+    private double performance;
+    private double visual_beauty;
+    private double music;
+    private double plot;
 }

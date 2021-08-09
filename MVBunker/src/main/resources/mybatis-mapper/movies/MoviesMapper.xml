@@ -3,9 +3,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.nurim.mvbunker.movies.MoviesMapper">
+
+
     <insert id="insOriginGenres">
-        INSERT IGNORE INTO t_genres (id, name)
-        VALUES (${id}, #{name})
+        INSERT IGNORE INTO t_genres (genreId, genreName)
+        VALUES (${genreId}, #{genreName})
     </insert>
 
     <insert id="insMovies">
@@ -17,9 +19,21 @@
     </insert>
     <insert id="insMoviesGenre">
         INSERT INTO t_movie_genres (id, genreId)
-        VALUES
+        VALUES 
+        <foreach collection="list" item="item" separator=",">
+            (${item.id}, #{item.genreId})
+        </foreach>
     </insert>
-    <select id="selPopMovies" resultType="MovieDomain">
+
+    <resultMap id="getMovieDomain" type="MovieDomain">
+        <result property="id" column="id"/>
+        <collection property="genres" column="id" ofType="GenreEntity" javaType="ArrayList" select="selMovieGenre"/>
+    </resultMap>
+    <select id="selMovieGenre" resultType="GenreEntity">
+        SELECT genreId, genreName FROM t_movie_genre_set WHERE id = ${id}
+    </select>
+
+    <select id="selPopMovies" resultMap="getMovieDomain">
         SELECT A.*, AVG(B.production) AS production, AVG(B.performance) AS performance,
                AVG(B.visual_beauty) AS visual_beauty, AVG(B.music) AS music, AVG(B.plot) AS plot
         FROM t_movies A
@@ -29,6 +43,7 @@
         ORDER BY MAX(A.popularity) DESC
         LIMIT 20
     </select>
+
     <select id="selTheMovie" resultType="MyMovieDb">
         SELECT *
         FROM t_movies
