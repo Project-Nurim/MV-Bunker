@@ -34,8 +34,8 @@ public class BeanConfig {
         List<GenreEntity> genreList = new ArrayList<>();
         for (Genre genre : originGenreList) {
             GenreEntity temp = new GenreEntity();
-            temp.setId(genre.getId());
-            temp.setName(genre.getName());
+            temp.setGenreId(genre.getId());
+            temp.setGenreName(genre.getName());
             genreList.add(temp);
             mapper.insOriginGenres(temp);
         }
@@ -48,7 +48,7 @@ public class BeanConfig {
 
         Map<Integer,String> genreMap = new HashMap<>();
         for(int i = 0; i < genreList.size(); i++) {
-            genreMap.put(genreList.get(i).getId(), genreList.get(i).getName());
+            genreMap.put(genreList.get(i).getGenreId(), genreList.get(i).getGenreName());
         }
         return genreMap;
     }
@@ -59,7 +59,7 @@ public class BeanConfig {
 
         Map<String, Integer> reversGenreMap = new HashMap<>();
         for(int i = 0; i < genreList.size(); i++) {
-            reversGenreMap.put(genreList.get(i).getName(), genreList.get(i).getId());
+            reversGenreMap.put(genreList.get(i).getGenreName(), genreList.get(i).getGenreId());
         }
         return reversGenreMap;
     }
