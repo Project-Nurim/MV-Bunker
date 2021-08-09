@@ -1,5 +1,6 @@
 package com.nurim.mvbunker.movies;
 
+import com.nurim.mvbunker.movies.model.GenreEntity;
 import com.nurim.mvbunker.movies.model.MyMovieDb;
 import info.movito.themoviedbapi.model.Genre;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class MoviesController {
 
     @Autowired
     @Qualifier("OriginalGenres")
-    List<Genre> OriginalGenres;
+    List<GenreEntity> OriginalGenres;
 
     @GetMapping("/boxoffice")
     public void boxoffice(Model model){

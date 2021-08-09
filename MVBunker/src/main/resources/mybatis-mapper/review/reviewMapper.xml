@@ -112,7 +112,34 @@
 
 <!--    </select>-->
 
+    <!-- 댓글 -->
+    <insert id="insReviewCmt">
+        INSERT INTO t_review_cmt
+            (i_review, i_user, cmt)
+        VALUES
+            (#{i_review}, #{i_user}, #{cmt});
+    </insert>
 
+    <delete id="delReviewCmt">
+        DELETE FROM t_review_cmt WHERE i_review = #{i_review} and i_user = #{i_user};
+    </delete>
 
+    <update id="updReviewCmt">
+        UPDATE t_review_cmt SET cmt=#{cmt} where i_cmt = ${i_cmt} and i_user = #{i_user};
+    </update>
+    
+    <select id="selRivewCmt" resultType="ReviewCmtEntity">
+        SELECT A.*
+        FROM (
+                 SELECT
+                     A.i_cmt, A.cmt, A.regdt, A.i_review,
+                         B.unn
+                 FROM t_review_cmt A
+                          INNER JOIN t_user B
+                                     ON A.i_user = B.i_user
+                 WHERE A.i_review = #{i_review}
+                 ORDER BY i_cmt ASC) A
+        GROUP BY A.i_cmt;
+    </select>
 
 </mapper>

@@ -137,3 +137,11 @@ create table t_movie_genres (
                                 FOREIGN KEY (id) REFERENCES t_movies (id),
                                 FOREIGN KEY (genreId) REFERENCES t_genres (id)
 );
+
+# 내가 팔로우한유저 정보 VIEW
+CREATE VIEW view_following_userInfo AS
+SELECT A.i_user, A.unn, A.profileImg, A.regdt, A.introduce
+from t_user A
+         INNER JOIN t_sub B
+                    ON A.i_user = B.sub_ed_user
+WHERE B.sub_ing_user = 1;
