@@ -1,0 +1,33 @@
+.all {
+    display: flex;
+    justify-content: center;
+
+}
+
+.all ul {
+    /* background-color: teal; */
+    width: 400px;
+    margin: 0 auto;
+    line-height: 40px;
+}
+
+.all ul li {
+    list-style: none;
+    text-align: left;
+}
+
+hr{
+    margin-left: auto;
+}
+
+.all img {
+    width: 130px;
+    height: 130px;
+    border-radius: 100%;
+    margin-bottom: 30px;
+    transform: translateX(20%);
+}
+
+.top {
+    transform: translateY(40%);
+}

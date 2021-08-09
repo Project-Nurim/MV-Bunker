@@ -15,11 +15,26 @@
 <body>
 <!-- 각 영화의 포스터 + 작성자 + 평점 + 리뷰가 뜨는 페이지 -->
 <th:block layout:fragment="content">
-<table id="reviewTable">
-
-</table>
-
-
+    <div class="reviewtable">
+        <table>
+            <tr>
+                <td rowspan="5"><img class="poster" src="/누림/img/닥터스트레인지.jpg"></td>
+                <td class="width" colspan="3">제목명</td>
+            </tr>
+            <tr>
+                <td class="width" colspan="3">작성자</td>
+            </tr>
+            <tr>
+                <td class="width" colspan="3">작성일</td>
+            </tr>
+            <tr>
+                <td class="width" colspan="3">평점</td>
+            </tr>
+            <tr>
+                <td class="width" colspan="3">리뷰</td>
+            </tr>
+        </table>
+    </div>
 </th:block>
 </body>
 </html>
