@@ -88,7 +88,13 @@
         INSERT INTO t_eval
         (i_user, id, production, performance, visual_beauty, music, plot)
         VALUES
-        (${i_user}, ${id}, ${production}, ${performance}, ${visual_beauty}, ${music}, ${plot})
+        (${i_user}, ${id}, IF(${production}=0, NULL, ${production}),
+         IF(${performance}=0, NULL, ${performance}),
+         IF(${visual_beauty}=0, NULL, ${visual_beauty}),
+         IF(${music}=0, NULL, ${music}), IF(${plot}=0, NULL, ${plot}))
+        ON DUPLICATE KEY UPDATE production = IF(${production}=0, NULL, ${production}), performance = IF(${performance}=0, NULL, ${performance}),
+                                visual_beauty = IF(${visual_beauty}=0, NULL, ${visual_beauty}),
+                                music = IF(${music}=0, NULL, ${music}), plot = IF(${plot}=0, NULL, ${plot})
     </insert>
     <select id="selEval" resultType="EvalEntity">
         SELECT AVG(production) AS production, AVG(performance) AS performance, AVG(visual_beauty) AS visual_beauty
@@ -101,18 +107,9 @@
         FROM t_eval
         WHERE id = ${id} AND i_user = ${i_user}
     </select>
-    <update id="updEval">
-        UPDATE t_eval
-        SET production = ${production}, performance = ${performance}, visual_beauty = ${visual_beauty}
-          , music = ${music}, plot = ${plot}
-        WHERE i_user = ${i_user} AND id = ${id}
-    </update>
 
 <!--    <select id="selMovieEval" resultType="EvalEntity">-->
 
 <!--    </select>-->
-
-
-
 
 </mapper>
