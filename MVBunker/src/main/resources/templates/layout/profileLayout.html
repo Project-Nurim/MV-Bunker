@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/css/profileCommon.css}">
     <link rel="icon" href="/img/logo/bunkerfavicon_rf_vuO_icon.ico">
-    <script defer th:href="@{/js/common.js}"></script>
+    <script defer th:src="@{/js/common.js}"></script>
     <title layout:title-pattern="$LAYOUT_TITLE"></title>
     <th:block layout:fragment="css"></th:block>
     <th:block layout:fragment="js"></th:block>
@@ -14,7 +14,7 @@
 <body>
 <div id="container">
     <th:block th:replace="layout/profileHeader :: header"></th:block>
-    <th:block layout:fragment="content"></th:block>
+    <section layout:fragment="content"></section>
     <th:block th:replace="layout/commonFooter :: footer"></th:block>
 </div>
 </body>
