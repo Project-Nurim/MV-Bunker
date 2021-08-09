@@ -3,6 +3,7 @@ package com.nurim.mvbunker.movies;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.nurim.mvbunker.movies.model.GenreEntity;
 import info.movito.themoviedbapi.TmdbApi;
 import info.movito.themoviedbapi.model.core.MovieResultsPage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.nio.charset.Charset;
+import java.util.List;
 
 @Service
 public class MyTmdbApi {
@@ -103,5 +105,16 @@ public class MyTmdbApi {
 
         MovieResultsPage mrp = getRestApi(builder, MovieResultsPage.class);
         return mrp;
+    }
+
+    public List<GenreEntity> getOriginGenreList() {
+        String url = baseUrl + "genre/movie/list";
+        UriComponents builder = UriComponentsBuilder.fromHttpUrl(url)
+                .queryParam("api_key", api_key)
+                .queryParam("language", "en")
+                .build();
+
+        List<GenreEntity> result = getRestApi(builder, List.class);
+        return result;
     }
 }

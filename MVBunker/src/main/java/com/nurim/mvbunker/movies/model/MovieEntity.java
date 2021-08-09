@@ -10,6 +10,7 @@ public class MovieEntity {
     private String title;
     private String originalTitle;
     private String backdropPath;
+    private String posterPath;
     private String releaseDate;
     private boolean adult;
     private String overview;

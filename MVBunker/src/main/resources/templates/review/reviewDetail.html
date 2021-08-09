@@ -6,9 +6,11 @@
 <head>
     <th:block layout:fragment="css">
         <link rel="stylesheet" th:href="@{/css/review/reviewDetail.css}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </th:block>
     <th:block layout:fragment="js">
         <script defer th:src="@{/js/review/reviewDetail.js}"></script>
+        <script defer th:src="@{/js/review/jquery-3.6.0.min.js}"></script>
     </th:block>
     <title>reviewDetail</title>
 </head>
@@ -17,7 +19,144 @@
 <th:block layout:fragment="content">
 <!--    <input id="movieIdInput" type="hidden" th:value="${param.movieId}">-->
 <!--    <div id="video" th:data-movie-id="${videos.get(0).key}"></div>-->
-    <
+    <div class="buttons">
+        <span id="heart">
+        <i class="fa-solid fa-heart"></i> <!-- full -->
+        <i class="fa-regular fa-heart"></i></span>
+    </div>
+        <!-- Button -->
+        <div class="page-wrapper">
+            <a class="btn trigger" id="star" href="#"><i class="fa-solid fa-star"></i></a>
+        </div>
+        <!-- Modal -->
+        <div class="modal-wrapper">
+            <div class="modal">
+                <div class="head">
+                    <a class="btn-close trigger" href="#">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <div id="all">
+                    <div class="container">
+                        <div class="rating-wrap">
+                            <h5>연기</h5>
+                            <div class="center">
+                                <fieldset class="rating" >
+                                    <input type="radio" id="star5" name="rating" value="5"><label for="star5" class="full"></label>
+                                    <input type="radio" id="star4.5" name="rating" value="4.5"><label for="star4.5" class="half"></label>
+                                    <input type="radio" id="star4" name="rating" value="4"><label for="star4" class="full"></label>
+                                    <input type="radio" id="star3.5" name="rating" value="3.5"><label for="star3.5" class="half"></label>
+                                    <input type="radio" id="star3" name="rating" value="3"><label for="star3" class="full"></label>
+                                    <input type="radio" id="star2.5" name="rating" value="2.5"><label for="star2.5" class="half"></label>
+                                    <input type="radio" id="star2" name="rating" value="2"><label for="star2" class="full"></label>
+                                    <input type="radio" id="star1.5" name="rating" value="1.5"><label for="star1.5" class="half"></label>
+                                    <input type="radio" id="star1" name="rating" value="1"><label for="star1" class="full"></label>
+                                    <input type="radio" id="star0.5" name="rating" value="0.5"><label for="star0.5" class="half"></label>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container2">
+                        <div class="rating-wrap2">
+                            <h5>연출</h5>
+                            <div class="center2">
+                                <fieldset class="rating2">
+                                    <input type="radio" id="star52" name="rating2" value="5"><label for="star52" class="full"></label>
+                                    <input type="radio" id="star4.52" name="rating2" value="4.5"><label for="star4.52" class="half"></label>
+                                    <input type="radio" id="star42" name="rating2" value="4"><label for="star42" class="full"></label>
+                                    <input type="radio" id="star3.52" name="rating2" value="3.5"><label for="star3.52" class="half"></label>
+                                    <input type="radio" id="star32" name="rating2" value="3"><label for="star32" class="full"></label>
+                                    <input type="radio" id="star2.52" name="rating2" value="2.5"><label for="star2.52" class="half"></label>
+                                    <input type="radio" id="star22" name="rating2" value="2"><label for="star22" class="full"></label>
+                                    <input type="radio" id="star1.52" name="rating2" value="1.5"><label for="star1.52" class="half"></label>
+                                    <input type="radio" id="star12" name="rating2" value="1"><label for="star12" class="full"></label>
+                                    <input type="radio" id="star0.52" name="rating2" value="0.5"><label for="star0.52" class="half"></label>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container3">
+                        <div class="rating-wrap3">
+                            <h5>영상미</h5>
+                            <div class="center3">
+                                <fieldset class="rating3">
+                                    <input type="radio" id="star53" name="rating3" value="5"><label for="star53" class="full"></label>
+                                    <input type="radio" id="star4.53" name="rating3" value="4.5"><label for="star4.53" class="half"></label>
+                                    <input type="radio" id="star43" name="rating3" value="4"><label for="star43" class="full"></label>
+                                    <input type="radio" id="star3.53" name="rating3" value="3.5"><label for="star3.53" class="half"></label>
+                                    <input type="radio" id="star33" name="rating3" value="3"><label for="star33" class="full"></label>
+                                    <input type="radio" id="star2.53" name="rating3" value="2.5"><label for="star2.53" class="half"></label>
+                                    <input type="radio" id="star23" name="rating3" value="2"><label for="star23" class="full"></label>
+                                    <input type="radio" id="star1.53" name="rating3" value="1.5"><label for="star1.53" class="half"></label>
+                                    <input type="radio" id="star13" name="rating3" value="1"><label for="star13" class="full"></label>
+                                    <input type="radio" id="star0.53" name="rating3" value="0.5"><label for="star0.53" class="half"></label>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container4">
+                        <div class="rating-wrap4">
+                            <h5>음악</h5>
+                            <div class="center4">
+                                <fieldset class="rating4">
+                                    <input type="radio" id="star54" name="rating4" value="5"><label for="star54" class="full"></label>
+                                    <input type="radio" id="star4.54" name="rating4" value="4.5"><label for="star4.54" class="half"></label>
+                                    <input type="radio" id="star44" name="rating4" value="4"><label for="star44" class="full"></label>
+                                    <input type="radio" id="star3.54" name="rating4" value="3.5"><label for="star3.54" class="half"></label>
+                                    <input type="radio" id="star34" name="rating4" value="3"><label for="star34" class="full"></label>
+                                    <input type="radio" id="star2.54" name="rating4" value="2.5"><label for="star2.54" class="half"></label>
+                                    <input type="radio" id="star24" name="rating4" value="2"><label for="star24" class="full"></label>
+                                    <input type="radio" id="star1.54" name="rating4" value="1.5"><label for="star1.54" class="half"></label>
+                                    <input type="radio" id="star14" name="rating4" value="1"><label for="star14" class="full"></label>
+                                    <input type="radio" id="star0.54" name="rating4" value="0.5"><label for="star0.54" class="half"></label>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container5">
+                        <div class="rating-wrap5">
+                            <h5>스토리</h5>
+                            <div class="center5">
+                                <fieldset class="rating5">
+                                    <input type="radio" id="star55" name="rating5" value="5"><label for="star55" class="full"></label>
+                                    <input type="radio" id="star4.55" name="rating5" value="4.5"><label for="star4.55" class="half"></label>
+                                    <input type="radio" id="star45" name="rating5" value="4"><label for="star45" class="full"></label>
+                                    <input type="radio" id="star3.55" name="rating5" value="3.5"><label for="star3.55" class="half"></label>
+                                    <input type="radio" id="star35" name="rating5" value="3"><label for="star35" class="full"></label>
+                                    <input type="radio" id="star2.55" name="rating5" value="2.5"><label for="star2.55" class="half"></label>
+                                    <input type="radio" id="star25" name="rating5" value="2"><label for="star25" class="full"></label>
+                                    <input type="radio" id="star1.55" name="rating5" value="1.5"><label for="star1.55" class="half"></label>
+                                    <input type="radio" id="star15" name="rating5" value="1"><label for="star15" class="full"></label>
+                                    <input type="radio" id="star0.55" name="rating5" value="0.5"><label for="star0.55" class="half"></label>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <span id="share"><i class="fa-solid fa-share"></i></span>
+
+    <!-- 모달창 + 평가후 별 -->
+    <div class="square">
+        <textarea class="write"></textarea>
+        <div> 좋아요순 최신순 </div>
+        <div class="reviews">
+            <img src="@{/img/logo/noprofile.png}">
+            <div class="nickname"></div>
+            <div class="regdt"></div>
+            <div class="review"></div>
+                <i class="fa-solid fa-thumbs-up"></i> <!-- full -->
+                <i class="fa-regular fa-thumbs-up"></i>
+                <i class="fa-solid fa-thumbs-down"></i> <!-- full -->
+                <i class="fa-regular fa-thumbs-down"></i>
+        </div>
+    </div>
 </th:block>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorator="basicLayout">
+      layout:decorator="layout/basicLayout">
 <head>
     <th:block layout:fragment="css">
         <link rel="stylesheet" th:href="@{/css/movies/boxoffice.css}">
@@ -34,8 +34,8 @@
             <td><img th:src="'https://image.tmdb.org/t/p/w500/' + ${movie.posterPath}"></td>
             <td th:text="${movie.title}"></td>
             <td th:text="${movie.overview}"></td>
-            <th:block th:each="genre : ${movie.genreNames}">
-                <td th:text="${genre}"> </td>
+            <th:block th:each="genre : ${movie.genres}">
+                <td th:text="${genre.genreName}"> </td>
             </th:block>
         </tr>
     </table>
