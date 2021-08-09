@@ -1211,3 +1211,32 @@ body {
         transform: translateX(-25vh);
     }
 }
+
+.menu-list {
+    min-height: 600vh;
+}
+
+#back-to-top {
+    text-decoration: none;
+    position: fixed;
+    bottom: 1em;
+    right: 0.35em;
+    /* background-color: #000000; */
+    color: rgb(0, 0, 0);
+    padding: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    /* font-weight: 1000; */
+    transition: 0.3s;
+    opacity: 0;
+    /* z-index: -1; */
+}
+
+#back-to-top:hover {
+    padding: 0 20px;
+
+}
+
+#back-to-top.visible {
+    opacity: 1;
+}

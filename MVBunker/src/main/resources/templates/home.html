@@ -3,27 +3,23 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
-        layout:decorator="layout/basicLayout">
 <head>
     <title>bunker by nurim</title>
-</head>
-
-<th:block layout:fragment="css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel="stylesheet" th:href="@{/css/user/login.css}">
     <link rel="stylesheet" th:href="@{/css/user/login2.css}">
-</th:block>
-<th:block layout:fragment="js">
     <script defer th:src="@{/js/gsap.js}"></script>
     <script defer th:src="@{/js/user/login.js}"></script>
-</th:block>
+</head>
 
-<section layout:fragment="content">
+
+
+<body>
     <div class="wrapper">
 
         <div class="stage_floor"></div>
 
-        <div class="stage_highlight"></div>
+<!--        <div class="stage_highlight"></div>-->
 
         <div class="lamp"></div>
 
@@ -83,18 +79,14 @@
                     <a class="#"><span class="qna"></span></a>
                 </li>
 
-<!--                <li>-->
-<!--                    <a class="a"><span class=""></span></a>-->
-<!--                </li>-->
+
             </div>
         </ul>
     </div>
 
 
-    <div id="logo">
 
-        <!-- <img class="d" src="/누림/img/d7.png" style="max-width: 100%;height: auto;"> -->
-    </div>
+
     <div class="two">
         <img class="logo2" src="/img/login/tape3.png" style="max-width: 100%;height: auto;">
     </div>
@@ -191,5 +183,5 @@
           <li class="menu--item"><button href="#">YouTube</button></li> -->
         </ul>
     </div>
-</section>
+</body>
 </html>

@@ -1,3 +1,9 @@
+*{
+  padding: 0;
+  margin: 0;
+
+}
+
 .profile {
 display: flex;
   justify-content: center;
@@ -27,10 +33,14 @@ h4{
   height: 70px;
   margin-top: 100px;
   text-align: center;
-  display: flex;
-  justify-content: space-between;
-}
+
 .text{
   display: inline;
   margin: 0 auto;
 }
+
+th, td {
+  display:flex;
+  gap: 10px;
+}
+
