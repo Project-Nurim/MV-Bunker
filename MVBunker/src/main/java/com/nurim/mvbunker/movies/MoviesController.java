@@ -1,6 +1,7 @@
 package com.nurim.mvbunker.movies;
 
 import com.nurim.mvbunker.movies.model.GenreEntity;
+import com.nurim.mvbunker.movies.model.MovieDomain;
 import com.nurim.mvbunker.movies.model.MyMovieDb;
 import info.movito.themoviedbapi.model.Genre;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,8 @@ public class MoviesController {
 
     @GetMapping("/boxoffice")
     public void boxoffice(Model model){
-        List<MyMovieDb> result = service.getPopularMovies();
+        List<MovieDomain> result = service.getPopularMovies();
+        System.out.println(result.get(0));
         model.addAttribute("boxofficeList", result);
     }
 
@@ -40,11 +42,11 @@ public class MoviesController {
     public void genre(Model model){
         Map<String, List<MyMovieDb>> genreList = new HashMap<>();
         for(int i = 0; i < OriginalGenres.size(); i++) {
-            List<MyMovieDb> list = service.getGenreMovies(OriginalGenres.get(i).getId());
+            List<MyMovieDb> list = service.getGenreMovies(OriginalGenres.get(i).getGenreId());
             for(int j = list.size() - 1 ; j > 9 ; j -- ) {
                 list.remove(j);
             }
-            genreList.put(OriginalGenres.get(i).getName(), list);
+            genreList.put(OriginalGenres.get(i).getGenreName(), list);
         }
         model.addAttribute("genreList", genreList);
         model.addAttribute("reverseGenreMap", reversGenreMap);

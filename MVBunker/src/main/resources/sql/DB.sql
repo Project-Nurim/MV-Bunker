@@ -137,3 +137,8 @@ create table t_movie_genres (
                                 FOREIGN KEY (id) REFERENCES t_movies (id),
                                 FOREIGN KEY (genreId) REFERENCES t_genres (id)
 );
+
+CREATE VIEW t_movie_genre_set AS
+SELECT A.id, A.genreId, B.genreName
+FROM t_movie_genres A
+         LEFT JOIN t_genres B ON A.genreId = B.genreid;
