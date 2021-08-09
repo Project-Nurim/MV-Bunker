@@ -1,0 +1,36 @@
+.profile {
+display: flex;
+  justify-content: center;
+}
+
+.img {
+  margin-top: 30px;
+  border-radius: 100%;
+  width: 150px;
+}
+
+
+h4{
+  position: absolute;
+  top: 280px;
+}
+
+.self{
+  position: absolute;
+  top: 320px;
+}
+
+.box{
+  margin: 0 auto;
+  border: 1px solid black;
+  width: 30%;
+  height: 70px;
+  margin-top: 100px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+.text{
+  display: inline;
+  margin: 0 auto;
+}

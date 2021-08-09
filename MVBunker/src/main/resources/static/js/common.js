@@ -39,8 +39,8 @@ const menu = document.querySelector('label .menu');
 menu.addEventListener('click', () => {
     color();
 });
-const other_color = 'rgba(255, 255, 255, 0.421)';
-
+// const other_color = 'rgba(255, 255, 255, 0.421)';
+const other_color ='rgba(0, 0, 0, 0.421)';
 
 function color() {
     const currentColor = menu.style.background;

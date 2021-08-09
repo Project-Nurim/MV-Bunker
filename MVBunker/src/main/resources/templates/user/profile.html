@@ -14,7 +14,8 @@
 </head>
 <body>
 <!-- ↓ 마이페이지 > 내 프로필 > 내 계정에 들어갈 내용 <td th:text="${auth.nnm}"></td> 필요한 내용은 요로케 쓰면 됨미다.>  -->
-<th:block layout:fragment="content" th:with="auth=${#authentication.getPrincipal().getUser()}">
+<section layout:fragment="content" th:with="auth=${#authentication.getPrincipal().getUser()}">
+
     <div class="top">
         <div>나의 프로필 수정하기</div>
         <br>
@@ -37,6 +38,6 @@
             <a href="" id="save" class="button">저장</a>
         </ul>
     </div>
-</th:block>
+</section>
 </body>
 </html>
