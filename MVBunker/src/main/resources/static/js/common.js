@@ -68,8 +68,8 @@ window.onload = function () {
     menuListUlElem.style.display = 'none';
 }
 
-// 헤더 검색창
 
+// 헤더 검색창
 $(document).ready(function(){
     var tl = new TimelineMax();
 
