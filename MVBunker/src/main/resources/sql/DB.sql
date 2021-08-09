@@ -122,3 +122,18 @@ CREATE TABLE t_reply(
     FOREIGN KEY(i_user) REFERENCES t_user(i_user),
     FOREIGN KEY(i_cmt) REFERENCES t_review_cmt(i_cmt)
 );
+
+
+CREATE TABLE t_genres (
+                          id INT UNSIGNED NOT NULL,
+                          name VARCHAR(15) NOT NULL,
+                          PRIMARY KEY (id)
+);
+
+create table t_movie_genres (
+                                id INT UNSIGNED NOT NULL,
+                                genreId INT UNSIGNED NOT NULL,
+                                PRIMARY KEY (id, genreId),
+                                FOREIGN KEY (id) REFERENCES t_movies (id),
+                                FOREIGN KEY (genreId) REFERENCES t_genres (id)
+);
