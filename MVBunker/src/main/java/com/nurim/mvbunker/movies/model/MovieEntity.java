@@ -2,6 +2,8 @@ package com.nurim.mvbunker.movies.model;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class MovieEntity {
     private int id;
@@ -14,4 +16,5 @@ public class MovieEntity {
     private String originalLanguage;
     private double popularity;
     private int mainGenre;
+    private List<GenreEntity> genres;
 }

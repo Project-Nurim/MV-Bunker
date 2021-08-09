@@ -3,12 +3,21 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.nurim.mvbunker.movies.MoviesMapper">
+    <insert id="insOriginGenres">
+        INSERT IGNORE INTO t_genres (id, name)
+        VALUES (${id}, #{name})
+    </insert>
+
     <insert id="insMovies">
         INSERT INTO t_movies
         (id, title, originalTitle, backdropPath, posterPath, releaseDate, adult, overview, originalLanguage, popularity, mainGenre)
         VALUES
         (${id}, #{title}, #{originalTitle}, #{backdropPath}, #{posterPath}, #{releaseDate}, #{adult}, #{overview}, #{originalLanguage}, #{popularity}, ${mainGenre})
         ON DUPLICATE KEY UPDATE popularity = VALUES(popularity)
+    </insert>
+    <insert id="insMoviesGenre">
+        INSERT INTO t_movie_genres (id, genreId)
+        VALUES
     </insert>
     <select id="selPopMovies" resultType="MovieDomain">
         SELECT A.*, AVG(B.production) AS production, AVG(B.performance) AS performance,

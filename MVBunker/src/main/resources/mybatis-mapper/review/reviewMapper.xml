@@ -37,7 +37,7 @@
     <!-- 전체리뷰 목록 - default=최신순 -->
     <select id="selAllReview" resultType="reviewDomain">
         select A.*, B.releaseDate from t_review A
-        left join t_moives B
+        left join t_movies B
         on A.id = B.id
         order by count(case when )
     </select>
