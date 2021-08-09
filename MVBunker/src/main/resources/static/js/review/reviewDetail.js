@@ -1,4 +1,3 @@
-
 // 유튜브 트레일러 뿌려주기
 const videoKey = document.querySelector('#video').dataset.movieId;
 const movieIdVal = document.querySelector('#movieIdInput').value;
@@ -25,7 +24,6 @@ infinityScrolling.getItemList(1);
 function makeItemList(reviewList) { // 받은 애들 어떻게 뿌릴지
     console.log(reviewList);
     reviewList.forEach(review => {
-
 
        // 지민이가 만든 컨테이너 주소 변수.innerHTML += `<div>${review.title}</div>`;
     })

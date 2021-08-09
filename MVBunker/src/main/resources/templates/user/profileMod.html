@@ -15,19 +15,28 @@
 <body>
 <!-- profile.html과 사용방법은 같습니다.-->
 <th:block layout:fragment="content" th:with="auth=${#authentication.getPrincipal().getUser()}">
-    <table>
-        <tr>
-            <td th:text="${auth.uid}"></td>
-        </tr>
-        <tr>
-<!--            <td th:text="${auth.unm}"></td>-->
-        </tr>
-        <tr>
-            <td th:text="${auth.introduce}"></td>
-        </tr>
-    </table>
-</th:block>
-<th:block layout:fragment="content" th:with="activity=${activity}">
+        <div class="top">
+            <div>나의 프로필 수정하기</div>
+            <br>
+            <a href="" id="bye" class="button">회원탈퇴</a>
+            <div class="all">
+                <img src="/logo/imgs/bunkerfavicon2.png">
+            </div>
+            <ul>
+                <li>나의 계정</li>
+                <li th:text="'아이디 :' + ${auth.uid}"></li>
+                <li th:text="'닉네임 :' + ${auth.unm}"></li>
+                <li th:text="'가입일 :' + ${auth.regdt}"></li>
+                <hr 1px>
+                <li>나의 활동내역</li>
+                <li th:text="'내가 작성한 리뷰 :' + ${activity.countMyReview}"></li>
+                <li th:text="'내가 작성한 댓글 :' + ${activity.countMyReview_cmt}"></li>
+                <li th:text="'내가 작성한 답글 :' + ${activity.countMyReply}"></li>
+                <hr 1px>
+                <li th:text="'자기소개 :' + ${auth.introduce}"></li>
+                <a href="" id="save" class="button">저장</a>
+            </ul>
+        </div>
 </th:block>
 </body>
 </html>
