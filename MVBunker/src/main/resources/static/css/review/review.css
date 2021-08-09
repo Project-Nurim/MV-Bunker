@@ -66,3 +66,106 @@ a {
     display: flex;
     justify-content: center;
 }
+
+/* css */
+body {
+    background-color: black;
+    padding: 0;
+    margin: 0;
+}
+
+nav {
+    position: relative;
+    padding-bottom: 12px;
+
+}
+
+nav .line {
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    margin: 10px 0 0 0;
+    background: #FF1847;
+
+}
+
+nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul li {
+    margin: 0 0 0 0;
+    opacity: .4;
+    transition: all 0.4s ease;
+    margin-top: 90px;
+    color: rgb(0, 0, 0);
+}
+
+nav ul li:hover {
+    opacity: .7;
+}
+
+nav ul li.active {
+    opacity: 1;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a {
+    text-align: center;
+    width: 175px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    display: block;
+    font-weight: 600;
+    letter-spacing: .2em;
+    font-size: 16px;
+}
+
+div {
+    width: 90%;
+    margin: 0 auto;
+}
+
+/*-------------------------------------------------*/
+.reviewtable nav ul {
+    margin-bottom: 100px;
+}
+
+
+.reviewtable tr td {
+    color: white;
+    border: 1px solid rgb(0, 0, 0);
+    width: 10vw;
+    height: 10px;
+    /* padding: 10px; */
+    padding-left: 20px;
+}
+.width{
+    width: 330px;
+}
+
+.poster {
+    width: 100%;
+}
+
+.reviewtable {
+    width: 100%;
+    margin: 0 auto;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-bottom: 100px;
+}
+
+.reviewtable table{
+    border-collapse: collapse;
+}
