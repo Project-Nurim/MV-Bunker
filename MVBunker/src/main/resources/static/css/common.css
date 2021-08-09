@@ -112,7 +112,6 @@ body {
     }
 }
 
-
 /* 검색창 */
 body {
     font-family: 'Roboto', sans-serif;
@@ -141,6 +140,7 @@ body {
     color: #000;
     letter-spacing: 1px;
 }
+
 .form-control:focus {
     outline: none;
     border: none;
@@ -178,6 +178,7 @@ svg {
 .form-group {
     margin: 0;
     position: relative;
+
 }
 
 .label-wrap {
