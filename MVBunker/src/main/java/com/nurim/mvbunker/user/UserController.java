@@ -36,7 +36,7 @@ public class UserController {
     @GetMapping("/auth")
     public String authenticationLocal(UserEntity param) {
         service.auth(param);
-        return "redirect:/user/login";
+        return "redirect:/home";
     }
 
     @PostMapping("/join")
