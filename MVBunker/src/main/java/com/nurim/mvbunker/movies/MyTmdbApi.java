@@ -103,8 +103,7 @@ public class MyTmdbApi {
                 .queryParam("language", "ko")
                 .build();
 
-        MovieResultsPage mrp = getRestApi(builder, MovieResultsPage.class);
-        return mrp;
+        return getRestApi(builder, MovieResultsPage.class);
     }
 
     public List<GenreEntity> getOriginGenreList() {

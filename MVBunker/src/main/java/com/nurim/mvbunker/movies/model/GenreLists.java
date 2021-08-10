@@ -1,5 +1,6 @@
 package com.nurim.mvbunker.movies.model;
 
+import com.nurim.mvbunker.movies.MoviesMapper;
 import info.movito.themoviedbapi.TmdbApi;
 import info.movito.themoviedbapi.model.Genre;
 import info.movito.themoviedbapi.model.MovieDb;
@@ -19,22 +20,30 @@ public class GenreLists {
     @Autowired TmdbApi tmdbApi;
 
     @Autowired
+    MoviesMapper moviesMapper;
+
+    @Autowired
     @Qualifier("genreMap")
     Map<Integer, String> genreMap;
 
-    public List<MyMovieDb> getMovieListWithGenresName(MovieResultsPage resultsPage) {
-        List<MyMovieDb> results = new ArrayList<>();
+    public int insMovieListAndGenres(MovieResultsPage resultsPage) {
+        int result = 0;
         List<MovieDb> originList = resultsPage.getResults();
         for(int i = 0 ; i < originList.size() ; i++) {
-            results.add(new MyMovieDb(originList.get(i)));
+            MyMovieDb movieDb = new MyMovieDb(originList.get(i));
+            movieDb.setMainGenre(originList.get(i).getGenres().get(0));
+            result += moviesMapper.insMovies(movieDb);
+            List<MovieGenreEntity> genreList = new ArrayList<>();
             for(int j = 0 ; j < originList.get(i).getGenres().size(); j++) {
-                results.get(i).getGenreNames()
-                        .add(genreMap.get(originList.get(i)
-                                .getGenres().get(j)));
-                results.get(i).setMainGenre(results.get(i).getGenres().get(0));
+                MovieGenreEntity movieGenreEntity = new MovieGenreEntity();
+                movieGenreEntity.setId(movieDb.getId());
+                movieGenreEntity.setGenreId(movieDb.getGenres().get(j));
+                genreList.add(movieGenreEntity);
+                System.out.println(movieGenreEntity);
             }
+            moviesMapper.insMoviesGenre(genreList);
         }
-        return results;
+        return result;
     }
 
     public MyMovieDb getMovieWithGenre(MovieDb movie) {

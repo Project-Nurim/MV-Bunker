@@ -40,9 +40,9 @@ public class MoviesController {
 
     @GetMapping("/genre")
     public void genre(Model model){
-        Map<String, List<MyMovieDb>> genreList = new HashMap<>();
+        Map<String, List<MovieDomain>> genreList = new HashMap<>();
         for(int i = 0; i < OriginalGenres.size(); i++) {
-            List<MyMovieDb> list = service.getGenreMovies(OriginalGenres.get(i).getGenreId());
+            List<MovieDomain> list = service.getGenreMovies(OriginalGenres.get(i).getGenreId());
             for(int j = list.size() - 1 ; j > 9 ; j -- ) {
                 list.remove(j);
             }
@@ -54,12 +54,12 @@ public class MoviesController {
 
     @GetMapping("/genreDetail")
     public void genreDetail(Model model, int genreId){
-        List<MyMovieDb> list = service.getGenreMovies(genreId);
+        List<MovieDomain> list = service.getGenreMovies(genreId);
         model.addAttribute("movieInfo", list);
     }
     @ResponseBody
     @GetMapping("/genreDetailScrolling")
-    public List<MyMovieDb> genreDetailAjax(int genreId, int page) {
+    public List<MovieDomain> genreDetailAjax(int genreId, int page) {
         return service.getGenreMovies(genreId, page);
     }
 
