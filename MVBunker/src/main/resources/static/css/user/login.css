@@ -18,7 +18,7 @@ html {
 
 @font-face {
     font-family: 'Provicali.otf';
-    /*src: url(/폰트/Provicali.otf);*/
+    /*src: url(@{/user/Provicali.otf});*/
 }
 
 body {
@@ -404,6 +404,14 @@ div a:visited {
     width: 270px;
 }
 
+.logo2_1
+{
+   width: 20vw;
+   margin-top: 55px;
+    /*style="max-width: 100%;height: auto;margin-top: 55px;*/
+}
+
+
 .p-button:hover {
     transition: all .4s ease;
     /* background-color:rgba(0,0,0,.7); */
@@ -696,13 +704,8 @@ a {
 /*---------------------------------------------------------------*/
 
 .menuu {
-    /* height: 100vh; */
-    /* overflow: hidden; */
-    /* background: #fff; */
     position: absolute;
     top: 2300px;
-    /* left: 35%; */
-    /*cursor: -webkit-grab;*/
     cursor: grab;
     width: 100%;
 }
@@ -902,13 +905,14 @@ hr {
 
 
 .pic {
+    margin-top: 100px;
     /* position: absolute; */
-    width: 100%;
+    width: 130vw;
     /* right: -100px; */
     /* margin-top: 120px; */
     /* top: 150px; */
     /* z-index: 99; */
-
+    margin-left: 80px;
 }
 
 
@@ -1028,7 +1032,7 @@ body {
     /* font-size: 3rem; */
     font-size: 60px;
     transform: translateX(17%);
-    top: 33vh;
+    top: 39vh;
     font-family: 'Amazing View italic.otf';
     letter-spacing: 2px;
     padding: 20px;
@@ -1048,7 +1052,7 @@ body {
         /* font-size: 3rem; */
         font-size: 50px;
         transform: translateX(17%);
-        top: 36vh;
+        top: 42vh;
     }
 }
 
@@ -1058,7 +1062,7 @@ body {
         /* font-size: 3rem; */
         font-size: 40px;
         transform: translateX(16%);
-        top: 38vh;
+        top: 43vh;
     }
 }
 
@@ -1068,7 +1072,7 @@ body {
         /* font-size: 3rem; */
         font-size: 30px;
         transform: translateX(16%);
-        top: 40vh;
+        top: 47vh;
     }
 }
 
@@ -1078,7 +1082,14 @@ body {
         /* font-size: 3rem; */
         font-size: 20px;
         transform: translateX(14%);
-        top: 43vh;
+        top: 49vh;
+    }
+
+    @media (max-width: 1000px) {
+    label .menu{
+        /*background:#fae89676;*/
+        background: #fae89600;
+    }
     }
 }
 
@@ -1121,16 +1132,12 @@ body {
 
 .stage_highlight {
     position: absolute;
-    top: 50px;
-    /*  0  -> */
-    left: 10vw;
-    /*25vh -> */
-    width: 60vw;
-    /*100vh -> */
+    top:85px;
+    left:20vw;
+    width: 47vw;
     height: 80%;
-    /*100% ->*/
     overflow: hidden;
-    background-image: radial-gradient(ellipse closest-side at 50% 82%, #fae89676, #fae89676 100%);
+    background-image: radial-gradient(ellipse closest-side at 50% 82%, #fae89676, rgba(84, 120, 173, 0) 100%);
     animation: move_highlight 5s linear infinite;
 }
 
@@ -1147,10 +1154,12 @@ body {
     width: 40vh;
     height: 400vh;
     background-image: radial-gradient(ellipse, #fae89676, #fae8964c 25%, rgba(82, 116, 168, 0) 50%);
+    /*background-image: linear-gradient(to bottom, #fae8964c 25%, rgba(82, 116, 168, 0) 50%);*/
+/*rgba(82,116,168,0.5)*/
     top: -220vh;
-    left: 30vw;
+    left: 40vw;
     /*55vh에서 30vw로 수정*/
-    transform: perspective(28vh) rotateX(30deg);
+    transform: perspective(35vh) rotateX(30deg);
     /* z-index: 10; */
 }
 

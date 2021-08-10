@@ -2,12 +2,13 @@
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <title>bunker by nurim</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel="stylesheet" th:href="@{/css/user/login.css}">
     <link rel="stylesheet" th:href="@{/css/user/login2.css}">
+    <script defer th:src="@{/js/review/jquery-3.6.0.min.js}"></script>
     <script defer th:src="@{/js/gsap.js}"></script>
     <script defer th:src="@{/js/user/login.js}"></script>
 </head>
@@ -19,7 +20,7 @@
 
         <div class="stage_floor"></div>
 
-<!--        <div class="stage_highlight"></div>-->
+        <div class="stage_highlight"></div>
 
         <div class="lamp"></div>
 
@@ -27,7 +28,7 @@
 
     </div>
 
-    <img src="/img/login/maintv.png" class="pic" style="min-width: 100%; height: auto;" onclick="box()">
+    <img src="/img/login/!4.png" class="pic" onclick="box()">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&family=Fira+Mono:wght@500&display=swap"
           rel="stylesheet">
     <div class="TextGlitch" id="title" onclick="box()">
@@ -92,7 +93,7 @@
     </div>
 
     <div class="four">
-        <img class="logo2_1" src="/img/login/tape1.png" style="max-width: 100%;height: auto;">
+        <img class="logo2_1" src="/img/login/tape1.png">
     </div>
     </div>
 
