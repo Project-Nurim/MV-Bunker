@@ -4,23 +4,23 @@
 
 }
 
-ul {
+.all ul {
     /* background-color: teal; */
     width: 400px;
     margin: 0 auto;
     line-height: 40px;
 }
 
-li {
+.all li {
     list-style: none;
     text-align: left;
 }
 
-hr{
+.all hr{
     margin-left: auto;
 }
 
-img {
+.all img {
     width: 130px;
     height: 130px;
     border-radius: 100%;
@@ -28,7 +28,7 @@ img {
     transform: translateX(20%);
 }
 
-.top {
+.all .top {
     transform: translateY(40%);
     width:70%;
 }

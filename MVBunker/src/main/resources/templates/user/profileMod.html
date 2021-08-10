@@ -2,7 +2,7 @@
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorator="layout/basicLayout">
+      layout:decorator="layout/profileLayout">
 <head>
     <th:block layout:fragment="css">
         <link rel="stylesheet" th:href="@{/css/user/profileMod.css}">
@@ -24,16 +24,13 @@
             </div>
             <ul>
                 <li>나의 계정</li>
-                <li th:text="'아이디 :' + ${auth.uid}"></li>
-                <li th:text="'닉네임 :' + ${auth.unm}"></li>
-                <li th:text="'가입일 :' + ${auth.regdt}"></li>
+                <a href="" id="pfre" class="button">수정하기</a> <!-- 비밀번호 수정 모달 띄우기 -->
+                <li th:text="'아이디 : ' + ${auth.uid}"></li>
+                <li th:password="'비밀번호 : ' + ${auth.upw}"></li>
+                <li th:text="'닉네임 : ' + ${auth.unm}"></li>
+                <li th:text="'가입일 : ' + ${auth.regdt}"></li>
                 <hr 1px>
-                <li>나의 활동내역</li>
-                <li th:text="'내가 작성한 리뷰 :' + ${activity.countMyReview}"></li>
-                <li th:text="'내가 작성한 댓글 :' + ${activity.countMyReview_cmt}"></li>
-                <li th:text="'내가 작성한 답글 :' + ${activity.countMyReply}"></li>
-                <hr 1px>
-                <li th:text="'자기소개 :' + ${auth.introduce}"></li>
+                <li th:text="'자기소개 : ' + ${auth.introduce}"></li>
                 <a href="" id="save" class="button">저장</a>
             </ul>
         </div>
