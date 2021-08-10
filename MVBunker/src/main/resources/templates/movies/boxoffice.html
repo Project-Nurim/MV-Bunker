@@ -3,16 +3,16 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorator="layout/basicLayout">
-<head>
+
     <th:block layout:fragment="css">
         <link rel="stylesheet" th:href="@{/css/movies/boxoffice.css}">
     </th:block>
     <th:block layout:fragment="js">
+        <script src='https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js'></script>
         <script defer th:src="@{/js/movies/boxoffice.js}"></script>
     </th:block>
-    <title>로그인</title>
-</head>
-<body>
+    <title>박스오피스</title>
+
 <!-- 지민이가 해야하는 멋들어지는 360도 이미지 슬라이드가 들어가는 박스오피스 페이지 -->
 <!--  출력 예제
 <table>
@@ -29,16 +29,235 @@
     이미지 경로에 w500 : 가로 500px, original : 원래 크기
 -->
 <th:block layout:fragment="content">
-    <table>
-        <tr th:each="movie : ${boxofficeList}">
-            <td><img th:src="'https://image.tmdb.org/t/p/w500/' + ${movie.posterPath}"></td>
-            <td th:text="${movie.title}"></td>
-            <td th:text="${movie.overview}"></td>
-            <th:block th:each="genre : ${movie.genres}">
-                <td th:text="${genre.genreName}"> </td>
-            </th:block>
-        </tr>
-    </table>
+<!--    <table>-->
+<!--        <tr th:each="movie : ${boxofficeList}">-->
+<!--            <td><img th:src="'https://image.tmdb.org/t/p/w500/' + ${movie.posterPath}"></td>-->
+<!--            <td th:text="${movie.title}"></td>-->
+<!--            <td th:text="${movie.overview}"></td>-->
+<!--            <th:block th:each="genre : ${movie.genres}">-->
+<!--                <td th:text="${genre.genreName}"> </td>-->
+<!--            </th:block>-->
+<!--        </tr>-->
+<!--    </table>-->
+
+
+<!-------------------------------------------------------------------------->
+
+    <div class="app">
+        <!-- partial:index.partial.html -->
+
+        <div class="cardList">
+            <button class="cardList__btn btn btn--left">
+                <div class="icon">
+                    <svg>
+                        <use xlink:href="#arrow-left"></use>
+                    </svg>
+                </div>
+            </button>
+
+            <div class="cards__wrapper">
+                <div class="card" th:each="movie : ${boxofficeList}">
+                    <div class="card__image">
+                        <img th:src="'https://image.tmdb.org/t/p/w500/' + ${movie.posterPath}">
+                    </div>
+                </div>
+            </div>
+
+            <button class="cardList__btn btn btn--right">
+                <div class="icon">
+                    <svg>
+                        <use xlink:href="#arrow-right"></use>
+                    </svg>
+                </div>
+            </button>
+        </div>
+
+        <div class="infoList">
+            <div class="info__wrapper">
+                <div class="info current--info">
+                    <h1 class="text name">Avengers</h1>
+                    <h4 class="text location">INFINITY WAR</h4>
+                    <p class="text description">Action/SF</p>
+                </div>
+
+                <div class="info next--info">
+                    <h1 class="text name">Doctor Strange</h1>
+                    <h4 class="text location"></h4>
+                    <p class="text description">Action/Adventure</p>
+                </div>
+
+                <div class="info previous--info">
+                    <h1 class="text name">SPIDER MAN</h1>
+                    <h4 class="text location">Homecoming</h4>
+                    <p class="text description">Action/Adventure</p>
+                </div>
+
+                <div class="info aaa--info">
+                    <h1 class="text name">X - MAN</h1>
+                    <h4 class="text location"></h4>
+                    <p class="text description">Action/Adventure</p>
+                </div>
+
+                <div class="info bbb--info">
+                    <h1 class="text name">The Old Guard</h1>
+                    <h4 class="text location"></h4>
+                    <p class="text description">Action/Fantasy</p>
+                </div>
+                <div class="info ccc--info">
+                    <h1 class="text name">Inception</h1>
+                    <h4 class="text location"></h4>
+                    <p class="text description">Action/SF</p>
+                </div>
+                <div class="info ddd--info">
+                    <h1 class="text name">Resident Evil</h1>
+                    <h4 class="text location">The Final Chapter</h4>
+                    <p class="text description">Action/Horror</p>
+                </div>
+                <div class="info current--info">
+                    <h1 class="text name">Avengers</h1>
+                    <h4 class="text location">INFINITY WAR</h4>
+                    <p class="text description">Action/SF</p>
+                </div>
+
+                <div class="info next--info">
+                    <h1 class="text name">Doctor Strange</h1>
+                    <h4 class="text location"></h4>
+                    <p class="text description">Action/Adventure</p>
+                </div>
+
+                <div class="info previous--info">
+                    <h1 class="text name">SPIDER MAN</h1>
+                    <h4 class="text location">Homecoming</h4>
+                    <p class="text description">Action/Adventure</p>
+                </div>
+
+                <div class="info aaa--info">
+                    <h1 class="text name">X - MAN</h1>
+                    <h4 class="text location"></h4>
+                    <p class="text description">Action/Adventure</p>
+                </div>
+
+                <div class="info bbb--info">
+                    <h1 class="text name">The Old Guard</h1>
+                    <h4 class="text location"></h4>
+                    <p class="text description">Action/Fantasy</p>
+                </div>
+                <div class="info ccc--info">
+                    <h1 class="text name">Inception</h1>
+                    <h4 class="text location"></h4>
+                    <p class="text description">Action/SF</p>
+                </div>
+                <div class="info ddd--info">
+                    <h1 class="text name">Resident Evil</h1>
+                    <h4 class="text location">The Final Chapter</h4>
+                    <p class="text description">Action/Horror</p>
+                </div>
+                <div class="info current--info">
+                    <h1 class="text name">Avengers</h1>
+                    <h4 class="text location">INFINITY WAR</h4>
+                    <p class="text description">Action/SF</p>
+                </div>
+
+                <div class="info next--info">
+                    <h1 class="text name">Doctor Strange</h1>
+                    <h4 class="text location"></h4>
+                    <p class="text description">Action/Adventure</p>
+                </div>
+
+                <div class="info previous--info">
+                    <h1 class="text name">SPIDER MAN</h1>
+                    <h4 class="text location">Homecoming</h4>
+                    <p class="text description">Action/Adventure</p>
+                </div>
+
+                <div class="info aaa--info">
+                    <h1 class="text name">X - MAN</h1>
+                    <h4 class="text location"></h4>
+                    <p class="text description">Action/Adventure</p>
+                </div>
+
+                <div class="info bbb--info">
+                    <h1 class="text name">The Old Guard</h1>
+                    <h4 class="text location"></h4>
+                    <p class="text description">Action/Fantasy</p>
+                </div>
+                <div class="info ccc--info">
+                    <h1 class="text name">Inception</h1>
+                    <h4 class="text location"></h4>
+                    <p class="text description">Action/SF</p>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="app__bg">
+            <div class="app__bg__image current--image">
+                <img src="" alt="" />
+            </div>
+            <div class="app__bg__image next--image">
+                <img src="" alt="" />
+            </div>
+            <div class="app__bg__image previous--image">
+                <img src="" alt="" />
+            </div>
+            <div class="app__bg__image aaa--image">
+                <img src="" alt="" />
+            </div>
+            <div class="app__bg__image bbb--image">
+                <img src="" alt="" />
+            </div>
+            <div class="app__bg__image ccc--image">
+                <img src="" alt="" />
+            </div>
+            <div class="app__bg__image ddd--image">
+                <img src="" alt="" />
+            </div>
+            <div class="app__bg__image current--image">
+                <img src="" alt="" />
+            </div>
+            <div class="app__bg__image next--image">
+                <img src="" alt="" />
+            </div>
+            <div class="app__bg__image previous--image">
+                <img src="" alt="" />
+            </div>
+            <div class="app__bg__image aaa--image">
+                <img src="" alt="" />
+            </div>
+            <div class="app__bg__image bbb--image">
+                <img src="" alt="" />
+            </div>
+            <div class="app__bg__image ccc--image">
+                <img src="" alt="" />
+            </div>
+            <div class="app__bg__image ddd--image">
+                <img src="" alt="" />
+            </div><div class="app__bg__image current--image">
+            <img src="" alt="" />
+        </div>
+            <div class="app__bg__image next--image">
+                <img src="" alt="" />
+            </div>
+            <div class="app__bg__image previous--image">
+                <img src="" alt="" />
+            </div>
+            <div class="app__bg__image aaa--image">
+                <img src="" alt="" />
+            </div>
+            <div class="app__bg__image bbb--image">
+                <img src="" alt="" />
+            </div>
+            <div class="app__bg__image ccc--image">
+                <img src="" alt="" />
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <!----------------------------------------------------------------->
 </th:block>
-</body>
+
 </html>

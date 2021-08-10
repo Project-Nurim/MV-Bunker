@@ -36,9 +36,12 @@ const infinityScrolling = {
 
 //profilejs
 const menu = document.querySelector('label .menu');
-menu.addEventListener('click', () => {
-    color();
-});
+if(menu) {
+    menu.addEventListener('click', () => {
+        color();
+    });
+}
+
 // const other_color = 'rgba(255, 255, 255, 0.421)';
 const other_color ='rgba(0, 0, 0, 0.421)';
 
@@ -53,19 +56,24 @@ function color() {
 
 const menuListUlElem = document.querySelector('.menu-list ul');
 const chk = document.querySelector('#chk');
-chk.addEventListener('change', () => {
-    console.log(chk.checked);
+if(chk) {
+    chk.addEventListener('change', () => {
+        console.log(chk.checked);
 
-    if (chk.checked) {
-        // menuListUlElem.style.opacity = 1;
-        menuListUlElem.style.display = 'block';
-    } else {
-        menuListUlElem.style.display = 'none';
-    }
-});
+        if (chk.checked && menuListUlElem) {
+            // menuListUlElem.style.opacity = 1;
+            menuListUlElem.style.display = 'block';
+        } else {
+            menuListUlElem.style.display = 'none';
+        }
+    });
+}
+
 
 window.onload = function () {
-    menuListUlElem.style.display = 'none';
+    if(menuListUlElem) {
+        menuListUlElem.style.display = 'none';
+    }
 }
 
 
