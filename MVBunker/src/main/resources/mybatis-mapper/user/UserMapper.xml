@@ -60,10 +60,27 @@
 
     </select>
 
+    <!-- 팔로우 -->
+    <!-- 팔로우 등록 -->
+    <insert id="insFollower">
+        INSERT INTO t_sub
+            (sub_ing_user, sub_ed_user)
+        VALUES
+            (#{i_user}, #{sub_ed_user});
+    </insert>
+
+    <!-- 팔로우 취소 -->
+    <delete id="delFollower">
+        DELETE t_sub WHERE sub_ing_user = #{i_user} and sub_ed_user = #{sub_ed_user};
+    </delete>
+
     <!-- 내가 팔로우한 유저목록 띄우기 -->
     <select id="mySubUser">
-        select * from t_sub
-        where sub_ing_user = ${i_user}
+        SELECT A.unn AS 닉네임, A.profileImg AS 프로필사진, A.regdt AS 가입일자, A.introduce AS 자기소개
+        FROM t_user A
+                 INNER JOIN t_sub B
+                            ON A.i_user = B.sub_ed_user
+        WHERE B.sub_ing_user = #{i_user};
     </select>
 
 </mapper>

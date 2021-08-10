@@ -5,12 +5,24 @@
     <!-- 리뷰 작성 후 DB에 저장 -->
     <insert id="insReview">
         insert into t_review
-            ( i_user, id, re_ctnt, m_title, poster)
-        values
-            ( #{i_user}, #{id}, #{re_ctnt}, #{m_title}, #{poster})
+        (id, i_user, re_ctnt,title, originalTitle, backdropPath, posterPath, releaseDate, adult, overview, originalLanguage, popularity, mainGenre)
+        VALUES
+            (
+             #{id}, #{i_user}, #{re_ctnt},
+             (SELECT title FROM t_movies WHERE id=#{id}),
+             (SELECT originalTitle FROM t_movies WHERE id=#{id}),
+             (SELECT backdropPath FROM t_movies WHERE id=#{id}),
+             (SELECT posterPath FROM t_movies WHERE id=#{id}),
+             (SELECT releaseDate FROM t_movies WHERE id=#{id}),
+             (SELECT adult FROM t_movies WHERE id=#{id}),
+             (SELECT overview FROM t_movies WHERE id=#{id}),
+             (SELECT originalLanguage FROM t_movies WHERE id=#{id}),
+             (SELECT popularity FROM t_movies WHERE id=#{id}),
+             (SELECT mainGenre FROM t_movies WHERE id=#{id}))
+            );
     </insert>
 
-    <!-- 전체리뷰의 좋/싫, 댓글 수 카운트 목록 - default=최신순 -->
+    <!-- 전체리뷰 - default=최신순 >>> 수정 필요!! -->
     <select id="selAllReviewCount" resultType="ReviewDomain">
         select A.*, COUNT(CASE WHEN B.disLike = 0 THEN 1 END) AS review_like_cnt,
                COUNT(CASE WHEN B.disLike = 1 THEN 1 END) AS review_dislike_cnt,
