@@ -243,6 +243,7 @@ const lerp = (v0, v1, t) => {
    Dispose
    --------------------*/
 const dispose = scroll => {
+
     gsap.set($items, {
         y: i => {
             return i * itemHeight + scroll;
@@ -294,6 +295,7 @@ const handleTouchEnd = () => {
 /*--------------------
    Listeners
    --------------------*/
+
 $menu.addEventListener('mousewheel', handleMouseWheel);
 
 $menu.addEventListener('touchstart', handleTouchStart);
@@ -312,13 +314,13 @@ $menu.addEventListener('selectstart', () => {
 
 /*--------------------
                                                               Resize
-                                                              --------------------*/
+                                                            --------------------*/
+
 window.addEventListener('resize', () => {
     menuHeight = $menu.clientHeight;
     itemHeight = $items[0].clientHeight;
     wrapHeight = $items.length * itemHeight;
 });
-
 
 /*--------------------
     Render
