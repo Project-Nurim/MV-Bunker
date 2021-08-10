@@ -1,8 +1,7 @@
 package com.nurim.mvbunker.movies;
 
-import com.nurim.mvbunker.common.model.pagingDTO;
+import com.nurim.mvbunker.common.model.PagingDTO;
 import com.nurim.mvbunker.movies.model.*;
-import info.movito.themoviedbapi.model.MovieDb;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -13,5 +12,6 @@ public interface MoviesMapper {
     int insMovies(MyMovieDb param);
     int insMoviesGenre(List<MovieGenreEntity> param);
     List<MovieDomain> selPopMovies();
+    List<MovieDomain> selGenreMovies(int genreId, PagingDTO pagingDTO);
     MovieDomain selTheMovie(MovieEntity param);
 }

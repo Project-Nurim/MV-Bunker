@@ -1,6 +1,6 @@
 package com.nurim.mvbunker.review;
 
-import com.nurim.mvbunker.common.model.pagingDTO;
+import com.nurim.mvbunker.common.model.PagingDTO;
 import com.nurim.mvbunker.review.model.EvalEntity;
 import com.nurim.mvbunker.review.model.ReviewDomain;
 import com.nurim.mvbunker.review.model.ReviewEntity;
@@ -11,8 +11,8 @@ import java.util.List;
 @Mapper
 public interface ReviewMapper {
     int insReview(ReviewEntity param);
-    List<ReviewDomain> selAllReview(pagingDTO page);
-    List<ReviewDomain> selReview(ReviewEntity param, pagingDTO page);
+    List<ReviewDomain> selAllReview(PagingDTO page);
+    List<ReviewDomain> selReview(ReviewEntity param, PagingDTO page);
     int updReview(ReviewEntity param);
     int delReview(ReviewEntity param);
 

@@ -8,7 +8,7 @@ function makeItemList(movieList) {
     console.log(movieList);
     movieList.forEach(movie => {
         const img = document.createElement('img');
-        img.src = 'https://image.tmdb.org/t/p/w500/' + movie.poster_path;
+        img.src = 'https://image.tmdb.org/t/p/w500/' + movie.posterPath;
         movieContainerElem.append(img);
 
         // = movieContainerElem.innerHTML += `<img src='https://image.tmdb.org/t/p/w500/${movie.poster_path}'>`;

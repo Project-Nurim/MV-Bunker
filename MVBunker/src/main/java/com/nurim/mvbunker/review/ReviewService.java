@@ -1,6 +1,6 @@
 package com.nurim.mvbunker.review;
 
-import com.nurim.mvbunker.common.model.pagingDTO;
+import com.nurim.mvbunker.common.model.PagingDTO;
 import com.nurim.mvbunker.review.model.ReviewDomain;
 import com.nurim.mvbunker.review.model.ReviewEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,12 +21,12 @@ public class ReviewService {
     }
 
     public List<ReviewDomain> selAllReview(int page, int orderby) {
-        pagingDTO pageDto = new pagingDTO(page, orderby);
+        PagingDTO pageDto = new PagingDTO(page, orderby);
         return mapper.selAllReview(pageDto);
     }
 
     public List<ReviewDomain> getReviews(ReviewEntity param, int page, int orderby) {
-        pagingDTO pageDto = new pagingDTO(page, orderby);
+        PagingDTO pageDto = new PagingDTO(page, orderby);
         return mapper.selReview(param, pageDto);
     }
 }
