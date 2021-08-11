@@ -15,13 +15,13 @@
 <body>
 <!-- ↓ 마이페이지 > 내 프로필 > 내 계정에 들어갈 내용 <td th:text="${auth.nnm}"></td> 필요한 내용은 요로케 쓰면 됨미다.>  -->
 <section layout:fragment="content" th:with="auth=${#authentication.getPrincipal().getUser()}">
-
+    <div class="myprofile">나의 프로필</div>
     <div class="top">
-        <div>나의 프로필</div>
+
         <br>
         <a href="" id="bye" class="button">수정하기</a>
         <div class="all">
-            <img src="/logo/imgs/bunkerfavicon2.png">
+            <img src="/img/login/6.jpg">
         </div>
         <ul>
             <li>나의 계정</li>

@@ -28,6 +28,7 @@ body {
     overflow-x: hidden;
 }
 
+
 label .menu {
     position: absolute;
     right: -105px;
@@ -693,14 +694,7 @@ a {
     /* z-index: 5; */
 }
 
-/* #TEST {
-      font-size: 4rem;
-      color: white;
-      width: 100%;
-      height: 200px;
-      position: fixed;
-      background-color: black;
-    } */
+
 
 /*---------------------------------------------------------------*/
 
@@ -725,6 +719,8 @@ a {
     /* padding: 2rem 0; */
     text-align: center;
 }
+
+
 
 @media (max-width: 767px) {
     .menu--item {
@@ -759,9 +755,14 @@ a {
     font-family: 'Provicali.otf';
     cursor: pointer;
     letter-spacing: 0.08em;
-    font-family: 'Provicali.otf';
     width: 100%;
 }
+
+@font-face {
+    font-family: 'Provicali.otf';
+    src: url(/css/user/Provicali.otf);
+}
+
 
 @media (max-width: 767px) {
     .menu--item button {
@@ -906,14 +907,16 @@ hr {
 
 
 .pic {
-    margin-top: 100px;
+    /*margin-top: 100px;*/
     /* position: absolute; */
-    width: 130vw;
+    width: 110vw;
+    height: auto;
     /* right: -100px; */
     /* margin-top: 120px; */
     /* top: 150px; */
     /* z-index: 99; */
-    margin-left: 80px;
+    /*margin-right: 150px;*/
+    /*margin-left: 150px;*/
 }
 
 
@@ -943,10 +946,13 @@ hr {
     font-family: "PixelSplitter-Bold.ttf";
 }
 
+
 @font-face {
     font-family: "PixelSplitter-Bold.ttf";
-    src: url(/user/PixelSplitter-Bold.ttf);
+    src: url("/css/user/PixelSplitter-Bold.ttf");
 }
+
+
 
 .TextGlitch::after {
     display: none;
@@ -1024,10 +1030,16 @@ hr {
     opacity: .4;
 }
 
+html, body{
+    width: 100%;
+}
+
+
 body {
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 
@@ -1036,29 +1048,34 @@ body {
 .TextGlitch {
     position: absolute;
     /* font-size: 3rem; */
-    font-size: 60px;
-    transform: translateX(17%);
-    top: 41vh;
-    font-family: 'Provicali.otf';
+    font-size: 50px;
+    transform: translateX(2%);
+    top: 36vh;
+    /*font-family: 'Provicali.otf';*/
     letter-spacing: 2px;
     padding: 20px;
     cursor: pointer;
+    font-family: "PixelSplitter-Bold.ttf";
 }
-
 
 
 @font-face {
-    font-family: 'Provicali.otf';
-    src: url(/user/Provicali.otf);
+    font-family: "PixelSplitter-Bold.ttf";
+    src: url("/css/user/PixelSplitter-Bold.ttf");
 }
+/*@font-face {*/
+/*    font-family: 'Provicali.otf';*/
+/*    src: url('/css/user/Provicali.otf');*/
+/*}*/
+
 
 @media (max-width: 1300px) {
     .TextGlitch {
         position: absolute;
         /* font-size: 3rem; */
-        font-size: 50px;
-        transform: translateX(18%);
-        top: 43vh;
+        font-size: 43px;
+        transform: translateX(2%);
+        top: 38vh;
     }
 }
 
@@ -1066,9 +1083,9 @@ body {
     .TextGlitch {
         position: absolute;
         /* font-size: 3rem; */
-        font-size: 40px;
-        transform: translateX(20%);
-        top: 45vh;
+        font-size: 36px;
+        transform: translateX(1%);
+        top:40vh;
     }
 }
 
@@ -1076,9 +1093,9 @@ body {
     .TextGlitch {
         position: absolute;
         /* font-size: 3rem; */
-        font-size: 30px;
-        transform: translateX(26%);
-        top: 47vh;
+        font-size: 28px;
+        transform: translateX(2%);
+        top: 42vh;
     }
 }
 
@@ -1086,9 +1103,9 @@ body {
     .TextGlitch {
         position: absolute;
         /* font-size: 3rem; */
-        font-size: 20px;
-        transform: translateX(34%);
-        top: 50vh;
+        font-size: 18px;
+        transform: translateX(2%);
+        top: 44vh;
     }
 
     @media (max-width: 1000px) {
@@ -1125,22 +1142,22 @@ body {
     position: relative;
 }
 
-.stage_floor {
-    content: '';
-    position: absolute;
-    top: 10%;
-    left: 0;
-    right: 0;
-    height: 150%;
-    background-image: radial-gradient(#fae89676, #fae89676);
-    transform: scale(1.0, 0.3);
-}
+/*.stage_floor {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    top: 10%;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    height: 150%;*/
+/*    background-image: radial-gradient(#fae89676, #fae89676);*/
+/*    transform: scale(1.0, 0.3);*/
+/*}*/
 
 .stage_highlight {
     position: absolute;
     top:85px;
-    left:35vw;
-    width: 47vw;
+    left:29vw;
+    width: 40vw;
     height: 80%;
     overflow: hidden;
     background-image: radial-gradient(ellipse closest-side at 50% 82%, #fae89676, rgba(84, 120, 173, 0) 100%);
@@ -1157,25 +1174,25 @@ body {
 
 .lamp {
     position: absolute;
-    width: 40vh;
+    width: 18vw;
     height: 400vh;
     background-image: radial-gradient(ellipse, #fae89676, #fae8964c 25%, rgba(82, 116, 168, 0) 50%);
     /*background-image: linear-gradient(to bottom, #fae8964c 25%, rgba(82, 116, 168, 0) 50%);*/
 /*rgba(82,116,168,0.5)*/
     top: -220vh;
-    left: 50vw;
+    left: 43vw;
     /*55vh에서 30vw로 수정*/
-    transform: perspective(35vh) rotateX(30deg);
+    transform: perspective(30vh) rotateX(30deg);
     /* z-index: 10; */
 }
 
-.spotlight {
-    opacity: 0.5;
-    transform: scale(1.5, 3);
-    position: absolute;
-    top: -20vh;
-    left: calc(50% - 75vh);
-}
+/*.spotlight {*/
+/*    opacity: 0.5;*/
+/*    transform: scale(1.5, 3);*/
+/*    position: absolute;*/
+/*    top: -20vh;*/
+/*    left: calc(50% - 75vh);*/
+/*}*/
 
 .spotlight::after {
     content: '';

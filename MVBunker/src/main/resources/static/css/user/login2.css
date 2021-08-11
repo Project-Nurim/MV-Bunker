@@ -55,26 +55,28 @@ content: 'Logout';
 }
 
 
-.qna::before {
-    content: 'QnA';
+.review::before{
+    content: 'my favorite review';
 }
 
-.qna:hover{
+.review:hover {
     animation-play-state: paused;
 }
-.qna:hover::before {
-    content: '자주 묻는 질문';
+
+.review:hover::before{
+    content: '내가 찜한 리뷰';
 }
 
 
 
-.introduction::before{
-    content: 'introduction';
+.mywrite::before{
+    content: 'my review';
 }
 
-.introduction:hover{
+.mywrite:hover {
     animation-play-state: paused;
 }
-.introduction:hover::before{
-    content: '소개글';
+
+.mywrite:hover::before{
+    content: '내가 쓴 리뷰';
 }
