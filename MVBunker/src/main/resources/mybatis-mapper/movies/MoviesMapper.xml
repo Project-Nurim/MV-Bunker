@@ -55,7 +55,7 @@
         WHERE C.genreId = ${genreId}
         GROUP BY A.id
         ORDER BY MAX(A.popularity) DESC
-        LIMIT ${pagingDTO.minIndex}, ${pagingDTO.maxIndex}
+        LIMIT ${pagingDTO.minIndex}, ${pagingDTO.listLength}
     </select>
 
     <select id="selTheMovie" resultType="MyMovieDb">
