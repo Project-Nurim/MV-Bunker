@@ -405,6 +405,11 @@ div a:visited {
     width: 270px;
 }
 
+.logo2 {
+    transform: translateY(-20%);
+}
+
+
 .logo2_1
 {
    width: 20vw;

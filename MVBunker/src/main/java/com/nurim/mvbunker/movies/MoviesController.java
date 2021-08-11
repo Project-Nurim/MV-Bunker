@@ -35,7 +35,7 @@ public class MoviesController {
     public void boxoffice(Model model){
         List<MovieDomain> result = service.getPopularMovies();
         System.out.println(result.get(0));
-        model.addAttribute("boxofficeList", result);
+        model.addAttribute("boxOfficeList", result);
     }
 
     @GetMapping("/genre")

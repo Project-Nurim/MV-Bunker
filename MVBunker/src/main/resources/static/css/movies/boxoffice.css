@@ -18,8 +18,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(0, 0, 0, 0.787);
+    background: black;
     /*overflow: hidden;*/
+    margin-top: 100px;
+}
+
+.infoList{
+   transform: translateY(15%);
 }
 
 button {
@@ -126,7 +131,7 @@ button:focus {
     z-index: 100;
 }
 .cardList__btn.btn--left {
-    left: -5%;
+    left: -7%;
 }
 .cardList__btn.btn--right {
     right: -5%;
@@ -267,6 +272,11 @@ button:focus {
     color: #fff;
     width: fit-content;
 }
+.info .name{
+    font-size: 3em;
+}
+
+
 .info .name,
 .info .location {
     text-transform: uppercase;
@@ -303,14 +313,16 @@ button:focus {
     --text-size-offset: 0.065;
     font-weight: 500;
 }
+.info, .info.previous--info, .info.next--info, .info.aaa--info, .info.bbb--info,.info.ccc--info, .info.ddd--info {
+    opacity: 0;
+    display: none;
+}
+
 .info.current--info {
     opacity: 1;
     display: block;
 }
-.info.previous--info, .info.next--info, .info.aaa--info, .info.bbb--info,.info.ccc--info, .info.ddd--info {
-    opacity: 0;
-    display: none;
-}
+
 
 .loading__wrapper {
     position: fixed;
