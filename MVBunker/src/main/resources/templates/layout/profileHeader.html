@@ -25,22 +25,27 @@
     <div class="menu-list">
         <ul>
             <div class="link-1">
-                <li>
+
+                <li sec:authorize="isAnonymous()">
                     <a href="#"><span class="a" id="popup_open_btn"></span></a>
                 </li>
-                <li>
-                    <a href="#"><span id="mypage"></span></a>
+                <li sec:authorize="isAuthenticated()">
+                    <a href="/user/logout"><span class="a" id="none-popup"></span></a>
                 </li>
                 <li>
-                    <a href="#"><span class="movie"></span></a>
+                    <a href="/user/profile" class="a"><span id="mypage"></span></a>
                 </li>
-
                 <li>
-                    <a href="/user/profile"><span class="reviewer"></span></a>
+                    <a href="/user/myFavMovie" class="a"><span class="movie"></span></a>
                 </li>
-
                 <li>
-                    <a href="#"><span class="qna"></span></a>
+                    <a href="/user/myReview" class="a"><span class="mywrite"></span></a>
+                </li>
+                <li>
+                    <a href="/user/followingReviewer" class="a"><span class="reviewer"></span></a>
+                </li>
+                <li>
+                    <a href="/user/favReview" class="a"><span class="review"></span></a>
                 </li>
             </div>
         </ul>

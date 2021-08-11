@@ -13,8 +13,6 @@
     <script defer th:src="@{/js/user/login.js}"></script>
 </head>
 
-
-
 <body>
 <label>
     <input type="checkbox" id="chk">
@@ -69,42 +67,34 @@
                     <a href="/user/logout"><span class="a" id="none-popup"></span></a>
                 </li>
                 <li>
-                    <a class="a"><span id="mypage"></span></a>
-                </li>
-
-                <li>
-                    <a class="a"><span class="movie"></span></a>
-                </li>
-
-                <li>
-                    <a class="a"><span class="reviewer"></span></a>
+                    <a href="/user/profile" class="a"><span id="mypage"></span></a>
                 </li>
                 <li>
-                    <a class="a"><span class="review"></span></a>
+                    <a href="/user/myFavMovie" class="a"><span class="movie"></span></a>
                 </li>
                 <li>
-                    <a class="a"><span class="mywrite"></span></a>
+                    <a href="/user/myReview" class="a"><span class="mywrite"></span></a>
                 </li>
-
+                <li>
+                    <a href="/user/followingReviewer" class="a"><span class="reviewer"></span></a>
+                </li>
+                <li>
+                    <a href="/user/favReview" class="a"><span class="review"></span></a>
+                </li>
             </div>
         </ul>
     </div>
 
 
-
-
     <div class="two">
         <img class="logo2" src="/img/login/tape3.png" style="max-width: 100%;height: auto;">
     </div>
-
     <div class="four">
         <img class="logo2_1" src="/img/login/tape1.png">
     </div>
     </div>
 
-
-    <a href="http://127.0.0.1:5500/%EB%88%84%EB%A6%BC/developers.html#" class="h">Developed by NURIM</a>
-
+    <a href="/developers" class="h">Developed by NURIM</a>
 
 
     <div id="my_modal">
@@ -189,5 +179,13 @@
           <li class="menu--item"><button href="#">YouTube</button></li> -->
         </ul>
     </div>
+
+<footer>
+    <p>
+    <pre>고객센터(이용문의)  nurim@bunker.co.kr • 053-123-4567 (유료)   /   제휴 및 대외 협력  https://nurim.team/contact
+    벙커 대한민국 / 대표 김누림 / 대구 중구 중앙대로 366 9층 10층 / 사업자등록번호 123-45-687890 / 대표번호 053-315-0524 / 개인정보 처리 방침 / 청소년 보호정책
+    ⓒ 2021 BUNKER Co., Ltd.All rights reserved.</pre>
+    </p>
+</footer>
 </body>
 </html>

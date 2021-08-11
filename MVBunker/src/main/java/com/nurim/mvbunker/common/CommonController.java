@@ -12,4 +12,7 @@ public class CommonController {
 
     @GetMapping("/common/qna")
     public void toQnapPage() {}
+
+    @GetMapping("/developers")
+    public void toDevelopers() {}
 }

@@ -58,8 +58,8 @@ public class UserController {
     @GetMapping("/myReview")
     public void myReview(){}
 
-    @GetMapping("/myReviewCmt")
-    public void myReviewCmt(){}
+    @GetMapping("/myFavMovie")
+    public void myFavMovie(){}
 
     @GetMapping("/profile")
     public void profile(Model model, @AuthenticationPrincipal CustomUserPrincipals userDetails, UserEntity param){
