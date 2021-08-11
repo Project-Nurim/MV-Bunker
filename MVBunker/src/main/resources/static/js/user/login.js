@@ -181,10 +181,11 @@ Element.prototype.setStyle = function (styles) {
     return this;
 };
 
-document.getElementById('popup_open_btn').addEventListener('click', function () {
-    // 모달창 띄우기
-    modal('my_modal');
-});
+
+    document.getElementById('popup_open_btn').addEventListener('click', function () {
+        // 모달창 띄우기
+        modal('my_modal');
+    });
 
 
 /*-------------------------------------------------------------------------------------- */
