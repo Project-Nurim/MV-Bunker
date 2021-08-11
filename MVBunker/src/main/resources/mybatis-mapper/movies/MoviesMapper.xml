@@ -41,7 +41,7 @@
         ON A.id = B.id
         GROUP BY A.id
         ORDER BY MAX(A.popularity) DESC
-        LIMIT 20
+        LIMIT 10
     </select>
 
     <select id="selGenreMovies" resultMap="getMovieDomain">
