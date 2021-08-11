@@ -943,13 +943,13 @@ hr {
     line-height: 1em;
     letter-spacing: -.1ch;
     font-size: 8vw;
-    font-family: "PixelSplitter-Bold.ttf";
+    font-family: "SuperMario256.ttf";
 }
 
 
 @font-face {
-    font-family: "PixelSplitter-Bold.ttf";
-    src: url("/css/user/PixelSplitter-Bold.ttf");
+    font-family: "SuperMario256.ttf";
+    src: url("/css/user/SuperMario256.ttf");
 }
 
 
@@ -1055,13 +1055,13 @@ body {
     letter-spacing: 2px;
     padding: 20px;
     cursor: pointer;
-    font-family: "PixelSplitter-Bold.ttf";
+    font-family: "SuperMario256.ttf";
 }
 
 
 @font-face {
-    font-family: "PixelSplitter-Bold.ttf";
-    src: url("/css/user/PixelSplitter-Bold.ttf");
+    font-family: "SuperMario256.ttf";
+    src: url("/css/user/SuperMario256.ttf");
 }
 /*@font-face {*/
 /*    font-family: 'Provicali.otf';*/
