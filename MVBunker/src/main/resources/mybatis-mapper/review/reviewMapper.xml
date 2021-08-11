@@ -43,7 +43,7 @@
             order by A.i_review
         </when>
         </choose>
-        LIMIT ${minIndex}, ${maxIndex};
+        LIMIT ${minIndex}, ${listLength};
     </select>
 
     <!-- 전체리뷰 목록 - default=최신순 -->

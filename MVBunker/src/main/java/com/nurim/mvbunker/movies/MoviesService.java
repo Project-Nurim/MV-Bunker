@@ -27,13 +27,21 @@ public class MoviesService {
     }
 
     public List<MovieDomain> getGenreMovies(int genreId) {
-        MyGenreList.insMovieListAndGenres(myTmdbApi.getMoviesWithGenre(genreId));
         PagingDTO pageDto = new PagingDTO(1, 0, 10);
+        List<MovieDomain> result = mapper.selGenreMovies(genreId, pageDto);
+        if(result.size() == pageDto.getListLength()) {
+            return result;
+        }
+        MyGenreList.insMovieListAndGenres(myTmdbApi.getMoviesWithGenre(genreId));
         return mapper.selGenreMovies(genreId, pageDto);
     }
     public List<MovieDomain> getGenreMovies(int genreId, int page) {
-        MyGenreList.insMovieListAndGenres(myTmdbApi.getMoviesWithGenre(genreId, page));
         PagingDTO pagingDTO = new PagingDTO(page, 0);
+        List<MovieDomain> result = mapper.selGenreMovies(genreId, pagingDTO);
+        if(result.size() == pagingDTO.getListLength()) {
+            return result;
+        }
+        MyGenreList.insMovieListAndGenres(myTmdbApi.getMoviesWithGenre(genreId, page));
         return mapper.selGenreMovies(genreId, pagingDTO);
     }
     public MyMovieDb getMovieDetail(int movieId) {
