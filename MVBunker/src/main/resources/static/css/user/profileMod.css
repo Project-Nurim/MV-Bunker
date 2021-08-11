@@ -1,31 +1,26 @@
-.top{
-    justify-content: center;
-    text-align: center;
-    background-color: rgba(0, 128, 128, 0.56);
-}
-
 .all {
-    background-color: steelblue;
+    display: flex;
+    justify-content: center;
+
 }
 
-.myprofile{
-    transform: translateX(30%);
-}
-
-ul {
+.all ul {
     /* background-color: teal; */
     width: 400px;
     margin: 0 auto;
     line-height: 40px;
-
 }
 
-li {
+.all li {
     list-style: none;
+    text-align: left;
 }
 
+.all hr{
+    margin-left: auto;
+}
 
-img {
+.all img {
     width: 130px;
     height: 130px;
     border-radius: 100%;
@@ -33,8 +28,7 @@ img {
     transform: translateX(20%);
 }
 
-
-.top {
+.all .top {
     transform: translateY(40%);
     width:70%;
 }
