@@ -161,3 +161,4 @@ FROM t_user A
 # SELECT A.id, A.genreId, B.genreName
 # FROM t_movie_genres A
 #          LEFT JOIN t_genres B ON A.genreId = B.genreid;
+

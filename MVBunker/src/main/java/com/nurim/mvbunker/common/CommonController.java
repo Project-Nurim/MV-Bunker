@@ -10,9 +10,6 @@ public class CommonController {
     @GetMapping("/home")
     public void toLoginPage() {}
 
-    @GetMapping("/common/qna")
-    public void toQnapPage() {}
-
     @GetMapping("/developers")
     public void toDevelopers() {}
 }

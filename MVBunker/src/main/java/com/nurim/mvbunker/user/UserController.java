@@ -58,6 +58,7 @@ public class UserController {
     @GetMapping("/myReview")
     public void myReview(){}
 
+
     @GetMapping("/myFavMovie")
     public void myFavMovie(){}
 
