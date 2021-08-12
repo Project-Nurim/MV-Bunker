@@ -282,15 +282,15 @@ label input:checked+.menu .hamburger:before {
 
 
 /*!* footer *!*/
-/*footer {*/
-/*    background-color: rgb(0, 0, 0);*/
-/*    color: #fff;*/
-/*    width: 1536px;*/
-/*    height: 60px;*/
-/*    font-size: 0.85em;*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*}*/
+footer {
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+    width: 1536px;
+    height: 60px;
+    font-size: 0.85em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
