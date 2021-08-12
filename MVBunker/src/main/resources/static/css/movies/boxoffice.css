@@ -133,7 +133,7 @@ button:focus {
     z-index: 100;
 }
 .cardList__btn.btn--left {
-    left: -7%;
+    left: -8%;
 }
 .cardList__btn.btn--right {
     right: -5%;
@@ -275,6 +275,7 @@ button:focus {
     white-space: nowrap;
     color: #fff;
     width: fit-content;
+    text-shadow: 5px 5px 7px rgb(0, 0, 0);
 }
 .info .name{
     font-size: 3em;
