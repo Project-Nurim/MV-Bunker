@@ -181,11 +181,13 @@ Element.prototype.setStyle = function (styles) {
     return this;
 };
 
-document.getElementById('popup_open_btn').addEventListener('click', function () {
-    // 모달창 띄우기
-    modal('my_modal');
-});
-
+const popup_open_btnElem = document.getElementById('popup_open_btn');
+if(popup_open_btnElem != null) {
+    popup_open_btnElem.addEventListener('click', function () {
+        // 모달창 띄우기
+        modal('my_modal');
+    });
+}
 
 /*-------------------------------------------------------------------------------------- */
 var topBtn = document.getElementById('back-to-top'),

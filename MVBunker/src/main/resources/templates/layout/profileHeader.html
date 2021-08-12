@@ -5,11 +5,11 @@
 
 <th:block th:fragment="header">
     <div class="header">
-        <img class="logo" src="/img/logo/bunkerlogo.png">
+        <a href="/movies/boxoffice"><img class="logo" src="/img/logo/bunkerlogo.png"></a>
         <ul>
-            <li><a href="#">나의 프로필</a></li>
+            <li class="right"><a href="#">자기소개 수정하기</a></li>
             <li><a href="#">계정 변경하기</a></li>
-            <li><a href="#">자기소개 수정하기</a></li> <!-- 계정 변경하기와 자기소개수정은 사용자에 따라 보이는 것이 달라짐  -->
+            <li><a href="#">나의 프로필</a></li> <!-- 계정 변경하기와 자기소개수정은 사용자에 따라 보이는 것이 달라짐  -->
 <!--            <li><a href="#">내가 찜한 영화</a></li>-->
 <!--            <li><a href="#">내가 쓴 리뷰</a></li>-->
 <!--            <li><a href="#">좋아요 한 리뷰</a></li> 두개는 사이드바로 이동 -->
@@ -25,22 +25,27 @@
     <div class="menu-list">
         <ul>
             <div class="link-1">
-                <li>
+
+                <li sec:authorize="isAnonymous()">
                     <a href="#"><span class="a" id="popup_open_btn"></span></a>
                 </li>
-                <li>
-                    <a href="#"><span id="mypage"></span></a>
+                <li sec:authorize="isAuthenticated()">
+                    <a href="/user/logout"><span class="a" id="none-popup"></span></a>
                 </li>
                 <li>
-                    <a href="#"><span class="movie"></span></a>
+                    <a href="/user/profile" class="a"><span id="mypage"></span></a>
                 </li>
-
                 <li>
-                    <a href="/user/profile"><span class="reviewer"></span></a>
+                    <a href="/user/myFavMovie" class="a"><span class="movie"></span></a>
                 </li>
-
                 <li>
-                    <a href="#"><span class="qna"></span></a>
+                    <a href="/user/myReview" class="a"><span class="mywrite"></span></a>
+                </li>
+                <li>
+                    <a href="/user/followingReviewer" class="a"><span class="reviewer"></span></a>
+                </li>
+                <li>
+                    <a href="/user/favReview" class="a"><span class="review"></span></a>
                 </li>
             </div>
         </ul>

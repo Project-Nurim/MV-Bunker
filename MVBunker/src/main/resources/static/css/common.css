@@ -1,10 +1,14 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+;
 }
 
 html {
     scroll-behavior: smooth;
     height: 100%;
+    width: 100%;
 }
 
 
@@ -12,15 +16,26 @@ body {
     padding: 0;
     margin: 0;
     background-color: black;
+    overflow-x: hidden;
+}
+#container2{
+
+}
+section2{
+
 }
 
+footer{
+    position: relative;
+bottom: 0;
+display: flex;
+    justify-content: center;
+    left: 0;
+}
 
 /* 헤더 */
-.hero {
-    width: 100%;
 
-}
-.hero nav {
+hearder .hero nav {
     position: relative;
     padding-bottom: 12px;
     display: flex;
@@ -29,7 +44,7 @@ body {
 
 }
 
-.hero nav .line {
+hearder .hero nav .line {
     height: 2px;
     position: absolute;
     bottom: 0;
@@ -38,7 +53,7 @@ body {
 
 }
 
-.hero nav ul {
+hearder .hero nav ul {
     padding: 0;
     margin: 0;
     list-style: none;
@@ -46,7 +61,7 @@ body {
     justify-content: space-between;
 }
 
-.hero nav ul li {
+hearder .hero nav ul li {
     margin: 0 0 0 0;
     opacity: .4;
     transition: all 0.4s ease;
@@ -56,19 +71,19 @@ body {
 
 }
 
-.hero nav ul li:hover {
+hearder .hero nav ul li:hover {
     opacity: .7;
 }
 
-.hero nav ul li.active {
+hearder .hero nav ul li.active {
     opacity: 1;
 }
 
-.hero nav ul li:last-child {
+hearder .hero nav ul li:last-child {
     margin-right: 0;
 }
 
-.hero nav ul li a {
+hearder .hero nav ul li a {
     text-align: center;
     width: 175px;
     text-decoration: none;
@@ -80,7 +95,7 @@ body {
     font-size: 16px;
 }
 
-.hero ul>li>figure {
+hearder .hero ul>li>figure {
     position: relative;
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
@@ -95,12 +110,12 @@ body {
     height: auto;
 }
 
-.hero ul>li>figure>img {
+hearder .hero ul>li>figure>img {
     height: 100%;
     width: 100%;
 }
 
-.hero ul{
+hearder .hero ul{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 0.25rem;
@@ -219,6 +234,9 @@ footer {
     width: 100%;
     text-align: center;
     bottom: 0;
-    padding: 5px;
-    margin-top: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*padding: 5px;*/
+    /*margin-top: 150px;*/
 }

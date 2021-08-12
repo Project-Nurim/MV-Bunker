@@ -5,26 +5,35 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <title>bunker by nurim</title>
+    <link rel="icon" href="/img/logo/bunkerfavicon_rf_vuO_icon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel="stylesheet" th:href="@{/css/user/login.css}">
     <link rel="stylesheet" th:href="@{/css/user/login2.css}">
+    <link rel="icon" th:href="@{/img/logo/favicon.ico}">
     <script defer th:src="@{/js/review/jquery-3.6.0.min.js}"></script>
     <script defer th:src="@{/js/gsap.js}"></script>
     <script defer th:src="@{/js/user/login.js}"></script>
 </head>
 
-
-
 <body>
+<label>
+    <input type="checkbox" id="chk">
+    <span class="menu">
+      <span class='hamburger'></span>
+    </span>
+</label>
+
+
+
     <div class="wrapper">
 
-        <div class="stage_floor"></div>
+<!--        <div class="stage_floor"></div>-->
 
         <div class="stage_highlight"></div>
 
         <div class="lamp"></div>
 
-        <div class="spotlight"></div>
+<!--        <div class="spotlight"></div>-->
 
     </div>
 
@@ -48,12 +57,7 @@
             <div class="TextGlitch-word TextGlitch-blend TextGlitch-blendB"></div>
         </div>
     </div>
-    <label>
-        <input type="checkbox" id="chk">
-        <span class="menu">
-      <span class='hamburger'></span>
-    </span>
-    </label>
+
     <div class="menu-list">
         <ul>
             <div class="link-1">
@@ -65,41 +69,34 @@
                     <a href="/user/logout"><span class="a" id="none-popup"></span></a>
                 </li>
                 <li>
-                    <a class="a"><span id="mypage"></span></a>
+                    <a href="/user/profile" class="a"><span id="mypage"></span></a>
                 </li>
-
                 <li>
-                    <a class="a"><span class="movie"></span></a>
+                    <a href="/user/myFavMovie" class="a"><span class="movie"></span></a>
                 </li>
-
                 <li>
-                    <a class="a"><span class="reviewer"></span></a>
+                    <a href="/user/myReview" class="a"><span class="mywrite"></span></a>
                 </li>
-
                 <li>
-                    <a class="#"><span class="qna"></span></a>
+                    <a href="/user/followingReviewer" class="a"><span class="reviewer"></span></a>
                 </li>
-
-
+                <li>
+                    <a href="/user/favReview" class="a"><span class="review"></span></a>
+                </li>
             </div>
         </ul>
     </div>
 
 
-
-
     <div class="two">
         <img class="logo2" src="/img/login/tape3.png" style="max-width: 100%;height: auto;">
     </div>
-
     <div class="four">
         <img class="logo2_1" src="/img/login/tape1.png">
     </div>
     </div>
 
-
-    <a href="http://127.0.0.1:5500/%EB%88%84%EB%A6%BC/developers.html#" class="h">Developed by NURIM</a>
-
+    <a href="/developers" class="h">Developed by NURIM</a>
 
 
     <div id="my_modal">
@@ -184,5 +181,13 @@
           <li class="menu--item"><button href="#">YouTube</button></li> -->
         </ul>
     </div>
+
+<footer>
+    <p>
+    <pre>고객센터(이용문의)  nurim@bunker.co.kr • 053-123-4567 (유료)   /   제휴 및 대외 협력  https://nurim.team/contact
+    벙커 대한민국 / 대표 김누림 / 대구 중구 중앙대로 366 9층 10층 / 사업자등록번호 123-45-687890 / 대표번호 053-315-0524 / 개인정보 처리 방침 / 청소년 보호정책
+    ⓒ 2021 BUNKER Co., Ltd.All rights reserved.</pre>
+    </p>
+</footer>
 </body>
 </html>

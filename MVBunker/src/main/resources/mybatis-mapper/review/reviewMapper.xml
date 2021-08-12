@@ -3,7 +3,7 @@
 <mapper namespace="com.nurim.mvbunker.review.ReviewMapper">
 
     <!-- 리뷰 작성 후 DB에 저장 -->
-    <insert id="insReview">
+    <insert id="insReview" useGeneratedKeys="true" keyProperty="i_review">
         insert into t_review
         (id, i_user, re_ctnt,title, poster)
         VALUES
@@ -11,6 +11,10 @@
              #{id}, #{i_user}, #{re_ctnt},#{title}, #{poster}
             );
     </insert>
+    <!-- 방금 쓴 리뷰 셀렉트 -->
+    <select id="selJustReview" resultType="ReviewDomain">
+        SELECT * FROM t_review WHERE i_review = ${i_reivew}
+    </select>
 
     <!-- 전체리뷰 - 최신순&좋아요많은순 정렬 | default=최신순 >>> hover 시 mapper와 분리! -->
     <select id="selAllReviewCount" resultType="ReviewDomain">
@@ -27,13 +31,10 @@
             order by A.i_review DESC
         </when>
         <when test="orderby == 1">
-            order by review_like_cnt DESC
-        </when>
-        <when test="orderby == 2">
-            order by A.i_review
+            order by A.review_like_cnt DESC
         </when>
         </choose>
-        LIMIT ${minIndex}, ${maxIndex};
+        LIMIT ${minIndex}, ${listLength};
     </select>
 
     <!-- 전체리뷰 목록 - default=최신순 -->

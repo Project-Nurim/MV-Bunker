@@ -58,6 +58,10 @@ public class UserController {
     @GetMapping("/myReview")
     public void myReview(){}
 
+
+    @GetMapping("/myFavMovie")
+    public void myFavMovie(){}
+
     @GetMapping("/profile")
     public void profile(Model model, @AuthenticationPrincipal CustomUserPrincipals userDetails, UserEntity param){
         if(param.getI_user() == 0) {

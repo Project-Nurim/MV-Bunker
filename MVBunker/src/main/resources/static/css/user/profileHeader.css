@@ -219,6 +219,16 @@ label input:checked+.menu .hamburger:before {
     content: '로그인';
 }
 
+#none-popup::before {
+    content: 'Logout';
+}
+#none-popup:hover{
+    animation-play-state:paused;
+}
+#none-popup:hover::before{
+    content: '로그아웃';
+}
+
 
 
 #mypage::before {
@@ -256,13 +266,28 @@ label input:checked+.menu .hamburger:before {
 }
 
 
-.qna::before {
-    content: 'QnA';
+.review::before{
+    content: 'my favorite review';
 }
 
-.qna:hover{
+.review:hover {
     animation-play-state: paused;
 }
-.qna:hover::before {
-    content: '자주 묻는 질문';
+
+.review:hover::before{
+    content: '내가 찜한 리뷰';
+}
+
+
+
+.mywrite::before{
+    content: 'my review';
+}
+
+.mywrite:hover {
+    animation-play-state: paused;
+}
+
+.mywrite:hover::before{
+    content: '내가 쓴 리뷰';
 }
