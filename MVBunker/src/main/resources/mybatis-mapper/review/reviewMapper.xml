@@ -30,9 +30,9 @@
         <when test="orderby == 0">
             order by A.i_review DESC
         </when>
-        <when test="orderby == 1">
-            order by A.review_like_cnt DESC
-        </when>
+        <otherwise>
+            order by review_like_cnt DESC
+        </otherwise>
         </choose>
         LIMIT ${minIndex}, ${listLength};
     </select>
