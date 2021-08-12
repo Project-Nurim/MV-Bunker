@@ -9,7 +9,4 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CommonController {
     @GetMapping("/home")
     public void toLoginPage() {}
-
-    @GetMapping("/common/qna")
-    public void toQnapPage() {}
 }

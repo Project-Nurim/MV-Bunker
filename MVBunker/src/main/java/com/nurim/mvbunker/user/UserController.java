@@ -58,9 +58,6 @@ public class UserController {
     @GetMapping("/myReview")
     public void myReview(){}
 
-    @GetMapping("/myReviewCmt")
-    public void myReviewCmt(){}
-
     @GetMapping("/profile")
     public void profile(Model model, @AuthenticationPrincipal CustomUserPrincipals userDetails, UserEntity param){
         if(param.getI_user() == 0) {

@@ -5,24 +5,14 @@
     <!-- 리뷰 작성 후 DB에 저장 -->
     <insert id="insReview">
         insert into t_review
-        (id, i_user, re_ctnt,title, originalTitle, backdropPath, posterPath, releaseDate, adult, overview, originalLanguage, popularity, mainGenre)
+        (id, i_user, re_ctnt,title, poster)
         VALUES
             (
-             #{id}, #{i_user}, #{re_ctnt},
-             (SELECT title FROM t_movies WHERE id=#{id}),
-             (SELECT originalTitle FROM t_movies WHERE id=#{id}),
-             (SELECT backdropPath FROM t_movies WHERE id=#{id}),
-             (SELECT posterPath FROM t_movies WHERE id=#{id}),
-             (SELECT releaseDate FROM t_movies WHERE id=#{id}),
-             (SELECT adult FROM t_movies WHERE id=#{id}),
-             (SELECT overview FROM t_movies WHERE id=#{id}),
-             (SELECT originalLanguage FROM t_movies WHERE id=#{id}),
-             (SELECT popularity FROM t_movies WHERE id=#{id}),
-             (SELECT mainGenre FROM t_movies WHERE id=#{id}))
+             #{id}, #{i_user}, #{re_ctnt},#{title}, #{poster}
             );
     </insert>
 
-    <!-- 전체리뷰 - default=최신순 >>> 수정 필요!! -->
+    <!-- 전체리뷰 - 최신순&좋아요많은순 정렬 | default=최신순 >>> hover 시 mapper와 분리! -->
     <select id="selAllReviewCount" resultType="ReviewDomain">
         select A.*, COUNT(CASE WHEN B.disLike = 0 THEN 1 END) AS review_like_cnt,
                COUNT(CASE WHEN B.disLike = 1 THEN 1 END) AS review_dislike_cnt,
@@ -108,21 +98,46 @@
                                 visual_beauty = IF(${visual_beauty}=0, NULL, ${visual_beauty}),
                                 music = IF(${music}=0, NULL, ${music}), plot = IF(${plot}=0, NULL, ${plot})
     </insert>
+
+    <!-- ReviewDetail - 별(★)로 영화에 대한 평점 별 평균 띄워 줄 때 사용 -->
     <select id="selEval" resultType="EvalEntity">
         SELECT AVG(production) AS production, AVG(performance) AS performance, AVG(visual_beauty) AS visual_beauty
         , AVG(music) AS music, AVG(plot) AS plot
         FROM t_eval
         WHERE id = ${id}
     </select>
+
+    <!-- ReviewDetail - 특정 리뷰에 별 띄워 줄 때 사용 → ★5 -->
     <select id="selMyEval" resultType="EvalEntity">
         SELECT *
         FROM t_eval
         WHERE id = ${id} AND i_user = ${i_user}
     </select>
 
-<!--    <select id="selMovieEval" resultType="EvalEntity">-->
+    <!-- Review - 특정 리뷰에 대한 총 평점 평균 -->
+    <select id="selReviewTotalEval" resultType="double">
+        SELECT (production+performance+visual_beauty+music+plot)/5 AS totalAvg_Review
+        FROM
+            (
+                SELECT AVG(production) AS production, AVG(performance) AS performance, AVG(visual_beauty) AS visual_beauty
+                     , AVG(music) AS music, AVG(plot) AS plot
+                FROM t_eval
+                WHERE id = ${id} AND i_user = #{i_user}
+            )A;
+    </select>
 
-<!--    </select>-->
+    <!-- Review - 포스터에 hover 시 띄워 줄 특정 영화에 대한 총 평점 평균 -->
+    <select id="selMovieTotalEval" resultType="double">
+        SELECT (production+performance+visual_beauty+music+plot)/5 AS totalAvg_Movie
+        FROM
+            (
+                SELECT AVG(production) AS production, AVG(performance) AS performance, AVG(visual_beauty) AS visual_beauty
+                     , AVG(music) AS music, AVG(plot) AS plot
+                FROM t_eval
+                WHERE id = #{id}
+            )A;
+    </select>
+
 
     <!-- 댓글 -->
     <insert id="insReviewCmt">
