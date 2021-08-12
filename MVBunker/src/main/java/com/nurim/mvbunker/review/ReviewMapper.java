@@ -11,6 +11,7 @@ import java.util.List;
 @Mapper
 public interface ReviewMapper {
     int insReview(ReviewEntity param);
+    ReviewDomain selJustReview(ReviewEntity param);
     List<ReviewDomain> selAllReview(PagingDTO page);
     List<ReviewDomain> selReview(ReviewEntity param, PagingDTO page);
     int updReview(ReviewEntity param);

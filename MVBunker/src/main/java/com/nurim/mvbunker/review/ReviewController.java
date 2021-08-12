@@ -2,6 +2,7 @@ package com.nurim.mvbunker.review;
 
 import com.nurim.mvbunker.common.security.model.CustomUserPrincipals;
 import com.nurim.mvbunker.movies.MoviesService;
+import com.nurim.mvbunker.review.model.ReviewEntity;
 import com.nurim.mvbunker.user.model.UserEntity;
 import com.nurim.mvbunker.review.model.ReviewDomain;
 import info.movito.themoviedbapi.model.Video;
@@ -10,10 +11,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -43,8 +41,28 @@ public class ReviewController {
     @GetMapping("/myReview")
     public void myReview (Model model, @AuthenticationPrincipal CustomUserPrincipals userDetails){
         UserEntity loginUser = userDetails.getUser();
-
     }
+
+    // Personal Review CRUD
+    @ResponseBody
+    @PostMapping("/reviewRest")
+    public ReviewDomain insReview(@RequestBody ReviewEntity param) {
+        return service.insAndSelReview(param);
+    }
+
+    @ResponseBody
+    @PutMapping("/reviewRest")
+    public int updReview(@RequestBody ReviewEntity param) {
+        return service.updReview(param);
+    }
+
+    @ResponseBody
+    @DeleteMapping("/reviewRest")
+    public int delReview(@RequestBody ReviewEntity param) {
+        return service.delReview(param);
+    }
+
+
 
 //    @ResponseBody
 //    @GetMapping(path="/getMovieVideo/{movieId}")
