@@ -27,12 +27,12 @@
             <li th:text="'아이디 : ' + ${auth.uid}"></li>
             <li th:text="'닉네임 : ' + ${auth.unm}"></li>
             <li th:text="'가입일 : ' + ${auth.regdt}"></li>
-            <hr style="width: 80%">
+            <hr style="width: 70%">
             <li class="fw">나의 활동내역</li>
             <li th:text="'내가 작성한 리뷰 : ' + ${activity.countMyReview}"></li>
             <li th:text="'내가 작성한 댓글 : ' + ${activity.countMyReview_cmt}"></li>
             <li th:text="'내가 작성한 답글 : ' + ${activity.countMyReply}"></li>
-            <hr style="width: 80%">
+            <hr style="width:70%">
             <li class="fw">자기소개</li>
             <li th:text="${auth.introduce}"></li>
             <a href="" id="save" class="button">저장</a>

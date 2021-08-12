@@ -36,7 +36,7 @@ public class MoviesService {
         return mapper.selGenreMovies(genreId, pageDto);
     }
     public List<MovieDomain> getGenreMovies(int genreId, int page) {
-        PagingDTO pagingDTO = new PagingDTO(page, 0);
+        PagingDTO pagingDTO = new PagingDTO(page, 0, 20);
         List<MovieDomain> result = mapper.selGenreMovies(genreId, pagingDTO);
         if(result.size() == pagingDTO.getListLength()) {
             return result;
