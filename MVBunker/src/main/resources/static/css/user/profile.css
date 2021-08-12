@@ -14,10 +14,9 @@
 #ALL{
     border: 1px solid black;
     border-radius: 0.75em;
-    width: 600px;
+    width: 510px;
     height: 635px;
     margin: 10px auto;
-    padding-left: 15px;
 }
 
 .myprofile{
@@ -54,7 +53,7 @@
 
 #save {
     float: right;
-    margin-right: 100px;
+    margin-right: 80px;
     color: white;
     border: 1px solid #009759;;
     width: 60px;

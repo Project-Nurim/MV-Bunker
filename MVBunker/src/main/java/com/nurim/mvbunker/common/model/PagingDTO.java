@@ -21,5 +21,6 @@ public class PagingDTO {
         this.page = page;
         this.orderby = orderby;
         this.minIndex = page * listLength - listLength;
+        this.listLength = listLength;
     }
 }
