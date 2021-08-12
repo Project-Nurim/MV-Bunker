@@ -39,6 +39,8 @@
                     <li th:each="i : ${#numbers.sequence(0,4)}">
                         <figure>
                             <img class="x" th:src="'https://image.tmdb.org/t/p/w500/' + ${genre.value.get(i).posterPath}">
+                            <div class="dark"></div>
+                            <div class="darkText"><span>Hello</span></div>
                         </figure>
                     </li>
                 </ul>

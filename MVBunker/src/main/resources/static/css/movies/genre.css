@@ -37,22 +37,9 @@ footer {
 
 .movies {
     width: 100%;
+    height: auto;
     padding: 30px;
 }
-
-.movies2 {
-    width: 100%;
-    padding: 30px;
-}
-.movies3{
-    width: 100%;
-    padding: 30px;
-}
-.movies4{
-    width: 100%;
-    padding: 30px;
-}
-
 
 section {
     text-align: center;
@@ -67,15 +54,7 @@ section {
     display: none;
 }
 
-.mySlides2 {
-    display: none;
-}
-.mySlides3 {
-    display: none;
-}
-.mySlides4 {
-    display: none;
-}
+
 /* Next & previous buttons */
 .prev,
 .next {
@@ -297,19 +276,11 @@ nav ul li a {
 
 ul>li>figure {
     position: relative;
-    /*border-top-left-radius: 0.5rem;*/
-    /*border-top-right-radius: 0.5rem;*/
-    /*max-height: 400px;*/
     height: auto;
-    /*overflow: hidden;*/
-    /*border: 1px solid white;*/
-    /*padding: 20px;*/
-    /*border-radius: 0.45em;*/
     float: left;
-    /*margin-right: 20px;*/
-    max-width: 100%;
-    height: auto;
-    /*width: 250px;*/
+   width: 100%;
+    /*height: auto;*/
+    height: 380px;
 }
 
 ul>li>figure>img {
