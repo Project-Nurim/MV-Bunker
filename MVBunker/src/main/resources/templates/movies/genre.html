@@ -26,12 +26,13 @@
 <th:block layout:fragment="content">
 
 <th:block th:each="genre : ${genreList}"> <!--장르-->
+    <article class="each-genre" data-slide-index="0">
     <div class="p">
         <p th:text="${genre.key}"></p>
-        <a class="prev" onclick="moveSlides(-1)">&#10094;</a>
-        <a class="next" onclick="moveSlides(1)">&#10095;</a>
+        <a class="prev">&#10094;</a>
+        <a class="next">&#10095;</a>
     </div>
-    <div id="ALL">
+    <div class="ALL">
         <section class="movies" id="movies">
             <div class="mySlides fade">
                 <ul>
@@ -39,7 +40,9 @@
                         <figure>
                             <a th:href="@{/review/reviewDetail(movieId=${genre.value.get(i).id})}">
                                 <img class="x" th:src="'https://image.tmdb.org/t/p/w500/' + ${genre.value.get(i).posterPath}">
-                            </a>
+                            <div class="dark"></div>
+                            <div class="darkText"><span>Hello</span></div>
+                          </a>
                         </figure>
                     </li>
                 </ul>
@@ -66,14 +69,13 @@
             </a>
         </div>
     </div>
-
-
+    </article>
+<!--------------------------------------------------->
+</th:block>
     <!--<a th:href="@{/movies/genreDetail(genreId=${reverseGenreMap.get(genre.key)})}"><div th:text="${genre.key}"></div></a>
     <th:block th:each="movie : ${genre.value}"> &lt;!&ndash;그 장르에 해당하는 영화 포스터들&ndash;&gt;
         <img th:src="'https://image.tmdb.org/t/p/w500/' + ${movie.posterPath}">
     </th:block>-->
-</th:block>
-
 
 
 </th:block>

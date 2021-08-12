@@ -1,5 +1,8 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+;
 }
 
 html {
@@ -22,20 +25,11 @@ section2{
 
 }
 
-footer{
-    position: absolute;
-bottom: 0;
-display: flex;
-    justify-content: center;
-    left: 0;
-}
+
 
 /* 헤더 */
-.hero {
 
-
-}
-.hero nav {
+nav {
     position: relative;
     padding-bottom: 12px;
     display: flex;
@@ -44,7 +38,7 @@ display: flex;
 
 }
 
-.hero nav .line {
+nav .line {
     height: 2px;
     position: absolute;
     bottom: 0;
@@ -52,8 +46,10 @@ display: flex;
     background: #FF1847;
 
 }
+.hero {
 
-.hero nav ul {
+}
+nav ul {
     padding: 0;
     margin: 0;
     list-style: none;
@@ -61,29 +57,29 @@ display: flex;
     justify-content: space-between;
 }
 
-.hero nav ul li {
+nav ul li {
     margin: 0 0 0 0;
     opacity: .4;
     transition: all 0.4s ease;
-    margin-top: 90px;
+    margin-top: 50px;
     color: rgb(0, 0, 0);
     padding: 0 70px;
 
 }
 
-.hero nav ul li:hover {
+nav ul li:hover {
     opacity: .7;
 }
 
-.hero nav ul li.active {
+nav ul li.active {
     opacity: 1;
 }
 
-.hero nav ul li:last-child {
+nav ul li:last-child {
     margin-right: 0;
 }
 
-.hero nav ul li a {
+nav ul li a {
     text-align: center;
     width: 175px;
     text-decoration: none;
@@ -95,7 +91,7 @@ display: flex;
     font-size: 16px;
 }
 
-.hero ul>li>figure {
+.mySlides .hero ul>li>figure {
     position: relative;
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
@@ -110,12 +106,12 @@ display: flex;
     height: auto;
 }
 
-.hero ul>li>figure>img {
+.mySlides ul>li>figure>img {
     height: 100%;
     width: 100%;
 }
 
-.hero ul{
+.mySlides .hero ul{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 0.25rem;
@@ -228,12 +224,36 @@ label {
 
 
 /* 푸터 */
+/*footer{*/
+/*    background-color: rgb(0, 0, 0);*/
+/*    color: #fff;*/
+/*    width: 100%;*/
+/*    text-align: center;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    !*padding: 5px;*!*/
+/*    !*margin-top: 150px;*!*/
+/*}*/
+
+/*footer{*/
+/*    position: relative;*/
+/*    bottom: 0;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*}*/
+
 footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
     background-color: rgb(0, 0, 0);
     color: #fff;
-    width: 100%;
-    text-align: center;
-    bottom: 0;
-    padding: 5px;
-    margin-top: 150px;
+    width: 1536px;
+    height: auto;
+    font-size: 0.85em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

@@ -44,14 +44,15 @@
         WHERE i_user = #{i_user}
     </update>
 
-    <!-- 내가 작성한 리뷰 / 댓글 / 답글 수 띄우기 -->
+    <!-- 내가 작성한 리뷰 / 댓글 / 받은 좋아요 수(리뷰) 띄우기 -->
     <select id="selUserProfile" resultType="UserDomain">
-        SELECT *,
-            (SELECT COUNT(A.i_user) FROM t_user A INNER JOIN t_review B ON A.i_user = B.i_user WHERE A.i_user = ${i_user}) AS countMyReview,
-            (SELECT COUNT(A.i_user) FROM t_user A INNER JOIN t_review_cmt B ON A.i_user = B.i_user WHERE A.i_user = ${i_user}) AS countMyReviewCmt,
-            (SELECT COUNT(A.i_user) FROM t_user A INNER JOIN t_reply B ON A.i_user = B.i_user WHERE A.i_user = ${i_user}) AS countMyReply
-        FROM t_user
-        WHERE i_user = ${i_user}
+        SELECT COUNT(case when A.disLike = 0 then 1 END)AS'like_cnt',
+                COUNT(B.i_user)AS'review_cnt',
+                (SELECT COUNT(i_user) FROM t_review_cmt WHERE i_user = #{i_user})AS'cmt_cnt'
+        FROM t_review_like A
+                 INNER JOIN t_review B
+                            ON A.i_review = B.i_review
+        WHERE B.i_user = #{i_user};
     </select>
 
     <!-- 내가 작성한 리뷰 목록 띄우기 -->
