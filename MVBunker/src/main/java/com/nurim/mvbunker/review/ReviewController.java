@@ -1,7 +1,9 @@
 package com.nurim.mvbunker.review;
 
+import com.nurim.mvbunker.common.security.IAuthenticationFacade;
 import com.nurim.mvbunker.common.security.model.CustomUserPrincipals;
 import com.nurim.mvbunker.movies.MoviesService;
+import com.nurim.mvbunker.review.model.EvalEntity;
 import com.nurim.mvbunker.review.model.ReviewEntity;
 import com.nurim.mvbunker.user.model.UserEntity;
 import com.nurim.mvbunker.review.model.ReviewDomain;
@@ -22,6 +24,8 @@ public class ReviewController {
     private ReviewService service;
     @Autowired
     private MoviesService moviesService;
+    @Autowired
+    IAuthenticationFacade auth;
 
     @GetMapping("/review")
     public void review(){}
@@ -34,6 +38,11 @@ public class ReviewController {
 
     @GetMapping("/reviewDetail")
     public void reviewDetail(Model model, int movieId){
+        EvalEntity evalParam = new EvalEntity();
+        evalParam.setId(movieId);
+        if(auth.getLoginUser() != null) {
+            model.addAttribute("myEval", service.selMyEval(evalParam));
+        }
         model.addAttribute("movie", moviesService.getMovieDetail(movieId));
         model.addAttribute("videos", moviesService.getMovieVideo(movieId));
     }
@@ -42,6 +51,18 @@ public class ReviewController {
     public void myReview (Model model, @AuthenticationPrincipal CustomUserPrincipals userDetails){
         UserEntity loginUser = userDetails.getUser();
     }
+
+
+
+
+    // Eval CRUD
+    @ResponseBody
+    @PostMapping("/EvalRest")
+    public EvalEntity insAndSelEval(@RequestBody EvalEntity param) {
+        service.insUpdEval(param);
+        return service.selEval(param);
+    }
+
 
     // Personal Review CRUD
     @ResponseBody
