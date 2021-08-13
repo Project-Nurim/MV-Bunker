@@ -161,4 +161,20 @@ FROM t_user A
 # SELECT A.id, A.genreId, B.genreName
 # FROM t_movie_genres A
 #          LEFT JOIN t_genres B ON A.genreId = B.genreid;
-
+#2021-08-13=====================================================================
+#1. 리뷰전체 목록(유저 닉네임 + 영화id, 영화제목, 리뷰넘버, 리뷰내용, 포스터, 작성일 + 평가기준별 점수 출력) + 정렬도 해야된단말이지...ㅎ
+#리뷰가 총 2개 인데
+SELECT R.unn AS unn, R.id AS id, R.title as title, R.i_review as i_review, R.poster as poster, R.re_ctnt as re_ctnt, R.regdt as regdt,
+       E.i_user AS i_user, E.production AS production, E.performance AS performance, E.visual_beauty AS visual_beauty, E.music AS music, E.plot AS plot
+FROM t_eval E
+         left JOIN
+     (
+         SELECT B.unn AS unn,
+                A.i_user AS i_user, A.i_review AS i_review, A.title AS title, A.id AS id, A.poster AS poster, A.re_ctnt AS re_Ctnt, A.regdt AS regdt
+         FROM t_review A
+                  LEFT JOIN t_user B
+                            ON A.i_user = B.i_user
+     )R
+     ON R.i_user = E.i_user
+WHERE R.i_user = E.i_user AND R.id = E.id
+GROUP BY R.i_review;

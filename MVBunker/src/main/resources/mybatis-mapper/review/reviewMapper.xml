@@ -7,9 +7,7 @@
         insert into t_review
         (id, i_user, re_ctnt,title, poster)
         VALUES
-            (
-             #{id}, #{i_user}, #{re_ctnt},#{title}, #{poster}
-            );
+            (#{id}, #{i_user}, #{re_ctnt},#{title}, #{poster});
     </insert>
     <!-- 방금 쓴 리뷰 셀렉트 -->
     <select id="selJustReview" resultType="ReviewDomain">
@@ -28,10 +26,10 @@
         on A.i_review = C.i_review
         <choose>
         <when test="orderby == 0">
-            order by A.i_review DESC
+            order by i_review DESC
         </when>
         <when test="orderby == 1">
-            order by A.review_like_cnt DESC
+            order by review_like_cnt DESC
         </when>
         </choose>
         LIMIT ${minIndex}, ${listLength};
@@ -39,10 +37,7 @@
 
     <!-- 전체리뷰 목록 - default=최신순 -->
     <select id="selAllReview" resultType="reviewDomain">
-        select A.*, B.releaseDate from t_review A
-        left join t_movies B
-        on A.id = B.id
-        order by count(case when )
+
     </select>
     
     <!-- 그 영화의 리뷰들 - default가 좋아요 순
@@ -100,6 +95,29 @@
                                 music = IF(${music}=0, NULL, ${music}), plot = IF(${plot}=0, NULL, ${plot})
     </insert>
 
+    <!-- 내 평가 변경 -->
+    <update id="updMyEval">
+        update t_eval
+        <set>
+            <if test="production != null">
+                production = ${production}
+            </if>
+            <if test="performance != null">
+                performance = ${performance}
+            </if>
+            <if test="visual_beauty != null">
+                visual_beauty = ${visual_beauty}
+            </if>
+            <if test="music != null">
+                music = ${music}
+            </if>
+            <if test="plot != null">
+                plot = ${plot}
+            </if>
+        </set>
+        where id = #{id} and i_user = #{i_user}
+    </update>
+
     <!-- ReviewDetail - 별(★)로 영화에 대한 평점 별 평균 띄워 줄 때 사용 -->
     <select id="selEval" resultType="EvalEntity">
         SELECT AVG(production) AS production, AVG(performance) AS performance, AVG(visual_beauty) AS visual_beauty
@@ -156,7 +174,7 @@
         UPDATE t_review_cmt SET cmt=#{cmt} where i_cmt = ${i_cmt} and i_user = #{i_user};
     </update>
     
-    <select id="selRivewCmt" resultType="ReviewCmtEntity">
+    <select id="selReviewCmt" resultType="ReviewCmtEntity">
         SELECT A.*
         FROM (
                  SELECT
