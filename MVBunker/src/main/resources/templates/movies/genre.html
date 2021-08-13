@@ -39,7 +39,7 @@
                     <li th:each="i : ${#numbers.sequence(0,4)}">
                         <figure>
                             <div class="img-wrapper img1">
-                                <a th:href="@{/review/reviewDetail(movieId=${genre.value.get(i).id})}">
+                                <a class="aTag" th:href="@{/review/reviewDetail(movieId=${genre.value.get(i).id})}">
                                 <img class="x" th:src="'https://image.tmdb.org/t/p/w500/' + ${genre.value.get(i).posterPath}">
                             <div class="darkness"></div>
                             <div class="btn-plus"><span>Hello</span></div>
