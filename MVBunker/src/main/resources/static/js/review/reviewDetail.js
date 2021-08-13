@@ -1,5 +1,5 @@
 // 유튜브 트레일러 뿌려주기
-const videoKey = document.querySelector('#video').dataset.movieId;
+const videoKey = document.querySelector('#video').dataset.videoKey;
 const movieIdVal = document.querySelector('#movieIdInput').value;
 let player;
 function onYouTubeIframeAPIReady() {
@@ -66,14 +66,14 @@ function makeJustReview(review) {
 }
 
 // 인피니티 스크롤링 설정
-infinityScrolling.url = ``; // 요청보낼 url
+infinityScrolling.url = `/review/getAllReview?orderby=0&movieId=${movieIdVal}`; // 요청보낼 url
 infinityScrolling.makeItemList = makeItemList;
 infinityScrolling.setScrollInfinity(window);
 infinityScrolling.getItemList(1);
 function makeItemList(reviewList) { // 받은 애들 어떻게 뿌릴지
     console.log(reviewList);
     reviewList.forEach(review => {
-
+        makeJustReview(review);
        // 지민이가 만든 컨테이너 주소 변수.innerHTML += `<div>${review.title}</div>`;
     })
 }

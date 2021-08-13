@@ -37,22 +37,9 @@ footer {
 
 .movies {
     width: 100%;
+    height: auto;
     padding: 30px;
 }
-
-.movies2 {
-    width: 100%;
-    padding: 30px;
-}
-.movies3{
-    width: 100%;
-    padding: 30px;
-}
-.movies4{
-    width: 100%;
-    padding: 30px;
-}
-
 
 section {
     text-align: center;
@@ -67,15 +54,7 @@ section {
     display: none;
 }
 
-.mySlides2 {
-    display: none;
-}
-.mySlides3 {
-    display: none;
-}
-.mySlides4 {
-    display: none;
-}
+
 /* Next & previous buttons */
 .prev,
 .next {
@@ -297,29 +276,27 @@ nav ul li a {
 
 ul>li>figure {
     position: relative;
-    /*border-top-left-radius: 0.5rem;*/
-    /*border-top-right-radius: 0.5rem;*/
-    /*max-height: 400px;*/
-    height: auto;
-    /*overflow: hidden;*/
-    /*border: 1px solid white;*/
-    /*padding: 20px;*/
-    /*border-radius: 0.45em;*/
+    /*height: auto;*/
     float: left;
-    /*margin-right: 20px;*/
-    max-width: 100%;
-    height: auto;
-    /*width: 250px;*/
+   width: 100%;
+    /*height: auto;*/
+    height: 390px;
+    margin-bottom: 30px;
 }
-
-ul>li>figure>img {
-    border-radius: 0.7em;
-    height: 100%;
+ul li figure .x {
     width: 100%;
+    height: auto;
+    border-radius: 0.7em;
+
 }
-ul>li>figure>img:hover{
-    background-color: white;
-}
+/*ul>li>figure>img {*/
+/*    border-radius: 0.7em;*/
+/*    height: 100%;*/
+/*    width: 100%;*/
+/*}*/
+/*ul>li>figure>img:hover{*/
+/*    background-color: white;*/
+/*}*/
 
 ul{
     display: grid;
@@ -328,10 +305,6 @@ ul{
     padding: 0;
     margin: 0 20px;
     justify-content: space-around;
-    /*display: flex;*/
-    /*align-items: center;*/
-    /*justify-content: space-around;*/
-
 }
 
 
@@ -340,6 +313,92 @@ ul{
         margin: 50px;
     }
 }
+
+footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+    width: 1536px;
+    height: auto;
+    font-size: 0.85em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-wrapper {
+    /*width: 195px;*/
+    /*height: 195px;*/
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    cursor: pointer;
+}
+
+.img-wrapper img {
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.4);
+    width: inherit;
+    height: inherit;
+}
+
+
+/*.img1 {*/
+/*    top: 200px;*/
+/*    left: 200px;*/
+/*}*/
+
+.darkness {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    /* height: 70px; */
+    background: #ff0000;
+    /* 추가된 부분 */
+    opacity: 0;
+    transition: all .6s linear;
+}
+
+.btn-plus {
+    position: absolute;
+    bottom: 0;
+    width: 65px;
+    height: 55px;
+    border-radius: 50%;
+    background-color: teal;
+    text-align: center;
+    margin: 0 auto;
+    /* 추가된 부분 */
+    opacity: 0;
+    transform: scale(2);
+    transition: all .3s linear;
+}
+.aTag{
+    display: block;
+    width: inherit;
+    height: inherit;
+}
+.btn-plus span {
+    font-size: 2.3em;
+    color: #ffffff;
+    user-select: none;
+}
+
+/* 추가된 부분 */
+ .darkness:hover {
+    opacity: 0.4;
+}
+
+/* 추가된 부분 */
+.img-wrapper:hover .btn-plus {
+    opacity: 1;
+    transform: scale(1);
+}
+
 
 
 

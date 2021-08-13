@@ -28,9 +28,9 @@
         <when test="orderby == 0">
             order by i_review DESC
         </when>
-        <when test="orderby == 1">
+        <otherwise>
             order by review_like_cnt DESC
-        </when>
+        </otherwise>
         </choose>
         LIMIT ${minIndex}, ${listLength};
     </select>

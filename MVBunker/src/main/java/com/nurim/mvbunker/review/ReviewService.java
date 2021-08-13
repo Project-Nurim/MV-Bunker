@@ -2,6 +2,8 @@ package com.nurim.mvbunker.review;
 
 import com.nurim.mvbunker.common.model.PagingDTO;
 import com.nurim.mvbunker.common.security.IAuthenticationFacade;
+import com.nurim.mvbunker.movies.model.MovieEntity;
+import com.nurim.mvbunker.review.model.EvalEntity;
 import com.nurim.mvbunker.review.model.ReviewDomain;
 import com.nurim.mvbunker.review.model.ReviewEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +32,18 @@ public class ReviewService {
         return mapper.selReview(param, pageDto);
     }
 
+
+    // Evaluate CRUD
+    public int insUpdEval(EvalEntity param) {
+        return mapper.insEval(param);
+    }
+    public EvalEntity selEval(EvalEntity param) {
+        return mapper.selEval(param);
+    }
+    public EvalEntity selMyEval(EvalEntity param) {
+        param.setI_user(auth.getLoginUserPk());
+        return mapper.selMyEval(param);
+    }
 
 
     // Review CRUD
