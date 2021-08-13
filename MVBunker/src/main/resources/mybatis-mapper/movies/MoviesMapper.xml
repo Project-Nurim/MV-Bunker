@@ -44,6 +44,20 @@
         LIMIT 10
     </select>
 
+    <select id="selMultiGenreMovies" resultMap="getMovieDomain">
+        SELECT A.*, AVG(B.production) AS production, AVG(B.performance) AS performance,
+               AVG(B.visual_beauty) AS visual_beauty, AVG(B.music) AS music, AVG(B.plot) AS plot
+        FROM t_movies A
+                 LEFT JOIN t_eval B
+                           ON A.id = B.id
+                 LEFT JOIN t_movie_genres C
+                           ON A.id = C.id
+        WHERE A.mainGenre = ${genreId}
+        GROUP BY A.id
+        ORDER BY MAX(A.popularity) DESC
+            LIMIT ${pagingDTO.minIndex}, ${pagingDTO.listLength}
+    </select>
+
     <select id="selGenreMovies" resultMap="getMovieDomain">
         SELECT A.*, AVG(B.production) AS production, AVG(B.performance) AS performance,
                AVG(B.visual_beauty) AS visual_beauty, AVG(B.music) AS music, AVG(B.plot) AS plot

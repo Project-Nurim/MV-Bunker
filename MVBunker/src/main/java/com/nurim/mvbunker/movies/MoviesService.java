@@ -28,12 +28,12 @@ public class MoviesService {
 
     public List<MovieDomain> getGenreMovies(int genreId) {
         PagingDTO pageDto = new PagingDTO(1, 0, 10);
-        List<MovieDomain> result = mapper.selGenreMovies(genreId, pageDto);
+        List<MovieDomain> result = mapper.selMultiGenreMovies(genreId, pageDto);
         if(result.size() == pageDto.getListLength()) {
             return result;
         }
         MyGenreList.insMovieListAndGenres(myTmdbApi.getMoviesWithGenre(genreId));
-        return mapper.selGenreMovies(genreId, pageDto);
+        return mapper.selMultiGenreMovies(genreId, pageDto);
     }
     public List<MovieDomain> getGenreMovies(int genreId, int page) {
         PagingDTO pagingDTO = new PagingDTO(page, 0, 20);
