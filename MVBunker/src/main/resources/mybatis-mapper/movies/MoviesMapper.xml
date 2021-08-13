@@ -55,7 +55,7 @@
         WHERE A.mainGenre = ${genreId}
         GROUP BY A.id
         ORDER BY MAX(A.popularity) DESC
-            LIMIT ${pagingDTO.minIndex}, ${pagingDTO.listLength}
+            LIMIT 10
     </select>
 
     <select id="selGenreMovies" resultMap="getMovieDomain">
