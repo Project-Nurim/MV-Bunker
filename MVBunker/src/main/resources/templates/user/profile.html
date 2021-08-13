@@ -31,7 +31,7 @@
             <li class="fw">나의 활동내역</li>
             <li th:text="'내가 작성한 리뷰 : ' + ${activity.countMyReview}"></li>
             <li th:text="'내가 작성한 댓글 : ' + ${activity.countMyReview_cmt}"></li>
-            <li th:text="'내가 작성한 답글 : ' + ${activity.countMyReply}"></li>
+            <li th:text="'받은 좋아요 수 : ' + ${activity.countMyReviewLike}"></li>
             <hr style="width:70%">
             <li class="fw">자기소개</li>
             <li th:text="${auth.introduce}"></li>

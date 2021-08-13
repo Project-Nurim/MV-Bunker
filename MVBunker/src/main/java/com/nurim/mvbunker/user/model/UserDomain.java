@@ -6,6 +6,7 @@ import lombok.Data;
 public class UserDomain extends UserEntity {
     private int countMyReview;
     private int countMyReview_cmt;
-    private int countMyReply;
+    private int countMyReply
+    private int countFollower;
     private int countMyReviewLike;
 }

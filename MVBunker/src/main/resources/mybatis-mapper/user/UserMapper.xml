@@ -46,42 +46,85 @@
 
     <!-- 내가 작성한 리뷰 / 댓글 / 받은 좋아요 수(리뷰) 띄우기 -->
     <select id="selUserProfile" resultType="UserDomain">
-        SELECT COUNT(case when A.disLike = 0 then 1 END)AS'countMyReviewLike',
-                COUNT(B.i_user)AS'countMyReview',
-                (SELECT COUNT(i_user) FROM t_review_cmt WHERE i_user = #{i_user})AS'countMyReview_cmt'
-        FROM t_review_like A
-                 INNER JOIN t_review B
+        SELECT COUNT(B.i_user)AS'countMyReview',
+                (SELECT COUNT(i_user) FROM t_review_cmt WHERE i_user = #{i_user})AS'countMyReview_cmt',
+                COUNT(case when A.disLike = 0 then 1 END)AS'countMyReviewLike'
+        FROM t_review B
+                 left JOIN t_review_like A
                             ON A.i_review = B.i_review
         WHERE B.i_user = #{i_user};
     </select>
 
-    <!-- 내가 작성한 리뷰 목록 띄우기 -->
+    <!-- 미완 : 내가 작성한 리뷰 목록 띄우기 + 각 평가기준 별 평점 (별점 총 평균 구하는 건 mapper사용X)-->
+    <!-- 정렬 : (default)최신순=orderby 0  |  좋아요 많은 순=orderby1 -->
     <select id="selMyReviewList" resultType="ReviewDomain">
-        select A.*, count(case when B.)
-
+        SELECT *
+        FROM (
+                 SELECT B.unn as unn,
+                        A.i_user as i_user, A.i_review as i_review, A.title as title, A.id as id, A.poster as poster, A.re_ctnt as re_ctnt, A.regdt as regdt
+                 FROM t_review A
+                          LEFT JOIN t_user B
+                                    ON A.i_user = B.i_user
+                 WHERE A.i_user = #{i_user}
+             )F
+                 left JOIN t_eval E
+                           ON F.i_user = E.i_user
+        GROUP BY E.id;
     </select>
 
-    <!-- 팔로우 -->
-    <!-- 팔로우 등록 -->
-    <insert id="insFollower">
+    <!-- 구독 -->
+    <!-- 구독 등록 -->
+    <insert id="insSub">
         INSERT INTO t_sub
             (sub_ing_user, sub_ed_user)
         VALUES
             (#{i_user}, #{sub_ed_user});
     </insert>
-
-    <!-- 팔로우 취소 -->
-    <delete id="delFollower">
+    <!-- 구독 취소 -->
+    <delete id="delSub">
         DELETE t_sub WHERE sub_ing_user = #{i_user} and sub_ed_user = #{sub_ed_user};
     </delete>
 
-    <!-- 내가 팔로우한 유저목록 띄우기 -->
-    <select id="mySubUser">
-        SELECT A.unn AS 닉네임, A.profileImg AS 프로필사진, A.regdt AS 가입일자, A.introduce AS 자기소개
+    <!-- 내가 구독한 유저목록 띄우기 + 해당 유저가 작성한 리뷰&댓글 수를 해야하는디 할 수 있는건가????? -->
+    <select id="mySubUser" resultType="UserDomain">
+        SELECT A.unn AS unn, A.profileImg AS profileImg, A.regdt AS regdt, A.introduce AS introduce,
+               B.sub_ed_user as i_user
         FROM t_user A
                  INNER JOIN t_sub B
                             ON A.i_user = B.sub_ed_user
         WHERE B.sub_ing_user = #{i_user};
     </select>
 
+    <!-- Following Reviewer Detail - 내가 팔로우한 유저의 프로필 + 작성한 리뷰&팔로워&받은 좋아요 수 -->
+    <select id="subUserProfile" resultType="SubProfileDomain">
+        SELECT C.i_user AS i_user, C.unn AS unn, C.profileImg AS profileImg, C.regdt AS regdt, C.introduce AS introduce,
+               A.review_cnt AS review_cnt, A.follower_cnt AS follower_cnt, A.like_cnt AS like_cnt
+        FROM (
+                 SELECT B.i_user as i_user,
+                        COUNT(B.i_user)AS'review_cnt',
+                         (SELECT COUNT(sub_ing_user) FROM t_sub WHERE sub_ed_user = #{i_user})AS'follower_cnt',
+                         COUNT(case when A.disLike = 0 then 1 END)AS'like_cnt'
+                 FROM t_review B
+                          left JOIN t_review_cmt A
+                                     ON A.i_review = B.i_review
+                 WHERE B.i_user = #{i_user}
+             )A
+                 INNER JOIN t_user C
+                            ON A.i_user = C.i_user;
+    </select>
+
+    <insert id="insFavMovie">
+        insert into t_movie_fav
+        (id, i_user)
+        values
+        (#{id}, #{i_user})
+    </insert>
+
+    <delete id="delFavMovie">
+        delete t_movie_fav where id = #{id} and i_user = #{i_user};
+    </delete>
+
+<!--    <select id="selFavMovieList" resultType="">-->
+<!--        -->
+<!--    </select>-->
 </mapper>
