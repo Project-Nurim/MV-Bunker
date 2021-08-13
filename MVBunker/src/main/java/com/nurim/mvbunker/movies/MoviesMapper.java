@@ -12,7 +12,7 @@ public interface MoviesMapper {
     int insMovies(MyMovieDb param);
     int insMoviesGenre(List<MovieGenreEntity> param);
     List<MovieDomain> selPopMovies();
-    List<MovieDomain> selMultiGenreMovies(int genreId, PagingDTO pagingDTO);
+    List<MovieDomain> selMultiGenreMovies(int genreId);
     List<MovieDomain> selGenreMovies(int genreId, PagingDTO pagingDTO);
     MovieDomain selTheMovie(MovieEntity param);
 }
