@@ -328,7 +328,7 @@ footer {
     justify-content: center;
     align-items: center;
 }
-<!-----------------------hover--------------------------------------->
+
 .img-wrapper {
     /*width: 195px;*/
     /*height: 195px;*/
@@ -344,10 +344,11 @@ footer {
     height: inherit;
 }
 
-.img1 {
-    top: 200px;
-    left: 200px;
-}
+
+/*.img1 {*/
+/*    top: 200px;*/
+/*    left: 200px;*/
+/*}*/
 
 .darkness {
     position: absolute;
@@ -376,7 +377,11 @@ footer {
     transform: scale(2);
     transition: all .3s linear;
 }
-
+.aTag{
+    display: block;
+    width: inherit;
+    height: inherit;
+}
 .btn-plus span {
     font-size: 2.3em;
     color: #ffffff;
@@ -384,7 +389,7 @@ footer {
 }
 
 /* 추가된 부분 */
-.img-wrapper:hover .darkness {
+ .darkness:hover {
     opacity: 0.4;
 }
 
@@ -393,7 +398,6 @@ footer {
     opacity: 1;
     transform: scale(1);
 }
-
 
 
 
