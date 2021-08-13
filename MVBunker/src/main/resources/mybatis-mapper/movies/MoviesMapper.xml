@@ -58,7 +58,8 @@
             LIMIT 10
     </select>
 
-    <select id="selGenreMovies" resultMap="getMovieDomain">
+<!--    <select id="selGenreMovies" resultMap="getMovieDomain">-->
+    <select id="selGenreMovies" resultType="MovieDomain">
         SELECT A.*, AVG(B.production) AS production, AVG(B.performance) AS performance,
                AVG(B.visual_beauty) AS visual_beauty, AVG(B.music) AS music, AVG(B.plot) AS plot
         FROM t_movies A
