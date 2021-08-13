@@ -38,11 +38,13 @@
                 <ul>
                     <li th:each="i : ${#numbers.sequence(0,4)}">
                         <figure>
-                            <a th:href="@{/review/reviewDetail(movieId=${genre.value.get(i).id})}">
+                            <div class="img-wrapper img1">
+                                <a th:href="@{/review/reviewDetail(movieId=${genre.value.get(i).id})}">
                                 <img class="x" th:src="'https://image.tmdb.org/t/p/w500/' + ${genre.value.get(i).posterPath}">
-                            <div class="dark"></div>
-                            <div class="darkText"><span>Hello</span></div>
+                            <div class="darkness"></div>
+                            <div class="btn-plus"><span>Hello</span></div>
                           </a>
+                            </div>
                         </figure>
                     </li>
                 </ul>
