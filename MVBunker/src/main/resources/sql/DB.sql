@@ -164,6 +164,7 @@ FROM t_user A
 #2021-08-13=====================================================================
 #1. 리뷰전체 목록(유저 닉네임 + 영화id, 영화제목, 리뷰넘버, 리뷰내용, 포스터, 작성일 + 평가기준별 점수 출력) + 정렬도 해야된단말이지...ㅎ
 #리뷰가 총 2개 인데
+
 SELECT R.unn AS unn, R.id AS id, R.title as title, R.i_review as i_review, R.poster as poster, R.re_ctnt as re_ctnt, R.regdt as regdt,
        E.i_user AS i_user, E.production AS production, E.performance AS performance, E.visual_beauty AS visual_beauty, E.music AS music, E.plot AS plot
 FROM t_eval E

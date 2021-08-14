@@ -65,6 +65,19 @@ function makeJustReview(review) {
     // 리뷰 화면에 그리기
 }
 
+
+
+/* 별점 */
+const EvalContainerElem = document.querySelector('#all');
+const fieldSetElems = EvalContainerElem.querySelectorAll('.eval');
+
+fieldSetElems.forEach((fieldSetElem) => {
+    fieldSetElem.addEventListener('change', (e) => {
+        console.log(e.currentTarget);
+    })
+})
+
+
 // 인피니티 스크롤링 설정
 infinityScrolling.url = `/review/getAllReview?orderby=0&movieId=${movieIdVal}`; // 요청보낼 url
 infinityScrolling.makeItemList = makeItemList;
