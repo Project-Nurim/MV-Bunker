@@ -16,20 +16,26 @@
 
     <!-- 전체리뷰 - 최신순&좋아요많은순 정렬 | default=최신순 >>> hover 시 mapper와 분리! -->
     <select id="selAllReviewCount" resultType="ReviewDomain">
-        select A.*, COUNT(CASE WHEN B.disLike = 0 THEN 1 END) AS review_like_cnt,
-               COUNT(CASE WHEN B.disLike = 1 THEN 1 END) AS review_dislike_cnt,
-               COUNT(C.i_cmt) AS review_cmt_cnt
-        from t_review A
-        left join t_review_like B
-        on A.i_review = B.i_review
-        left join t_review_cmt C
-        on A.i_review = C.i_review
+        select R.unn as unn, R.i_user as i_user, R.i_review as i_review, R.title as title, R.id as id, R.poster as poster, R.regdt as regdt, R.re_ctnt as re_ctnt,
+                E.i_user AS Ei_user,E.id as Eid, E.production as production, E.performance as performance, E.visual_beauty as visual_beauty, E.music as music, E.plot as plot,
+                count(case when RL.disLike = 0 then 1 end) as review_dislike_cnt
+        from(
+                select B.unn as unn, A.i_user as i_user, A.i_review as i_review, A.title as title, A.id as id, A.poster As poster, A.regdt as regdt, A.re_ctnt as re_ctnt
+                from t_review A
+                left join t_user B
+                on A.i_user = B.i_user
+            )R
+        left join t_eval E
+            on R.id = E.id and R.i_user = E.i_user
+        left join t_review_like RL
+            on R.i_review = RL.i_review
+        group by R.i_review
         <choose>
         <when test="orderby == 0">
-            order by i_review DESC
+            order by review_dislike_cnt DESC
         </when>
         <otherwise>
-            order by review_like_cnt DESC
+            order by i_review DESC
         </otherwise>
         </choose>
         LIMIT ${minIndex}, ${listLength};
@@ -43,22 +49,27 @@
     <!-- 그 영화의 리뷰들 - default가 좋아요 순
     orderby == 1 : 최신순, == 2 : 과거순 -->
     <select id="selReview" resultType="ReviewDomain">
-        SELECT A.*, (select (COUNT(CASE WHEN B.disLike = 0 THEN 1 END)) AS review_like_cnt,
-               (select COUNT(CASE WHEN B.disLike = 1 THEN 1 END)) AS review_dislike_cnt,
-               COUNT(B.i_cmt) AS review_cmt_cnt
-        FROM t_review A
-        LEFT JOIN t_review_cmt B
-        ON A.i_review = B.i_review
-        WHERE A.id = ${id}
+        select R.unn as unn, R.i_user as i_user, R.i_review as i_review, R.title as title, R.id as id, R.poster as poster, R.regdt as regdt, R.re_ctnt as re_ctnt,
+               E.i_user AS Ei_user,E.id as Eid, E.production as production, E.performance as performance, E.visual_beauty as visual_beauty, E.music as music, E.plot as plot,
+               count(case when RL.disLike = 0 then 1 end) as review_dislike_cnt
+        from(
+            select B.unn as unn, A.i_user as i_user, A.i_review as i_review, A.title as title, A.id as id, A.poster As poster, A.regdt as regdt, A.re_ctnt as re_ctnt
+            from t_review A
+                left join t_user B
+                    on A.i_user = B.i_user
+            )R
+        left join t_eval E
+            on R.id = E.id and R.i_user = E.i_user
+        left join t_review_like RL
+            on R.i_review = RL.i_review
+        where R.id = #{id}
+        group by R.i_review
         <choose>
         <when test="orderby == 0">
-            ORDER BY review_like_cnt DESC;
+            ORDER BY R.i_review DESC;
         </when>
         <when test="orderby == 1">
-            order by A.i_review DESC;
-        </when>
-        <when test="orderby == 2">
-            order by A.i_review;
+            order by review_dislike_cnt DESC;
         </when>
         </choose>
     </select>

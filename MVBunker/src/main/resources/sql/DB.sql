@@ -176,6 +176,5 @@ FROM t_eval E
                   LEFT JOIN t_user B
                             ON A.i_user = B.i_user
      )R
-     ON R.i_user = E.i_user
-WHERE R.i_user = E.i_user AND R.id = E.id
+     ON R.i_user = E.i_user AND R.id = E.id
 GROUP BY R.i_review;
