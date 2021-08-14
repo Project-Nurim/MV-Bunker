@@ -12,11 +12,13 @@
     text-align: center;
 }
 #ALL{
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     border-radius: 0.75em;
     width: 510px;
-    height: 635px;
-    margin: 10px auto;
+    height: 670px;
+    margin: 30px auto;
+    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.56);
+    /*filter: drop-shadow(7px 7px 10px rgba(0, 0, 0, 0.68));*/
 }
 
 .myprofile{
@@ -52,8 +54,9 @@
 }
 
 #save {
-    float: right;
-    margin-right: 80px;
+position: absolute;
+right: 205px;
+    bottom: 15px;
     color: white;
     border: 1px solid #009759;;
     width: 60px;

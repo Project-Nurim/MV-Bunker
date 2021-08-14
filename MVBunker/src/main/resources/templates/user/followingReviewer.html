@@ -14,10 +14,12 @@
 </head>
 <body>
 <th:block layout:fragment="content">
+
     <div id="ALL">
         <div class="p2">
             <p>내가 구독한 리뷰어</p>
         </div>
+        <th:block th:each="subuser : ${mySubUser}">
         <ul class="container">
             <li class="card">
                 <span></span>
@@ -25,17 +27,18 @@
                 <span></span>
                 <span></span>
                 <figure class="content">
-                    <img class="h" src="/누림/사람/ショタオタク隊長 on Twitter.jpg">
+                    <img class="h" th:src="${subuser.profile}">
+                    <!-- if문으로 프로필사진 없는사람은 로고 뜨도록 설정해주기 -->
                     <div>
-                        <p class="pro">디카프리오</p>
-                        <p class="pro">2021.2</p>
-                        <a href="#" class="pro">리뷰:4 댓글:10</a>
+                        <p th:text="${subuser.sub_ed_user}" class="pro"></p>
+                        <p th:text="${subuser.regdt}" class="pro"></p>
+                        <a th:text="리뷰 : + ${subuser.countMyReview} + , 댓글 : + ${subuser.countMyReview_cmt} + , 좋아요 : + ${subuser.countMyReviewLike}" href="#" class="pro"></a>
                     </div>
                 </figure>
             </li>
         </ul>
     </div>
-
+    </th:block>
 </th:block>
 </body>
 </html>

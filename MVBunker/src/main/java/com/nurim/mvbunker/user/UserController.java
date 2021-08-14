@@ -2,6 +2,8 @@ package com.nurim.mvbunker.user;
 import com.nurim.mvbunker.common.MyConst;
 import com.nurim.mvbunker.common.security.model.CustomUserPrincipals;
 
+import com.nurim.mvbunker.movies.model.MovieFavEntity;
+import com.nurim.mvbunker.user.model.SubProfileDomain;
 import com.nurim.mvbunker.user.model.UserDomain;
 import com.nurim.mvbunker.user.model.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,14 +55,21 @@ public class UserController {
     public void followReviewer(){}
 
     @GetMapping("/followingReviewerDetail")
-    public void followReviewerDetail(){}
+    public void followReviewerDetail(UserEntity param, Model model){
+        SubProfileDomain subUserProfile = service.subUserProfile(param);
+        model.addAttribute("subUserProfile", subUserProfile);
+    }
 
     @GetMapping("/myReview")
     public void myReview(){}
 
 
     @GetMapping("/myFavMovie")
-    public void myFavMovie(){}
+    public void myFavMovie(@AuthenticationPrincipal CustomUserPrincipals userDetails, Model model){
+        UserEntity loginUser = userDetails.getUser();
+        MovieFavEntity myFavMovie = service.selFavMovieList(loginUser);
+        model.addAttribute("myFavMovie", myFavMovie);
+    }
 
     @GetMapping("/profile")
     public void profile(Model model, @AuthenticationPrincipal CustomUserPrincipals userDetails, UserEntity param){
