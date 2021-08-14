@@ -1,5 +1,7 @@
 package com.nurim.mvbunker.user;
 
+import com.nurim.mvbunker.movies.model.MovieEntity;
+import com.nurim.mvbunker.movies.model.MovieFavEntity;
 import com.nurim.mvbunker.review.model.ReviewDomain;
 import com.nurim.mvbunker.user.model.SubProfileDomain;
 import com.nurim.mvbunker.user.model.UserDomain;
@@ -29,5 +31,9 @@ public interface UserMapper {
     //내가좋아요한영화
     int insFavMovie (int id, UserEntity param);
     int delFavMovie (int id, UserEntity param);
+    MovieFavEntity selFavMovieList(UserEntity param);
+
+    //팔로우
+    SubProfileDomain subUserProfile(int sub_ed_user);
 
 }

@@ -46,11 +46,11 @@
 
     <!-- 내가 작성한 리뷰 / 댓글 / 받은 좋아요 수(리뷰) 띄우기 -->
     <select id="selUserProfile" resultType="UserDomain">
-        SELECT COUNT(B.i_user)AS'countMyReview',
+        SELECT COUNT(B.i_review)AS'countMyReview',
                 (SELECT COUNT(i_user) FROM t_review_cmt WHERE i_user = #{i_user})AS'countMyReview_cmt',
                 COUNT(case when A.disLike = 0 then 1 END)AS'countMyReviewLike'
-        FROM t_review B
-                 left JOIN t_review_like A
+        FROM t_review_like A
+                 left JOIN t_review B
                             ON A.i_review = B.i_review
         WHERE B.i_user = #{i_user};
     </select>
@@ -113,6 +113,7 @@
                             ON A.i_user = C.i_user;
     </select>
 
+    <!-- 내가 찜한 영화 -->
     <insert id="insFavMovie">
         insert into t_movie_fav
         (id, i_user)
@@ -124,7 +125,11 @@
         delete t_movie_fav where id = #{id} and i_user = #{i_user};
     </delete>
 
-<!--    <select id="selFavMovieList" resultType="">-->
-<!--        -->
-<!--    </select>-->
+    <select id="selFavMovieList" resultType="MovieEntity"><!-- hover 시 띄워 줄 정보는 제외하고! -->
+        select A.posterPath as posterPath, A.id as id
+        from t_movies A
+                 left join t_movie_fav B
+                           on A.id = B.id
+        where B.i_user = ${i_user};
+    </select>
 </mapper>

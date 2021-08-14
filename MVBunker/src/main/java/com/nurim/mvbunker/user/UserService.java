@@ -6,9 +6,13 @@ import com.nurim.mvbunker.common.mailsender.EmailServiceImpl;
 import com.nurim.mvbunker.common.security.IAuthenticationFacade;
 import com.nurim.mvbunker.common.security.UserDetailsServiceImpl;
 
+import com.nurim.mvbunker.movies.model.MovieEntity;
+import com.nurim.mvbunker.movies.model.MovieFavEntity;
+import com.nurim.mvbunker.user.model.SubProfileDomain;
 import com.nurim.mvbunker.user.model.UserDomain;
 
 import com.nurim.mvbunker.user.model.UserEntity;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -101,4 +105,12 @@ public class UserService {
     public int updUserProfile(UserEntity param) {
         return mapper.updUser(param);
     }
+
+    //팔로워 프로필 디테일
+    public SubProfileDomain subUserProfile(UserEntity sub_ed_user){
+        return mapper.subUserProfile(sub_ed_user);
+    }
+
+    //내가 찜한 영화
+    public MovieFavEntity selFavMovieList(UserEntity param){ return mapper.selFavMovieList(param);}
 }
