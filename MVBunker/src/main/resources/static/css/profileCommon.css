@@ -154,7 +154,7 @@ label input {
 
 label input:checked+.menu {
      background-color: #b2bec3;
-    box-shadow: 50vw 0vw 0vh 1000px rgba(0, 0, 0, 0.64);
+    box-shadow: 50vw 0vw 0vh 1050px rgba(0, 0, 0, 0.64);
     border-radius: 0;
 }
 
@@ -213,7 +213,7 @@ label input:checked+.menu .hamburger:before {
 .menu-list {
     position: absolute;
     /* left: 20px; */
-    right: -430px;
+    right: -390px;
     top: 100px;
     /* z-index: 100; */
     display: flex;
@@ -249,16 +249,18 @@ label input:checked+.menu .hamburger:before {
     color: rgba(255, 255, 255, 0.64);
 }
 
-
-
-#popup_open_btn::before {
-    content: 'Login';
+.link-1{
+    text-transform: uppercase;
 }
-#popup_open_btn:hover{
+
+#none-popup::before {
+    content: 'Logout';
+}
+#none-popup:hover{
     animation-play-state: paused;
 }
-#popup_open_btn:hover::before{
-    content: '로그인';
+#none-popup:hover::before{
+    content: '로그아웃';
 }
 
 
@@ -276,29 +278,52 @@ label input:checked+.menu .hamburger:before {
 
 
 
-.movie::before {
+.myfavoriteM::before {
     content: 'my favorite movie';
 }
 
-.movie:hover{
+.myfavoriteM:hover{
     animation-play-state: paused;
 }
-.movie:hover::before {
+.myfavoriteM:hover::before {
     content: '내가 찜한 영화';
 }
 
-.reviewer::before {
+
+.myfavoriteR::before {
+    content: 'my reveiw';
+}
+
+.myfavoriteR:hover{
+    animation-play-state: paused;
+}
+.myfavoriteR:hover::before {
+    content: '내가 작성한 리뷰';
+}
+
+
+
+.fReviewer::before {
     content: 'following reviewer';
 }
 
-.reviewer:hover{
+.fReviewer:hover{
     animation-play-state: paused;
 }
-.reviewer:hover::before {
+.fReviewer:hover::before {
     content: '내가 구독한 리뷰어';
 }
 
+.myFreview::before {
+    content: 'my favorite review';
+}
 
+.myFreview:hover{
+    animation-play-state: paused;
+}
+.myFreview:hover::before {
+    content: '내가 찜한 리뷰';
+}
 
 /*!* footer *!*/
 /*footer {*/
@@ -319,5 +344,6 @@ footer{
     background-color: black;
     color: white;
     text-align: center;
+    font-size: 0.8em;
 }
 
