@@ -31,8 +31,13 @@
         <p th:text="${genre.key}"></p>
         <a class="prev">&#10094;</a>
         <a class="next">&#10095;</a>
+                     <a class="M" th:href="@{/movies/genreDetail(genreId=${reverseGenreMap.get(genre.key)})}">
+                     <button type="button" class="more">더보기</button>
+                     </a>
     </div>
     <div class="ALL">
+
+
         <section class="movies" id="movies">
             <div class="mySlides fade">
                 <ul>
@@ -41,8 +46,13 @@
                             <div class="img-wrapper img1">
                                 <a class="aTag" th:href="@{/review/reviewDetail(movieId=${genre.value.get(i).id})}">
                                 <img class="x" th:src="'https://image.tmdb.org/t/p/w500/' + ${genre.value.get(i).posterPath}">
-                            <div class="darkness"></div>
-                            <div class="btn-plus"><span>Hello</span></div>
+                            <div class="darkness">
+
+                            </div>
+                            <div class="btn-plus">
+                                <div th:text="평점 + ${genre.value.get(i).plot}"></div>
+                                <div th:text="개봉일 + ${genre.value.get(i).releaseDate}"></div>
+                            </div>
                           </a>
                             </div>
                         </figure>
@@ -64,12 +74,6 @@
             </div>
         </section>
 
-        <div class="M">
-            <hr size="2" noshade>
-            <a th:href="@{/movies/genreDetail(genreId=${reverseGenreMap.get(genre.key)})}">
-                <button type="button" class="more">더보기</button>
-            </a>
-        </div>
     </div>
     </article>
 <!--------------------------------------------------->
