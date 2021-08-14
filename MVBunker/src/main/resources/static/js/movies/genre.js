@@ -52,3 +52,21 @@ function showSlides(n, articleElement) {
     slides[result].style.display = "block";
 }
 
+function show(){
+    const img = document.querySelector(".x");
+    img.setStyle()
+}
+
+const darknessElems = document.querySelectorAll('.darkness');
+darknessElems.forEach(darknessElem => {
+    darknessElem.addEventListener('mouseover', (e) => {
+            const imgElem = e.currentTarget.parentNode.querySelector('.x');
+            e.currentTarget.style.transform = 'scale(1.2)'
+            imgElem.style.transform= 'scale(1.2)';
+        })
+    darknessElem.addEventListener('mouseout',(e) => {
+        const imgElem = e.currentTarget.parentNode.querySelector('.x');
+        e.currentTarget.style.transform = 'scale(1)'
+        imgElem.style.transform = 'scale(1)';
+    })
+})
