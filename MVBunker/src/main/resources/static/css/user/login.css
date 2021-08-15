@@ -82,29 +82,28 @@ label input {
     display: none;
 }
 
-label input:checked+.menu {
+label input:checked + .menu {
     /* background-color: #b2bec3; */
     box-shadow: 0 0 150vh 140vw rgba(255, 255, 255, 0.421);
     border-radius: 0;
 }
 
-label input:checked+.menu .hamburger {
+label input:checked + .menu .hamburger {
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
 }
 
-label input:checked+.menu .hamburger:after {
+label input:checked + .menu .hamburger:after {
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
     bottom: 0;
 }
 
-label input:checked+.menu .hamburger:before {
+label input:checked + .menu .hamburger:before {
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
     top: 0;
 }
-
 
 
 h1 {
@@ -152,9 +151,10 @@ div a:visited {
 }
 
 
-.menu-list ul{
+.menu-list ul {
     animation: text-focus-in2 .4s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 }
+
 @keyframes text-focus-in2 {
     0% {
         filter: blur(12px);
@@ -166,7 +166,6 @@ div a:visited {
         opacity: 1;
     }
 }
-
 
 
 @media (max-width: 1000px) {
@@ -231,11 +230,6 @@ div a:visited {
     top: -250px;
     left: 400px;
 }
-
-
-
-
-
 
 
 .bold {
@@ -410,10 +404,9 @@ div a:visited {
 }
 
 
-.logo2_1
-{
-   width: 20vw;
-   margin-top: 70px;
+.logo2_1 {
+    width: 20vw;
+    margin-top: 70px;
     margin-left: -30px;
     /*style="max-width: 100%;height: auto;margin-top: 55px;*/
 }
@@ -443,7 +436,6 @@ div a:visited {
 }
 
 
-
 h4 {
     font-size: 22px;
 }
@@ -469,11 +461,9 @@ p {
 }
 
 
-
 .light {
     color: #b2bec3;
 }
-
 
 
 .forgot {
@@ -571,7 +561,6 @@ a {
 }
 
 
-
 .container2 {
     height: 500px;
     background-color: black;
@@ -662,7 +651,6 @@ a {
 }
 
 
-
 .container2 {
     height: 500px;
     background-color: black;
@@ -700,7 +688,6 @@ a {
 }
 
 
-
 /*---------------------------------------------------------------*/
 
 .menuu {
@@ -724,7 +711,6 @@ a {
     /* padding: 2rem 0; */
     text-align: center;
 }
-
 
 
 @media (max-width: 767px) {
@@ -897,7 +883,6 @@ hr {
 }
 
 
-
 .TV {
     position: absolute;
     left: 100px;
@@ -914,8 +899,6 @@ hr {
     width: 110vw;
     height: auto;
 }
-
-
 
 
 .d {
@@ -947,7 +930,6 @@ hr {
     font-family: "SuperMario256.ttf";
     src: url("/css/user/SuperMario256.ttf");
 }
-
 
 
 .TextGlitch::after {
@@ -988,12 +970,12 @@ hr {
     align-items: baseline;
 }
 
-.TextGlitch-clip+.TextGlitch-clip {
+.TextGlitch-clip + .TextGlitch-clip {
     position: absolute;
     top: 0;
 }
 
-.TextGlitch:not(.TextGlitch-blended) .TextGlitch-clip+.TextGlitch-clip {
+.TextGlitch:not(.TextGlitch-blended) .TextGlitch-clip + .TextGlitch-clip {
     display: none;
 }
 
@@ -1026,7 +1008,7 @@ hr {
     opacity: .4;
 }
 
-html, body{
+html, body {
     width: 100%;
 }
 
@@ -1042,7 +1024,7 @@ body {
 .TextGlitch {
     position: absolute;
     /* font-size: 3rem; */
-    font-size:80px;
+    font-size: 80px;
     transform: translateX(17%);
     top: 41vh;
     /*font-family: "SuperMario256.ttf";*/
@@ -1060,6 +1042,7 @@ body {
     font-family: "SuperMario256.ttf";
     src: url("/css/user/SuperMario256.ttf");
 }
+
 /*@font-face {*/
 /*    font-family: "SuperMario256.ttf";*/
 /*    src: url("/css/user/SuperMario256.ttf");*/
@@ -1081,7 +1064,7 @@ body {
         /* font-size: 3rem; */
         font-size: 36px;
         transform: translateX(1%);
-        top:40vh;
+        top: 40vh;
     }
 }
 
@@ -1105,10 +1088,10 @@ body {
     }
 
     @media (max-width: 1000px) {
-    label .menu{
-        /*background:#fae89676;*/
-        background: #fae89600;
-    }
+        label .menu {
+            /*background:#fae89676;*/
+            background: #fae89600;
+        }
     }
 }
 
@@ -1151,8 +1134,8 @@ body {
 
 .stage_highlight {
     position: absolute;
-    top:85px;
-    left:29vw;
+    top: 85px;
+    left: 29vw;
     width: 40vw;
     height: 80%;
     overflow: hidden;
@@ -1174,7 +1157,7 @@ body {
     height: 400vh;
     background-image: radial-gradient(ellipse, #fae89676, #fae8964c 25%, rgba(82, 116, 168, 0) 50%);
     /*background-image: linear-gradient(to bottom, #fae8964c 25%, rgba(82, 116, 168, 0) 50%);*/
-/*rgba(82,116,168,0.5)*/
+    /*rgba(82,116,168,0.5)*/
     top: -220vh;
     left: 43vw;
     /*55vh에서 30vw로 수정*/
@@ -1237,6 +1220,16 @@ body {
         transform: translateX(-25vh);
     }
 }
+
+.input {
+    position: absolute;
+    right: 100px;
+    width: 400px;
+    height: 50px;
+    background: url('/img/logo/favicon.ico');
+    background-repeat: no-repeat;
+}
+
 
 .menu-list {
     min-height: 600vh;
