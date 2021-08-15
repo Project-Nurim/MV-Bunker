@@ -59,7 +59,7 @@
     <!-- 정렬 : (default)최신순=orderby 0  |  좋아요 많은 순=orderby1 -->
     <select id="selMyReviewList" resultType="ReviewDomain">
         select R.unn as unn, R.i_user as i_user, R.i_review as i_review, R.title as title, R.id as id, R.poster as poster, R.regdt as regdt, R.re_ctnt as re_ctnt,
-               E.i_user AS Ei_user,E.id as Eid, E.production as production, E.performance as performance, E.visual_beauty as visual_beauty, E.music as music, E.plot as plot,
+               E.production as production, E.performance as performance, E.visual_beauty as visual_beauty, E.music as music, E.plot as plot,
                count(case when RL.disLike = 0 then 1 end) as review_like_cnt
         from(
                 select B.unn as unn, A.i_user as i_user, A.i_review as i_review, A.title as title, A.id as id, A.poster As poster, A.regdt as regdt, A.re_ctnt as re_ctnt
@@ -75,14 +75,28 @@
         group by R.i_review
         <choose>
             <when test="orderby == 0">
-                order by i_review;
+                order by R.i_review;
             </when>
             <when test="orderby == 1">
                 order by review_like_cnt desc;
             </when>
         </choose>
     </select>
-
+<!--    <resultMap id="mapOfMyReviews" type="object">-->
+<!--        <result column="unn" property="unn"></result>-->
+<!--        <result column="i_user" property="i_user"></result>-->
+<!--        <result column="i_review" property="i_review"></result>-->
+<!--        <result column="title" property="title"></result>-->
+<!--        <result column="id" property="id"></result>-->
+<!--        <result column="poster" property="poster"></result>-->
+<!--        <result column="regdt" property="regdt"></result>-->
+<!--        <result column="re_ctnt" property="re_ctnt"></result>-->
+<!--        <result column="production" property="production"></result>-->
+<!--        <result column="performance" property="performance"></result>-->
+<!--        <result column="visual_beauty" property="visual_beauty"></result>-->
+<!--        <result column="music" property="music"></result>-->
+<!--        <result column="plot" property="plot"></result>-->
+<!--    </resultMap>-->
     <!-- 구독 -->
     <!-- 구독 등록 -->
     <insert id="insSub">

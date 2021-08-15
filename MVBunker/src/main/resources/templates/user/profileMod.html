@@ -5,7 +5,7 @@
       layout:decorator="layout/profileLayout">
 <head>
     <th:block layout:fragment="css">
-        <link rel="stylesheet" th:href="@{/css/user/profileMod.css}">
+        <link rel="stylesheet" th:href="@{/css/user/profile.css}">
         <link rel="icon" href="/img/logo/favicon.ico">
     </th:block>
     <th:block layout:fragment="js">
@@ -15,26 +15,34 @@
 </head>
 <body>
 <!-- profile.html과 사용방법은 같습니다.-->
-<th:block layout:fragment="content" th:with="auth=${#authentication.getPrincipal().getUser()}">
+<!--  th:if="${auth.provider.equals('local')}" -->
+<section layout:fragment="content" th:with="auth=${#authentication.getPrincipal().getUser()}">
+    <div id="ALL">
         <div class="top">
-            <div>나의 프로필 수정하기</div>
+            <div class="profilemod">프로필 수정하기</div>
             <br>
-            <a href="" id="bye" class="button">회원탈퇴</a>
+            <br>
+            <div id="bye" class="button">회원탈퇴</div>
             <div class="all">
-                <img src="/logo/imgs/bunkerfavicon2.png">
+                <img class="mainProfile" src="/img/login/6.jpg">
+<!--                /logo/imgs/bunkerfavicon2.png-->
             </div>
-            <ul>
-                <li>나의 계정</li>
-                <a href="" id="pfre" class="button">수정하기</a> <!-- 비밀번호 수정 모달 띄우기 -->
+            <br>
+            <br>
+            <ul class="detail">
+                <li class="fw">나의 계정</li>
+                <div id="pfre" class="button">수정하기</div> <!-- 비밀번호 수정 모달 띄우기 -->
                 <li th:text="'아이디 : ' + ${auth.uid}"></li>
                 <li th:password="'비밀번호 : ' + ${auth.upw}"></li>
                 <li th:text="'닉네임 : ' + ${auth.unm}"></li>
                 <li th:text="'가입일 : ' + ${auth.regdt}"></li>
-                <hr 1px>
-                <li th:text="'자기소개 : ' + ${auth.introduce}"></li>
-                <a href="" id="save" class="button">저장</a>
+                <!--            <li th:text="${auth.provider}"></li>-->
+                <hr style="width: 70%; margin-top: 10px;">
+                <li class="fw">자기소개</li>
+                <li th:text="${auth.introduce}"></li>
             </ul>
         </div>
-</th:block>
+    </div>
+</section>
 </body>
 </html>

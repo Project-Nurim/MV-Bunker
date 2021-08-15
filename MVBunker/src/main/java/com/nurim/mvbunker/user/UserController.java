@@ -53,7 +53,12 @@ public class UserController {
     public void favReview(){}
 
     @GetMapping("/followingReviewer")
-    public void followReviewer(){}
+    public void followReviewer(@AuthenticationPrincipal CustomUserPrincipals userDetails, Model model){
+        UserEntity loginUser = userDetails.getUser();
+        List<UserDomain> followReviewer = service.mySubUser(loginUser);
+        System.out.println("이야 : "+followReviewer);
+        model.addAttribute("followReviewer",followReviewer);
+    }
 
     @GetMapping("/followingReviewerDetail")
     public void followReviewerDetail(UserEntity param, Model model){
@@ -64,7 +69,7 @@ public class UserController {
     @GetMapping("/myReview")
     public void myReview(@AuthenticationPrincipal CustomUserPrincipals userDetails, Model model){
         UserEntity loginUser = userDetails.getUser();
-        List<ReviewDomain> myReviewList = service.selMyReviewList(loginUser);
+        List<Map<String, Object>> myReviewList = service.selMyReviewList(loginUser);
         model.addAttribute("myReviewList", myReviewList);
         System.out.println("제목 : "+myReviewList.size());
     }
@@ -111,5 +116,4 @@ public class UserController {
         service.updUserProfile(param);
         return "redirect:/user/profile";
     }
-
 }
