@@ -1179,7 +1179,7 @@ body {
     left: 43vw;
     /*55vh에서 30vw로 수정*/
     transform: perspective(30vh) rotateX(30deg);
-    /* z-index: 10; */
+     z-index: 10;
 }
 
 /*.spotlight {*/
