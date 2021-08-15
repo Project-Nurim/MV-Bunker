@@ -1,34 +1,104 @@
-.all {
+.top{
     display: flex;
     justify-content: center;
-
-}
-
-.all ul {
-    /* background-color: teal; */
-    width: 400px;
     margin: 0 auto;
-    line-height: 40px;
-}
-
-.all li {
-    list-style: none;
-    text-align: left;
-}
-
-.all hr{
-    margin-left: auto;
-}
-
-.all img {
-    width: 130px;
-    height: 130px;
-    border-radius: 100%;
-    margin-bottom: 30px;
-    transform: translateX(20%);
-}
-
-.all .top {
-    transform: translateY(40%);
     width:70%;
+    flex-direction: column;
 }
+
+.all {
+    text-align: center;
+}
+#ALL{
+    /*border: 1px solid black;*/
+    border-radius: 0.75em;
+    width: 510px;
+    height: 670px;
+    /*box-shadow: 5px 10px 10px rgb(0, 150, 89);*/
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.35);
+    /*filter: drop-shadow(7px 7px 10px rgb(0, 150, 89));*/
+    /*background-color: white;*/
+    margin: 70px auto;
+}
+
+.profilemod{
+    /*width: 30vw;*/
+    width: 130px;
+    margin-top: 20px;
+    font-weight:900;
+    font-size: 1.3em;
+    float: left;
+}
+
+.detail {
+    /* background-color: teal; */
+    width: 500px;
+    margin: 0 auto;
+    line-height: 35px;
+    list-style: none;
+}
+
+.fw{
+    font-weight: 600;
+    margin: 5px 0;
+    font-size: 1.1em;
+}
+
+.mainProfile {
+    width: 170px;
+    height: 170px;
+    border-radius: 100%;
+    /*box-shadow: 7px 7px 7px #000;*/
+    filter: drop-shadow(7px 7px 10px rgba(0, 0, 0, 0.46));
+    /*filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.68));*/
+}
+
+#save {
+    color: white;
+    border: 1px solid #009759;;
+    text-align: center;
+    border-radius: 1em;
+    background-color: #009759;
+    text-decoration: none;
+    padding: 0.4em 1em;
+    margin-left: 284px;
+}
+
+.button{
+    float:right;
+}
+
+/*.all {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+
+/*}*/
+
+/*.all ul {*/
+/*    !* background-color: teal; *!*/
+/*    width: 400px;*/
+/*    margin: 0 auto;*/
+/*    line-height: 40px;*/
+/*}*/
+
+/*.all li {*/
+/*    list-style: none;*/
+/*    text-align: left;*/
+/*}*/
+
+/*.all hr{*/
+/*    margin-left: auto;*/
+/*}*/
+
+/*.all img {*/
+/*    width: 130px;*/
+/*    height: 130px;*/
+/*    border-radius: 100%;*/
+/*    margin-bottom: 30px;*/
+/*    transform: translateX(20%);*/
+/*}*/
+
+/*.all .top {*/
+/*    transform: translateY(40%);*/
+/*    width:70%;*/
+/*}*/
