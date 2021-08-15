@@ -1,0 +1,378 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    /* overflow-y: hidden; */
+    overflow-x: hidden;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    /* height: 100%; */
+    /* display: grid; */
+    /* min-height: 100%; */
+    /* grid-template-rows: 1fr auto; */
+    background-color: black;
+}
+
+#ALL {
+    width: 100%;
+    height: 100%;
+}
+
+.hero {
+    width: 100%;
+
+}
+
+/* #ALL{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+} */
+
+footer {
+    /* grid-row-start: 2;
+    grid-row-end: 3; */
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    /* position: fixed; */
+    bottom: 0;
+    padding: 5px;
+    margin-top: 150px;
+
+}
+
+
+section {
+    text-align: center;
+}
+
+
+
+
+
+
+@-webkit-keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+div p {
+    color: white;
+    margin-top: 100px;
+    margin-left: 80px;
+    font-size: 2.4em;
+    margin-bottom: 13px;
+    font-weight: 900;
+}
+
+
+
+/*------------------------------------------------------*/
+nav {
+    position: relative;
+    padding-bottom: 12px;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+
+}
+
+nav .line {
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    margin: 10px 0 0 0;
+    background: #FF1847;
+
+}
+
+nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul li {
+    margin: 0 0 0 0;
+    opacity: .4;
+    transition: all 0.4s ease;
+    margin-top: 90px;
+    color: rgb(0, 0, 0);
+    padding: 0 70px;
+}
+
+nav ul li:hover {
+    opacity: .7;
+}
+
+nav ul li.active {
+    opacity: 1;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a {
+    text-align: center;
+    width: 175px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    display: block;
+    font-weight: 600;
+    letter-spacing: .2em;
+    font-size: 16px;
+}
+
+
+/*----------------------------------------------------*/
+
+
+.container {
+    /* width: 1100px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.container .card {
+    position: relative;
+    width: 280px;
+    height:380px;
+    background: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+    box-shadow: 0 5px 50px #ffffff;
+    overflow: hidden;
+    text-align: center;
+    border-radius: 0.75em;
+}
+
+
+
+.content .card .content {
+    padding: 30px;
+    text-align: center;
+}
+
+
+.container .card .content p {
+    position: relative;
+    font-size: 2em;
+    color: #fff;
+    z-index: 2;
+    opacity: 0.7;
+    font-weight: 300;
+    transition: 0.5s;
+}
+
+
+
+.container .card span {
+    transition: 0.5;
+    opacity: 0;
+}
+
+.container .card:hover span {
+    opacity: 1;
+}
+
+.container .card span:nth-child(1) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #ffffff);
+    animation: animate1 2s linear infinite;
+}
+
+@keyframes animate1 {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+
+.container .card span:nth-child(2) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, #ffffff);
+    animation: animate2 2s linear infinite;
+    animation-delay: 1s;
+}
+
+@keyframes animate2 {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+.container .card span:nth-child(3) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to left, transparent, #ffffff);
+    animation: animate3 2s linear infinite;
+}
+
+@keyframes animate3 {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+
+.container .card span:nth-child(4) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to top, transparent, #ffffff);
+    animation: animate4 2s linear infinite;
+    animation-delay: 1s;
+}
+
+@keyframes animate4 {
+    0% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+
+/*----------------------------------------------------*/
+
+
+html {
+    display: flex;
+    /* justify-content: center; */
+    justify-content: space-around;
+    /* gap:50px; */
+}
+
+ul>li>figure {
+    position: relative;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    max-height: 400px;
+    overflow: hidden;
+    /* border: 1px solid white; */
+    /* padding: 20px; */
+    border-radius: 0.45em;
+    float: left;
+    /* margin-right: 40px; */
+    max-width: 100%;
+    height: auto;
+    /* margin-bottom: 50px; */
+    /* margin: 50px; */
+    padding: 0%;
+}
+
+ul>li>figure>img {
+    height: 100%;
+    width: 100%;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    display: flex;
+    gap: 1.5rem;
+    padding: 0;
+    margin: 0 20px;
+}
+
+.h {
+    /* border-radius: 10em; */
+    width: 200px;
+    margin-top: 30px;
+}
+
+figure{
+    width: 300px;
+}
+
+.pro{
+    font-size: 1.5em;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    line-height: 70px;
+    text-decoration: none;
+    color: white;
+}
+
+#back-to-top {
+    text-decoration: none;
+    position: fixed;
+    bottom: 3em;
+    right: 3em;
+    background-color: #ffffff;
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700px;
+    transition: 0.3s;
+    opacity: 0;
+}
+
+#back-to-top:hover {
+    padding: 15px 45px;
+}
+
+#back-to-top.visible {
+    opacity: 1;
+}

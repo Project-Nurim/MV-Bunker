@@ -5,13 +5,13 @@
       layout:decorator="layout/profileLayout">
 <head>
     <th:block layout:fragment="css">
-        <link rel="stylesheet" th:href="@{/css/user/profile.css}">
+        <link rel="stylesheet" th:href="@{/css/user/profileMod.css}">
         <link rel="icon" href="/img/logo/favicon.ico">
     </th:block>
     <th:block layout:fragment="js">
         <script defer th:src="@{/js/user/profileMod.js}"></script>
     </th:block>
-    <title>MyPageMod</title>
+    <title>profile mod</title>
 </head>
 <body>
 <!-- profile.html과 사용방법은 같습니다.-->
@@ -24,7 +24,7 @@
             <br>
             <div id="bye" class="button">회원탈퇴</div>
             <div class="all">
-                <img class="mainProfile" src="/img/login/6.jpg">
+                <img class="mainProfile" th:src="${auth.profileImg}">
 <!--                /logo/imgs/bunkerfavicon2.png-->
             </div>
             <br>
@@ -33,7 +33,7 @@
                 <li class="fw">나의 계정</li>
                 <div id="pfre" class="button">수정하기</div> <!-- 비밀번호 수정 모달 띄우기 -->
                 <li th:text="'아이디 : ' + ${auth.uid}"></li>
-                <li th:password="'비밀번호 : ' + ${auth.upw}"></li>
+                <li th:password="'비밀번호 : ' + ${auth.upw}"></li> <!-- 이렇게 하면 아예 안뜸, *****로 뜨게 하기 -->
                 <li th:text="'닉네임 : ' + ${auth.unm}"></li>
                 <li th:text="'가입일 : ' + ${auth.regdt}"></li>
                 <!--            <li th:text="${auth.provider}"></li>-->

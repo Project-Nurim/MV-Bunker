@@ -11,11 +11,29 @@
     <th:block layout:fragment="js">
         <script defer th:src="@{/js/user/myFavMovie.js}"></script>
     </th:block>
-    <title>myFavMovie</title>
+    <title>my favorite movie</title>
 </head>
 <body>
-<th:block layout:fragment="content">
-
+<th:block layout:fragment="content"> <!-- 반복문 돌려야해 -->
+    <div id="ALL">
+        <div class="p2">
+            <p>내가 찜한 영화</p>
+        </div>
+        <ul class="container">
+            <li class="card">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <figure class="content">
+                    <img class="h" src="${}"><!-- 영화 포스터 -->
+                    <div>
+                        <a href="#" class="pro" ${}></a> <!-- 영화명 -->
+                    </div>
+                </figure>
+            </li>
+        </ul>
+    </div>
 </th:block>
 </body>
 </html>
