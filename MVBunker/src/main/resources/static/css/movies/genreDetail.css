@@ -1,0 +1,17 @@
+.movie-container {
+    margin-top: 95px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    width: 100%;
+    height: auto;
+    gap: 30px;
+    padding: 20px 95px;
+
+}
+img {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-radius: 0.7em;
+}
+

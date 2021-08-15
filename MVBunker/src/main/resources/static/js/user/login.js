@@ -1,6 +1,3 @@
-function box(){
-    window.location='';
-}
 
 const menuListUlElem = document.querySelector('.menu-list ul');
 const chk = document.querySelector('#chk');
