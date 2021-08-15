@@ -25,7 +25,9 @@ section2{
 
 }
 
-
+.All{
+width: 200px;
+}
 
 /* 헤더 */
 
@@ -35,7 +37,7 @@ nav {
     display: flex;
     justify-content: space-around;
     width: 100%;
-
+    margin-bottom: 25px;
 }
 
 nav .line {
@@ -46,25 +48,21 @@ nav .line {
     background: #FF1847;
 
 }
-.hero {
 
-}
 nav ul {
     padding: 0;
-    margin-right: 50px;
-    margin-left:15px;
     list-style: none;
     display: flex;
-    justify-content: space-between;
+   align-items: baseline;
 }
 
 nav ul li {
     margin: 0 0 0 0;
-    opacity: .4;
+    opacity: 1;
     transition: all 0.4s ease;
-    margin-top: 50px;
+    margin-top: 30px;
     color: rgb(0, 0, 0);
-    padding: 0 70px;
+    padding: 0 35px;
 
 }
 
@@ -94,8 +92,6 @@ nav ul li a {
 
 .mySlides .hero ul>li>figure {
     position: relative;
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
     max-height: 400px;
     overflow: hidden;
     border: 1px solid white;
@@ -120,11 +116,11 @@ nav ul li a {
     margin: 0 10px;
 }
 
-@media(max-width: 600px) {
-    ul {
-        margin: 50px;
-    }
-}
+/*@media(max-width: 600px) {*/
+/*    ul {*/
+/*        margin: 50px;*/
+/*    }*/
+/*}*/
 
 /* 검색창 */
 body {

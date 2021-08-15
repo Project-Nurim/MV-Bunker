@@ -5,7 +5,7 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <title>bunker by nurim</title>
-    <link rel="icon" href="/img/logo/bunkerfavicon_rf_vuO_icon.ico">
+    <link rel="icon" href="/img/logo/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel="stylesheet" th:href="@{/css/user/login.css}">
     <link rel="stylesheet" th:href="@{/css/user/login2.css}">
@@ -24,23 +24,23 @@
 </label>
 
 
+<div class="wrapper">
 
-    <div class="wrapper">
+    <!--        <div class="stage_floor"></div>-->
 
-<!--        <div class="stage_floor"></div>-->
+    <div class="stage_highlight"></div>
 
-        <div class="stage_highlight"></div>
+    <div class="lamp"></div>
 
-        <div class="lamp"></div>
+    <!--        <div class="spotlight"></div>-->
 
-<!--        <div class="spotlight"></div>-->
+</div>
 
-    </div>
-
-    <img src="/img/login/!7.png" class="pic" onclick="box()">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&family=Fira+Mono:wght@500&display=swap"
-          rel="stylesheet">
-    <div class="TextGlitch" id="title" onclick="box()">
+<img src="/img/login/!7.png" class="pic">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&family=Fira+Mono:wght@500&display=swap"
+      rel="stylesheet">
+    <div class="TextGlitch" id="title">
+<!--<a th:href="@{/movies/boxoffice}">-->
         <div class="TextGlitch-clip">
             <div class="TextGlitch-word"></div>
             <div class="TextGlitch-word TextGlitch-blend TextGlitch-blendA"></div>
@@ -56,131 +56,160 @@
             <div class="TextGlitch-word TextGlitch-blend TextGlitch-blendA"></div>
             <div class="TextGlitch-word TextGlitch-blend TextGlitch-blendB"></div>
         </div>
+<!--</a>-->
     </div>
 
-    <div class="menu-list">
-        <ul>
-            <div class="link-1">
+<div class="menu-list">
+    <ul>
+        <div class="link-1">
 
-                <li sec:authorize="isAnonymous()">
-                    <a href="#"><span id="popup_open_btn"></span></a>
-                </li>
-                <li sec:authorize="isAuthenticated()">
-                    <a href="/user/logout"><span id="none-popup"></span></a>
-                </li>
-                <li>
-                    <a href="/user/profile"><span id="mypage"></span></a>
-                </li>
-                <li>
-                    <a href="/user/myFavMovie"><span class="movie"></span></a>
-                </li>
-                <li>
-                    <a href="/user/myReview"><span class="mywrite"></span></a>
-                </li>
-                <li>
-                    <a href="/user/followingReviewer"><span class="reviewer"></span></a>
-                </li>
-                <li>
-                    <a href="/user/favReview"><span class="review"></span></a>
-                </li>
+            <li sec:authorize="isAnonymous()">
+                <a href="#"><span id="popup_open_btn"></span></a>
+            </li>
+            <li sec:authorize="isAuthenticated()">
+                <a href="/user/logout"><span id="none-popup"></span></a>
+            </li>
+            <li>
+                <a href="/user/profile"><span id="mypage"></span></a>
+            </li>
+            <li>
+                <a href="/user/myFavMovie"><span class="movie"></span></a>
+            </li>
+            <li>
+                <a href="/user/myReview"><span class="mywrite"></span></a>
+            </li>
+            <li>
+                <a href="/user/followingReviewer"><span class="reviewer"></span></a>
+            </li>
+            <li>
+                <a href="/user/favReview"><span class="review"></span></a>
+            </li>
+        </div>
+    </ul>
+</div>
+
+
+<div class="two">
+    <img class="logo2" src="/img/login/tape3.png" style="max-width: 100%;height: auto;">
+</div>
+<div class="four">
+    <img class="logo2_1" src="/img/login/tape1.png">
+</div>
+</div>
+
+<a href="/developers" class="h">Developed by NURIM</a>
+
+
+<div id="my_modal">
+    <div class="container">
+        <form action="/user/login" method="post">
+            <div class="move">
+                <input type="submit" class="p-button" onclick="show()" value="로그인">
             </div>
-        </ul>
-    </div>
 
-
-    <div class="two">
-        <img class="logo2" src="/img/login/tape3.png" style="max-width: 100%;height: auto;">
-    </div>
-    <div class="four">
-        <img class="logo2_1" src="/img/login/tape1.png">
-    </div>
-    </div>
-
-    <a href="/developers" class="h">Developed by NURIM</a>
-
-
-    <div id="my_modal">
-        <div class="container">
-            <form action="/user/login" method="post">
-                <div class="move">
-                    <input type="submit" class="p-button" onclick="show()" value="로그인">
+            <div class="login">
+                <input class="email" name="uid" type="text" placeholder="이메일"><span class="go">@</span>
+                <select id="mails" class="select">
+                    <option name="selectBox" value="">직접입력</option>
+                    <option name="naver" value="@naver.com">naver.com</option>
+                    <option name="daum" value="@daum.net">daum.net</option>
+                    <option name="nate" value="@nate.com">nate.com</option>
+                </select>
+                <div>
+                    <input type="password" placeholder="password" class="log2" name="upw">
                 </div>
-
-                <div class="login">
-                    <input class="email" name="uid" type="text" placeholder="이메일"><span class="go">@</span>
-                    <select id="mails" class="select">
-                        <option name="selectBox" value="">직접입력</option>
-                        <option name="naver" value="@naver.com">naver.com</option>
-                        <option name="daum" value="@daum.net">daum.net</option>
-                        <option name="nate" value="@nate.com">nate.com</option>
-                    </select>
-                    <div>
-                        <input type="password" placeholder="password" class="log2" name="upw">
-                    </div>
-                    <!--<a th:href="@{/oauth2/authorization/naver}">네이버</a>
-                    <a th:href="@{/oauth2/authorization/kakao}">카카오</a>
-                    <a th:href="@{/oauth2/authorization/google}">구글</a>
-                    <a th:href="@{/oauth2/authorization/facebook}">페이스북</a>-->
-                </div>
-            </form>
-
-            <div class="welcome">
-                <div class="icon">
-                    <img id="icons" class="naver" src="https://seoulsochic.com/skin/m_modern/images/button/naver-icon.png"></a>
-                    <img id="icons" class="kakao"
-                         src="https://mblogthumb-phinf.pstatic.net/MjAyMDA3MTRfMjI5/MDAxNTk0NzI5NzcyMDMz.X2YVWOeE6fwrOSnUiARthmNM9a4mfRnneetw1hTtyHIg.1Tqwf_4qgAqc1v3jE6xbzobcrV3X6yN8JVUVwjlRGkog.JPEG.xuni1021/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1-%EB%A1%9C%EA%B3%A0-ai-3.jpg?type=w800">
-                    <img id="icons" class="facebook"
-                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtAAs65FYEOv0anNZoMmOhDEpKuwUDTRiCRQ&usqp=CAU">
-                </div>
-                <p class="sns">SNS계정으로 로그인</p>
-                <div class="underline">
-                    <hr>
-                </div>
-                <h4 class="bold2">로그인</h4>
+                <!--<a th:href="@{/oauth2/authorization/naver}">네이버</a>
+                <a th:href="@{/oauth2/authorization/kakao}">카카오</a>
+                <a th:href="@{/oauth2/authorization/google}">구글</a>
+                <a th:href="@{/oauth2/authorization/facebook}">페이스북</a>-->
             </div>
-            <div class="form">
-                <h4 class="bold title">회원가입</h4>
-                <input type="text" placeholder="Name" id="join">
-                <input type="text" placeholder="Age" id="age">
-                <input type="text" placeholder="Nickname" id="nick">
-                <input type="text" placeholder="nurim@bunker.com" id="email">
-                <input type="password" placeholder="password" id="pw"><br>
-                <input type="password" placeholder="Confirm password" id="pw2"><br>
-                <p class="normal forgot">Forgot your password?</p>
+        </form>
 
-                <button type="button" class="b-button normal" onclick="check()">회원가입</button>
+        <div class="welcome">
+            <div class="icon">
+                <img id="icons" class="naver"
+                     src="https://seoulsochic.com/skin/m_modern/images/button/naver-icon.png"></a>
+                <img id="icons" class="kakao"
+                     src="https://mblogthumb-phinf.pstatic.net/MjAyMDA3MTRfMjI5/MDAxNTk0NzI5NzcyMDMz.X2YVWOeE6fwrOSnUiARthmNM9a4mfRnneetw1hTtyHIg.1Tqwf_4qgAqc1v3jE6xbzobcrV3X6yN8JVUVwjlRGkog.JPEG.xuni1021/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1-%EB%A1%9C%EA%B3%A0-ai-3.jpg?type=w800">
+                <img id="icons" class="facebook"
+                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtAAs65FYEOv0anNZoMmOhDEpKuwUDTRiCRQ&usqp=CAU">
             </div>
+            <p class="sns">SNS계정으로 로그인</p>
+            <div class="underline">
+                <hr>
             </div>
-        <a class="modal_close_btn"><img th:src="@{/img/login/close.png}" style="width:35px; height:35px"></a>
+            <h4 class="bold2">로그인</h4>
+        </div>
+        <div class="form">
+            <h4 class="bold title">회원가입</h4>
+            <input type="text" placeholder="Name" id="join">
+            <input type="text" placeholder="Age" id="age">
+            <input type="text" placeholder="Nickname" id="nick">
+            <input type="text" placeholder="nurim@bunker.com" id="email">
+            <input type="password" placeholder="password" id="pw"><br>
+            <input type="password" placeholder="Confirm password" id="pw2"><br>
+            <p class="normal forgot">Forgot your password?</p>
+
+            <button type="button" class="b-button normal" onclick="check()">회원가입</button>
+        </div>
     </div>
+    <a class="modal_close_btn"><img th:src="@{/img/login/close.png}" style="width:35px; height:35px"></a>
+</div>
 
-    <a href="#" id="back-to-top"><img src="/img/login/remocon.png" width="25px" height="70px"></a>
+<a href="#" id="back-to-top"><img src="/img/login/remocon.png" width="25px" height="70px"></a>
 
 
-    <div class="menuu" style="max-width: 100%; height: auto;">
-        <ul class="menu--wrapper" style="max-width: 100%; height: auto;">
-            <li class="menu--item"><button class="slogan" href="#">
-                <pre>WATCH  MOVIES</pre></button></li>
-            <li class="menu--item"><button class="slogan" href="#">
-                <pre>IN  YOUR</pre></button></li>
-            <li class="menu--item"><button class="slogan" href="#">
-                <pre>BUNKER</pre></button></li>
-            <li class="menu--item"><button class="slogan" href="#">
-                <pre>AND</pre></button></li>
-            <li class="menu--item"><button class="slogan" href="#">
-                <pre>COME, TALK</pre></button></li>
-            <li class="menu--item"><button class="slogan" href="#">
-                <pre>TOGETHER</pre></button></li>
-            <li class="menu--item"><button class="slogan" href="#">
-                <pre>☻</pre></button></li>
-            <li class="menu--item"><button class="slogan" href="#">
-                <pre>STORIES</pre></button></li>
-            <li class="menu--item"><button class="slogan" href="#">
-                <pre>NEVER DIE !</pre></button></li>
-            <!-- <li class="menu--item"><button href="#">Spotify</button></li>
-          <li class="menu--item"><button href="#">YouTube</button></li> -->
-        </ul>
-    </div>
+<div class="menuu" style="max-width: 100%; height: auto;">
+    <ul class="menu--wrapper" style="max-width: 100%; height: auto;">
+        <li class="menu--item">
+            <button class="slogan" href="#">
+                <pre>WATCH  MOVIES</pre>
+            </button>
+        </li>
+        <li class="menu--item">
+            <button class="slogan" href="#">
+                <pre>IN  YOUR</pre>
+            </button>
+        </li>
+        <li class="menu--item">
+            <button class="slogan" href="#">
+                <pre>BUNKER</pre>
+            </button>
+        </li>
+        <li class="menu--item">
+            <button class="slogan" href="#">
+                <pre>AND</pre>
+            </button>
+        </li>
+        <li class="menu--item">
+            <button class="slogan" href="#">
+                <pre>COME, TALK</pre>
+            </button>
+        </li>
+        <li class="menu--item">
+            <button class="slogan" href="#">
+                <pre>TOGETHER</pre>
+            </button>
+        </li>
+        <li class="menu--item">
+            <button class="slogan" href="#">
+                <pre>☻</pre>
+            </button>
+        </li>
+        <li class="menu--item">
+            <button class="slogan" href="#">
+                <pre>STORIES</pre>
+            </button>
+        </li>
+        <li class="menu--item">
+            <button class="slogan" href="#">
+                <pre>NEVER DIE !</pre>
+            </button>
+        </li>
+        <!-- <li class="menu--item"><button href="#">Spotify</button></li>
+      <li class="menu--item"><button href="#">YouTube</button></li> -->
+    </ul>
+</div>
 
 <footer>
     <p>

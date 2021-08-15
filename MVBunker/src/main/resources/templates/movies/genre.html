@@ -6,6 +6,7 @@
 <head>
     <th:block layout:fragment="css">
         <link rel="stylesheet" th:href="@{/css/movies/genre.css}">
+        <link rel="icon" href="/img/logo/favicon.ico">
     </th:block>
     <th:block layout:fragment="js">
         <script defer th:src="@{/js/movies/genre.js}"></script>
@@ -25,59 +26,63 @@
 <!-- 장르별로 5개씩 영화포스터가 뜨는 페이지 -->
 <th:block layout:fragment="content">
 
-<th:block th:each="genre : ${genreList}"> <!--장르-->
-    <article class="each-genre" data-slide-index="0">
-    <div class="p">
-        <p th:text="${genre.key}"></p>
-        <a class="prev">&#10094;</a>
-        <a class="next">&#10095;</a>
-                     <a class="M" th:href="@{/movies/genreDetail(genreId=${reverseGenreMap.get(genre.key)})}">
-                     <button type="button" class="more">더보기</button>
-                     </a>
-    </div>
-    <div class="ALL">
-
-
-        <section class="movies" id="movies">
-            <div class="mySlides fade">
-                <ul>
-                    <li th:each="i : ${#numbers.sequence(0,4)}">
-                        <figure>
-                            <div class="img-wrapper img1">
-                                <a class="aTag" th:href="@{/review/reviewDetail(movieId=${genre.value.get(i).id})}">
-                                <img class="x" th:src="'https://image.tmdb.org/t/p/w500/' + ${genre.value.get(i).posterPath}">
-                            <div class="darkness">
-
-                            </div>
-                            <div class="btn-plus">
-                                <div th:text="평점 + ${genre.value.get(i).plot}"></div>
-                                <div th:text="개봉일 + ${genre.value.get(i).releaseDate}"></div>
-                            </div>
-                          </a>
-                            </div>
-                        </figure>
-                    </li>
-                </ul>
+    <th:block th:each="genre : ${genreList}"> <!--장르-->
+        <article class="each-genre" data-slide-index="0">
+            <div class="p">
+                <p th:text="${genre.key}"></p>
+                <a class="prev">&#10094;</a>
+                <a class="next">&#10095;</a>
+                <a class="M" th:href="@{/movies/genreDetail(genreId=${reverseGenreMap.get(genre.key)})}">
+                    <button type="button" class="more">더보기</button>
+                </a>
             </div>
+            <div class="ALL">
 
 
-            <div class="mySlides fade">
-                <ul>
-                    <li th:each="i : ${#numbers.sequence(5,9)}">
-                        <figure>
-                            <a th:href="@{/review/reviewDetail?movieId=${genre.value.get(i).id}}">
-                                <img class="x" th:src="'https://image.tmdb.org/t/p/w500/' + ${genre.value.get(i).posterPath}">
-                            </a>
-                        </figure>
-                    </li>
-                </ul>
+                <section class="movies" id="movies">
+                    <div class="mySlides fade">
+                        <ul>
+                            <li th:each="i : ${#numbers.sequence(0,4)}">
+                                <figure>
+                                    <div class="img-wrapper img1">
+                                        <a class="aTag"
+                                           th:href="@{/review/reviewDetail(movieId=${genre.value.get(i).id})}">
+                                            <img class="x"
+                                                 th:src="'https://image.tmdb.org/t/p/w500/' + ${genre.value.get(i).posterPath}">
+                                            <div class="darkness">
+
+                                            </div>
+                                            <div class="btn-plus">
+                                                <div th:text="평점 + ${genre.value.get(i).plot}"></div>
+                                                <div th:text="개봉일 + ${genre.value.get(i).releaseDate}"></div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </figure>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="mySlides fade">
+                        <ul>
+                            <li th:each="i : ${#numbers.sequence(5,9)}">
+                                <figure>
+                                    <a th:href="@{/review/reviewDetail?movieId=${genre.value.get(i).id}}">
+                                        <img class="x"
+                                             th:src="'https://image.tmdb.org/t/p/w500/' + ${genre.value.get(i).posterPath}">
+                                    </a>
+                                </figure>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
             </div>
-        </section>
-
-    </div>
-    </article>
-<!--------------------------------------------------->
-</th:block>
+            <a href="#" id="back-to-top"><img src="/img/login/remocon.png" width="25px" height="70px"></a>
+        </article>
+        <!--------------------------------------------------->
+    </th:block>
     <!--<a th:href="@{/movies/genreDetail(genreId=${reverseGenreMap.get(genre.key)})}"><div th:text="${genre.key}"></div></a>
     <th:block th:each="movie : ${genre.value}"> &lt;!&ndash;그 장르에 해당하는 영화 포스터들&ndash;&gt;
         <img th:src="'https://image.tmdb.org/t/p/w500/' + ${movie.posterPath}">
