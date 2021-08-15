@@ -16,30 +16,32 @@
 <body>
 <!-- ↓ 마이페이지 > 내 프로필 > 내 계정에 들어갈 내용 <td th:text="${auth.nnm}"></td> 필요한 내용은 요로케 쓰면 됨미다.>  -->
 <section layout:fragment="content" th:with="auth=${#authentication.getPrincipal().getUser()}">
-<div id="ALL">
-    <div class="top">
-        <div class="myprofile">나의 프로필</div>
-        <br>
-        <div class="all">
-            <img class="mainProfile" src="/img/login/6.jpg">
+    <div id="ALL">
+        <div class="top">
+            <div class="myprofile">나의 프로필</div>
+            <br>
+            <br>
+            <div class="all">
+                <img class="mainProfile" src="/img/login/6.jpg">
+            </div>
+            <br>
+            <br>
+            <ul class="detail">
+                <li class="fw">나의 계정</li>
+                <li th:text="'아이디 : ' + ${auth.uid}"></li>
+                <li th:text="'닉네임 : ' + ${auth.unm}"></li>
+                <li th:text="'가입일 : ' + ${auth.regdt}"></li>
+    <!--            <li th:text="${auth.provider}"></li>-->
+                <hr style="width: 70%; margin-top: 10px;">
+                <li class="fw">나의 활동내역</li>
+                <li th:text="'내가 작성한 리뷰 : ' + ${activity.countMyReview}"></li>
+                <li th:text="'내가 작성한 댓글 : ' + ${activity.countMyReview_cmt}"></li>
+                <li th:text="'받은 좋아요 수 : ' + ${activity.countMyReviewLike}"></li>
+                <hr style="width:70%; margin-top: 10px;">
+                <li class="fw">자기소개</li>
+                <li th:text="${auth.introduce}"></li>
+            </ul>
         </div>
-        <ul class="detail">
-            <li class="fw">나의 계정</li>
-            <li th:text="'아이디 : ' + ${auth.uid}"></li>
-            <li th:text="'닉네임 : ' + ${auth.unm}"></li>
-            <li th:text="'가입일 : ' + ${auth.regdt}"></li>
-            <li th:text="${auth.provider}"></li>
-            <hr style="width: 70%">
-            <li class="fw">나의 활동내역</li>
-            <li th:text="'내가 작성한 리뷰 : ' + ${activity.countMyReview}"></li>
-            <li th:text="'내가 작성한 댓글 : ' + ${activity.countMyReview_cmt}"></li>
-            <li th:text="'받은 좋아요 수 : ' + ${activity.countMyReviewLike}"></li>
-            <hr style="width:70%">
-            <li class="fw">자기소개</li>
-            <li th:text="${auth.introduce}"></li>
-            <a href="" id="save" class="button">저장</a>
-        </ul>
-    </div>
 </div>
 </section>
 </body>
