@@ -9,4 +9,5 @@ public class UserDomain extends UserEntity {
     private int countMyReply;
     private int countFollower;
     private int countMyReviewLike;
+    private int sub_ed_user;
 }

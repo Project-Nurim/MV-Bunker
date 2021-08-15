@@ -68,10 +68,20 @@
                         <ul>
                             <li th:each="i : ${#numbers.sequence(5,9)}">
                                 <figure>
-                                    <a th:href="@{/review/reviewDetail?movieId=${genre.value.get(i).id}}">
+                                    <div class="img-wrapper img1">
+                                    <a class="aTag"
+                                            th:href="@{/review/reviewDetail?movieId=${genre.value.get(i).id}}">
                                         <img class="x"
                                              th:src="'https://image.tmdb.org/t/p/w500/' + ${genre.value.get(i).posterPath}">
+                                        <div class="darkness">
+
+                                        </div>
+                                        <div class="btn-plus">
+                                            <div th:text="평점 + ${genre.value.get(i).plot}"></div>
+                                            <div th:text="개봉일 + ${genre.value.get(i).releaseDate}"></div>
+                                        </div>
                                     </a>
+                                    </div>
                                 </figure>
                             </li>
                         </ul>

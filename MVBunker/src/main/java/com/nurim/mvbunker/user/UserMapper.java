@@ -20,12 +20,12 @@ public interface UserMapper {
     int delUser(UserEntity parma);
 
     UserDomain selUserProfile(UserEntity param);
-    List<ReviewDomain> selMyReviewList(UserEntity param);
+    List<Map<String, Object>> selMyReviewList(UserEntity param);
 
     //구독
     int insSub(UserEntity param, int sub_ed_user);
     int delSub(UserEntity param, int sub_ed_user);
-    UserDomain mySubUser(UserEntity param);
+    List<UserDomain> mySubUser(UserEntity param);
     SubProfileDomain subUserProfile(UserEntity param);
 
     //내가좋아요한영화

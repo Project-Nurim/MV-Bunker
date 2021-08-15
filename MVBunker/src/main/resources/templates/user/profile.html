@@ -42,6 +42,25 @@
                 <li th:text="${auth.introduce}"></li>
             </ul>
         </div>
+        <ul class="detail">
+            <li class="fw">나의 계정</li>
+            <th:block th:if="${activity.provider} != local">
+                <li th:text="'아이디 : ' + ${auth.uid}">
+            </th:block>
+            <li th:text="'닉네임 : ' + ${auth.unm}"></li>
+            <li th:text="'가입일 : ' + ${auth.regdt}"></li>
+<!--            <li th:text="${auth.provider}"></li>-->
+            <hr style="width: 70%">
+            <li class="fw">나의 활동내역</li>
+            <li th:text="'내가 작성한 리뷰 : ' + ${activity.countMyReview}"></li>
+            <li th:text="'내가 작성한 댓글 : ' + ${activity.countMyReview_cmt}"></li>
+            <li th:text="'받은 좋아요 수 : ' + ${activity.countMyReviewLike}"></li>
+            <hr style="width:70%">
+            <li class="fw">자기소개</li>
+            <li th:text="${auth.introduce}"></li>
+            <a href="" id="save" class="button">저장</a>
+        </ul>
+    </div>
 </div>
 </section>
 </body>
