@@ -3,8 +3,6 @@ import com.nurim.mvbunker.common.MyConst;
 import com.nurim.mvbunker.common.security.model.CustomUserPrincipals;
 
 import com.nurim.mvbunker.movies.model.MovieFavEntity;
-import com.nurim.mvbunker.review.model.ReviewDomain;
-import com.nurim.mvbunker.user.model.SubProfileDomain;
 import com.nurim.mvbunker.user.model.UserDomain;
 import com.nurim.mvbunker.user.model.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,7 +60,7 @@ public class UserController {
 
     @GetMapping("/followingReviewerDetail")
     public void followReviewerDetail(UserEntity param, Model model){
-        SubProfileDomain subUserProfile = service.subUserProfile(param);
+        UserDomain subUserProfile = service.subUserProfile(param);
         model.addAttribute("subUserProfile", subUserProfile);
     }
 
