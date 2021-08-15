@@ -110,7 +110,7 @@
         DELETE t_sub WHERE sub_ing_user = #{i_user} and sub_ed_user = #{sub_ed_user};
     </delete>
 
-    <!-- 내가 구독한 유저목록 띄우기 + 해당 유저가 작성한 리뷰&댓글 수를 해야하는디 할 수 있는건가????? -->
+    <!-- 내가 구독한 유저목록 띄우기 -->
     <select id="mySubUser" resultType="UserDomain">
         SELECT A.unn AS unn, A.profileImg AS profileImg, A.regdt AS regdt, A.introduce AS introduce,
                B.sub_ed_user as i_user
@@ -121,14 +121,14 @@
     </select>
 
     <!-- Following Reviewer Detail - 내가 팔로우한 유저의 프로필 + 작성한 리뷰&팔로워&받은 좋아요 수 -->
-    <select id="subUserProfile" resultType="SubProfileDomain">
+    <select id="subUserProfile" resultType="UserDomain">
         SELECT C.i_user AS i_user, C.unn AS unn, C.profileImg AS profileImg, C.regdt AS regdt, C.introduce AS introduce,
                A.review_cnt AS review_cnt, A.follower_cnt AS follower_cnt, A.like_cnt AS like_cnt
         FROM (
                  SELECT B.i_user as i_user,
-                        COUNT(B.i_user)AS'review_cnt',
-                         (SELECT COUNT(sub_ing_user) FROM t_sub WHERE sub_ed_user = #{i_user})AS'follower_cnt',
-                         COUNT(case when A.disLike = 0 then 1 END)AS'like_cnt'
+                        COUNT(B.i_user)AS'countMyReview',
+                         (SELECT COUNT(sub_ing_user) FROM t_sub WHERE sub_ed_user = #{i_user})AS'countFollower',
+                         COUNT(case when A.disLike = 0 then 1 END)AS'countMyReviewLike'
                  FROM t_review B
                           left JOIN t_review_cmt A
                                      ON A.i_review = B.i_review
