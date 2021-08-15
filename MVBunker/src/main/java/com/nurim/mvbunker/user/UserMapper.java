@@ -20,7 +20,7 @@ public interface UserMapper {
     int delUser(UserEntity parma);
 
     UserDomain selUserProfile(UserEntity param);
-    ReviewDomain selMyReviewList(UserEntity param);
+    List<ReviewDomain> selMyReviewList(UserEntity param);
 
     //구독
     int insSub(UserEntity param, int sub_ed_user);

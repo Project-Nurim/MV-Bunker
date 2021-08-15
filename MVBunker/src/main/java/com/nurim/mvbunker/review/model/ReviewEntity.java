@@ -9,6 +9,6 @@ public class ReviewEntity {
     private String m_title;
     private String poster;
     private int i_user;
-    private int re_ctnt;
+    private String re_ctnt;
     private String regdt;
 }
