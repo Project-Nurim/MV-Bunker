@@ -1,46 +1,228 @@
-*{
-  padding: 0;
-  margin: 0;
-
-}
-
-.profile {
-display: flex;
+.container {
+  /* width: 1100px; */
+  display: flex;
   justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-.img {
-  margin-top: 30px;
-  border-radius: 100%;
-  width: 150px;
+.container .card {
+  position: relative;
+  width: 230px;
+  height:330px;
+  background: rgb(0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+  /* box-shadow: 0 5px 20px #ffffff; */
+  overflow: hidden;
+  text-align: center;
+  border-radius: 0.75em;
+}
+
+/* .container .card:hover{
+  box-shadow: 0 5px 20px #ffffff;
+} */
+
+.content .card .content {
+  padding: 30px;
+  text-align: center;
 }
 
 
-h4{
+.container .card .content p {
+  position: relative;
+  font-size: 2em;
+  color: #fff;
+  z-index: 2;
+  opacity: 0.7;
+  font-weight: 300;
+  transition: 0.5s;
+}
+
+
+
+.container .card span {
+  transition: 0.5;
+  opacity: 0;
+}
+
+.container .card:hover span {
+  opacity: 1;
+}
+
+.container .card span:nth-child(1) {
   position: absolute;
-  top: 280px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, transparent, #ffffff);
+  animation: animate1 2s linear infinite;
 }
 
-.self{
+@keyframes animate1 {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+
+.container .card span:nth-child(2) {
   position: absolute;
-  top: 320px;
+  top: 0;
+  right: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, #ffffff);
+  animation: animate2 2s linear infinite;
+  animation-delay: 1s;
 }
 
-.box{
-  margin: 0 auto;
-  border: 1px solid black;
-  width: 30%;
-  height: 70px;
-  margin-top: 100px;
-  text-align: center;}
+@keyframes animate2 {
+  0% {
+    transform: translateY(-100%);
+  }
 
-.text{
-  display: inline;
-  margin: 0 auto;
+  100% {
+    transform: translateY(100%);
+  }
 }
 
-th, td {
-  display:flex;
-  gap: 10px;
+.container .card span:nth-child(3) {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to left, transparent, #ffffff);
+  animation: animate3 2s linear infinite;
 }
 
+@keyframes animate3 {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+
+.container .card span:nth-child(4) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to top, transparent, #ffffff);
+  animation: animate4 2s linear infinite;
+  animation-delay: 1s;
+}
+
+@keyframes animate4 {
+  0% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+
+/*----------------------------------------------------*/
+
+
+html {
+  display: flex;
+  /* justify-content: center; */
+  justify-content: space-around;
+  /* gap:50px; */
+}
+
+
+ul>li>figure {
+  position: relative;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  max-height: 400px;
+  overflow: hidden;
+  /* border: 1px solid white; */
+  /* padding: 20px; */
+  border-radius: 0.45em;
+  float: left;
+  /* margin-right: 40px; */
+  max-width: 100%;
+  height: auto;
+  /* margin-bottom: 50px; */
+  /* margin: 50px; */
+  padding: 0%;
+}
+
+
+
+ul>li>figure>img {
+  height: 100%;
+  width: 100%;
+
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  display: flex;
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0 20px;
+}
+
+.h {
+  border-radius: 10em;
+  width: 90px;
+  margin-top: 60px;
+}
+figure{
+  width: 300px;
+}
+
+.pro{
+  font-size: 1em;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  line-height: 70px;
+  text-decoration: none;
+  color: white;
+}
+
+/*#back-to-top {*/
+/*  text-decoration: none;*/
+/*  position: fixed;*/
+/*  bottom: 3em;*/
+/*  right: 3em;*/
+/*  background-color: #166307;*/
+/*  color: #fff;*/
+/*  padding: 15px;*/
+/*  border-radius: 5px;*/
+/*  cursor: pointer;*/
+/*  font-weight: 700px;*/
+/*  transition: 0.3s;*/
+/*  opacity: 0;*/
+/*}*/
+
+/*#back-to-top:hover {*/
+/*  padding: 15px 45px;*/
+
+/*}*/
+
+/*#back-to-top.visible {*/
+/*  opacity: 1;*/
+/*}*/
