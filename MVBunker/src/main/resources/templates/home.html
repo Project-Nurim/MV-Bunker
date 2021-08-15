@@ -132,12 +132,18 @@
 
         <div class="welcome">
             <div class="icon">
-                <img id="icons" class="naver"
-                     src="https://seoulsochic.com/skin/m_modern/images/button/naver-icon.png"></a>
+                <a th:href="@{/oauth2/authorization/naver}">
+                    <img id="icons" class="naver"
+                         src="https://seoulsochic.com/skin/m_modern/images/button/naver-icon.png">
+                </a>
+                <a th:href="@{/oauth2/authorization/kakao}">
                 <img id="icons" class="kakao"
                      src="https://mblogthumb-phinf.pstatic.net/MjAyMDA3MTRfMjI5/MDAxNTk0NzI5NzcyMDMz.X2YVWOeE6fwrOSnUiARthmNM9a4mfRnneetw1hTtyHIg.1Tqwf_4qgAqc1v3jE6xbzobcrV3X6yN8JVUVwjlRGkog.JPEG.xuni1021/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1-%EB%A1%9C%EA%B3%A0-ai-3.jpg?type=w800">
+                </a>
+                <a th:href="@{/oauth2/authorization/facebook}">
                 <img id="icons" class="facebook"
                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtAAs65FYEOv0anNZoMmOhDEpKuwUDTRiCRQ&usqp=CAU">
+                </a>
             </div>
             <p class="sns">SNS계정으로 로그인</p>
             <div class="underline">
