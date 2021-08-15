@@ -58,18 +58,29 @@
     <!-- 미완 : 내가 작성한 리뷰 목록 띄우기 + 각 평가기준 별 평점 (별점 총 평균 구하는 건 mapper사용X)-->
     <!-- 정렬 : (default)최신순=orderby 0  |  좋아요 많은 순=orderby1 -->
     <select id="selMyReviewList" resultType="ReviewDomain">
-        SELECT *
-        FROM (
-                 SELECT B.unn as unn,
-                        A.i_user as i_user, A.i_review as i_review, A.title as title, A.id as id, A.poster as poster, A.re_ctnt as re_ctnt, A.regdt as regdt
-                 FROM t_review A
-                          LEFT JOIN t_user B
-                                    ON A.i_user = B.i_user
-                 WHERE A.i_user = #{i_user}
-             )F
-                 left JOIN t_eval E
-                           ON F.i_user = E.i_user
-        GROUP BY E.id;
+        select R.unn as unn, R.i_user as i_user, R.i_review as i_review, R.title as title, R.id as id, R.poster as poster, R.regdt as regdt, R.re_ctnt as re_ctnt,
+               E.i_user AS Ei_user,E.id as Eid, E.production as production, E.performance as performance, E.visual_beauty as visual_beauty, E.music as music, E.plot as plot,
+               count(case when RL.disLike = 0 then 1 end) as review_like_cnt
+        from(
+                select B.unn as unn, A.i_user as i_user, A.i_review as i_review, A.title as title, A.id as id, A.poster As poster, A.regdt as regdt, A.re_ctnt as re_ctnt
+                from t_review A
+                         left join t_user B
+                                   on A.i_user = B.i_user
+            )R
+                left join t_eval E
+                          on R.id = E.id and R.i_user = E.i_user
+                left join t_review_like RL
+                          on R.i_review = RL.i_review
+        where R.i_user = ${i_user}
+        group by R.i_review
+        <choose>
+            <when test="orderby == 0">
+                order by i_review;
+            </when>
+            <when test="orderby == 1">
+                order by review_like_cnt desc;
+            </when>
+        </choose>
     </select>
 
     <!-- 구독 -->

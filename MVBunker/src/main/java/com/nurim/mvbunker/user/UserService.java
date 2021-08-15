@@ -3,11 +3,13 @@ package com.nurim.mvbunker.user;
 import com.nurim.mvbunker.common.file.MyFileUtils;
 import com.nurim.mvbunker.common.auth.RandomCodeGenerator;
 import com.nurim.mvbunker.common.mailsender.EmailServiceImpl;
+import com.nurim.mvbunker.common.model.PagingDTO;
 import com.nurim.mvbunker.common.security.IAuthenticationFacade;
 import com.nurim.mvbunker.common.security.UserDetailsServiceImpl;
 
 import com.nurim.mvbunker.movies.model.MovieEntity;
 import com.nurim.mvbunker.movies.model.MovieFavEntity;
+import com.nurim.mvbunker.review.model.ReviewDomain;
 import com.nurim.mvbunker.user.model.SubProfileDomain;
 import com.nurim.mvbunker.user.model.UserDomain;
 
@@ -19,6 +21,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -105,6 +108,12 @@ public class UserService {
     public int updUserProfile(UserEntity param) {
         return mapper.updUser(param);
     }
+
+    // 내가 작성한 리뷰 리스트
+    public List<ReviewDomain> selMyReviewList(UserEntity param) {
+        List<ReviewDomain> result = mapper.selMyReviewList(param);
+        return result;
+    };
 
     //팔로워 프로필 디테일
     public SubProfileDomain subUserProfile(UserEntity sub_ed_user){

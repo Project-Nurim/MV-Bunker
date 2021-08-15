@@ -3,6 +3,7 @@ import com.nurim.mvbunker.common.MyConst;
 import com.nurim.mvbunker.common.security.model.CustomUserPrincipals;
 
 import com.nurim.mvbunker.movies.model.MovieFavEntity;
+import com.nurim.mvbunker.review.model.ReviewDomain;
 import com.nurim.mvbunker.user.model.SubProfileDomain;
 import com.nurim.mvbunker.user.model.UserDomain;
 import com.nurim.mvbunker.user.model.UserEntity;
@@ -61,7 +62,12 @@ public class UserController {
     }
 
     @GetMapping("/myReview")
-    public void myReview(){}
+    public void myReview(@AuthenticationPrincipal CustomUserPrincipals userDetails, Model model){
+        UserEntity loginUser = userDetails.getUser();
+        List<ReviewDomain> myReviewList = service.selMyReviewList(loginUser);
+        model.addAttribute("myReviewList", myReviewList);
+        System.out.println("제목 : "+myReviewList.size());
+    }
 
 
     @GetMapping("/myFavMovie")
