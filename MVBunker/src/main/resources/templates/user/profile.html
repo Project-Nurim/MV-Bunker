@@ -24,10 +24,12 @@
         </div>
         <ul class="detail">
             <li class="fw">나의 계정</li>
-            <li th:text="'아이디 : ' + ${auth.uid}"></li>
+            <th:block th:if="${activity.provider} != local">
+                <li th:text="'아이디 : ' + ${auth.uid}">
+            </th:block>
             <li th:text="'닉네임 : ' + ${auth.unm}"></li>
             <li th:text="'가입일 : ' + ${auth.regdt}"></li>
-            <li th:text="${auth.provider}"></li>
+<!--            <li th:text="${auth.provider}"></li>-->
             <hr style="width: 70%">
             <li class="fw">나의 활동내역</li>
             <li th:text="'내가 작성한 리뷰 : ' + ${activity.countMyReview}"></li>

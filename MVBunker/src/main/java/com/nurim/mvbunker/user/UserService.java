@@ -110,8 +110,8 @@ public class UserService {
     }
 
     // 내가 작성한 리뷰 리스트
-    public List<ReviewDomain> selMyReviewList(UserEntity param) {
-        List<ReviewDomain> result = mapper.selMyReviewList(param);
+    public List<Map<String, Object>> selMyReviewList(UserEntity param) {
+        List<Map<String,Object>> result = mapper.selMyReviewList(param);
         return result;
     };
 
@@ -122,4 +122,7 @@ public class UserService {
 
     //내가 찜한 영화
     public MovieFavEntity selFavMovieList(UserEntity param){ return mapper.selFavMovieList(param);}
+
+    //내가 구독한 리뷰어
+    public List<UserDomain> mySubUser(UserEntity param){return mapper.mySubUser(param);}
 }

@@ -19,7 +19,7 @@
         <div class="p2">
             <p>내가 구독한 리뷰어</p>
         </div>
-        <th:block th:each="subuser : ${mySubUser}">
+        <th:block th:each="subuser : ${followReviewer}">
         <ul class="container">
             <li class="card">
                 <span></span>
@@ -27,12 +27,12 @@
                 <span></span>
                 <span></span>
                 <figure class="content">
-                    <img class="h" th:src="${subuser.profile}">
+                    <img class="h" th:src="${subuser.profileImg}">
                     <!-- if문으로 프로필사진 없는사람은 로고 뜨도록 설정해주기 -->
                     <div>
-                        <p th:text="${subuser.sub_ed_user}" class="pro"></p>
+                        <p th:text="${subuser.unn}" class="pro"></p>
                         <p th:text="${subuser.regdt}" class="pro"></p>
-                        <a th:text="리뷰 : + ${subuser.countMyReview} + , 댓글 : + ${subuser.countMyReview_cmt} + , 좋아요 : + ${subuser.countMyReviewLike}" href="#" class="pro"></a>
+                        <a th:text="'리뷰 : ' + ${subuser.countMyReview} +  ', 댓글 : '+ ${subuser.countMyReview_cmt} + ', 좋아요 : '+ ${subuser.countMyReviewLike}" href="#" class="pro"></a>
                     </div>
                 </figure>
             </li>
