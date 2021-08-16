@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:500,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Darker+Grotesque&display=swap');
-
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
 *,
 *:before,
 *:after {
@@ -1162,7 +1162,7 @@ body {
     left: 43vw;
     /*55vh에서 30vw로 수정*/
     transform: perspective(30vh) rotateX(30deg);
-     z-index: 10;
+    z-index: -10;
 }
 
 /*.spotlight {*/
@@ -1221,18 +1221,10 @@ body {
     }
 }
 
-.input {
-    position: absolute;
-    right: 100px;
-    width: 400px;
-    height: 50px;
-    background: url('/img/logo/favicon.ico');
-    background-repeat: no-repeat;
-}
 
 
 .menu-list {
-    min-height: 600vh;
+    min-height:600vh;
 }
 
 #back-to-top {
@@ -1259,3 +1251,10 @@ body {
 #back-to-top.visible {
     opacity: 1;
 }
+
+
+
+
+
+
+
