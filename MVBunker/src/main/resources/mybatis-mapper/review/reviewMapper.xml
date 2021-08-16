@@ -18,7 +18,7 @@
     <select id="selAllReview" resultType="ReviewDomain">
         select R.unn as unn, R.i_user as i_user, R.i_review as i_review, R.title as title, R.id as id, R.poster as poster, R.regdt as regdt, R.re_ctnt as re_ctnt,
                 E.i_user AS Ei_user,E.id as Eid, E.production as production, E.performance as performance, E.visual_beauty as visual_beauty, E.music as music, E.plot as plot,
-                count(case when RL.disLike = 0 then 1 end) as review_dislike_cnt
+                count(case when RL.disLike = 0 then 1 end) as review_favlike_cnt
         from(
                 select B.unn as unn, A.i_user as i_user, A.i_review as i_review, A.title as title, A.id as id, A.poster As poster, A.regdt as regdt, A.re_ctnt as re_ctnt
                 from t_review A
@@ -32,7 +32,7 @@
         group by R.i_review
         <choose>
         <when test="orderby == 0">
-            order by review_dislike_cnt DESC
+            order by review_favlike_cnt DESC
         </when>
         <otherwise>
             order by i_review DESC
@@ -42,7 +42,7 @@
     </select>
 
     <!-- 그 영화의 리뷰들 - default가 좋아요 순
-    orderby == 1 : 최신순, == 2 : 과거순 -->
+    orderby == 0 : 최신순, == 1 : 좋아요 많은 순 -->
     <select id="selReview" resultType="ReviewDomain">
         select R.unn as unn, R.i_user as i_user, R.i_review as i_review, R.title as title, R.id as id, R.poster as poster, R.regdt as regdt, R.re_ctnt as re_ctnt,
                E.i_user AS Ei_user,E.id as Eid, E.production as production, E.performance as performance, E.visual_beauty as visual_beauty, E.music as music, E.plot as plot,

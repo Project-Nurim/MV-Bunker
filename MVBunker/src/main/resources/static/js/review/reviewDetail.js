@@ -79,10 +79,11 @@ fieldSetElems.forEach((fieldSetElem) => {
 
 
 // 인피니티 스크롤링 설정
-infinityScrolling.url = `/review/getAllReview?orderby=0&movieId=${movieIdVal}`; // 요청보낼 url
+infinityScrolling.url = `/review/getAllReview?movieId=${movieIdVal}`; // 요청보낼 url
 infinityScrolling.makeItemList = makeItemList;
 infinityScrolling.setScrollInfinity(window);
 infinityScrolling.getItemList(1);
+
 function makeItemList(reviewList) { // 받은 애들 어떻게 뿌릴지
     console.log(reviewList);
     reviewList.forEach(review => {

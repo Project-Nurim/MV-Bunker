@@ -1,5 +1,6 @@
 package com.nurim.mvbunker.review;
 
+import com.nurim.mvbunker.common.model.PagingDTO;
 import com.nurim.mvbunker.common.security.IAuthenticationFacade;
 import com.nurim.mvbunker.common.security.model.CustomUserPrincipals;
 import com.nurim.mvbunker.movies.MoviesService;
@@ -15,7 +16,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/review")
@@ -24,6 +27,8 @@ public class ReviewController {
     private ReviewService service;
     @Autowired
     private MoviesService moviesService;
+    @Autowired
+    private ReviewService reviewService;
     @Autowired
     IAuthenticationFacade auth;
 
@@ -45,6 +50,12 @@ public class ReviewController {
         }
         model.addAttribute("movie", moviesService.getMovieDetail(movieId));
         model.addAttribute("videos", moviesService.getMovieVideo(movieId));
+    }
+
+    @ResponseBody
+    @GetMapping("/reviewDetailInfiniteScrolling")
+    public List<ReviewDomain> getAllReview(int movieId, int page, int orderby) {
+        return reviewService.getReviews(movieId, page, orderby);
     }
 
 
