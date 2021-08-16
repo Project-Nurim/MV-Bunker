@@ -85,13 +85,6 @@
         where i_user = #{i_user} and id = #{id}
     </delete>
 
-    <!-- 내가 작성한 리뷰 목록, default가 좋아요 많은 순! -->
-    <select id="selMyReview" resultType="ReviewDomain">
-        select *
-        from t_review
-        where i_user = ${i_user}
-    </select>
-
     <!-- 평가 -->
     <insert id="insEval">
         INSERT INTO t_eval
