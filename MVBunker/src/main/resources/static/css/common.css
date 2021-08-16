@@ -125,18 +125,21 @@ nav ul li a {
 /* 검색창 */
 
 .search-box {
-    border: solid 5px black;
+    transform: rotate(180deg);
+    border: solid 5px #009559;
     display: inline-block;
     position: relative;
     border-radius: 50px;
+    float: right;
+    margin-right: 117px;
 }
 .search-box input[type="text"] {
     font-family: Raleway, sans-serif;
     font-size: 20px;
     font-weight: bold;
-    width: 50px;
-    height: 50px;
-    padding: 5px 40px 5px 10px;
+    width: 15px;
+    height: 35px;
+    padding: 5px 20px 5px 15px;
     border: none;
     box-sizing: border-box;
     border-radius: 50px;
@@ -167,19 +170,19 @@ nav ul li a {
     justify-content: center;
     align-items: center;
     position: absolute;
-    bottom: -13px;
+    bottom: 27px;
     right: -15px;
     transition: bottom 300ms ease-out 300ms, right 300ms ease-out 300ms;
 }
 .search-box span:before, .search-box span:after {
     content: '';
     height: 25px;
-    border-left: solid 5px black;
+    border-left: solid 5px #009659;
     position: absolute;
-    transform: rotate(-45deg);
+    transform: rotate(40deg);
 }
 .search-box span:after {
-    transform: rotate(45deg);
+    transform: rotate(135deg);
     opacity: 0;
     top: -20px;
     right: -10px;
