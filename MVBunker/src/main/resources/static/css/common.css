@@ -18,12 +18,8 @@ body {
     background-color: black;
     overflow-x: hidden;
 }
-#container2{
 
-}
-section2{
 
-}
 
 .All{
 width: 200px;
@@ -126,12 +122,13 @@ nav ul li a {
 
 .search-box {
     transform: rotate(180deg);
-    border: solid 5px #009559;
+    border: solid 3px #009559;
     display: inline-block;
     position: relative;
     border-radius: 50px;
     float: right;
     margin-right: 117px;
+    margin-bottom: 50px;
 }
 .search-box input[type="text"] {
     font-family: Raleway, sans-serif;
@@ -165,7 +162,7 @@ nav ul li a {
 }
 .search-box span {
     width: 25px;
-    height: 25px;
+    height: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -176,10 +173,10 @@ nav ul li a {
 }
 .search-box span:before, .search-box span:after {
     content: '';
-    height: 25px;
-    border-left: solid 5px #009659;
+    height: 18px;
+    border-left: solid 3px #009659;
     position: absolute;
-    transform: rotate(40deg);
+    transform: rotate(45deg);
 }
 .search-box span:after {
     transform: rotate(135deg);

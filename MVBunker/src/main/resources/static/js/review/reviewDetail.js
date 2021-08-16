@@ -4,8 +4,8 @@ const movieIdVal = document.querySelector('#movieIdInput').value;
 let player;
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('video', {
-        height: '360',
-        width: '640',
+        height: '430',
+        width: '1000',
         playerVars: {'controls': 0 },
         videoId: videoKey
     });
@@ -89,4 +89,47 @@ function makeItemList(reviewList) { // 받은 애들 어떻게 뿌릴지
         makeJustReview(review);
        // 지민이가 만든 컨테이너 주소 변수.innerHTML += `<div>${review.title}</div>`;
     })
+}
+
+
+
+    $( document ).ready(function() {
+    $('.trigger').on('click', function() {
+        $('.modal-wrapper').toggleClass('open');
+        $('.page-wrapper').toggleClass('blur-it');
+        return false;
+    });
+});
+
+
+
+// const checkedd = $('input[name=rating]').is(':checked');
+// const sstarr = document.getElementById("star0.5");
+// if (sstarr == checkedd) {
+//     document.getElementById("starr").style.display = "block";
+// }
+
+const totalRatingInputElem = document.querySelectorAll('.eval__stars');
+let checked = false;
+totalRatingInputElem.forEach((ratingElem) => {
+    ratingElem.addEventListener('click', (e) => {
+        document.getElementById("starr").style.display = "block";
+        const evalue = e.currentTarget.value;
+        const evalCode = e.currentTarget.name;
+        const data = {
+            id: movieIdVal,
+            evalue: evalue,
+            evalCode: evalCode
+        }
+        const init = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify(data)
+        }
+    })
+})
+if (checked) {
+    document.getElementById("starr").style.display = "block";
 }
