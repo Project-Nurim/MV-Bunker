@@ -33,6 +33,10 @@ function setView() {
     })
 
     cardItemList[centerIdx].classList.add('current--card');
+    cardItemList[centerIdx].addEventListener('click', (e) => {
+        const movieIdVal = e.currentTarget.querySelector('.card__image').dataset.movieId;
+        location.href = '/review/reviewDetail?movieId=' + movieIdVal;
+    })
     cardItemList[centerIdx].classList.remove('hidden');
 
     nextIdx = centerIdx + 1;

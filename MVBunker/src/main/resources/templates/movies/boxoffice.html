@@ -28,7 +28,7 @@
 
             <div class="cards__wrapper">
                 <div class="card" th:each="movie : ${boxOfficeList}">
-                    <div class="card__image">
+                    <div class="card__image" th:data-movie-id="${movie.id}">
                         <img th:src="'https://image.tmdb.org/t/p/w500/' + ${movie.posterPath}">
                     </div>
                 </div>
