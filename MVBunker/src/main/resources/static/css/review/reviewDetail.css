@@ -1,3 +1,13 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css);
+
+#container2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 *{
     margin:0;
     padding:0;
@@ -6,4 +16,633 @@
 
 body{
     width:100%
+}
+
+.fa-star:before {
+    color: yellow;
+
+}
+
+
+/* html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+} */
+
+/* .page-wrapper {
+  width: 100%;
+  height: 100%;
+  background: url(https://goo.gl/OeVhun) center no-repeat;
+  background-size: cover;
+} */
+
+/* .blur-it {
+  filter: blur(4px);
+} */
+#starr{
+    display: none;
+}
+a.btn {
+    position: absolute;
+    width: 100%;
+    left: -472px;
+    bottom: 107px;
+    transform: scale(2);
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.modal-wrapper {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.401);
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.25s ease-in-out;
+}
+
+.modal-wrapper.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+.modal {
+    width: 50%;
+    height: 50%;
+    display: block;
+    position: relative;
+    background: #fff;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    margin: 200px auto;
+}
+
+.modal-wrapper.open .modal {
+    opacity: 1;
+}
+
+.head {
+    width: 100%;
+    height: 55px;
+    padding: 12px 30px;
+    overflow: hidden;
+    background: white;
+}
+
+.btn-close {
+    font-size: 28px;
+    display: block;
+    float: right;
+    color: black;
+}
+
+/* .content {
+  padding: 10%;
+} */
+
+/* .good-job {
+  text-align: center;
+  font-family: 'Montserrat', Arial,       Helvetica, sans-serif;
+  color: #e2525c;
+} */
+
+/* .good-job .fa-thumbs-o-up {
+  font-size: 60px;
+}
+.good-job h1 {
+  font-size: 45px;
+} */
+
+/* star 평가하기 */
+.rating-group {
+    display: inline-flex;
+}
+
+/* make hover effect work properly in IE */
+.rating__icon {
+    pointer-events: none;
+}
+
+/* hide radio inputs */
+.rating__input {
+    position: absolute !important;
+    left: -9999px !important;
+}
+
+/* set icon padding and size */
+.rating__label {
+    cursor: pointer;
+    /* if you change the left/right padding, update the margin-right property of .rating__label--half as well. */
+    padding: 0 0.1em;
+    font-size: 2rem;
+}
+
+/* add padding and positioning to half star labels */
+.rating__label--half {
+    padding-right: 0;
+    margin-right: -0.6em;
+    z-index: 2;
+}
+
+/* set default star color */
+.rating__icon--star {
+    color: orange;
+}
+
+/* set color of none icon when unchecked */
+.rating__icon--none {
+    color: #eee;
+}
+
+/* if none icon is checked, make it red */
+.rating__input--none:checked + .rating__label .rating__icon--none {
+    color: red;
+}
+
+/* if any input is checked, make its following siblings grey */
+.rating__input:checked ~ .rating__label .rating__icon--star {
+    color: #ddd;
+}
+
+/* make all stars orange on rating group hover */
+.rating-group:hover .rating__label .rating__icon--star,
+.rating-group:hover .rating__label--half .rating__icon--star {
+    color: orange;
+}
+
+/* make hovered input's following siblings grey on hover */
+.rating__input:hover ~ .rating__label .rating__icon--star,
+.rating__input:hover ~ .rating__label--half .rating__icon--star {
+    color: #ddd;
+}
+
+/* make none icon grey on rating group hover */
+.rating-group:hover .rating__input--none:not(:hover) + .rating__label .rating__icon--none {
+    color: #eee;
+}
+
+/* make none icon red on hover */
+.rating__input--none:hover + .rating__label .rating__icon--none {
+    color: red;
+}
+
+
+body{
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.rating-wrap{
+  max-width: 500px;
+  margin: auto;
+  padding: 15px;
+  display: flex;
+}
+.container2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.rating-wrap2{
+    max-width: 500px;
+    margin: auto;
+    padding: 15px;
+    display: flex;
+}.container3 {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     height: 100%;
+ }
+
+.rating-wrap3{
+    max-width: 500px;
+    margin: auto;
+    padding: 15px;
+    display: flex;
+}.container4 {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     height: 100%;
+ }
+
+.rating-wrap4{
+    max-width: 500px;
+    margin: auto;
+    padding: 15px;
+    display: flex;
+}.container5 {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     height: 100%;
+ }
+
+.rating-wrap5{
+    max-width: 500px;
+    margin: auto;
+    padding: 15px;
+    display: flex;
+}
+
+h5{
+    margin: auto 20px;
+}
+.center {
+    width: 162px;
+    margin: auto;
+}
+/*
+#rating-value{
+  width: 110px;
+  margin: 40px auto 0;
+  padding: 10px 5px;
+  text-align: center;
+  box-shadow: inset 0 0 2px 1px rgba(46,204,113,.2);
+} */
+
+.rating{
+    border: none;
+    float: left;
+}
+
+.rating > input {
+    display: none;
+}
+
+.rating > label:before{
+    content: '\f005';
+    font-family: FontAwesome;
+    margin: 5px;
+    font-size: 1.5rem;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.rating > .half:before{
+    content:  '\f089';
+    position: absolute;
+    cursor: pointer;
+}
+
+.rating > label{
+    color: #ddd;
+    float: right;
+    cursor: pointer;
+}
+
+.rating > input:checked ~ label,
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label{
+    color: #e4c63f;
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label,
+.rating > input:checked ~ label:hover ~ label{
+    color: #e4c63f;
+}
+
+/* 2 */
+.container2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+/* .rating-wrap2{
+  max-width: 480px;
+  margin: auto;
+  padding: 15px;
+  box-shadow: 0 0 3px 0 rgba(0,0,0,.2);
+  text-align: center;
+} */
+
+.center2 {
+    width: 162px;
+    margin: auto;
+}
+
+/*
+#rating-value{
+  width: 110px;
+  margin: 40px auto 0;
+  padding: 10px 5px;
+  text-align: center;
+  box-shadow: inset 0 0 2px 1px rgba(46,204,113,.2);
+} */
+
+.rating2{
+    border: none;
+    float: left;
+}
+
+.rating2 > input {
+    display: none;
+}
+
+.rating2 > label:before{
+    content: '\f005';
+    font-family: FontAwesome;
+    margin: 5px;
+    font-size: 1.5rem;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.rating2 > .half:before{
+    content:  '\f089';
+    position: absolute;
+    cursor: pointer;
+}
+
+.rating2 > label{
+    color: #ddd;
+    float: right;
+    cursor: pointer;
+}
+
+.rating2 > input:checked ~ label,
+.rating2:not(:checked) > label:hover,
+.rating2:not(:checked) > label:hover ~ label{
+    color: #e4c63f;
+}
+
+.rating2 > input:checked + label:hover,
+.rating2 > input:checked ~ label:hover,
+.rating2 > label:hover ~ input:checked ~ label,
+.rating2 > input:checked ~ label:hover ~ label{
+    color: #e4c63f;
+}
+
+/* 3 */
+body{
+    font-family: Arial, sans-serif;
+}
+
+.container3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+/* .rating-wrap3{
+  max-width: 480px;
+  margin: auto;
+  padding: 15px;
+  box-shadow: 0 0 3px 0 rgba(0,0,0,.2);
+  text-align: center;
+} */
+
+.center3 {
+    width: 162px;
+    margin: auto;
+}
+
+/*
+#rating-value{
+  width: 110px;
+  margin: 40px auto 0;
+  padding: 10px 5px;
+  text-align: center;
+  box-shadow: inset 0 0 2px 1px rgba(46,204,113,.2);
+} */
+
+.rating3{
+    border: none;
+    float: left;
+}
+
+.rating3 > input {
+    display: none;
+}
+
+.rating3 > label:before{
+    content: '\f005';
+    font-family: FontAwesome;
+    margin: 5px;
+    font-size: 1.5rem;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.rating3 > .half:before{
+    content:  '\f089';
+    position: absolute;
+    cursor: pointer;
+}
+
+.rating3 > label{
+    color: #ddd;
+    float: right;
+    cursor: pointer;
+}
+
+.rating3 > input:checked ~ label,
+.rating3:not(:checked) > label:hover,
+.rating3:not(:checked) > label:hover ~ label{
+    color: #e4c63f;
+}
+
+.rating3 > input:checked + label:hover,
+.rating3 > input:checked ~ label:hover,
+.rating3 > label:hover ~ input:checked ~ label,
+.rating3 > input:checked ~ label:hover ~ label{
+    color: #e4c63f;
+}
+
+/* 4 */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+
+body{
+    font-family: Arial, sans-serif;
+}
+
+.container4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+/* .rating-wrap4{
+  max-width: 480px;
+  margin: auto;
+  padding: 15px;
+  box-shadow: 0 0 3px 0 rgba(0,0,0,.2);
+  text-align: center;
+} */
+
+.center4 {
+    width: 162px;
+    margin: auto;
+}
+
+/*
+#rating-value{
+  width: 110px;
+  margin: 40px auto 0;
+  padding: 10px 5px;
+  text-align: center;
+  box-shadow: inset 0 0 2px 1px rgba(46,204,113,.2);
+} */
+
+.rating4{
+    border: none;
+    float: left;
+}
+
+.rating4 > input {
+    display: none;
+}
+
+.rating4 > label:before{
+    content: '\f005';
+    font-family: FontAwesome;
+    margin: 5px;
+    font-size: 1.5rem;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.rating4 > .half:before{
+    content:  '\f089';
+    position: absolute;
+    cursor: pointer;
+}
+
+.rating4 > label{
+    color: #ddd;
+    float: right;
+    cursor: pointer;
+}
+
+.rating4 > input:checked ~ label,
+.rating4:not(:checked) > label:hover,
+.rating4:not(:checked) > label:hover ~ label{
+    color: #e4c63f;
+}
+
+.rating4 > input:checked + label:hover,
+.rating4 > input:checked ~ label:hover,
+.rating4 > label:hover ~ input:checked ~ label,
+.rating4 > input:checked ~ label:hover ~ label{
+    color: #e4c63f;
+}
+
+/* 5 */
+/* *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,body{
+  width: 100%;
+  height: 100%;
+} */
+
+body{
+    font-family: Arial, sans-serif;
+}
+
+.container5 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+/* .rating-wrap5{
+  max-width: 480px;
+  margin: auto;
+  padding: 15px;
+  box-shadow: 0 0 3px 0 rgba(0,0,0,.2);
+  text-align: center;
+} */
+
+.center5 {
+    width: 162px;
+    margin: auto;
+}
+
+/*
+#rating-value{
+  width: 110px;
+  margin: 40px auto 0;
+  padding: 10px 5px;
+  text-align: center;
+  box-shadow: inset 0 0 2px 1px rgba(46,204,113,.2);
+} */
+
+.rating5{
+    border: none;
+    float: left;
+}
+
+.rating5 > input {
+    display: none;
+}
+
+.rating5 > label:before{
+    content: '\f005';
+    font-family: FontAwesome;
+    margin: 5px;
+    font-size: 1.5rem;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.rating5 > .half:before{
+    content:  '\f089';
+    position: absolute;
+    cursor: pointer;
+
+}
+
+.rating5 > label{
+    color: #ddd;
+    float: right;
+    cursor: pointer;
+}
+
+.rating5 > input:checked ~ label,
+.rating5:not(:checked) > label:hover,
+.rating5:not(:checked) > label:hover ~ label{
+    color: #e4c63f;
+}
+
+.rating5 > input:checked + label:hover,
+.rating5 > input:checked ~ label:hover,
+.rating5 > label:hover ~ input:checked ~ label,
+.rating5 > input:checked ~ label:hover ~ label{
+    color: #e4c63f;
 }
