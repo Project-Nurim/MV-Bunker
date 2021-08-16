@@ -1,6 +1,6 @@
 // const orderbyElem = 정렬 요소 불러오기
 const containerElem = document.querySelector('#wrapper');
-const tableElem = document.querySelector('#reviewTable');
+const tableElem = document.querySelector('.reviewtable');
 
 // 정렬버튼에 요소 이벤트 추가(클릭일지 체인지일지)
 // orderbyElem.addEventListener('click', () => {
@@ -21,7 +21,7 @@ function makeItemList(reviewList) { // 받은 애들 어떻게 뿌릴지
         const tdElem1 = document.createElement('td');
         const tdElem2 = document.createElement('td');
         const imgElem = document.createElement('img');
-        imgElem.src = review.poster;
+        imgElem.src = 'https://image.tmdb.org/t/p/w500' + review.poster;
         imgElem.ClassName = '클래스';
 
         tdElem1.append(imgElem);
