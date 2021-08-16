@@ -8,6 +8,7 @@ public class PagingDTO {
     private int listLength = 10;
     private int minIndex;
     private int orderby;
+    private String searchText;
     public PagingDTO(int page) {
         this.page = page;
         this.minIndex = (page - 1) * listLength;
