@@ -172,3 +172,31 @@ nav.find('ul li a').hover(function (e) {
 //---------------------------------------------------->
 //
 
+//---------------------검색 proc------------------------->
+const searchInputElem = document.querySelector('#searchInput');
+searchInputElem.addEventListener('keydown', function(e) {
+    if (e.keyCode === 13) {
+        doSearch(searchInputElem.value);
+    }
+})
+
+function doSearch(searchText) {
+    location.href = `/movies/search?searchText=${searchText}`;
+}
+
+//-------------darkness 효과---------------------------->
+function darknessEfx() {
+    const darknessElems = document.querySelectorAll('.darkness');
+    darknessElems.forEach(darknessElem => {
+        darknessElem.addEventListener('mouseover', (e) => {
+            const imgElem = e.currentTarget.parentNode.querySelector('.x');
+            e.currentTarget.style.transform = 'scale(1.2)'
+            imgElem.style.transform = 'scale(1.2)';
+        })
+        darknessElem.addEventListener('mouseout', (e) => {
+            const imgElem = e.currentTarget.parentNode.querySelector('.x');
+            e.currentTarget.style.transform = 'scale(1)'
+            imgElem.style.transform = 'scale(1)';
+        })
+    })
+}

@@ -1,5 +1,6 @@
 package com.nurim.mvbunker.movies;
 
+import com.nurim.mvbunker.common.model.PagingDTO;
 import com.nurim.mvbunker.movies.model.GenreEntity;
 import com.nurim.mvbunker.movies.model.MovieDomain;
 import com.nurim.mvbunker.movies.model.MyMovieDb;
@@ -66,6 +67,11 @@ public class MoviesController {
     @GetMapping("/recommendation")
     public void recommendation(){
 
+    }
+
+    @GetMapping("/search")
+    public void search(Model model, String searchText) {
+        model.addAttribute("movieList", service.getMovieSearch(searchText));
     }
 
 }

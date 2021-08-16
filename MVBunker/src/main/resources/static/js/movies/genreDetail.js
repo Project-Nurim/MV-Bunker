@@ -15,7 +15,7 @@ function makeItemList(movieList) {
         aTagElem.className = 'aTag';
         aTagElem.href = '/review/reviewDetail?movieId=' + movie.id;
         const img = document.createElement('img');
-        img.src = 'https://image.tmdb.org/t/p/w500/' + movie.posterPath;
+        if(movie.posterPath != null) { img.src = 'https://image.tmdb.org/t/p/w500/' + movie.posterPath; }
         img.className = 'x';
         const darknessElem = document.createElement('div');
         darknessElem.className = 'darkness';
