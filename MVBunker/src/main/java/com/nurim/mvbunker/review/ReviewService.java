@@ -6,6 +6,7 @@ import com.nurim.mvbunker.movies.model.MovieEntity;
 import com.nurim.mvbunker.review.model.EvalEntity;
 import com.nurim.mvbunker.review.model.ReviewDomain;
 import com.nurim.mvbunker.review.model.ReviewEntity;
+import com.nurim.mvbunker.user.model.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,14 +23,16 @@ public class ReviewService {
         return mapper.insReview(param);
     }
 
+    // 모든 리뷰 sel
     public List<ReviewDomain> selAllReview(int page, int orderby) {
         PagingDTO pageDto = new PagingDTO(page, orderby);
-        return mapper.selAllReviewCount(pageDto);
+        return mapper.selAllReview(pageDto);
     }
 
-    public List<ReviewDomain> getReviews(ReviewEntity param, int page, int orderby) {
-        PagingDTO pageDto = new PagingDTO(page, orderby);
-        return mapper.selReview(param, pageDto);
+    // 특정 영화에 달린 리뷰 sel
+    public List<ReviewDomain> getReviews(int id, int page, int orderby) {
+        PagingDTO pagingDTO = new PagingDTO(page, orderby);
+        return mapper.selReview(id, pagingDTO);
     }
 
 

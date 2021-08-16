@@ -4,6 +4,7 @@ const infinityScrolling = {
     itemLength: 0,
     currentPage: 1,
     url: '',
+    orderby: 0,
     makeItemList: function () {},
     setScrollInfinity: function(target) {
         target.addEventListener('scroll', () => {
@@ -21,7 +22,7 @@ const infinityScrolling = {
     getItemList: function(page) {
         // this.showLoading(); 로딩 이미지를 보여주는 함수. 후에 추가해주자
 
-        fetch(`${this.url}&page=${page}`)
+        fetch(`${this.url}&page=${page}&orderby=${this.orderby}`)
             .then(res => res.json())
             .then(myJson => {
                 console.log(myJson);
@@ -94,7 +95,7 @@ searchBox.forEach(elm => {
 
 //-------------------underLine---------------------------------->
 const linkUrl = document.location.href;
-navaTagElems = document.querySelectorAll('.ALL');
+const navaTagElems = document.querySelectorAll('.ALL');
 navaTagElems.forEach((aTag) => {
     if(aTag.href === linkUrl) {
         aTag.classList.add('active');
