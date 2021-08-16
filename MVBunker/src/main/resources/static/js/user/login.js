@@ -453,6 +453,3 @@ const glitch = new TextGlitch(elTitle);
 
 glitch.on();
 
-
-
-
