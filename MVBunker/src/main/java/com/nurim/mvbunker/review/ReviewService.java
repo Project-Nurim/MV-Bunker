@@ -24,7 +24,7 @@ public class ReviewService {
 
     public List<ReviewDomain> selAllReview(int page, int orderby) {
         PagingDTO pageDto = new PagingDTO(page, orderby);
-        return mapper.selAllReview(pageDto);
+        return mapper.selAllReviewCount(pageDto);
     }
 
     public List<ReviewDomain> getReviews(ReviewEntity param, int page, int orderby) {
