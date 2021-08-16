@@ -131,6 +131,7 @@ div a:visited {
     cursor: pointer;
 }
 
+
 .test {
     margin-top: 400px;
     color: white;
@@ -1036,6 +1037,13 @@ body {
     cursor: pointer;
     font-family: "SuperMario256.ttf";
 }
+#toBoxOffice {
+    position: absolute;
+    z-index: 1000;
+    width: 17vw;
+    height: 8vw;
+    top: 37vh;
+}
 
 
 @font-face {
@@ -1056,6 +1064,13 @@ body {
         transform: translateX(2%);
         top: 38vh;
     }
+    #toBoxOffice {
+        position: absolute;
+        z-index: 1000;
+        width: 17vw;
+        height: 8vw;
+        top: 38vh;
+    }
 }
 
 @media (max-width: 1100px) {
@@ -1064,6 +1079,13 @@ body {
         /* font-size: 3rem; */
         font-size: 36px;
         transform: translateX(1%);
+        top: 40vh;
+    }
+    #toBoxOffice {
+        position: absolute;
+        z-index: 1000;
+        width: 17vw;
+        height: 8vw;
         top: 40vh;
     }
 }
@@ -1076,6 +1098,13 @@ body {
         transform: translateX(2%);
         top: 42vh;
     }
+    #toBoxOffice {
+        position: absolute;
+        z-index: 1000;
+        width: 17vw;
+        height: 8vw;
+        top: 42vh;
+    }
 }
 
 @media (max-width: 700px) {
@@ -1084,6 +1113,13 @@ body {
         /* font-size: 3rem; */
         font-size: 18px;
         transform: translateX(2%);
+        top: 44vh;
+    }
+    #toBoxOffice {
+        position: absolute;
+        z-index: 1000;
+        width: 17vw;
+        height: 8vw;
         top: 44vh;
     }
 

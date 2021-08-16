@@ -113,6 +113,15 @@ $(document).ready(function(){
 
 
 //-------------------underLine---------------------------------->
+const linkUrl = document.location.href;
+navaTagElems = document.querySelectorAll('.ALL');
+navaTagElems.forEach((aTag) => {
+    if(aTag.href === linkUrl) {
+        aTag.classList.add('active');
+    }
+})
+
+
 
 var nav = $('nav');
 var line = $('<div>').addClass('line'); //.addclass()로 선택한 요소에 클래스값을 추가할수 있다.
