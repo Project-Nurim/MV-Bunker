@@ -323,7 +323,6 @@ h5{
 .rating > input:checked ~ label:hover ~ label{
     color: #e4c63f;
 }
-
 /* 2 */
 .container2 {
     display: flex;
