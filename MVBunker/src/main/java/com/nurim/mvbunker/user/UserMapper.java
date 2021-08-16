@@ -1,5 +1,6 @@
 package com.nurim.mvbunker.user;
 
+import com.nurim.mvbunker.common.model.PagingDTO;
 import com.nurim.mvbunker.movies.model.MovieEntity;
 import com.nurim.mvbunker.movies.model.MovieFavEntity;
 import com.nurim.mvbunker.review.model.ReviewDomain;
@@ -19,7 +20,7 @@ public interface UserMapper {
     int delUser(UserEntity parma);
 
     UserDomain selUserProfile(UserEntity param);
-    List<ReviewDomain> selMyReviewList(UserDomain param);
+    List<ReviewDomain> selReviewList(UserEntity param, PagingDTO pagingDTO);
 
     //구독
     int insSub(UserEntity param, int sub_ed_user);

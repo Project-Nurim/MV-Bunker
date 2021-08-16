@@ -13,7 +13,7 @@ function makeItemList(movieList) {
         imgWrapperDivElem.classList.add('img1');
         const aTagElem = document.createElement('a');
         aTagElem.className = 'aTag';
-        aTagElem.href = '/review/reviewDetail?movieId=' + genreIdElem;
+        aTagElem.href = '/review/reviewDetail?movieId=' + movie.id;
         const img = document.createElement('img');
         img.src = 'https://image.tmdb.org/t/p/w500/' + movie.posterPath;
         img.className = 'x';
