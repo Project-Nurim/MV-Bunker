@@ -1,5 +1,7 @@
 package com.nurim.mvbunker.user;
 import com.nurim.mvbunker.common.MyConst;
+import com.nurim.mvbunker.common.model.PagingDTO;
+import com.nurim.mvbunker.common.security.IAuthenticationFacade;
 import com.nurim.mvbunker.common.security.model.CustomUserPrincipals;
 
 import com.nurim.mvbunker.movies.model.MovieEntity;
@@ -26,6 +28,8 @@ public class UserController {
 
     @Autowired
     private UserService service;
+    @Autowired
+    private IAuthenticationFacade auth;
 
     @Autowired
     private MyConst myconst;
@@ -66,13 +70,16 @@ public class UserController {
     }
 
     @GetMapping("/myReview")
-    public void myReview(@AuthenticationPrincipal CustomUserPrincipals userDetails, Model model){
-        UserEntity loginUser = userDetails.getUser();
-        UserDomain param = new UserDomain();
-        param.setI_user(loginUser.getI_user());
-        List<ReviewDomain> myReviewList = service.selMyReviewList(param);
-        System.out.println("제목 : "+myReviewList);
-        model.addAttribute("myReviewList", myReviewList);
+    public void myReview(){
+    }
+
+    @ResponseBody
+    @GetMapping("/getReviewInfinite")
+    public List<ReviewDomain> getReviewInfinite(UserEntity userInfo, PagingDTO pagingDTO) {
+        if(userInfo.getI_user() == 0) {
+            userInfo.setI_user(auth.getLoginUserPk());
+        }
+        return service.selReviewList(userInfo, pagingDTO);
     }
 
 

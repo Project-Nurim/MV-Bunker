@@ -3,6 +3,7 @@ package com.nurim.mvbunker.user;
 import com.nurim.mvbunker.common.file.MyFileUtils;
 import com.nurim.mvbunker.common.auth.RandomCodeGenerator;
 import com.nurim.mvbunker.common.mailsender.EmailServiceImpl;
+import com.nurim.mvbunker.common.model.PagingDTO;
 import com.nurim.mvbunker.common.security.IAuthenticationFacade;
 import com.nurim.mvbunker.common.security.UserDetailsServiceImpl;
 
@@ -107,8 +108,8 @@ public class UserService {
     }
 
     // 내가 작성한 리뷰 리스트
-    public List<ReviewDomain> selMyReviewList(UserDomain param) {
-        List<ReviewDomain> result = mapper.selMyReviewList(param);
+    public List<ReviewDomain> selReviewList(UserEntity param, PagingDTO pagingDTO) {
+        List<ReviewDomain> result = mapper.selReviewList(param, pagingDTO);
         return result;
     };
 

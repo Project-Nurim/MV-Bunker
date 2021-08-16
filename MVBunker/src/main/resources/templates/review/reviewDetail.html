@@ -18,7 +18,8 @@
 <!-- 우리 사이트의 꽃!!! 리뷰페이지!!! -->
 <th:block layout:fragment="content">
     <input id="movieIdInput" type="hidden" th:value="${param.movieId}">
-    <div id="video" th:data-video-key="${videos.get(0).key}"></div>
+    <div id="video" th:unless="${videos.size() == 0}" th:data-video-key="${videos.get(0).key}"></div>
+    <div th:if="${videos.size() == 0}" style="color:white;">영상 준비중..</div> <!-- 이거 나중에 수정해줘 -->
     <div class="buttons">
         <span id="heart">
         <i class="fas fa-heart"></i><!-- full -->
