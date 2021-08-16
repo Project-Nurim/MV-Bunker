@@ -6,6 +6,7 @@ import com.nurim.mvbunker.common.mailsender.EmailServiceImpl;
 import com.nurim.mvbunker.common.security.IAuthenticationFacade;
 import com.nurim.mvbunker.common.security.UserDetailsServiceImpl;
 
+import com.nurim.mvbunker.movies.model.MovieEntity;
 import com.nurim.mvbunker.movies.model.MovieFavEntity;
 import com.nurim.mvbunker.review.model.ReviewDomain;
 import com.nurim.mvbunker.user.model.UserDomain;
@@ -106,14 +107,13 @@ public class UserService {
     }
 
     // 내가 작성한 리뷰 리스트
-    public List<ReviewDomain> selMyReviewList(UserEntity param) {
+    public List<ReviewDomain> selMyReviewList(UserDomain param) {
         List<ReviewDomain> result = mapper.selMyReviewList(param);
         return result;
     };
 
-
     //내가 찜한 영화
-    public MovieFavEntity selFavMovieList(UserEntity param){ return mapper.selFavMovieList(param);}
+    public MovieEntity selFavMovieList(MovieFavEntity param){ return mapper.selFavMovieList(param);}
 
     //내가 구독한 리뷰어
     public List<UserDomain> mySubUser(UserEntity param){return mapper.mySubUser(param);}

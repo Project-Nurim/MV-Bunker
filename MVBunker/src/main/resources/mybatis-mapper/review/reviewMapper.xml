@@ -15,7 +15,7 @@
     </select>
 
     <!-- 전체리뷰 - 최신순&좋아요많은순 정렬 | default=최신순 >>> hover 시 mapper와 분리! -->
-    <select id="selAllReviewCount" resultType="ReviewDomain">
+    <select id="selAllReview" resultType="ReviewDomain">
         select R.unn as unn, R.i_user as i_user, R.i_review as i_review, R.title as title, R.id as id, R.poster as poster, R.regdt as regdt, R.re_ctnt as re_ctnt,
                 E.i_user AS Ei_user,E.id as Eid, E.production as production, E.performance as performance, E.visual_beauty as visual_beauty, E.music as music, E.plot as plot,
                 count(case when RL.disLike = 0 then 1 end) as review_dislike_cnt
@@ -41,11 +41,6 @@
         LIMIT ${minIndex}, ${listLength};
     </select>
 
-    <!-- 전체리뷰 목록 - default=최신순 -->
-    <select id="selAllReview" resultType="reviewDomain">
-
-    </select>
-    
     <!-- 그 영화의 리뷰들 - default가 좋아요 순
     orderby == 1 : 최신순, == 2 : 과거순 -->
     <select id="selReview" resultType="ReviewDomain">
