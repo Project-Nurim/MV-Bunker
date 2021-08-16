@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/basicLayout">
+
+<head>
+    <th:block layout:fragment="css">
+        <link rel="stylesheet" th:href="@{/css/movies/search.css}">
+        <link rel="stylesheet" th:href="@{/css/movies/genreDetail.css}">
+        <link rel="icon" href="/img/logo/favicon.ico">
+    </th:block>
+    <th:block layout:fragment="js">
+        <script defer th:src="@{/js/movies/search.js}"></script>
+    </th:block>
+    <title th:text="${param.searchText}"></title>
+</head>
+<body>
+<th:block layout:fragment="content">
+    <section class="movie-container" id="movies">
+        <figure th:each="movie : ${movieList}">
+            <div class="img-wrapper img1">
+                <a class="aTag"
+                   th:href="@{/review/reviewDetail(movieId=${movie.id})}">
+                    <img class="x"
+                         th:src="'https://image.tmdb.org/t/p/w500/' + ${movie.posterPath}">
+                    <div class="darkness">
+
+                    </div>
+                    <div class="btn-plus">
+                        <div th:text="평점 + ${movie.plot}"></div>
+                        <div th:text="개봉일 + ${movie.releaseDate}"></div>
+                    </div>
+                </a>
+            </div>
+        </figure>
+    </section>
+    <section id="searchResultContainer">
+
+    </section>
+</th:block>
+</body>
+</html>

@@ -26,13 +26,14 @@ public class GenreLists {
     @Qualifier("genreMap")
     Map<Integer, String> genreMap;
 
-    public int insMovieListAndGenres(MovieResultsPage resultsPage) {
-        int result = 0;
+    public List<Integer> insMovieListAndGenres(MovieResultsPage resultsPage) {
+        List<Integer> result = new ArrayList<>();
         List<MovieDb> originList = resultsPage.getResults();
         for(int i = 0 ; i < originList.size() ; i++) {
             MyMovieDb movieDb = new MyMovieDb(originList.get(i));
+            result.add(movieDb.getId());
             movieDb.setMainGenre(originList.get(i).getGenres().get(0));
-            result += moviesMapper.insMovies(movieDb);
+            moviesMapper.insMovies(movieDb);
             System.out.println("insert movie");
             List<MovieGenreEntity> genreList = new ArrayList<>();
             for(int j = 0 ; j < originList.get(i).getGenres().size(); j++) {
