@@ -198,6 +198,9 @@ button:focus {
     --card-scale-offset: 1.2;
     --opacity: 0.8;
 }
+.current--card:hover {
+    cursor: pointer;
+}
 .card.previous--card {
     z-index: 90;
     --card-translateX-offset: calc(-1 * var(--card-width) * 1.1);
