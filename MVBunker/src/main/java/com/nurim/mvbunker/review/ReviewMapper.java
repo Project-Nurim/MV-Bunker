@@ -4,6 +4,7 @@ import com.nurim.mvbunker.common.model.PagingDTO;
 import com.nurim.mvbunker.review.model.EvalEntity;
 import com.nurim.mvbunker.review.model.ReviewDomain;
 import com.nurim.mvbunker.review.model.ReviewEntity;
+import com.nurim.mvbunker.user.model.UserEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

@@ -47,13 +47,6 @@ public class ReviewController {
         model.addAttribute("videos", moviesService.getMovieVideo(movieId));
     }
 
-    @GetMapping("/myReview")
-    public void myReview (Model model, @AuthenticationPrincipal CustomUserPrincipals userDetails){
-        UserEntity loginUser = userDetails.getUser();
-    }
-
-
-
 
     // Eval CRUD
     @ResponseBody

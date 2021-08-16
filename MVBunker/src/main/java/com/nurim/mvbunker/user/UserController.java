@@ -2,6 +2,7 @@ package com.nurim.mvbunker.user;
 import com.nurim.mvbunker.common.MyConst;
 import com.nurim.mvbunker.common.security.model.CustomUserPrincipals;
 
+import com.nurim.mvbunker.movies.model.MovieEntity;
 import com.nurim.mvbunker.movies.model.MovieFavEntity;
 import com.nurim.mvbunker.review.model.ReviewDomain;
 import com.nurim.mvbunker.user.model.UserDomain;
@@ -67,16 +68,21 @@ public class UserController {
     @GetMapping("/myReview")
     public void myReview(@AuthenticationPrincipal CustomUserPrincipals userDetails, Model model){
         UserEntity loginUser = userDetails.getUser();
-        List<ReviewDomain> myReviewList = service.selMyReviewList(loginUser);
+        UserDomain param = new UserDomain();
+        param.setI_user(loginUser.getI_user());
+        List<ReviewDomain> myReviewList = service.selMyReviewList(param);
+        System.out.println("제목 : "+myReviewList);
         model.addAttribute("myReviewList", myReviewList);
-        System.out.println("제목 : "+myReviewList.size());
     }
 
 
     @GetMapping("/myFavMovie")
     public void myFavMovie(@AuthenticationPrincipal CustomUserPrincipals userDetails, Model model){
         UserEntity loginUser = userDetails.getUser();
-        MovieFavEntity myFavMovie = service.selFavMovieList(loginUser);
+        MovieFavEntity param = new MovieFavEntity();
+        param.setI_user(loginUser.getI_user());
+
+        MovieEntity myFavMovie = service.selFavMovieList(param);
         model.addAttribute("myFavMovie", myFavMovie);
     }
 
