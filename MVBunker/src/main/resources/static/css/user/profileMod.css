@@ -68,6 +68,17 @@
     float:right;
 }
 
+#pw_modal {
+    display: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#pw_modal .modal_close_btn {
+    position: absolute;
+    top: -250px;
+    left: 400px;
+}
+
 /*.all {*/
 /*    display: flex;*/
 /*    justify-content: center;*/

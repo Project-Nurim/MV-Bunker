@@ -110,6 +110,7 @@ function makeItemList(reviewList) { // 받은 애들 어떻게 뿌릴지
 //     document.getElementById("starr").style.display = "block";
 // }
 
+
 const totalRatingInputElem = document.querySelectorAll('.eval__stars');
 let checked = false;
 totalRatingInputElem.forEach((ratingElem) => {
