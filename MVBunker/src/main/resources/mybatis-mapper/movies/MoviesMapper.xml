@@ -107,7 +107,7 @@
                      select id,i_user,exists(select i_user, id from t_movie_fav where i_user = ${i_user} and id=${id})as exist
                      from t_movie_fav
                  )MF
-                 on A.id = MF.id998
+                 on A.id = MF.id
                  left join(
                       select i_user, id, exists(select i_user, id from t_review where i_user = ${i_user} and id=${id})as exist
                       from t_review
