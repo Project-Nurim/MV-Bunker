@@ -68,7 +68,8 @@ public class ReviewService {
 
     //hover
     public void hover(MovieFavEntity param){
-        mapper.selMovieTotalEval(param);
+
+//        mapper.selMovieTotalEval(param);
     }
 
     // Movie Fav Proc

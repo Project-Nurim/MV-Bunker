@@ -8,4 +8,6 @@ public class ReviewDomain extends ReviewEntity{
     private int review_like_cnt;
     private int review_dislike_cnt;
     private int review_cmt_cnt;
+    private double totalAvg_Review;
+    private double totalAvg_Movie;
 }
