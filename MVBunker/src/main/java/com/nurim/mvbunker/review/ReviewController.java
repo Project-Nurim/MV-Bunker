@@ -51,6 +51,7 @@ public class ReviewController {
             model.addAttribute("myEval", service.selMyEval(evalParam));
         }
         model.addAttribute("movie", moviesService.getMovieDetail(movieId));
+        model.addAttribute("myMovie", moviesService.getMyMovieDetails(movieId));
         model.addAttribute("videos", moviesService.getMovieVideo(movieId));
     }
 
@@ -96,6 +97,28 @@ public class ReviewController {
 //    public List<Video> getMovieVideo(@PathVariable(name="movieId") int movieId) {
 //        return moviesService.getMovieVideo(movieId);
 //    }
+
+    // ------------ 영화 좋아요 ------------
+    @ResponseBody
+    @GetMapping("/favMovie/{movieId}")
+    public int selMyFav(@PathVariable(name = "movieId") int id) {
+        MovieFavEntity param = new MovieFavEntity();
+        param.setId(id);
+        return service.selIsFav(param);
+    }
+    @ResponseBody
+    @PostMapping("/favMovie")
+    public int insFavMovie(@RequestBody MovieFavEntity param) {
+        return service.insMovieFav(param);
+    }
+    @ResponseBody
+    @DeleteMapping("/favMovie/{movieId}")
+    public int delFavMovie(@PathVariable(name="movieId") int id) {
+        MovieFavEntity param = new MovieFavEntity();
+        param.setId(id);
+        return service.delMovieFav(param);
+    }
+
 
 
 }
