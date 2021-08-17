@@ -62,8 +62,13 @@ public class MoviesService {
         return mapper.selSearchMovies(movieIds);
     }
 
-    public HoverVO selHover2(MovieFavEntity param) {
-        return mapper.selHover2(param);
+    public List<HoverVO> selHover1(MovieFavEntity param) {
+        List<HoverVO> selHover1 = mapper.selHover1(param);
+        return selHover1;
+    }
+    public List<HoverVO> selHover2(MovieFavEntity param) {
+        List<HoverVO> selHover2 = mapper.selHover2(param);
+        return selHover2;
     }
 
 }

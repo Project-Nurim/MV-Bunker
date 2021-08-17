@@ -133,17 +133,17 @@
         WHERE id = ${id} AND i_user = ${i_user}
     </select>
 
-    <!-- Review - 특정 리뷰에 대한 총 평점 평균 -->
-    <select id="selReviewTotalEval" resultType="double">
-        SELECT (production+performance+visual_beauty+music+plot)/5 AS totalAvg_Review
-        FROM
-            (
-                SELECT AVG(production) AS production, AVG(performance) AS performance, AVG(visual_beauty) AS visual_beauty
-                     , AVG(music) AS music, AVG(plot) AS plot
-                FROM t_eval
-                WHERE id = ${id} AND i_user = #{i_user}
-            )A;
-    </select>
+<!--    &lt;!&ndash; Review - 특정 리뷰에 대한 총 평점 평균 &ndash;&gt;-->
+<!--    <select id="selReviewTotalEval" resultType="double">-->
+<!--        SELECT (production+performance+visual_beauty+music+plot)/5 AS totalAvg_Review-->
+<!--        FROM-->
+<!--            (-->
+<!--                SELECT AVG(production) AS production, AVG(performance) AS performance, AVG(visual_beauty) AS visual_beauty-->
+<!--                     , AVG(music) AS music, AVG(plot) AS plot-->
+<!--                FROM t_eval-->
+<!--                WHERE id = ${id} AND i_user = #{i_user}-->
+<!--            )A;-->
+<!--    </select>-->
 
     <!-- Review - 포스터에 hover 시 띄워 줄 특정 영화에 대한 총 평점 평균 -->
 <!--    <select id="selMovieTotalEval" resultType="double">-->
@@ -186,5 +186,19 @@
                  WHERE A.i_review = #{i_review}
                  ORDER BY i_cmt ASC) A
         GROUP BY A.i_cmt;
+    </select>
+
+    <!-- 좋아요 누른 리뷰 목록 띄우기 -->
+    <select id="selLikeReviews" resultType="ReviewDomain">
+        select C.*
+        from(
+                select A.i_review as i_review
+                from t_review_like A
+                         left join t_user B
+                                   on A.i_user = B.i_user
+                where A.disLike = 0 and A.i_user = ${i_user}
+            )R
+                left join t_review C
+                          on R.i_review = C.i_review;
     </select>
 </mapper>

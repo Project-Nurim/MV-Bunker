@@ -6,6 +6,7 @@ import com.nurim.mvbunker.movies.model.MovieFavEntity;
 import com.nurim.mvbunker.review.model.EvalEntity;
 import com.nurim.mvbunker.review.model.ReviewDomain;
 import com.nurim.mvbunker.review.model.ReviewEntity;
+import com.nurim.mvbunker.user.model.UserEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -21,6 +22,7 @@ public interface ReviewMapper {
     ReviewDomain selJustReview(ReviewEntity param);
     List<ReviewDomain> selAllReview(PagingDTO page);
     List<ReviewDomain> selReview(int id, PagingDTO page);
+    List<ReviewDomain> selLikeReviews(UserEntity param, PagingDTO pagingDTO);
 
     //Evaluate CRUD
     int insEval(EvalEntity param);

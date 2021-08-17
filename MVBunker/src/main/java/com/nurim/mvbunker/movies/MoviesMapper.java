@@ -18,6 +18,6 @@ public interface MoviesMapper {
     List<MovieDomain> selSearchMovies(List<Integer> movieIds);
 
     //Hover
-    HoverVO selHover1(MovieFavEntity param);//영화정보만 띄울 때
-    HoverVO selHover2(MovieFavEntity param);//전체리뷰목록, 내가 구독하고 있는 유저의 리뷰목록
+    List<HoverVO> selHover1(MovieFavEntity param);//영화정보만 띄울 때
+    List<HoverVO> selHover2(MovieFavEntity param);//전체리뷰목록, 내가 구독하고 있는 유저의 리뷰목록
 }
