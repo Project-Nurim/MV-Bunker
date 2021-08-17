@@ -241,7 +241,6 @@ heartt.addEventListener('click',function(){
 
 
 
-
 $(document).ready(function() {
     $('#test').on('keyup', function() {
         $('#test_cnt').html("("+$(this).val().length+" / 100)");
