@@ -55,6 +55,8 @@ public class ReviewService {
         return mapper.checkEval(param);
     }
     public EvalEntity selEval(EvalEntity param) {
+        EvalEntity result = mapper.selEval(param);
+        if(result == null) return new EvalEntity();
         return mapper.selEval(param);
     }
     public EvalEntity selMyEval(EvalEntity param) {
