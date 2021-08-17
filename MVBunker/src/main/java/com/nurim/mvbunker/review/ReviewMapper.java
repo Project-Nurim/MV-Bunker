@@ -31,8 +31,6 @@ public interface ReviewMapper {
     EvalEntity selMyEval(EvalEntity param);
 
     //별점평가 select
-    EvalEntity selEval(EvalEntity param);
-    EvalEntity selMyEval(EvalEntity param);
     double selMovieTotalEval(MovieFavEntity param); //ReviewDetail에서 띄울 것,
 
 }

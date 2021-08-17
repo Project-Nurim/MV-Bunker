@@ -40,11 +40,13 @@ public class ReviewController {
 
     @ResponseBody
     @GetMapping("/getAllReview")
-    public void getAllReview(Model model, int page, int orderby, MovieFavEntity param) {
+    public Map<String, Object> getAllReview(Model model, int page, int orderby, MovieFavEntity param) {
+        Map<String, Object> result = new HashMap<>();
         List<ReviewDomain> selAllReview = service.selAllReview(page, orderby);
         List<HoverVO> hover = moviesService.selHover2(param);
-        model.addAttribute("hover",hover);
-        model.addAttribute("selAllReview",selAllReview);
+        result.put("hover",hover);
+        result.put("selAllReview",selAllReview);
+        return result;
     }
 
     @GetMapping("/reviewDetail")
