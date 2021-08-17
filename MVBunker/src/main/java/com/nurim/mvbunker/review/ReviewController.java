@@ -4,6 +4,7 @@ import com.nurim.mvbunker.common.model.PagingDTO;
 import com.nurim.mvbunker.common.security.IAuthenticationFacade;
 import com.nurim.mvbunker.common.security.model.CustomUserPrincipals;
 import com.nurim.mvbunker.movies.MoviesService;
+import com.nurim.mvbunker.movies.model.MovieFavEntity;
 import com.nurim.mvbunker.review.model.EvalEntity;
 import com.nurim.mvbunker.review.model.ReviewEntity;
 import com.nurim.mvbunker.user.model.UserEntity;
@@ -37,8 +38,9 @@ public class ReviewController {
 
     @ResponseBody
     @GetMapping("/getAllReview")
-    public List<ReviewDomain> getAllReview(int page, int orderby) {
-        return service.selAllReview(page, orderby);
+    public void getAllReview(int page, int orderby, MovieFavEntity param) {
+        service.hover(param);
+        service.selAllReview(page, orderby);
     }
 
     @GetMapping("/reviewDetail")

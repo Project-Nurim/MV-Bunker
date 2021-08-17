@@ -97,8 +97,31 @@
     </select>
 
     <!-- Hover! -->
-    <select id="selHover">
-
+    <!-- selHover1 - 장르에서 띄워 줄 정보 -->
+    <select id="selHover1" resultType="HoverEntity">
+        select A.title as title, A.id as id, A.releaseDate as releaseDate,
+               MF.exist as mF_exist, R.exist as R_exist,
+               (E.production+E.performance+E.visual_beauty+E.music+E.plot)/5 AS totalAvg_Movie
+        from t_movies A
+                 left join(
+                     select id,i_user,exists(select i_user, id from t_movie_fav where i_user = ${i_user} and id=${id})as exist
+                     from t_movie_fav
+                 )MF
+                 on A.id = MF.id998
+                 left join(
+                      select i_user, id, exists(select i_user, id from t_review where i_user = ${i_user} and id=${id})as exist
+                      from t_review
+                 )R
+                 on A.id = R.id
+                 left join(
+                        SELECT id, AVG(production) AS production, AVG(performance) AS performance, AVG(visual_beauty) AS visual_beauty
+                       , AVG(music) AS music, AVG(plot) AS plot
+                        FROM t_eval
+                        where id = ${id}
+                 )E
+                 on A.id = E.id
+        where A.id=${id}
+        group by A.id;
     </select>
 
 </mapper>

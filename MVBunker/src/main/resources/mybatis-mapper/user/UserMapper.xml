@@ -101,7 +101,7 @@
         FROM t_user A
                  INNER JOIN t_sub B
                             ON A.i_user = B.sub_ed_user
-        WHERE B.sub_ing_user = #{i_user};
+        WHERE B.sub_ing_user = #{param.i_user};
     </select>
 
     <!-- Following Reviewer Detail - 내가 팔로우한 유저의 프로필 + 작성한 리뷰&팔로워&받은 좋아요 수 -->
@@ -135,7 +135,7 @@
     </delete>
 
     <select id="selFavMovieList" resultType="MovieEntity"><!-- hover 시 띄워 줄 정보는 제외하고! -->
-        select A.posterPath as posterPath, A.id as id
+        select A.posterPath as posterPath, A.id as id, A.title as title, A.originalTitle as originalTitle, A.releaseDate as releaseDate
         from t_movies A
                  left join t_movie_fav B
                            on A.id = B.id

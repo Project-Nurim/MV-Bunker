@@ -114,14 +114,13 @@ public class UserService {
     };
 
     //내가 찜한 영화
-    public MovieEntity selFavMovieList(MovieFavEntity param){ return mapper.selFavMovieList(param);}
+    public MovieEntity selFavMovieList(UserEntity param){ return mapper.selFavMovieList(param);}
 
     //내가 구독한 리뷰어
     public List<UserDomain> mySubUser(UserEntity param){return mapper.mySubUser(param);}
 
     //팔로워 프로필 디테일
-//    public UserDomain subUserProfile(UserDomain param){
-//        mapper.subUserProfile(param);
-//        mapper.selMyReviewList(param);
-//    }
+    public UserDomain subUserProfile(UserEntity param){
+        return mapper.subUserProfile(param);
+    }
 }
