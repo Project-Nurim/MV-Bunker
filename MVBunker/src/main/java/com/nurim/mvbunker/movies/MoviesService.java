@@ -4,11 +4,9 @@ import com.nurim.mvbunker.common.model.PagingDTO;
 import com.nurim.mvbunker.movies.model.*;
 import info.movito.themoviedbapi.TmdbApi;
 import info.movito.themoviedbapi.model.Video;
-import info.movito.themoviedbapi.model.core.MovieResultsPage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -59,8 +57,8 @@ public class MoviesService {
         return mapper.selSearchMovies(movieIds);
     }
 
-    public HoverEntity selHover1(MovieFavEntity param) {
-        return mapper.selHover1(param);
+    public HoverVO selHover2(MovieFavEntity param) {
+        return mapper.selHover2(param);
     }
 
 }
