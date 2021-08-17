@@ -4,6 +4,8 @@ import com.nurim.mvbunker.common.model.PagingDTO;
 import com.nurim.mvbunker.common.security.IAuthenticationFacade;
 import com.nurim.mvbunker.common.security.model.CustomUserPrincipals;
 import com.nurim.mvbunker.movies.MoviesService;
+import com.nurim.mvbunker.movies.model.HoverVO;
+import com.nurim.mvbunker.movies.model.MovieEntity;
 import com.nurim.mvbunker.movies.model.MovieFavEntity;
 import com.nurim.mvbunker.review.model.EvalEntity;
 import com.nurim.mvbunker.review.model.ReviewEntity;
@@ -38,9 +40,13 @@ public class ReviewController {
 
     @ResponseBody
     @GetMapping("/getAllReview")
-    public void getAllReview(Model model, int page, int orderby, MovieFavEntity param) {
-        model.addAttribute("hover",moviesService.selHover2(param));
-        model.addAttribute("selAllReview",service.selAllReview(page, orderby));
+    public Map<String, Object> getAllReview(Model model, int page, int orderby, MovieFavEntity param) {
+        Map<String, Object> result = new HashMap<>();
+        List<ReviewDomain> selAllReview = service.selAllReview(page, orderby);
+        List<HoverVO> hover = moviesService.selHover2(param);
+        result.put("hover",hover);
+        result.put("selAllReview",selAllReview);
+        return result;
     }
 
     @GetMapping("/reviewDetail")
@@ -65,9 +71,20 @@ public class ReviewController {
     // Eval CRUD
     @ResponseBody
     @PostMapping("/evalRest")
-    public EvalEntity insAndSelEval(@RequestBody EvalEntity param) {
-        service.insUpdEval(param);
-        return service.selEval(param);
+    public Map<String, Object> evaluateinsAndSelEval(@RequestBody EvalEntity param) {
+        System.out.println("EvalEntity : " + param);
+        Map<String, Object> result = new HashMap<>();
+        result.put("working", service.insUpdEval(param));
+        result.put("eval", service.selEval(param));
+        return result;
+    }
+    @ResponseBody
+    @GetMapping("/getCheckEval")
+    public Map<String, Object> getCheckEval(EvalEntity param) {
+        Map<String, Object> result = new HashMap<>();
+        result.put("myEval", service.selMyEval(param));
+        result.put("movieEval", service.selEval(param));
+        return result;
     }
 
 

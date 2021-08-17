@@ -24,10 +24,14 @@ body{
 }
 #one {
     position: absolute;
+    display:flex;
+    top: 5px;
+    left: 5px;
+    font-size: 1.5rem;
 }
 .fa-heart:before{
     color: red;
-    margin-left: 40px;
+    margin-left: 10px;
 }
 fa-thumbs-up:before{
     color: #009759;
@@ -49,11 +53,65 @@ fa-thumbs-up:before{
 #test{
     margin: 25px auto;
 }
+
+#movieStarContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    align-items: center;
+    justify-content: center;
+}
+.evalTitle {
+    font-family: 휴먼편지체, sans-serif;
+    font-size: 1.2rem;
+    color: white;
+}
 .starRate{
     width: 1000px;
     height: 300px;
     margin-bottom:20px;
-    background-color: white;
+    background-color: #0a0a0a;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.starRate::before {
+    content: "";
+    opacity: 0.5;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: #000;
+}
+.star-ratings {
+    color: #aaa9a9;
+    position: relative;
+    unicode-bidi: bidi-override;
+    width: max-content;
+    -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #494949;
+    font-size: 2rem;
+    cursor: default;
+}
+
+.star-ratings-fill {
+    color: #c42525;
+    padding: 0;
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    -webkit-text-fill-color: #ff0000;
+}
+
+.star-ratings-base {
+    z-index: 0;
+    padding: 0;
 }
 
 #test_cnt{
@@ -91,6 +149,7 @@ fa-thumbs-up:before{
     visibility: hidden;
     opacity: 0;
     transition: all 0.25s ease-in-out;
+    z-index: 10;
 }
 
 .modal-wrapper.open {

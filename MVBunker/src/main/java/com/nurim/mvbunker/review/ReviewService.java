@@ -26,23 +26,33 @@ public class ReviewService {
     public int writeReview(ReviewEntity param) {
         return mapper.insReview(param);
     }
-
-    // 모든 리뷰 sel
+    // selReview
+    //모든 리뷰
     public List<ReviewDomain> selAllReview(int page, int orderby) {
         PagingDTO pageDto = new PagingDTO(page, orderby);
         return mapper.selAllReview(pageDto);
     }
 
-    // 특정 영화에 달린 리뷰 sel
+    //특정 영화에 달린 리뷰
     public List<ReviewDomain> getReviews(int id, int page, int orderby) {
         PagingDTO pagingDTO = new PagingDTO(page, orderby);
         return mapper.selReview(id, pagingDTO);
     }
 
+    //좋아요 누른 리뷰
+    public List<ReviewDomain> selLikeReviews(UserEntity param, PagingDTO pagingDTO){
+        return mapper.selLikeReviews(param, pagingDTO);
+    }
+
 
     // Evaluate CRUD
     public int insUpdEval(EvalEntity param) {
+        param.setI_user(auth.getLoginUserPk());
         return mapper.insEval(param);
+    }
+    public int checkEval(EvalEntity param) {
+        param.setI_user(auth.getLoginUserPk());
+        return mapper.checkEval(param);
     }
     public EvalEntity selEval(EvalEntity param) {
         return mapper.selEval(param);

@@ -97,7 +97,7 @@ function makeItemList(reviewList) { // 받은 애들 어떻게 뿌릴지
 
 
 
-    $( document ).ready(function() {
+$( document ).ready(function() {
     $('.trigger').on('click', function() {
         $('.modal-wrapper').toggleClass('open');
         $('.page-wrapper').toggleClass('blur-it');
@@ -105,37 +105,45 @@ function makeItemList(reviewList) { // 받은 애들 어떻게 뿌릴지
     });
 });
 
-
+/*---------------- 별점 배경 -----------*/
+const starRateContainerElem = document.querySelector('.starRate');
+if(starRateContainerElem.dataset.backDropImg != null) {
+    starRateContainerElem.style.backgroundImage = `url(https://image.tmdb.org/t/p/original${starRateContainerElem.dataset.backDropImg})`;
+    starRateContainerElem.style.backgroundSize = '100% auto';
+    // starRateContainerElem.style.zIndex = ;
+}
 
 /*---------------- 별점 --------------------*/
-const totalRatingInputElem = document.querySelectorAll('.eval__stars');
+const totalRatingInputElem = document.querySelectorAll('.eval__radio');
+const emptyStarElem = document.getElementById('star');
+const fullStarElem = document.getElementById('starr');
 let checked = false;
-totalRatingInputElem.forEach((ratingElem) => {
-    ratingElem.addEventListener('click', (e) => {
-        document.getElementById("starr").style.display = "block";
-        const evalue = e.currentTarget.value;
-        const evalCode = e.currentTarget.name;
-        const data = {
-            id: movieIdVal,
-            evalue: evalue,
-            evalCode: evalCode
-        }
-        const init = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8'
-            },
-            body: JSON.stringify(data)
-        }
-    })
-})
-if (checked) {
-    document.getElementById("starr").style.display = "block";
-}
+// totalRatingInputElem.forEach((ratingElem) => {
+//     ratingElem.addEventListener('click', (e) => {
+//         const evalue = e.currentTarget.value;
+//         const evalCode = e.currentTarget.name;
+//         const data = {
+//             id: movieIdVal,
+//             evalue: evalue,
+//             evalCode: evalCode
+//         }
+//         const init = {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json;charset=utf-8'
+//             },
+//             body: JSON.stringify(data)
+//         }
+//     })
+// })
+// if (checked) {
+//     document.getElementById("starr").style.display = "block";
+// }
 totalRatingInputElem.forEach(radioBtn => {
     radioBtn.addEventListener('click', (e) => {
         const evalCode = e.currentTarget.name;
         const evalScore = e.currentTarget.value;
+        console.log(evalCode, evalScore);
         const data = {
             production: null,
             performance: null,
@@ -146,19 +154,19 @@ totalRatingInputElem.forEach(radioBtn => {
         };
         switch (evalCode) {
             case "rating":
-                data.performance = evalScore;
+                data.performance = Number(evalScore);
                 break;
             case "rating2":
-                data.production = evalScore;
+                data.production = Number(evalScore);
                 break;
             case "rating3":
-                data.visual_beauty = evalScore;
+                data.visual_beauty = Number(evalScore);
                 break;
             case "rating4":
-                data.music = evalScore;
+                data.music = Number(evalScore);
                 break;
             case "rating5":
-                data.plot = evalScore;
+                data.plot = Number(evalScore);
         }
         fetch('/review/evalRest', {
             method: 'POST',
@@ -169,11 +177,51 @@ totalRatingInputElem.forEach(radioBtn => {
             }
         }).then(res => res.json())
             .then(myJson => {
-                
+                if(myJson.working) {
+                    checkEval(movieIdVal);
+                }else {
+                    alert('별점 평가 실패. 오류 발생');
+                }
             })
     })
 })
+const productionStarElem = document.getElementById('productionStar');
+const performanceStarElem = document.getElementById('performanceStar');
+const visual_beautyStarElem = document.getElementById('visual_beautyStar');
+const musicStarElem = document.getElementById('musicStar');
+const plotStarElem = document.getElementById('plotStar');
+const productionStarScoreElem = document.getElementById('productionStarScore');
+const performanceStarScoreElem = document.getElementById('performanceStarScore');
+const visual_beautyStarScoreElem = document.getElementById('visual_beautyStarScore');
+const musicStarScoreElem = document.getElementById('musicStarScore');
+const plotStarScoreElem = document.getElementById('plotStarScore');
+function checkEval(movieId) {
+    fetch(`/review/getCheckEval?id=${movieIdVal}`)
+        .then(res => res.json())
+        .then(myJson => {
+            if(myJson.myEval != null) {
+                fullStarElem.style.display = "block";
+                emptyStarElem.style.display = "none";
+                document.getElementById(`star${myJson.myEval.performance}`).checked = true;
+                document.getElementById(`star${myJson.myEval.production}2`).checked = true;
+                document.getElementById(`star${myJson.myEval.visual_beauty}3`).checked = true;
+                document.getElementById(`star${myJson.myEval.music}4`).checked = true;
+                document.getElementById(`star${myJson.myEval.plot}5`).checked = true;
+                performanceStarElem.style.width = myJson.movieEval.performance/5 * 100 + '%';
+                performanceStarScoreElem.innerText = myJson.movieEval.performance + '/5';
+                productionStarElem.style.width = myJson.movieEval.production/5 * 100 + '%';
+                productionStarScoreElem.innerText = myJson.movieEval.production + '/5';
+                visual_beautyStarElem.style.width = myJson.movieEval.visual_beauty/5 * 100 + '%';
+                visual_beautyStarScoreElem.innerText = myJson.movieEval.visual_beauty + '/5';
+                musicStarElem.style.width = myJson.movieEval.music/5 * 100 + '%';
+                musicStarScoreElem.innerText = myJson.movieEval.music + '/5';
+                plotStarElem.style.width = myJson.movieEval.plot/5 * 100 + '%';
+                plotStarScoreElem.innerText = myJson.movieEval.plot + '/5';
+            }
+        })
 
+}
+checkEval(movieIdVal);
 
 
 /*--------- 영화 좋아요 ----------*/
@@ -189,7 +237,6 @@ heartt.addEventListener('click',function(){
     movieFavProc.method = 'DELETE';
     movieFavProc.unDoFavMovie();
 })
-
 
 
 

@@ -44,7 +44,7 @@
         WHERE i_user = #{i_user}
     </update>
 
-    <!-- 내가 작성한 리뷰 / 댓글 / 받은 좋아요 수(리뷰) 띄우기 -->
+    <!-- Detail : 내가 작성한 리뷰 / 댓글 / 받은 좋아요 수(리뷰) 띄우기 -->
     <select id="selUserProfile" resultType="UserDomain">
         SELECT COUNT(B.i_review)AS'countMyReview',
                 (SELECT COUNT(i_user) FROM t_review_cmt WHERE i_user = #{i_user})AS'countMyReview_cmt',
@@ -55,12 +55,12 @@
         WHERE B.i_user = #{i_user};
     </select>
 
-    <!-- 내가 작성한 리뷰 목록 띄우기 + 각 평가기준 별 평점 (별점 총 평균 구하는 건 mapper사용X)-->
+    <!-- 작성한 리뷰 목록 띄우기 + 각 평가기준 별 평점-->
     <!-- 정렬 : (default)최신순=orderby 0  |  좋아요 많은 순=orderby1 -->
     <select id="selReviewList" resultType="ReviewDomain">
         select R.unn as unn, R.i_user as i_user, R.i_review as i_review, R.title as title, R.id as id, R.poster as poster, R.regdt as regdt, R.re_ctnt as re_ctnt,
-               E.production as production, E.performance as performance, E.visual_beauty as visual_beauty, E.music as music, E.plot as plot,
-               count(case when RL.disLike = 0 then 1 end) as review_like_cnt
+               round((E.production+E.performance+E.visual_beauty+E.music+E.plot)/5, 3) as totalAvg_Review,
+               count(case when RL.disLike = 0 then 1 end) as review_like_cnt,
         from(
                 select B.unn as unn, A.i_user as i_user, A.i_review as i_review, A.title as title, A.id as id, A.poster As poster, A.regdt as regdt, A.re_ctnt as re_ctnt
                 from t_review A
