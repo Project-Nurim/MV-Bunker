@@ -38,9 +38,9 @@ public class ReviewController {
 
     @ResponseBody
     @GetMapping("/getAllReview")
-    public void getAllReview(int page, int orderby, MovieFavEntity param) {
-        service.hover(param);
-        service.selAllReview(page, orderby);
+    public void getAllReview(Model model, int page, int orderby, MovieFavEntity param) {
+        model.addAttribute("hover",moviesService.selHover2(param));
+        model.addAttribute("selAllReview",service.selAllReview(page, orderby));
     }
 
     @GetMapping("/reviewDetail")
