@@ -28,7 +28,9 @@ body {
 #layoutSection {
     flex-grow: 1;
 }
-
+.hide {
+    display: none;
+}
 
 .All{
 width: 200px;
