@@ -165,16 +165,16 @@ nav.find('ul li a').hover(function (e) {
 //
 
 //---------------------검색 proc------------------------->
-// const searchInputElem = document.querySelector('#searchInput');
-// searchInputElem.addEventListener('keydown', function(e) {
-//     if (e.keyCode === 13) {
-//         doSearch(searchInputElem.value);
-//     }
-// })
-//
-// function doSearch(searchText) {
-//     location.href = `/movies/search?searchText=${searchText}`;
-// }
+const searchInputElem = document.querySelector('#searchInput');
+searchInputElem.addEventListener('keydown', function(e) {
+    if (e.keyCode === 13) {
+        doSearch(searchInputElem.value);
+    }
+})
+
+function doSearch(searchText) {
+    window.location.href = `/movies/search?searchText=${searchText}`;
+}
 
 //-------------darkness 효과---------------------------->
 function darknessEfx() {
