@@ -26,7 +26,9 @@ public interface ReviewMapper {
 
     //Evaluate CRUD
     int insEval(EvalEntity param);
-    int updEval(EvalEntity param);
+    int checkEval(EvalEntity param);
+    EvalEntity selEval(EvalEntity param);
+    EvalEntity selMyEval(EvalEntity param);
 
     //별점평가 select
     EvalEntity selEval(EvalEntity param);
