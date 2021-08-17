@@ -89,7 +89,6 @@ public class UserController {
     public void myFavMovie(@AuthenticationPrincipal CustomUserPrincipals userDetails, Model model){
         UserEntity loginUser = userDetails.getUser();
         MovieEntity myFavMovie = service.selFavMovieList(loginUser);
-        System.out.println("내가찜한 : "+myFavMovie);
         model.addAttribute("myFavMovie", myFavMovie);
     }
 
