@@ -42,7 +42,12 @@ public class ReviewService {
 
     // Evaluate CRUD
     public int insUpdEval(EvalEntity param) {
+        param.setI_user(auth.getLoginUserPk());
         return mapper.insEval(param);
+    }
+    public int checkEval(EvalEntity param) {
+        param.setI_user(auth.getLoginUserPk());
+        return mapper.checkEval(param);
     }
     public EvalEntity selEval(EvalEntity param) {
         return mapper.selEval(param);
