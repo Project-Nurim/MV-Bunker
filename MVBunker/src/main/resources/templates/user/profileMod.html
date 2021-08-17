@@ -22,18 +22,21 @@
             <div class="profilemod">프로필 수정하기</div>
             <br>
             <br>
-            <div id="bye" class="button">회원탈퇴</div>
+            <div id="bye" class="button" onclick="bye">회원탈퇴</div>
             <div class="all">
-                <th:lf="${auth.provider.equals('local')}">
-                <img class="mainProfile" th:src="${auth.profileImg}">
-                </th:lf>
-                <th:else!="${auth.provider.equals('local')}"}>
-                <img class="mainProfile" th:src="">
-                </th:else>
-                <th:else="${auth.profileimg} == ''"}>
+                <th:block th:if="${auth.profileImg} != null"><img class="mainProfile" th:src="${auth.profileImg}">
+                </th:block>
+                <th:block th:unless="${auth.profileImg} == null"><img class="mainProfile" th:src="${/img/logo/noprofile.png}">
+                </th:block>
 
-                <!--                /img/logo/noprofile.png-->
-                </th:else>
+<!--                프로필사진에 event 걸기 / local 아니면 프로필사진 변경불가 -->
+<!--                <th:block th:lf="${auth.provider.equals('local')}">-->
+<!--                <img class="mainProfile" th:src="${auth.profileImg}">-->
+<!--                </th:block>-->
+<!--                <th:block th:unless!="${auth.provider.equals('local')}"}>-->
+<!--                <img class="mainProfile" th:src="">-->
+<!--                </th:block>-->
+
             </div>
             <br>
             <br>
