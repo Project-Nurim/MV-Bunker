@@ -67,15 +67,6 @@ function makeJustReview(review) {
 
 
 
-/* 별점 */
-const EvalContainerElem = document.querySelector('#all');
-const fieldSetElems = EvalContainerElem.querySelectorAll('.eval');
-
-fieldSetElems.forEach((fieldSetElem) => {
-    fieldSetElem.addEventListener('change', (e) => {
-        console.log(e.currentTarget);
-    })
-})
 
 
 // 인피니티 스크롤링 설정
@@ -110,7 +101,7 @@ function makeItemList(reviewList) { // 받은 애들 어떻게 뿌릴지
 //     document.getElementById("starr").style.display = "block";
 // }
 
-
+/*---------------- 별점 --------------------*/
 const totalRatingInputElem = document.querySelectorAll('.eval__stars');
 let checked = false;
 totalRatingInputElem.forEach((ratingElem) => {
@@ -135,8 +126,51 @@ totalRatingInputElem.forEach((ratingElem) => {
 if (checked) {
     document.getElementById("starr").style.display = "block";
 }
+totalRatingInputElem.forEach(radioBtn => {
+    radioBtn.addEventListener('click', (e) => {
+        const evalCode = e.currentTarget.name;
+        const evalScore = e.currentTarget.value;
+        const data = {
+            production: null,
+            performance: null,
+            visual_beauty: null,
+            music: null,
+            plot: null,
+            id: movieIdVal
+        };
+        switch (evalCode) {
+            case "rating":
+                data.performance = evalScore;
+                break;
+            case "rating2":
+                data.production = evalScore;
+                break;
+            case "rating3":
+                data.visual_beauty = evalScore;
+                break;
+            case "rating4":
+                data.music = evalScore;
+                break;
+            case "rating5":
+                data.plot = evalScore;
+        }
+        fetch('/review/evalRest', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        }).then(res => res.json())
+            .then(myJson => {
+                
+            })
+    })
+})
 
 
+
+/*--------- 영화 좋아요 ----------*/
 const heart = document.getElementById("ht");
 const heartt = document.getElementById("htt");
 
@@ -200,3 +234,5 @@ function checkFav() {
         })
 }
 checkFav();
+
+//------------------댓글
