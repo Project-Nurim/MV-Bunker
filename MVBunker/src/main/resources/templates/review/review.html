@@ -20,9 +20,7 @@
      전체 리뷰 출력 시 : "selAllReview" - unn, i_user, i_review, title, id, poster, regdt, re_ctnt,
                         totalAvg_Review(해당 리뷰 총 평점 평균)-->
 <th:block layout:fragment="content">
-
-
-<th:block th:each="review: ${}">
+<th:block th:each="review : ${}">
     <div class="ALL">
         <div id="frame">
             <div class="img">
@@ -35,7 +33,7 @@
                 <li th:text="평점 : ${}"></li>
             </ul>
         </div>
-
+    </div>
 </th:block>
 </body>
 </html>
