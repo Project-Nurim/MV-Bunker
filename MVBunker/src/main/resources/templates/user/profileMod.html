@@ -39,16 +39,23 @@
             <br>
             <ul class="detail">
                 <li class="fw">나의 계정</li>
-                <div id="pfre" class="button">수정하기</div> <!-- 비밀번호 수정 모달 띄우기 -->
-                <li th:text="'아이디 : ' + ${auth.uid}"></li>
-                <li th:password="'비밀번호 : ' + ${auth.upw}"></li> <!-- 이렇게 하면 아예 안뜸, *****로 뜨게 하기 -->
-                <li th:text="'닉네임 : ' + ${auth.unm}"></li>
+                <input type="submit" id="pfre" class="button" value="수정하기">< <!-- 비밀번호 수정 모달 띄우기 -->
+                <li th:text="'아이디 : '"></li><input type="text" name="uid" th:value="${auth.uid}">
+                <li th:text="'비밀번호 : ********'"></li> <!-- 이렇게 하면 아예 안뜸, *****로 뜨게 하기 -->
+                <button class="btn-modPassword">비밀번호 변경</button>
+                <li th:text="'닉네임 : '"></li><input type="text" name="unn" th:value="${auth.unm}">
                 <li th:text="'가입일 : ' + ${auth.regdt}"></li>
                 <!--            <li th:text="${auth.provider}"></li>-->
                 <hr style="width: 70%; margin-top: 10px;">
                 <li class="fw">자기소개</li>
-                <li th:text="${auth.introduce}"></li>
+                <input type="text" name="introduce" th:value="${auth.introduce}">
             </ul>
+        </div>
+    </div>
+
+    <div id="pw_modal">
+        <div class="container">
+
         </div>
     </div>
 </section>

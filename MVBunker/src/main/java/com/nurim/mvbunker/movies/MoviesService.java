@@ -39,7 +39,6 @@ public class MoviesService {
     public List<MovieDomain> getGenreMovies(int genreId, int page) {
         PagingDTO pagingDTO = new PagingDTO(page, 0, 20);
         List<MovieDomain> result = mapper.selGenreMovies(genreId, pagingDTO);
-        System.out.println("결과의 사이즈는 : " + result.size() + ", 우리가 정한 렝스는? : " + pagingDTO.getListLength());
         if(result.size() == pagingDTO.getListLength()) {
             return result;
         }
