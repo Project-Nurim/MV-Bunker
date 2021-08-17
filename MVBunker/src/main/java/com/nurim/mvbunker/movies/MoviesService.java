@@ -60,4 +60,8 @@ public class MoviesService {
         return mapper.selSearchMovies(movieIds);
     }
 
+    public HoverEntity selHover1(MovieFavEntity param) {
+        return mapper.selHover1(param);
+    }
+
 }

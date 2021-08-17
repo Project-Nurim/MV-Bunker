@@ -1,12 +1,14 @@
 package com.nurim.mvbunker.movies;
 
 import com.nurim.mvbunker.common.model.PagingDTO;
-import com.nurim.mvbunker.movies.model.GenreEntity;
-import com.nurim.mvbunker.movies.model.MovieDomain;
-import com.nurim.mvbunker.movies.model.MyMovieDb;
+import com.nurim.mvbunker.common.security.model.CustomUserPrincipals;
+import com.nurim.mvbunker.movies.model.*;
+import com.nurim.mvbunker.user.model.UserEntity;
 import info.movito.themoviedbapi.model.Genre;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,7 +42,7 @@ public class MoviesController {
     }
 
     @GetMapping("/genre")
-    public void genre(Model model){
+    public void genre(Model model, MovieFavEntity param){
         Map<String, List<MovieDomain>> genreList = new HashMap<>();
         for(int i = 0; i < OriginalGenres.size(); i++) {
             List<MovieDomain> list = service.getGenreMovies(OriginalGenres.get(i).getGenreId());
@@ -49,8 +51,11 @@ public class MoviesController {
             }
             genreList.put(OriginalGenres.get(i).getGenreName(), list);
         }
+
+        HoverEntity hover = service.selHover1(param);
         model.addAttribute("genreList", genreList);
         model.addAttribute("reverseGenreMap", reversGenreMap);
+        model.addAttribute("hover", hover);
     }
 
     @GetMapping("/genreDetail")
