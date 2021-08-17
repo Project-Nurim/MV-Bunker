@@ -63,6 +63,18 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 */
 function makeJustReview(review) {
     // 리뷰 화면에 그리기
+    const allElem = document.createElement('div');
+    allElem.classList.add('all');
+    const containerElem = document.createElement('div');
+    containerElem.classList.add('container');
+    const ratingElem = document.createElement('div');
+    ratingElem.classList.add('rating-wrap');
+    const h5 = document.createElement('h5');
+    const centerElem= document.createElement('div');
+    centerElem.classList.add('center');
+    const evalElem = document.createElement(('fieldse'));
+    evalElem.classList.add('rating eval');
+
 }
 
 
@@ -79,7 +91,7 @@ fieldSetElems.forEach((fieldSetElem) => {
 
 
 // 인피니티 스크롤링 설정
-infinityScrolling.url = `/review/getAllReview?movieId=${movieIdVal}`; // 요청보낼 url
+infinityScrolling.url = `/review/reviewDetailInfiniteScrolling?movieId=${movieIdVal}`; // 요청보낼 url
 infinityScrolling.makeItemList = makeItemList;
 infinityScrolling.setScrollInfinity(window);
 infinityScrolling.getItemList(1);
@@ -103,12 +115,6 @@ function makeItemList(reviewList) { // 받은 애들 어떻게 뿌릴지
 });
 
 
-
-// const checkedd = $('input[name=rating]').is(':checked');
-// const sstarr = document.getElementById("star0.5");
-// if (sstarr == checkedd) {
-//     document.getElementById("starr").style.display = "block";
-// }
 
 
 const totalRatingInputElem = document.querySelectorAll('.eval__stars');
@@ -149,3 +155,18 @@ heartt.addEventListener('click',function(){
     heart.style.display ='block';
     heartt.style.display = 'none';
 })
+
+
+
+
+
+$(document).ready(function() {
+    $('#test').on('keyup', function() {
+        $('#test_cnt').html("("+$(this).val().length+" / 100)");
+
+        if($(this).val().length > 100) {
+            $(this).val($(this).val().substring(0, 100));
+            $('#test_cnt').html("(100 / 100)");
+        }
+    });
+});

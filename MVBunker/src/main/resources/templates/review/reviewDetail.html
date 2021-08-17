@@ -22,6 +22,7 @@
     <div th:if="${videos.size() == 0}" style="color:white;">영상 준비중..</div> <!-- 이거 나중에 수정해줘 -->
  
         <!-- Button -->
+    <div id="one">
         <div class="page-wrapper">
             <a class="btn trigger" id="star" href="#"><i class="far fa-star"></i></a>
             <a class="btn trigger" id="starr" href="#"><i class="fas fa-star"></i></a>
@@ -31,7 +32,7 @@
             <a class="btn h" id="ht" href="#"><i class="far fa-heart"></i></a>
             <a class="btn h" id="htt" href="#"><i class="fas fa-heart"></i></a>
         </div>
-
+    </div>
 
         <!-- Modal -->
         <div class="modal-wrapper">
@@ -148,20 +149,21 @@
     <span id="share">공유하기<i class="fas fa-share-square"></i></span>
 
     <!-- 모달창 + 평가후 별 -->
-    <div class="square">
-        <textarea class="write"></textarea>
-        <div> 좋아요순 최신순 </div>
-        <div class="reviews">
-            <img src="@{/img/logo/noprofile.png}">
-            <div class="nickname"></div>
-            <div class="regdt"></div>
-            <div class="review"></div>
-                <i class="fas fa-thumbs-up"></i><!-- full -->
-                <i class="far fa-thumbs-up"></i>
-                <i class="fas fa-thumbs-down"></i> <!-- full -->
-                <i class="far fa-thumbs-down"></i>
+    <div class="starRate">
+        <div>
+
         </div>
     </div>
+
+
+    <div id="frame">
+    <div class="square">
+        <textarea id="test" name="test" cols="130" rows="10"></textarea>
+        <div id="test_cnt">(0 / 100)</div>
+    </div>
+    </div>
+
+
 </th:block>
 </body>
 </html>
