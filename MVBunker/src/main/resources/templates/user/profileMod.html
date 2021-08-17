@@ -28,9 +28,12 @@
                 <img class="mainProfile" th:src="${auth.profileImg}">
                 </th:lf>
                 <th:else!="${auth.provider.equals('local')}"}>
-                <img class="mainProfile" th:src=""
+                <img class="mainProfile" th:src="">
                 </th:else>
-<!--                /img/logo/noprofile.png-->
+                <th:else="${auth.profileimg} == ''"}>
+
+                <!--                /img/logo/noprofile.png-->
+                </th:else>
             </div>
             <br>
             <br>
