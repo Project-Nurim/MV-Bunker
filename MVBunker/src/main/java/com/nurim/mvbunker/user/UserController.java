@@ -4,8 +4,11 @@ import com.nurim.mvbunker.common.model.PagingDTO;
 import com.nurim.mvbunker.common.security.IAuthenticationFacade;
 import com.nurim.mvbunker.common.security.model.CustomUserPrincipals;
 
+import com.nurim.mvbunker.movies.MoviesService;
+import com.nurim.mvbunker.movies.model.HoverVO;
 import com.nurim.mvbunker.movies.model.MovieEntity;
 import com.nurim.mvbunker.movies.model.MovieFavEntity;
+import com.nurim.mvbunker.review.ReviewService;
 import com.nurim.mvbunker.review.model.ReviewDomain;
 import com.nurim.mvbunker.user.model.UserDomain;
 import com.nurim.mvbunker.user.model.UserEntity;
@@ -28,6 +31,10 @@ public class UserController {
 
     @Autowired
     private UserService service;
+    @Autowired
+    private MoviesService moviesService;
+    @Autowired
+    private ReviewService reviewService;
     @Autowired
     private IAuthenticationFacade auth;
 
@@ -54,7 +61,19 @@ public class UserController {
     }
 
     @GetMapping("/favReview")
-    public void favReview(){}
+    public void favReview(UserEntity param, Model model, PagingDTO pagingDTO){
+        List<ReviewDomain> selLikeReviews = reviewService.selLikeReviews(param,pagingDTO);
+        model.addAttribute("selLikeReviews", selLikeReviews);
+    }
+
+    @ResponseBody
+    @GetMapping("/getFavReviewInfinite")
+    public List<ReviewDomain> getFavReviewInfinite(UserEntity userInfo, PagingDTO pagingDTO) {
+        if(userInfo.getI_user() == 0) {
+            userInfo.setI_user(auth.getLoginUserPk());
+        }
+        return service.selReviewList(userInfo, pagingDTO);
+    }
 
     @GetMapping("/followingReviewer")
     public void followReviewer(@AuthenticationPrincipal CustomUserPrincipals userDetails, Model model){
@@ -66,13 +85,19 @@ public class UserController {
     @GetMapping("/followingReviewerDetail")
     public void followReviewerDetail(UserEntity param, PagingDTO pagingDTO, Model model){
         List<ReviewDomain> selReviewList = service.selReviewList(param,pagingDTO);
-
-        model.addAttribute("subUserProfile",service.subUserProfile(param));
+        UserDomain subUserProfile = service.subUserProfile(param);
+        model.addAttribute("subUserProfile",subUserProfile);
         model.addAttribute("subUserReview",selReviewList);
     }
 
     @GetMapping("/myReview")
-    public void myReview(){
+    public void myReview(UserEntity param, Model model, PagingDTO pagingDTO){
+        List<ReviewDomain> selReviewList = service.selReviewList(param, pagingDTO);
+        MovieFavEntity mf_Entity = new MovieFavEntity();
+        mf_Entity.setI_user(param.getI_user());
+        List<HoverVO> selHover2 = moviesService.selHover1(mf_Entity);
+        model.addAttribute("selReviewList", selReviewList);
+        model.addAttribute("selHover2", selHover2);
     }
 
     @ResponseBody

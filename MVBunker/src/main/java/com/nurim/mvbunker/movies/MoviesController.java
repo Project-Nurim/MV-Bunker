@@ -46,7 +46,7 @@ public class MoviesController {
             genreList.put(OriginalGenres.get(i).getGenreName(), list);
         }
 
-        HoverVO hover = service.selHover2(param);
+        List<HoverVO> hover = service.selHover2(param);
         model.addAttribute("genreList", genreList);
         model.addAttribute("reverseGenreMap", reversGenreMap);
         model.addAttribute("hover", hover);
