@@ -173,7 +173,7 @@ searchInputElem.addEventListener('keydown', function(e) {
 })
 
 function doSearch(searchText) {
-    location.href = `/movies/search?searchText=${searchText}`;
+    window.location.href = `/movies/search?searchText=${searchText}`;
 }
 
 //-------------darkness 효과---------------------------->

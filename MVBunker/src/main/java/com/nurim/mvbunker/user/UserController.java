@@ -64,9 +64,11 @@ public class UserController {
     }
 
     @GetMapping("/followingReviewerDetail")
-    public void followReviewerDetail(UserDomain param, Model model){
-//        UserDomain subUserProfile = service.subUserProfile(param);
-//        model.addAttribute("subUserProfile", subUserProfile);
+    public void followReviewerDetail(UserEntity param, PagingDTO pagingDTO, Model model){
+        List<ReviewDomain> selReviewList = service.selReviewList(param,pagingDTO);
+
+        model.addAttribute("subUserProfile",service.subUserProfile(param));
+        model.addAttribute("subUserReview",selReviewList);
     }
 
     @GetMapping("/myReview")
@@ -86,10 +88,8 @@ public class UserController {
     @GetMapping("/myFavMovie")
     public void myFavMovie(@AuthenticationPrincipal CustomUserPrincipals userDetails, Model model){
         UserEntity loginUser = userDetails.getUser();
-        MovieFavEntity param = new MovieFavEntity();
-        param.setI_user(loginUser.getI_user());
-
-        MovieEntity myFavMovie = service.selFavMovieList(param);
+        MovieEntity myFavMovie = service.selFavMovieList(loginUser);
+        System.out.println("내가찜한 : "+myFavMovie);
         model.addAttribute("myFavMovie", myFavMovie);
     }
 

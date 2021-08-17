@@ -3,6 +3,7 @@ package com.nurim.mvbunker.review;
 import com.nurim.mvbunker.common.model.PagingDTO;
 import com.nurim.mvbunker.common.security.IAuthenticationFacade;
 import com.nurim.mvbunker.movies.model.MovieEntity;
+import com.nurim.mvbunker.movies.model.MovieFavEntity;
 import com.nurim.mvbunker.review.model.EvalEntity;
 import com.nurim.mvbunker.review.model.ReviewDomain;
 import com.nurim.mvbunker.review.model.ReviewEntity;
@@ -60,5 +61,10 @@ public class ReviewService {
     }
     public int delReview(ReviewEntity param) {
         return mapper.delReview(param);
+    }
+
+    //hover
+    public void hover(MovieFavEntity param){
+        mapper.selMovieTotalEval(param);
     }
 }

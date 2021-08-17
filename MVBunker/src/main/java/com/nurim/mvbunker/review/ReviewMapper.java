@@ -1,10 +1,10 @@
 package com.nurim.mvbunker.review;
 
 import com.nurim.mvbunker.common.model.PagingDTO;
+import com.nurim.mvbunker.movies.model.MovieFavEntity;
 import com.nurim.mvbunker.review.model.EvalEntity;
 import com.nurim.mvbunker.review.model.ReviewDomain;
 import com.nurim.mvbunker.review.model.ReviewEntity;
-import com.nurim.mvbunker.user.model.UserEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -22,6 +22,9 @@ public interface ReviewMapper {
     EvalEntity selEval(EvalEntity param);
     EvalEntity selMyEval(EvalEntity param);
     int updEval(EvalEntity param);
+
+    //
+    double selMovieTotalEval(MovieFavEntity param);
 
 
 }

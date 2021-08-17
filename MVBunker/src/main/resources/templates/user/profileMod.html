@@ -24,8 +24,13 @@
             <br>
             <div id="bye" class="button">회원탈퇴</div>
             <div class="all">
+                <th:lf="${auth.provider.equals('local')}">
                 <img class="mainProfile" th:src="${auth.profileImg}">
-<!--                /logo/imgs/bunkerfavicon2.png-->
+                </th:lf>
+                <th:else!="${auth.provider.equals('local')}"}>
+                <img class="mainProfile" th:src=""
+                </th:else>
+<!--                /img/logo/noprofile.png-->
             </div>
             <br>
             <br>
