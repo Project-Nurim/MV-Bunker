@@ -816,7 +816,7 @@ footer {
     width: 40px;
     border-radius: 2em;
     position: absolute;
-    left: 95px;
+    left: 23px;
     top: 60px;
 }
 
@@ -825,13 +825,14 @@ footer {
     border-radius: 3em;
     position: absolute;
     top: 60px;
+    right: -16px;
 }
 
 .facebook {
     width: 40px;
     border-radius: 3em;
     position: absolute;
-    right: 95px;
+    right: 36px;
     top: 60px;
 }
 
