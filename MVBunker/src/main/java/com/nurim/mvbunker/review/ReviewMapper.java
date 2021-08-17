@@ -19,9 +19,9 @@ public interface ReviewMapper {
     int delReview(ReviewEntity param);
 
     int insEval(EvalEntity param);
+    int checkEval(EvalEntity param);
     EvalEntity selEval(EvalEntity param);
     EvalEntity selMyEval(EvalEntity param);
-    int updEval(EvalEntity param);
 
     //
     double selMovieTotalEval(MovieFavEntity param);

@@ -89,33 +89,26 @@
          IF(${performance}=0, NULL, ${performance}),
          IF(${visual_beauty}=0, NULL, ${visual_beauty}),
          IF(${music}=0, NULL, ${music}), IF(${plot}=0, NULL, ${plot}))
-        ON DUPLICATE KEY UPDATE production = IF(${production}=0, NULL, ${production}), performance = IF(${performance}=0, NULL, ${performance}),
-                                visual_beauty = IF(${visual_beauty}=0, NULL, ${visual_beauty}),
-                                music = IF(${music}=0, NULL, ${music}), plot = IF(${plot}=0, NULL, ${plot})
+        ON DUPLICATE KEY UPDATE
+        <if test="production != 0">
+            production = VALUES(production)
+        </if>
+        <if test="performance != 0">
+            performance = VALUES(performance)
+        </if>
+        <if test="visual_beauty != 0">
+            visual_beauty = VALUES(visual_beauty)
+        </if>
+        <if test="music != 0">
+            music = VALUES(music)
+        </if>
+        <if test="plot != 0">
+            plot = VALUES(plot)
+        </if>
     </insert>
-
-    <!-- 내 평가 변경 -->
-    <update id="updMyEval">
-        update t_eval
-        <set>
-            <if test="production != null">
-                production = ${production}
-            </if>
-            <if test="performance != null">
-                performance = ${performance}
-            </if>
-            <if test="visual_beauty != null">
-                visual_beauty = ${visual_beauty}
-            </if>
-            <if test="music != null">
-                music = ${music}
-            </if>
-            <if test="plot != null">
-                plot = ${plot}
-            </if>
-        </set>
-        where id = #{id} and i_user = #{i_user}
-    </update>
+    <select id="checkEval" resultType="Integer">
+        SELECT COUNT(*) FROM t_eval WHERE id = ${id} AND i_user = ${i_user}
+    </select>
 
     <!-- ReviewDetail - 별(★)로 영화에 대한 평점 별 평균 띄워 줄 때 사용 -->
     <select id="selEval" resultType="EvalEntity">
