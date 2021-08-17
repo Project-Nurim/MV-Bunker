@@ -16,26 +16,23 @@
 <body>
 <!-- 각 영화의 포스터 + 작성자 + 평점 + 리뷰가 뜨는 페이지 -->
 <th:block layout:fragment="content">
-    <div class="reviewtable">
-        <table>
-            <tr>
-                <td rowspan="5"><img class="poster" src="/누림/img/닥터스트레인지.jpg"></td>
-                <td class="width" colspan="3">제목명</td>
-            </tr>
-            <tr>
-                <td class="width" colspan="3">작성자</td>
-            </tr>
-            <tr>
-                <td class="width" colspan="3">작성일</td>
-            </tr>
-            <tr>
-                <td class="width" colspan="3">평점</td>
-            </tr>
-            <tr>
-                <td class="width" colspan="3">리뷰</td>
-            </tr>
-        </table>
+
+
+<th:block th:each="review: ${}">
+    <div class="ALL">
+        <div id="frame">
+            <div class="img">
+                <img src="">
+            </div>
+            <ul class="table">
+                <li th:text="닉네임 : + ${}"></li>
+                <li th:text="영화 : + ${}"></li>
+                <li th:text="리뷰 : + ${}"></li>
+                <li th:text="평점 : ${}"></li>
+            </ul>
+        </div>
     </div>
+
 </th:block>
 </body>
 </html>
