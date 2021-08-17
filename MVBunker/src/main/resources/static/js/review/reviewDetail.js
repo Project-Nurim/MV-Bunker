@@ -79,15 +79,6 @@ function makeJustReview(review) {
 
 
 
-/* 별점 */
-const EvalContainerElem = document.querySelector('#all');
-const fieldSetElems = EvalContainerElem.querySelectorAll('.eval');
-
-fieldSetElems.forEach((fieldSetElem) => {
-    fieldSetElem.addEventListener('change', (e) => {
-        console.log(e.currentTarget);
-    })
-})
 
 
 // 인피니티 스크롤링 설정
@@ -116,7 +107,7 @@ function makeItemList(reviewList) { // 받은 애들 어떻게 뿌릴지
 
 
 
-
+/*---------------- 별점 --------------------*/
 const totalRatingInputElem = document.querySelectorAll('.eval__stars');
 let checked = false;
 totalRatingInputElem.forEach((ratingElem) => {
@@ -141,19 +132,62 @@ totalRatingInputElem.forEach((ratingElem) => {
 if (checked) {
     document.getElementById("starr").style.display = "block";
 }
+totalRatingInputElem.forEach(radioBtn => {
+    radioBtn.addEventListener('click', (e) => {
+        const evalCode = e.currentTarget.name;
+        const evalScore = e.currentTarget.value;
+        const data = {
+            production: null,
+            performance: null,
+            visual_beauty: null,
+            music: null,
+            plot: null,
+            id: movieIdVal
+        };
+        switch (evalCode) {
+            case "rating":
+                data.performance = evalScore;
+                break;
+            case "rating2":
+                data.production = evalScore;
+                break;
+            case "rating3":
+                data.visual_beauty = evalScore;
+                break;
+            case "rating4":
+                data.music = evalScore;
+                break;
+            case "rating5":
+                data.plot = evalScore;
+        }
+        fetch('/review/evalRest', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        }).then(res => res.json())
+            .then(myJson => {
+                
+            })
+    })
+})
 
 
+
+/*--------- 영화 좋아요 ----------*/
 const heart = document.getElementById("ht");
 const heartt = document.getElementById("htt");
 
 heart.addEventListener('click',function(){
-  heart.style.display ='none';
-  heartt.style.display = 'block';
+  movieFavProc.method = 'POST';
+  movieFavProc.doFavMovie();
 })
 
 heartt.addEventListener('click',function(){
-    heart.style.display ='block';
-    heartt.style.display = 'none';
+    movieFavProc.method = 'DELETE';
+    movieFavProc.unDoFavMovie();
 })
 
 
@@ -170,3 +204,56 @@ $(document).ready(function() {
         }
     });
 });
+
+const movieFavProc = {
+    method: '',
+    headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+    },
+    data: {
+        id: movieIdVal
+    },
+    doFavMovie: function () {
+        fetch('/review/favMovie', {
+            method: this.method,
+            body: JSON.stringify(this.data),
+            headers: this.headers,
+        }).then(res => res.json())
+            .then(myJson => {
+                if(myJson === 1) {
+                    checkFav();
+                }else {
+                    alert('좋아요 실패. 오류 발생.');
+                }
+            })
+    },
+    unDoFavMovie: function () {
+        fetch(`/review/favMovie/${movieIdVal}`, {
+            method: this.method
+        }).then(res => res.json())
+            .then(myJson => {
+                if(myJson === 1) {
+                    checkFav();
+                }else {
+                    alert('좋야요 취소 실패. 오류 발생.');
+                }
+            })
+    }
+}
+function checkFav() {
+    fetch(`/review/favMovie/${movieIdVal}`, {method: 'GET'})
+        .then(res => res.json())
+        .then(myJson => {
+            if(myJson === 1) {
+                heart.style.display = 'none';
+                heartt.style.display = 'block';
+            }else {
+                heart.style.display ='block';
+                heartt.style.display = 'none';
+            }
+        })
+}
+checkFav();
+
+//------------------댓글

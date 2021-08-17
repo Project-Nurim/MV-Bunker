@@ -123,6 +123,11 @@
     </select>
 
     <!-- 내가 찜한 영화 -->
+    <select id="selIsFav" resultType="Integer">
+        SELECT COUNT(*)
+        FROM t_movie_fav
+        WHERE id = ${id} AND i_user = ${i_user}
+    </select>
     <insert id="insFavMovie">
         insert into t_movie_fav
         (id, i_user)
@@ -131,7 +136,7 @@
     </insert>
 
     <delete id="delFavMovie">
-        delete t_movie_fav where id = #{id} and i_user = #{i_user};
+        delete from t_movie_fav where id = #{id} and i_user = #{i_user};
     </delete>
 
     <select id="selFavMovieList" resultType="MovieEntity"><!-- hover 시 띄워 줄 정보는 제외하고! -->

@@ -50,6 +50,11 @@ public class MoviesService {
     public MyMovieDb getMovieDetail(int movieId) {
         return MyGenreList.getMovieWithGenre(tmdbApi.getMovies().getMovie(movieId, "ko-KR"));
     }
+    public MovieDomain getMyMovieDetails(int movieId) {
+        MovieEntity param = new MovieEntity();
+        param.setId(movieId);
+        return mapper.selTheMovie(param);
+    }
     public List<Video> getMovieVideo(int movieId) {
         return tmdbApi.getMovies().getVideos(movieId, "ko-KR");
     }
