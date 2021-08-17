@@ -29,8 +29,9 @@ public interface UserMapper {
     UserDomain subUserProfile(UserEntity param);
 
     //내가좋아요한영화
-    int insFavMovie (int id, UserEntity param);
-    int delFavMovie (int id, UserEntity param);
+    int selIsFav(MovieFavEntity param);
+    int insFavMovie (MovieFavEntity param);
+    int delFavMovie (MovieFavEntity param);
     MovieEntity selFavMovieList(UserEntity param);
 
 }

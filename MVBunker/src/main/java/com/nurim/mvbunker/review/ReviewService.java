@@ -7,6 +7,7 @@ import com.nurim.mvbunker.movies.model.MovieFavEntity;
 import com.nurim.mvbunker.review.model.EvalEntity;
 import com.nurim.mvbunker.review.model.ReviewDomain;
 import com.nurim.mvbunker.review.model.ReviewEntity;
+import com.nurim.mvbunker.user.UserMapper;
 import com.nurim.mvbunker.user.model.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,8 @@ public class ReviewService {
     private IAuthenticationFacade auth;
     @Autowired
     private ReviewMapper mapper;
+    @Autowired
+    private UserMapper userMapper;
 
     public int writeReview(ReviewEntity param) {
         return mapper.insReview(param);
@@ -66,5 +69,19 @@ public class ReviewService {
     //hover
     public void hover(MovieFavEntity param){
         mapper.selMovieTotalEval(param);
+    }
+
+    // Movie Fav Proc
+    public int selIsFav(MovieFavEntity param) {
+        param.setI_user(auth.getLoginUserPk());
+        return userMapper.selIsFav(param);
+    }
+    public int insMovieFav(MovieFavEntity param) {
+        param.setI_user(auth.getLoginUserPk());
+        return userMapper.insFavMovie(param);
+    }
+    public int delMovieFav(MovieFavEntity param) {
+        param.setI_user(auth.getLoginUserPk());
+        return userMapper.delFavMovie(param);
     }
 }
