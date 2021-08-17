@@ -6,4 +6,5 @@ import lombok.Data;
 public class MovieFavEntity {
     private int id;
     private int i_user;
+    private int i_review;
 }

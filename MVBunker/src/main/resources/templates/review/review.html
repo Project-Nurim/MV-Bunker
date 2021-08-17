@@ -15,27 +15,27 @@
 </head>
 <body>
 <!-- 각 영화의 포스터 + 작성자 + 평점 + 리뷰가 뜨는 페이지 -->
+<!-- 마우스 hover 시 : "hover" - title, id, releaseDate, mF_exist(영화좋아요여부), R_disLike(특정 리뷰에 대한 좋/싫여부 = 0이면 like 1이면 disLike),
+                        totalAvg_Movie(해당영화 총 평점 평균)
+     전체 리뷰 출력 시 : "selAllReview" - unn, i_user, i_review, title, id, poster, regdt, re_ctnt,
+                        totalAvg_Review(해당 리뷰 총 평점 평균)-->
 <th:block layout:fragment="content">
-    <div class="reviewtable">
-        <table>
-            <tr>
-                <td rowspan="5"><img class="poster" src="/누림/img/닥터스트레인지.jpg"></td>
-                <td class="width" colspan="3">제목명</td>
-            </tr>
-            <tr>
-                <td class="width" colspan="3">작성자</td>
-            </tr>
-            <tr>
-                <td class="width" colspan="3">작성일</td>
-            </tr>
-            <tr>
-                <td class="width" colspan="3">평점</td>
-            </tr>
-            <tr>
-                <td class="width" colspan="3">리뷰</td>
-            </tr>
-        </table>
-    </div>
+
+
+<th:block th:each="review: ${}">
+    <div class="ALL">
+        <div id="frame">
+            <div class="img">
+                <img src="">
+            </div>
+            <ul class="table">
+                <li th:text="닉네임 : + ${}"></li>
+                <li th:text="영화 : + ${}"></li>
+                <li th:text="리뷰 : + ${}"></li>
+                <li th:text="평점 : ${}"></li>
+            </ul>
+        </div>
+
 </th:block>
 </body>
 </html>
