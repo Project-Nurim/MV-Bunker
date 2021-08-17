@@ -64,7 +64,7 @@ public class ReviewController {
 
     // Eval CRUD
     @ResponseBody
-    @PostMapping("/EvalRest")
+    @PostMapping("/evalRest")
     public EvalEntity insAndSelEval(@RequestBody EvalEntity param) {
         service.insUpdEval(param);
         return service.selEval(param);
