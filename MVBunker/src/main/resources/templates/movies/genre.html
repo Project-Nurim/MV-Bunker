@@ -25,7 +25,6 @@
 <body>
 <!-- 장르별로 5개씩 영화포스터가 뜨는 페이지 -->
 <th:block layout:fragment="content">
-
     <th:block th:each="genre : ${genreList}"> <!--장르-->
         <article class="each-genre" data-slide-index="0">
             <div class="p">
@@ -97,7 +96,6 @@
     <th:block th:each="movie : ${genre.value}"> &lt;!&ndash;그 장르에 해당하는 영화 포스터들&ndash;&gt;
         <img th:src="'https://image.tmdb.org/t/p/w500/' + ${movie.posterPath}">
     </th:block>-->
-
 
 </th:block>
 </body>

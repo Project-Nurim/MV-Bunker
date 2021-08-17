@@ -17,10 +17,10 @@
     <th:block layout:fragment="js"></th:block>
 </head>
 <body>
-    <div id="container2">
+    <main id="container2">
         <th:block th:replace="layout/commonHeader :: header"></th:block>
-        <section2 layout:fragment="content"></section2>
+        <section id="layoutSection" layout:fragment="content"></section>
         <th:block th:replace="layout/commonFooter :: footer"></th:block>
-    </div>
+    </main>
 </body>
 </html>

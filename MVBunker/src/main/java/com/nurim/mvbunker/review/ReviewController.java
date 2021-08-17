@@ -13,6 +13,7 @@ import com.nurim.mvbunker.user.model.UserEntity;
 import com.nurim.mvbunker.review.model.ReviewDomain;
 import info.movito.themoviedbapi.model.Video;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -53,8 +54,8 @@ public class ReviewController {
     public void reviewDetail(Model model, int movieId){
         EvalEntity evalParam = new EvalEntity();
         evalParam.setId(movieId);
-        if(auth.getLoginUser() != null) {
-            model.addAttribute("myEval", service.selMyEval(evalParam));
+        if(auth.getLoginUser() == null) {
+            model.addAttribute("anonymous", "1");
         }
         model.addAttribute("movie", moviesService.getMovieDetail(movieId));
         model.addAttribute("myMovie", moviesService.getMyMovieDetails(movieId));
@@ -83,6 +84,12 @@ public class ReviewController {
     public Map<String, Object> getCheckEval(EvalEntity param) {
         Map<String, Object> result = new HashMap<>();
         result.put("myEval", service.selMyEval(param));
+        return result;
+    }
+    @ResponseBody
+    @GetMapping("/getMovieEvalAvg")
+    public Map<String, Object> getMovieEvalAvg(EvalEntity param) {
+        Map<String, Object> result = new HashMap<>();
         result.put("movieEval", service.selEval(param));
         return result;
     }

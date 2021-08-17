@@ -1,3 +1,5 @@
+// 로그인 안한사람인지
+const isAnonymous = document.querySelector('.starRate').dataset.anonymous;
 // 유튜브 트레일러 뿌려주기
 const videoKey = document.querySelector('#video').dataset.videoKey;
 const movieIdVal = document.querySelector('#movieIdInput').value;
@@ -99,6 +101,10 @@ function makeItemList(reviewList) { // 받은 애들 어떻게 뿌릴지
 
 $( document ).ready(function() {
     $('.trigger').on('click', function() {
+        if(isAnonymous) {
+            alert('로그인이 필요합니다.');
+            return false;
+        }
         $('.modal-wrapper').toggleClass('open');
         $('.page-wrapper').toggleClass('blur-it');
         return false;
@@ -196,7 +202,7 @@ const visual_beautyStarScoreElem = document.getElementById('visual_beautyStarSco
 const musicStarScoreElem = document.getElementById('musicStarScore');
 const plotStarScoreElem = document.getElementById('plotStarScore');
 function checkEval(movieId) {
-    fetch(`/review/getCheckEval?id=${movieIdVal}`)
+    fetch(`/review/getCheckEval?id=${movieId}`)
         .then(res => res.json())
         .then(myJson => {
             if(myJson.myEval != null) {
@@ -207,21 +213,32 @@ function checkEval(movieId) {
                 document.getElementById(`star${myJson.myEval.visual_beauty}3`).checked = true;
                 document.getElementById(`star${myJson.myEval.music}4`).checked = true;
                 document.getElementById(`star${myJson.myEval.plot}5`).checked = true;
-                performanceStarElem.style.width = myJson.movieEval.performance/5 * 100 + '%';
-                performanceStarScoreElem.innerText = myJson.movieEval.performance + '/5';
-                productionStarElem.style.width = myJson.movieEval.production/5 * 100 + '%';
-                productionStarScoreElem.innerText = myJson.movieEval.production + '/5';
-                visual_beautyStarElem.style.width = myJson.movieEval.visual_beauty/5 * 100 + '%';
-                visual_beautyStarScoreElem.innerText = myJson.movieEval.visual_beauty + '/5';
-                musicStarElem.style.width = myJson.movieEval.music/5 * 100 + '%';
-                musicStarScoreElem.innerText = myJson.movieEval.music + '/5';
-                plotStarElem.style.width = myJson.movieEval.plot/5 * 100 + '%';
-                plotStarScoreElem.innerText = myJson.movieEval.plot + '/5';
+                getMovieEvalAvg(movieId);
             }
         })
 
 }
-checkEval(movieIdVal);
+function getMovieEvalAvg(movieId) {
+    fetch(`/review/getMovieEvalAvg?id=${movieId}`)
+        .then(res => res.json())
+        .then(myJson => {
+            performanceStarElem.style.width = myJson.movieEval.performance/5 * 100 + '%';
+            performanceStarScoreElem.innerText = myJson.movieEval.performance + '/5';
+            productionStarElem.style.width = myJson.movieEval.production/5 * 100 + '%';
+            productionStarScoreElem.innerText = myJson.movieEval.production + '/5';
+            visual_beautyStarElem.style.width = myJson.movieEval.visual_beauty/5 * 100 + '%';
+            visual_beautyStarScoreElem.innerText = myJson.movieEval.visual_beauty + '/5';
+            musicStarElem.style.width = myJson.movieEval.music/5 * 100 + '%';
+            musicStarScoreElem.innerText = myJson.movieEval.music + '/5';
+            plotStarElem.style.width = myJson.movieEval.plot/5 * 100 + '%';
+            plotStarScoreElem.innerText = myJson.movieEval.plot + '/5';
+        })
+}
+if(isAnonymous) {
+    getMovieEvalAvg(movieIdVal);
+}else {
+    checkEval(movieIdVal);
+}
 
 
 /*--------- 영화 좋아요 ----------*/
@@ -229,8 +246,12 @@ const heart = document.getElementById("ht");
 const heartt = document.getElementById("htt");
 
 heart.addEventListener('click',function(){
-  movieFavProc.method = 'POST';
-  movieFavProc.doFavMovie();
+    if(isAnonymous) {
+        alert('로그인이 필요합니다.');
+    }else {
+        movieFavProc.method = 'POST';
+        movieFavProc.doFavMovie();
+    }
 })
 
 heartt.addEventListener('click',function(){
@@ -302,6 +323,8 @@ function checkFav() {
             }
         })
 }
-checkFav();
+if(!isAnonymous) {
+    checkFav();
+}
 
 //------------------댓글
