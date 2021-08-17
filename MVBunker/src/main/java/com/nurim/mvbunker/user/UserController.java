@@ -118,9 +118,9 @@ public class UserController {
     }
 
     @GetMapping("/profile")
-    public void profile(Model model, @AuthenticationPrincipal CustomUserPrincipals userDetails, UserEntity param){
+    public void profile(Model model,  UserEntity param){
         if(param.getI_user() == 0) {
-            param = userDetails.getUser();
+            param = auth.getLoginUser();
         }
 //        model.addAttribute(myconst.PROFILE, service.selProfileImg(loginUser));
         UserDomain activity = service.selUserProfile(param);
