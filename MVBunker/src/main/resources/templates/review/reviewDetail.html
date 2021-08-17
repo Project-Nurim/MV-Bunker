@@ -20,16 +20,19 @@
     <input id="movieIdInput" type="hidden" th:value="${param.movieId}">
     <div id="video" th:unless="${videos.size() == 0}" th:data-video-key="${videos.get(0).key}"></div>
     <div th:if="${videos.size() == 0}" style="color:white;">영상 준비중..</div> <!-- 이거 나중에 수정해줘 -->
-    <div class="buttons">
-        <span id="heart">
-        <i class="fas fa-heart"></i><!-- full -->
-        <i class="far fa-heart"></i></span>
-    </div>
+ 
         <!-- Button -->
         <div class="page-wrapper">
             <a class="btn trigger" id="star" href="#"><i class="far fa-star"></i></a>
             <a class="btn trigger" id="starr" href="#"><i class="fas fa-star"></i></a>
         </div>
+
+        <div class="heart">
+            <a class="btn h" id="ht" href="#"><i class="far fa-heart"></i></a>
+            <a class="btn h" id="htt" href="#"><i class="fas fa-heart"></i></a>
+        </div>
+
+
         <!-- Modal -->
         <div class="modal-wrapper">
             <div class="modal">

@@ -135,3 +135,17 @@ totalRatingInputElem.forEach((ratingElem) => {
 if (checked) {
     document.getElementById("starr").style.display = "block";
 }
+
+
+const heart = document.getElementById("ht");
+const heartt = document.getElementById("htt");
+
+heart.addEventListener('click',function(){
+  heart.style.display ='none';
+  heartt.style.display = 'block';
+})
+
+heartt.addEventListener('click',function(){
+    heart.style.display ='block';
+    heartt.style.display = 'none';
+})
