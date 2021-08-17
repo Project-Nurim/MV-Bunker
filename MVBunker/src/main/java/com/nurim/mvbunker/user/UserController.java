@@ -16,10 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -149,6 +146,18 @@ public class UserController {
     @PostMapping("/profileMod")
     public String profileMod(UserEntity param){
         service.updUserProfile(param);
+        return "redirect:/user/profile";
+    }
+
+    @PostMapping("/byeUser")
+    public String delUser(String upw, String upw_chk, String del_chk) {
+        if(upw.equals(upw_chk) && del_chk.equals("탈퇴하겠습니다.")) {
+            if(service.byeUser(upw) == 1) {
+                return "redirect:/user/logout";
+            }else {
+                return "redirect:/user/profile";
+            }
+        }
         return "redirect:/user/profile";
     }
 }

@@ -20,7 +20,7 @@
     <div id="ALL">
         <div class="top">
             <div class="profilemod">프로필 수정하기</div>
-            <input class="button" id="bye" type="button" value="회원탈퇴" onclick="bye_confirm()"/>
+            <input class="button trigger" id="byeModal" type="button" value="회원탈퇴">
             <br>
             <br>
 
@@ -30,7 +30,7 @@
                 </div>
                 <th:block th:if="${auth.profileImg} != null"><img class="mainProfile" th:src="${auth.profileImg}">
                 </th:block>
-                <th:block th:unless="${auth.profileImg} == null"><img class="mainProfile" th:src="${/img/logo/noprofile.png}">
+                <th:block th:unless="${auth.profileImg} == null"><img class="mainProfile" src="/img/logo/noprofile.png">
                 </th:block>
 
 <!--                프로필사진에 event 걸기 / local 아니면 프로필사진 변경불가 -->
@@ -65,6 +65,25 @@
 
         </div>
     </div>
+    <section class="modal-wrapper">
+        <div class="modal">
+            <div class="head">
+                <a class="btn-close trigger" href="#">
+                    <i class="far fa-times-circle"></i>
+                </a>
+            </div>
+            <form action="/user/byeUser" method="post">
+                <div><label><span>비밀번호 : </span>
+                    <input type="password" name="upw" placeholder="password"></label>
+                </div>
+                <div><label><span>비밀번호 확인 : </span>
+                    <input type="password" name="upw_chk"></label></div>
+                <div><label><span>'탈퇴하겠습니다.' 를 적어주십시오. </span>
+                    <input type="text" name="del_chk"></label></div>
+                <input class="button" id="bye" type="button" value="회원탈퇴" onclick="if(bye_confirm()===true) submit();">
+            </form>
+        </div>
+    </section>
 </section>
 </body>
 </html>

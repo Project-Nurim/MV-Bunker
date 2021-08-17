@@ -34,6 +34,7 @@ public class UserService {
     @Autowired private UserDetailsServiceImpl userDetailsService;
     @Autowired private UserProfileMapper profileMapper;
 
+
     public int join(UserEntity param) {
         String authCd = codeGenerator.getRandomCode(5);
 
@@ -122,5 +123,16 @@ public class UserService {
     //팔로워 프로필 디테일
     public UserDomain subUserProfile(UserEntity param){
         return mapper.subUserProfile(param);
+    }
+
+    //회원 탈퇴
+    public int byeUser(String upw) {
+        UserEntity param = mapper.selUser(auth.getLoginUser());
+        boolean pass = passwordEncoder.matches(upw, param.getUpw());
+        if(pass) {
+            return mapper.delUser(param);
+        }else {
+            return 0;
+        }
     }
 }
