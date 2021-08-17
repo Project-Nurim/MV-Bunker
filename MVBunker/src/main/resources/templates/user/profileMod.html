@@ -20,10 +20,14 @@
     <div id="ALL">
         <div class="top">
             <div class="profilemod">프로필 수정하기</div>
+            <input class="button" id="bye" type="button" value="회원탈퇴" onclick="bye_confirm()"/>
             <br>
             <br>
-            <div id="bye" class="button" onclick="bye">회원탈퇴</div>
+
             <div class="all">
+                <div id="pfimg">
+                    <img src="/img/camera.png" onclick="chimg">
+                </div>
                 <th:block th:if="${auth.profileImg} != null"><img class="mainProfile" th:src="${auth.profileImg}">
                 </th:block>
                 <th:block th:unless="${auth.profileImg} == null"><img class="mainProfile" th:src="${/img/logo/noprofile.png}">
@@ -42,7 +46,7 @@
             <br>
             <ul class="detail">
                 <li class="fw">나의 계정</li>
-                <input type="submit" id="pfre" class="button" value="수정하기">< <!-- 비밀번호 수정 모달 띄우기 -->
+                <input type="submit" id="pfre" class="button" value="수정하기"> <!-- 비밀번호 수정 모달 띄우기 -->
                 <li th:text="'아이디 : '"></li><input type="text" name="uid" th:value="${auth.uid}">
                 <li th:text="'비밀번호 : ********'"></li> <!-- 이렇게 하면 아예 안뜸, *****로 뜨게 하기 -->
                 <button class="btn-modPassword">비밀번호 변경</button>
