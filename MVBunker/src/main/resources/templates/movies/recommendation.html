@@ -17,6 +17,72 @@
 <!-- 리뷰 많은 순, 평점 높은 순의 영화포스터가 뜨는 추천영화페이지!  -->
 <th:block layout:fragment="content">
 
+        <th:block th:each="genre : ${genreList}"> <!--장르-->
+            <article class="each-genre" data-slide-index="0">
+                <div class="p">
+                    <p th:text="${genre.key}"></p>
+                    <a class="prev">&#10094;</a>
+                    <a class="next">&#10095;</a>
+                    <a class="M" th:href="@{/movies/genreDetail(genreId=${reverseGenreMap.get(genre.key)})}">
+                        <button type="button" class="more">더보기</button>
+                    </a>
+                </div>
+                <div class="ALL">
+
+
+                    <section class="movies" id="movies">
+                        <div class="mySlides fade">
+                            <ul>
+                                <li th:each="i : ${#numbers.sequence(0,4)}">
+                                    <figure>
+                                        <div class="img-wrapper img1">
+                                            <a class="aTag"
+                                               th:href="@{/review/reviewDetail(movieId=${genre.value.get(i).id})}">
+                                                <img class="x"
+                                                     th:src="'https://image.tmdb.org/t/p/w500/' + ${genre.value.get(i).posterPath}">
+                                                <div class="darkness">
+
+                                                </div>
+                                                <div class="btn-plus">
+                                                    <div th:text="평점 + ${genre.value.get(i).plot}"></div>
+                                                    <div th:text="개봉일 + ${genre.value.get(i).releaseDate}"></div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </figure>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                        <div class="mySlides fade">
+                            <ul>
+                                <li th:each="i : ${#numbers.sequence(5,9)}">
+                                    <figure>
+                                        <div class="img-wrapper img1">
+                                            <a class="aTag"
+                                               th:href="@{/review/reviewDetail?movieId=${genre.value.get(i).id}}">
+                                                <img class="x"
+                                                     th:src="'https://image.tmdb.org/t/p/w500/' + ${genre.value.get(i).posterPath}">
+                                                <div class="darkness">
+
+                                                </div>
+                                                <div class="btn-plus">
+                                                    <div th:text="평점 + ${genre.value.get(i).plot}"></div>
+                                                    <div th:text="개봉일 + ${genre.value.get(i).releaseDate}"></div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </figure>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                </div>
+                <a href="#" id="back-to-top"><img src="/img/login/remocon.png" width="25px" height="70px"></a>
+            </article>
+        </th:block>
 </th:block>
 </body>
 </html>
