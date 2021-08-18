@@ -39,7 +39,8 @@ fa-thumbs-up:before{
 }
 
 #frame{
-    width: 1000px;
+    position: relative;
+    width:66%;
     height: 600px;
     border: 1px solid white;
 }
@@ -55,13 +56,29 @@ fa-thumbs-up:before{
     height: 30px;
     border-radius: 0.7em;
     float: right;
-    margin-right: 22px;
-
+    margin-right: 86px;
+    position: absolute;
+    right: 7px;
+    top: 103px;
 }
-
-
+.r-button {
+}
+.wBtn2{
+    width: 60px;
+    height: 30px;
+    border-radius: 0.7em;
+    float: right;
+    margin-right: 22px;
+    position: absolute;
+    right: 7px;
+    top: 103px;
+}
 #test{
-    margin: 25px auto;
+    position: absolute;
+    top: 0;
+    height: 70px;
+    width: 94%;
+    margin: 30px auto;
 }
 
 #movieStarContainer {

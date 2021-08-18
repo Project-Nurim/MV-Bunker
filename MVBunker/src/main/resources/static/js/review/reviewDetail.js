@@ -328,3 +328,14 @@ if(!isAnonymous) {
 }
 
 //------------------댓글
+
+
+
+
+
+
+
+const rwDtail = document.getElementById("test");
+rwDtail.addEventListener("click",function(){
+    rwDtail.style.height = '120px';
+})
