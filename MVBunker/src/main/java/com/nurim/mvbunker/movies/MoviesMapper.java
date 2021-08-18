@@ -16,6 +16,8 @@ public interface MoviesMapper {
     List<MovieDomain> selGenreMovies(int genreId, PagingDTO pagingDTO);
     MovieDomain selTheMovie(MovieEntity param);
     List<MovieDomain> selSearchMovies(List<Integer> movieIds);
+
+    //Recommendation
     List<MovieDomain> selRcmList_fav();
     List<MovieDomain> selRcmList_revw();
 

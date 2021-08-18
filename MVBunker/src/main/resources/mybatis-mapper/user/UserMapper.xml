@@ -28,9 +28,6 @@
     <update id="updUser">
         UPDATE t_user
         <set>
-            <if test="profileImg != null and profileImg != ''">
-                profileImg = #{profileImg}
-            </if>
             <if test="upw != null and upw != ''">
                , upw = #{upw}
             </if>
