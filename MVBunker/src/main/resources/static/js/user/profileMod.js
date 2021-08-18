@@ -16,3 +16,6 @@ function bye_confirm () {
         return false;
     }
 }
+
+
+
