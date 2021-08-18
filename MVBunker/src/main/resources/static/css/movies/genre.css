@@ -352,10 +352,10 @@ footer {
 
 .darkness {
     position: absolute;
-    bottom: 0;
+    bottom: -51px;
     left: 0;
     width: inherit;
-    height: inherit;
+    height: 443px;
     /* height: 70px; */
     background: rgb(0, 0, 0);
     /* 추가된 부분 */
