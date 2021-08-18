@@ -332,10 +332,3 @@ if(!isAnonymous) {
 
 
 
-
-
-
-const rwDtail = document.getElementsByTagName('textarea');
-rwDtail.addEventListener("click",function(){
-    rwDtail.style.height = '';
-})
