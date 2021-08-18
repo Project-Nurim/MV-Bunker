@@ -209,6 +209,7 @@ body {
     align-items: center;
     padding: 0 10px;
     color: white;
+    font-size: 1.2em;
 }
 .table{
     border: 1px solid rgba(255, 255, 255, 0.34);
@@ -227,7 +228,7 @@ body {
     float: left;
     margin: 30px 50px;
     margin-bottom: 50px;
-    height: 328px;
+    height: 325px;
 }
 
 .img{

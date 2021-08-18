@@ -63,3 +63,85 @@
 /*    padding: 0.4em 1em;*/
 /*    margin-left: 284px;*/
 /*}*/
+
+/* 비밀번호 수정 모달 */
+#pw_modal {
+    display: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#pw_modal .modal_close_btn {
+    position: absolute;
+    top: -250px;
+    left: 400px;
+}
+
+#pfimg{
+    width:20px;
+    height:20px;
+}
+
+.modal-wrapper {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.401);
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.25s ease-in-out;
+    z-index: 500;
+}
+
+.modal-wrapper.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    width: 50%;
+    height: 50%;
+    display: block;
+    position: relative;
+    background: #fff;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    margin: 200px auto;
+}
+span input {
+    display: inline-block;
+}
+
+.modal-wrapper.open .modal {
+    opacity: 1;
+}
+
+.head {
+    width: 100%;
+    height: 55px;
+    padding: 12px 30px;
+    overflow: hidden;
+    background: white;
+}
+
+.btn-close {
+    font-size: 28px;
+    display: block;
+    float: right;
+    color: black;
+}
+
+.imgch{
+
+}
+
+pfre{
+    margin-right: 100px;
+}
+
+.button{
+    background-color: #009759;
+    color: white;
+    border-radius: ;
+}

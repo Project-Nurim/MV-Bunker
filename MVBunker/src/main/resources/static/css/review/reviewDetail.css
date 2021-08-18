@@ -50,6 +50,15 @@ fa-thumbs-up:before{
     align-items: center;
     flex-direction: column;
 }
+.wBtn{
+    width: 60px;
+    height: 30px;
+    border-radius: 0.7em;
+    float: right;
+    margin-right: 22px;
+
+}
+
 
 #test{
     margin: 25px auto;

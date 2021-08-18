@@ -5,7 +5,7 @@
       layout:decorator="layout/profileLayout">
 <head>
     <th:block layout:fragment="css">
-        <link rel="stylesheet" th:href="@{/css/user/profileMod.css}">
+        <link rel="stylesheet" th:href="@{/css/user/profile.css}">
         <link rel="icon" href="/img/logo/favicon.ico">
     </th:block>
     <th:block layout:fragment="js">
@@ -23,10 +23,9 @@
             <input class="button trigger" id="byeModal" type="button" value="회원탈퇴">
             <br>
             <br>
-
             <div class="all">
                 <div id="pfimg">
-                    <img src="/img/camerar.png" onclick="chimg">
+                    <img class="imgch" src="/img/camerar.png" onclick="chimg">
                 </div>
                 <th:block th:if="${auth.profileImg} != null"><img class="mainProfile" th:src="${auth.profileImg}">
                 </th:block>
@@ -43,14 +42,13 @@
 
             </div>
             <br>
-            <br>
             <ul class="detail">
                 <li class="fw">나의 계정</li>
                 <input type="submit" id="pfre" class="button" value="수정하기"> <!-- 비밀번호 수정 모달 띄우기 -->
-                <li th:text="'아이디 : '"></li><input type="text" name="uid" th:value="${auth.uid}">
+                <li th:text="'아이디 : ' + ${auth.uid}"></li>
                 <li th:text="'비밀번호 : ********'"></li> <!-- 이렇게 하면 아예 안뜸, *****로 뜨게 하기 -->
                 <button class="btn-modPassword">비밀번호 변경</button>
-                <li th:text="'닉네임 : '"></li><input type="text" name="unn" th:value="${auth.unm}">
+                <div><li th:text="'닉네임 : '"></li><input type="text" name="unn" th:value="${auth.unn}"></div>
                 <li th:text="'가입일 : ' + ${auth.regdt}"></li>
                 <hr style="width: 70%; margin-top: 10px;">
                 <li class="fw">자기소개</li>
@@ -76,7 +74,7 @@
                     <input type="password" name="upw" placeholder="password"></label>
                 </div>
                 <div><label><span>비밀번호 확인 : </span>
-                    <input type="password" name="upw_chk"></label></div>
+                    <input type="password" name="upw_chk" placeholder="passwordchk"></label></div>
                 <div><label><span>'탈퇴하겠습니다.' 를 적어주십시오. </span>
                     <input type="text" name="del_chk"></label></div>
                 <input class="button" id="bye" type="button" value="회원탈퇴" onclick="if(bye_confirm()===true) submit();">
