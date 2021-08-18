@@ -5,22 +5,51 @@
     width:70%;
    flex-direction: column;
 }
+input[name="introduce"] {
+    height: 100px;
+    width: 350px;
+}
+input:focus {outline:none;}
 
+input[name='unn'] {
+
+}
 .all {
     text-align: center;
+
+}
+.imgch {
+    position: absolute;
+    top: 265px;
+    right: 197px;
+    width: 49px;
+    z-index: 10;
+}
+.name {
+    float: left;
+    margin-right: 10px;
 }
 #ALL{
+    position: relative;
     /*border: 1px solid black;*/
     border-radius: 3.75em;
     width: 540px;
-    height: 750px;
+    height: 820px;
     /*box-shadow: 5px 10px 10px rgb(0, 150, 89);*/
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.35);
     /*filter: drop-shadow(7px 7px 10px rgb(0, 150, 89));*/
     /*background-color: white;*/
     margin: 70px auto;
 }
-
+.profilemod{
+    margin-top: 50px;
+    font-size: 1.3em;
+    font-weight: 600;
+}
+.pwt{
+    float: left;
+    margin-right: 30px;
+}
 .myprofile{
     /*width: 30vw;*/
     width: 130px;
@@ -42,7 +71,9 @@
     font-weight: 600;
     margin: 5px 0;
     font-size: 1.1em;
+
 }
+
 
 .mainProfile {
     width: 170px;
@@ -136,12 +167,29 @@ span input {
 
 }
 
-pfre{
+#pfre{
     margin-right: 100px;
+    width: 72px;
+    border-radius: 0.7em;
+    margin-left: 280px;
 }
 
 .button{
     background-color: #009759;
     color: white;
+
+    width: 67px;
+    height: 30px;
+    border-radius: 0.7em;
+
+    /*border-radius: ;*/
+}
+#byeModal{
+    position: absolute;
+    top: 80px;
+    margin-left: 280px;
+}
+=======
     border-radius: 20%;
 }
+
