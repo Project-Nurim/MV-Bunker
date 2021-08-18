@@ -25,7 +25,7 @@
             <br>
             <div class="all">
                 <div id="pfimg">
-                    <img src="/img/camerar.png" onclick="chimg">
+                    <img class="imgch" src="/img/camerar.png" onclick="chimg">
                 </div>
                 <th:block th:if="${auth.profileImg} != null"><img class="mainProfile" th:src="${auth.profileImg}">
                 </th:block>
@@ -75,7 +75,7 @@
                     <input type="password" name="upw" placeholder="password"></label>
                 </div>
                 <div><label><span>비밀번호 확인 : </span>
-                    <input type="password" name="upw_chk"></label></div>
+                    <input type="password" name="upw_chk" placeholder="passwordchk"></label></div>
                 <div><label><span>'탈퇴하겠습니다.' 를 적어주십시오. </span>
                     <input type="text" name="del_chk"></label></div>
                 <input class="button" id="bye" type="button" value="회원탈퇴" onclick="if(bye_confirm()===true) submit();">

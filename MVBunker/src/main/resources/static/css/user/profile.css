@@ -65,10 +65,6 @@
 /*}*/
 
 /* 비밀번호 수정 모달 */
-.button{
-    float:right;
-}
-
 #pw_modal {
     display: none;
     font-family: 'Montserrat', sans-serif;
@@ -103,8 +99,6 @@
     visibility: visible;
 }
 
-
-
 .modal {
     width: 50%;
     height: 50%;
@@ -115,7 +109,7 @@
     transition: all 0.5s ease-in-out;
     margin: 200px auto;
 }
-label input {
+span input {
     display: inline-block;
 }
 
@@ -136,4 +130,18 @@ label input {
     display: block;
     float: right;
     color: black;
+}
+
+.imgch{
+
+}
+
+pfre{
+    margin-right: 100px;
+}
+
+.button{
+    background-color: #009759;
+    color: white;
+    border-radius: ;
 }
