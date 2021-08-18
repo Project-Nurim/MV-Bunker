@@ -27,6 +27,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
         // title: 영화 제목값
         // poster: 영화 포스터 값
     }
+    
     const init = {
         method: 'POST',
         headers: {
@@ -327,3 +328,14 @@ if(!isAnonymous) {
 }
 
 //------------------댓글
+
+
+
+
+
+
+
+const rwDtail = document.getElementById("test");
+rwDtail.addEventListener("click",function(){
+    rwDtail.style.height = '120px';
+})

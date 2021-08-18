@@ -16,6 +16,9 @@ public interface MoviesMapper {
     List<MovieDomain> selGenreMovies(int genreId, PagingDTO pagingDTO);
     MovieDomain selTheMovie(MovieEntity param);
     List<MovieDomain> selSearchMovies(List<Integer> movieIds);
+    List<MovieDomain> selRcmList_fav();
+    List<MovieDomain> selRcmList_revw();
+
 
     //Hover
     List<HoverVO> selHover1(MovieFavEntity param);//영화정보만 띄울 때

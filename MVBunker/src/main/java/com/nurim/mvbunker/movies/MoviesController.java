@@ -1,8 +1,11 @@
 package com.nurim.mvbunker.movies;
 
+import com.nurim.mvbunker.common.security.model.CustomUserPrincipals;
 import com.nurim.mvbunker.movies.model.*;
+import com.nurim.mvbunker.user.model.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -64,8 +67,19 @@ public class MoviesController {
     }
 
     @GetMapping("/recommendation")
-    public void recommendation(){
+    public void recommendation(@AuthenticationPrincipal CustomUserPrincipals userDetails, Model model, MovieFavEntity param){
+        UserEntity loginUser = userDetails.getUser();
+        int loginUserPk = loginUser.getI_user();
+        param.setI_user(loginUserPk);
 
+        List<MovieDomain> fav_list = service.getRcmList_fav();
+        List<MovieDomain> revw_list = service.getRcmList_revw();
+        List<HoverVO> selHover1 = service.selHover1(param);
+        System.out.println("리스트! : "+fav_list);
+
+        model.addAttribute("fav_list",fav_list);
+        model.addAttribute("revw_list",revw_list);
+        model.addAttribute("hover", selHover1);
     }
 
     @GetMapping("/search")

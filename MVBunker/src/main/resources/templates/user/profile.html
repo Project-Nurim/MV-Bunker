@@ -22,7 +22,10 @@
             <br>
             <br>
             <div class="all">
-                <img class="mainProfile" th:src="${auth.profileImg}">
+                <th:block th:if="${auth.profileImg} != null"><img class="mainProfile" th:src="${auth.profileImg}">
+                </th:block>
+                <th:block th:if="${auth.profileImg} == null"><img class="mainProfile" src="/img/logo/noprofile.png">
+                </th:block>
             </div>
             <br>
             <ul class="detail">
