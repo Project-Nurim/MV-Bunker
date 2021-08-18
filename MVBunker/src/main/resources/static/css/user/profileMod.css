@@ -69,17 +69,19 @@
 .button{
     float:right;
 }
-.cameraImg {
-    position: absolute;
-    left: 50px;
-}
+
 .invisible {
     position: absolute;
     opacity: 0;
+    top: 16vw;
+    left: 21vw;
+    width: 40px;
+    height: 40px;
+    z-index:11;
 }
 .mainProfile {
-    width: 20vw;
-    height: 20vw;
+    width: 18vw;
+    height: 18vw;
     object-fit: cover;
     border-radius: 50%;
 }

@@ -67,21 +67,15 @@ public class UserService {
         param.setI_user(iuser);
 
         String saveFileNm = fileUtils.transferTo(img, target);
-
-            if(saveFileNm != null){
-                param.setProfileImg(saveFileNm);
-            }
-
-            if(mapper.updUser(param) == 1 && loginUser.getProfileImg() == null) {
-                UserEntity param2 = new UserEntity();
-                param2.setI_user(iuser);
-                param2.setProfileImg(saveFileNm);
-
-                if(mapper.updUser(param2) == 1){ //1번이면 성공적인 결과! DB의 값을 변경
-                    loginUser.setProfileImg(saveFileNm); //security session에 값을 변경!
-                }
-            }
+        String realUrl = "/pic/" + target + "/" + saveFileNm;
+        if(saveFileNm != null){
+                param.setProfileImg(realUrl);
         }
+
+        if(mapper.updUser(param) == 1) {
+            loginUser.setProfileImg(realUrl);
+        }
+    }
 
 
     //프로필 메인이미지 변경
