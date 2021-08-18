@@ -30,7 +30,7 @@
                 </div>
                 <th:block th:if="${auth.profileImg} != null"><img class="mainProfile" th:src="${auth.profileImg}">
                 </th:block>
-                <th:block th:unless="${auth.profileImg} == null"><img class="mainProfile" src="/img/logo/noprofile.png">
+                <th:block th:if="${auth.profileImg} == null"><img class="mainProfile" src="/img/logo/noprofile.png">
                 </th:block>
 
 <!--                프로필사진에 event 걸기 / local 아니면 프로필사진 변경불가 -->
@@ -52,7 +52,6 @@
                 <button class="btn-modPassword">비밀번호 변경</button>
                 <li th:text="'닉네임 : '"></li><input type="text" name="unn" th:value="${auth.unm}">
                 <li th:text="'가입일 : ' + ${auth.regdt}"></li>
-                <!--            <li th:text="${auth.provider}"></li>-->
                 <hr style="width: 70%; margin-top: 10px;">
                 <li class="fw">자기소개</li>
                 <input type="text" name="introduce" th:value="${auth.introduce}">
