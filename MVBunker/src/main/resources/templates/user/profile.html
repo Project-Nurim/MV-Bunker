@@ -24,7 +24,7 @@
             <div class="all">
                 <th:block th:if="${auth.profileImg} != null"><img class="mainProfile" th:src="${auth.profileImg}">
                 </th:block>
-                <th:block th:else="${auth.profileImg} == null"><img class="mainProfile" src="/img/logo/noprofile.png">
+                <th:block th:if="${auth.profileImg} == null"><img class="mainProfile" src="/img/logo/noprofile.png">
                 </th:block>
             </div>
             <br>
