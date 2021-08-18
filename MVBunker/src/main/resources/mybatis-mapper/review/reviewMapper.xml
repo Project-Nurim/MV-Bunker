@@ -11,17 +11,17 @@
     </insert>
     <!-- 방금 쓴 리뷰 셀렉트 -->
     <select id="selJustReview" resultType="ReviewDomain">
-        SELECT * FROM t_review WHERE i_review = ${i_reivew}
+        SELECT * FROM t_review WHERE i_review = ${i_review}
     </select>
 
     <!-- 전체리뷰 - 최신순&좋아요많은순 정렬 | default=최신순 >>> hover 시 mapper와 분리! -->
     <select id="selAllReview" resultType="ReviewDomain">
-        select R.unn as unn, R.i_user as i_user, R.i_review as i_review, R.title as title, R.id as id, R.poster as poster, R.regdt as regdt, R.re_ctnt as re_ctnt,
+        select R.profileImg as profileImg, R.unn as unn, R.i_user as i_user, R.i_review as i_review, R.title as title, R.id as id, R.poster as poster, R.regdt as regdt, R.re_ctnt as re_ctnt,
                 E.i_user as Ei_user, E.id as Eid,
                 round((avg(E.production)+avg(E.performance)+avg(E.visual_beauty)+avg(E.music)+avg(E.plot))/5,3)as totalAvg_Review,
                 count(case when RL.disLike = 0 then 1 end) as review_like_cnt
         from(
-                select B.unn as unn, A.i_user as i_user, A.i_review as i_review, A.title as title, A.id as id, A.poster As poster, A.regdt as regdt, A.re_ctnt as re_ctnt
+                select B.profileImg as profileImg ,B.unn as unn, A.i_user as i_user, A.i_review as i_review, A.title as title, A.id as id, A.poster As poster, A.regdt as regdt, A.re_ctnt as re_ctnt
                 from t_review A
                 left join t_user B
                 on A.i_user = B.i_user

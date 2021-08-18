@@ -42,13 +42,18 @@ public class ReviewController {
     @ResponseBody
     @GetMapping("/getAllReview")
     public Map<String, Object> getAllReview(@AuthenticationPrincipal CustomUserPrincipals userDetails, int page, int orderby, MovieFavEntity param) {
-        UserEntity loginUser = userDetails.getUser();
-        int loginUserPk = loginUser.getI_user();
-        param.setI_user(loginUserPk);
+        List<HoverVO> hover = null;
+        if(userDetails != null) {
+            UserEntity loginUser = userDetails.getUser();
+            int loginUserPk = loginUser.getI_user();
+            param.setI_user(loginUserPk);
+            hover = moviesService.selHover2(param);
+        }
+
 
         Map<String, Object> result = new HashMap<>();
         List<ReviewDomain> selAllReview = service.selAllReview(page, orderby);
-        List<HoverVO> hover = moviesService.selHover2(param);
+
         result.put("hover",hover);
         result.put("selAllReview",selAllReview);
         return result;

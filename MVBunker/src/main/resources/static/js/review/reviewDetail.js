@@ -19,15 +19,18 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 
 // 리뷰 CRUD 틀 (수정 필요 *******)
-/*
-리뷰 쓰기 버튼Elem.addEventListener('click',() => {
+const reviewContainerElem = document.querySelector('#frame');
+const reviewWriteBtn = document.querySelector('.wBtn');
+const reviewCtntVal = document.querySelector('#test').value;
+const movieTitleVal = document.querySelector('.square').dataset.movieTitle;
+const moviePosterPath = document.querySelector('.square').dataset.moviePoster;
+reviewWriteBtn.addEventListener('click',() => {
     const data = {
-        // id: 영화 아이디값
-        // re_ctnt: 리뷰 쓴 내용 값
-        // title: 영화 제목값
-        // poster: 영화 포스터 값
+        id: movieIdVal,
+        re_ctnt: reviewCtntVal,
+        title: movieTitleVal,
+        poster: moviePosterPath
     }
-    
     const init = {
         method: 'POST',
         headers: {
@@ -40,44 +43,45 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
         .then(res => res.json())
         .then(review => {
             makeJustReview(review);
+            document.querySelector('.square').classList.add('hide');
+            document.querySelector('#test').classList.add('hide');
+            document.querySelector('#test_cnt').classList.add('hide');
+            document.querySelector('.r-button').classList.add('hide');
         })
 })
 
-리뷰 수정완료 버튼Elem.addEventListener('click',() => {
-    //수정 버튼 누르면 내가 썼던 리뷰 화면에서 지우면서 input 창에 re_ctnt 넣어서 만들어주기
-    const data = {
-        // id: 영화 아이디값
-        // re_ctnt: 리뷰 쓴 내용 값
-    }
-    const init = {
-        method: 'PUT',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json;charset=utf-8'
-        },
-        body: JSON.stringify(data)
-    }
-    fetch('/review/reviewRest', init)
-        .then(res => res.json())
-        .then(review => {
-            makeJustReview(review);
-        })
-})
-*/
+// 리뷰 수정완료 버튼Elem.addEventListener('click',() => {
+//     //수정 버튼 누르면 내가 썼던 리뷰 화면에서 지우면서 input 창에 re_ctnt 넣어서 만들어주기
+//     const data = {
+//         // id: 영화 아이디값
+//         // re_ctnt: 리뷰 쓴 내용 값
+//     }
+//     const init = {
+//         method: 'PUT',
+//         headers: {
+//             'Accept': 'application/json',
+//             'Content-Type': 'application/json;charset=utf-8'
+//         },
+//         body: JSON.stringify(data)
+//     }
+//     fetch('/review/reviewRest', init)
+//         .then(res => res.json())
+//         .then(review => {
+//             makeJustReview(review);
+//         })
+// })
+
 function makeJustReview(review) {
     // 리뷰 화면에 그리기
-    const allElem = document.createElement('div');
-    allElem.classList.add('all');
-    const containerElem = document.createElement('div');
-    containerElem.classList.add('container');
-    const ratingElem = document.createElement('div');
-    ratingElem.classList.add('rating-wrap');
-    const h5 = document.createElement('h5');
-    const centerElem= document.createElement('div');
-    centerElem.classList.add('center');
-    const evalElem = document.createElement(('fieldse'));
-    evalElem.classList.add('rating eval');
-
+    const reviewDivElem = document.createElement('div');
+    reviewDivElem.innerHTML =
+    `<div class="picc">
+        <div class="a">
+            <img class="com" th:src="${review.profileImg}">
+                <p>${review.re_ctnt}</p>
+        </div>
+    </div>`
+    reviewContainerElem.append(reviewDivElem);
 }
 
 
@@ -209,11 +213,21 @@ function checkEval(movieId) {
             if(myJson.myEval != null) {
                 fullStarElem.style.display = "block";
                 emptyStarElem.style.display = "none";
-                document.getElementById(`star${myJson.myEval.performance}`).checked = true;
-                document.getElementById(`star${myJson.myEval.production}2`).checked = true;
-                document.getElementById(`star${myJson.myEval.visual_beauty}3`).checked = true;
-                document.getElementById(`star${myJson.myEval.music}4`).checked = true;
-                document.getElementById(`star${myJson.myEval.plot}5`).checked = true;
+                if(document.getElementById(`star${myJson.myEval.performance}`) != null) {
+                    document.getElementById(`star${myJson.myEval.performance}`).checked = true;
+                }
+                if(document.getElementById(`star${myJson.myEval.production}2`) != null) {
+                    document.getElementById(`star${myJson.myEval.production}2`).checked = true;
+                }
+                if(document.getElementById(`star${myJson.myEval.visual_beauty}3`) != null) {
+                    document.getElementById(`star${myJson.myEval.visual_beauty}3`).checked = true;
+                }
+                if(document.getElementById(`star${myJson.myEval.music}4`) != null) {
+                    document.getElementById(`star${myJson.myEval.music}4`).checked = true;
+                }
+                if(document.getElementById(`star${myJson.myEval.plot}5`) != null) {
+                    document.getElementById(`star${myJson.myEval.plot}5`).checked = true;
+                }
                 getMovieEvalAvg(movieId);
             }
         })

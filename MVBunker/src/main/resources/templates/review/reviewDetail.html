@@ -256,13 +256,13 @@
 
 
     <div id="frame">
-        <div class="square">
+        <div class="square" th:data-movie-title="${myMovie.title}" th:data-movie-poster="${myMovie.posterPath}">
             <textarea id="test" name="test" cols="130" rows="10"></textarea>
             <div id="test_cnt">(0 / 100)</div>
         </div>
         <div class="r-button">
             <input type="button" class="wBtn" value="쓰기">
-            <input type="button" class="wBtn2" value="수정">
+<!--            <input type="button" class="wBtn2" value="수정">-->
         </div>
     </div>
 

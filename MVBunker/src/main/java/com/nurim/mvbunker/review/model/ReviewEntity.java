@@ -6,7 +6,7 @@ import lombok.Data;
 public class ReviewEntity {
     private int i_review;
     private int id;
-    private String m_title;
+    private String title;
     private String poster;
     private int i_user;
     private String re_ctnt;
