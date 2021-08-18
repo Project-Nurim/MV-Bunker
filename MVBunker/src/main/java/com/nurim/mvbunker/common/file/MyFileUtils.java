@@ -50,7 +50,7 @@ public class MyFileUtils {
     public String transferTo(MultipartFile mf, String target) { // target : "profile/userPk"
         String fileNm = getRandomFileNm(mf);
         String basePath = getSavePath(target);
-        makeFolders(basePath);
+
         File origin = new File(basePath);
         if( origin.exists() ){ //파일존재여부확인
             if(origin.isDirectory()){ //파일이 디렉토리인지 확인
@@ -70,7 +70,7 @@ public class MyFileUtils {
             }
         }else{ System.out.println("파일이 존재하지 않습니다."); }
 
-
+        makeFolders(basePath);
         File saveFile = new File(basePath, fileNm);
         try{
             mf.transferTo(saveFile);

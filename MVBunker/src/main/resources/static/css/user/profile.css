@@ -20,9 +20,9 @@ input[name='unn'] {
 }
 .imgch {
     position: absolute;
-    top: 265px;
-    right: 197px;
-    width: 49px;
+    top: 16vw;
+    left: 21vw;
+    width: 40px;
     z-index: 10;
 }
 .name {
@@ -74,14 +74,12 @@ input[name='unn'] {
 
 }
 
-
 .mainProfile {
-    width: 170px;
-    height: 170px;
-    border-radius: 100%;
-    /*box-shadow: 7px 7px 7px #000;*/
+    width: 18vw;
+    height: 18vw;
+    object-fit: cover;
+    border-radius: 50%;
     filter: drop-shadow(7px 7px 10px rgba(0, 0, 0, 0.46));
-    /*filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.68));*/
 }
 
 /*#save {*/
@@ -110,6 +108,7 @@ input[name='unn'] {
 #pfimg{
     width:20px;
     height:20px;
+    position: relative;
 }
 
 .modal-wrapper {
@@ -163,9 +162,7 @@ span input {
     color: black;
 }
 
-.imgch{
 
-}
 
 #pfre{
     margin-right: 100px;

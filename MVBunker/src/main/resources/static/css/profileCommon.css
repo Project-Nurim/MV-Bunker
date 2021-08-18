@@ -147,7 +147,7 @@ label .hamburger:after {
     bottom: -10px;
 }
 
-label input {
+#chk {
     display: none;
 }
 
