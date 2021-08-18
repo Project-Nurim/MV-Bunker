@@ -65,7 +65,7 @@ public class MoviesController {
     public void genreDetail(Model model, int genreId, int movieId){
         List<MovieDomain> list = service.getGenreMovies(genreId);
         List<ReviewDomain> review_list = reviewService.getReviews(movieId);
-
+        System.out.println("review_list : "+review_list);
         model.addAttribute("movieInfo", list);
         model.addAttribute("review_list", review_list);
     }

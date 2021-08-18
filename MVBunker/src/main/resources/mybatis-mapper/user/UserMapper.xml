@@ -68,7 +68,7 @@
                           on R.id = E.id and R.i_user = E.i_user
                 left join t_review_like RL
                           on R.i_review = RL.i_review
-        where R.i_user = ${param.i_user}
+        where R.i_user = ${i_user}
         group by R.i_review
         <choose>
             <when test="pagingDTO.orderby == 0">
@@ -98,7 +98,7 @@
         FROM t_user A
                  INNER JOIN t_sub B
                             ON A.i_user = B.sub_ed_user
-        WHERE B.sub_ing_user = #{param.i_user};
+        WHERE B.sub_ing_user = #{i_user};
     </select>
 
     <!-- Following Reviewer Detail - 내가 팔로우한 유저의 프로필 + 작성한 리뷰&팔로워&받은 좋아요 수 -->
@@ -107,7 +107,7 @@
                A.review_cnt AS review_cnt, A.follower_cnt AS follower_cnt, A.like_cnt AS like_cnt
         FROM (
                  SELECT B.i_user as i_user,
-                        COUNT(B.i_user)AS'countMyReview',
+                        COUNT(B.i_user=${i_user})AS'countMyReview',
                          (SELECT COUNT(sub_ing_user) FROM t_sub WHERE sub_ed_user = #{i_user})AS'countFollower',
                          COUNT(case when A.disLike = 0 then 1 END)AS'countMyReviewLike'
                  FROM t_review B
