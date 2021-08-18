@@ -62,6 +62,15 @@ public class MoviesService {
         return mapper.selSearchMovies(movieIds);
     }
 
+    //Recommendation
+    public List<MovieDomain> getRcmList_fav(){
+        return mapper.selRcmList_fav();
+    }
+    public List<MovieDomain> getRcmList_revw(){
+        return mapper.selRcmList_revw();
+    }
+
+    //Hover
     public List<HoverVO> selHover1(MovieFavEntity param) {
         List<HoverVO> selHover1 = mapper.selHover1(param);
         return selHover1;

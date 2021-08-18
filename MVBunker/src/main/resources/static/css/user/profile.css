@@ -177,6 +177,7 @@ span input {
 .button{
     background-color: #009759;
     color: white;
+
     width: 67px;
     height: 30px;
     border-radius: 0.7em;
@@ -188,3 +189,7 @@ span input {
     top: 80px;
     margin-left: 280px;
 }
+=======
+    border-radius: 20%;
+}
+
