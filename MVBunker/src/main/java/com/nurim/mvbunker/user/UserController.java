@@ -145,8 +145,11 @@ public class UserController {
 
     @PostMapping("/profileMod")
     public String profileMod(UserEntity param){
-        service.updUserProfile(param);
+        if(service.updUserProfile(param) == 1)
         return "redirect:/user/profile";
+        else{
+            return "redirect:/user/profileMod";
+        }
     }
 
     @PostMapping("/byeUser")
@@ -159,5 +162,13 @@ public class UserController {
             }
         }
         return "redirect:/user/profile";
+    }
+
+    @ResponseBody
+    @PostMapping("/checkPw")
+    public boolean checkPw(@RequestBody UserEntity param) {
+        String upw = param.getUpw();
+        System.out.println("비밀번호는 : " + upw);
+        return service.checkPassword(upw);
     }
 }
