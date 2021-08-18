@@ -61,10 +61,10 @@
         where R.id = #{id}
         group by R.i_review
         <choose>
-        <when test="page.orderby == 0">
+        <when test="orderby == 0">
             ORDER BY R.i_review DESC;
         </when>
-        <when test="page.orderby == 1">
+        <when test="orderby == 1">
             order by review_dislike_cnt DESC;
         </when>
         </choose>
