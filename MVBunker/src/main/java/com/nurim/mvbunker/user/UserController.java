@@ -80,9 +80,12 @@ public class UserController {
     }
 
     @GetMapping("/followingReviewerDetail")
-    public void followReviewerDetail(UserEntity param, PagingDTO pagingDTO, Model model){
-        List<ReviewDomain> selReviewList = service.selReviewList(param,pagingDTO);
-        UserDomain subUserProfile = service.subUserProfile(param);
+    public void followReviewerDetail(@AuthenticationPrincipal CustomUserPrincipals userDetails, PagingDTO pagingDTO, Model model){
+        UserEntity loginUser = userDetails.getUser();
+        int loginUserPk = loginUser.getI_user();
+
+        List<ReviewDomain> selReviewList = service.selReviewList(loginUser,pagingDTO);
+        UserDomain subUserProfile = service.subUserProfile(loginUser);
         model.addAttribute("subUserProfile",subUserProfile);
         model.addAttribute("subUserReview",selReviewList);
     }

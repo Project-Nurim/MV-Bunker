@@ -34,9 +34,8 @@ public class ReviewService {
     }
 
     //특정 영화에 달린 리뷰
-    public List<ReviewDomain> getReviews(int id, int page, int orderby) {
-        PagingDTO pagingDTO = new PagingDTO(page, orderby);
-        return mapper.selReview(id, pagingDTO);
+    public List<ReviewDomain> getReviews(int id) {
+        return mapper.selReview(id);
     }
 
     //좋아요 누른 리뷰

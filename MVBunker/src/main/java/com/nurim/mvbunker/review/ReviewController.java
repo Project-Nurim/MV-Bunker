@@ -41,7 +41,11 @@ public class ReviewController {
 
     @ResponseBody
     @GetMapping("/getAllReview")
-    public Map<String, Object> getAllReview(Model model, int page, int orderby, MovieFavEntity param) {
+    public Map<String, Object> getAllReview(@AuthenticationPrincipal CustomUserPrincipals userDetails, int page, int orderby, MovieFavEntity param) {
+        UserEntity loginUser = userDetails.getUser();
+        int loginUserPk = loginUser.getI_user();
+        param.setI_user(loginUserPk);
+
         Map<String, Object> result = new HashMap<>();
         List<ReviewDomain> selAllReview = service.selAllReview(page, orderby);
         List<HoverVO> hover = moviesService.selHover2(param);
@@ -64,8 +68,8 @@ public class ReviewController {
 
     @ResponseBody
     @GetMapping("/reviewDetailInfiniteScrolling")
-    public List<ReviewDomain> getAllReview(int movieId, int page, int orderby) {
-        return reviewService.getReviews(movieId, page, orderby);
+    public List<ReviewDomain> getAllReview(int movieId) {
+        return reviewService.getReviews(movieId);
     }
 
 

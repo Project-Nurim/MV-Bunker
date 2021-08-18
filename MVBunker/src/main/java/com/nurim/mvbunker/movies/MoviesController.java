@@ -1,7 +1,10 @@
 package com.nurim.mvbunker.movies;
 
+import com.nurim.mvbunker.common.model.PagingDTO;
 import com.nurim.mvbunker.common.security.model.CustomUserPrincipals;
 import com.nurim.mvbunker.movies.model.*;
+import com.nurim.mvbunker.review.ReviewService;
+import com.nurim.mvbunker.review.model.ReviewDomain;
 import com.nurim.mvbunker.user.model.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -22,6 +25,9 @@ public class MoviesController {
 
     @Autowired
     private MoviesService service;
+
+    @Autowired
+    private ReviewService reviewService;
 
     @Autowired
     @Qualifier("reversGenreMap")
@@ -56,14 +62,18 @@ public class MoviesController {
     }
 
     @GetMapping("/genreDetail")
-    public void genreDetail(Model model, int genreId){
+    public void genreDetail(Model model, int genreId, int movieId){
         List<MovieDomain> list = service.getGenreMovies(genreId);
+        List<ReviewDomain> review_list = reviewService.getReviews(movieId);
+
         model.addAttribute("movieInfo", list);
+        model.addAttribute("review_list", review_list);
     }
     @ResponseBody
     @GetMapping("/genreDetailScrolling")
-    public List<MovieDomain> genreDetailAjax(int genreId, int page) {
-        return service.getGenreMovies(genreId, page);
+    public void genreDetailAjax(Model model, int genreId, int page) {
+
+        service.getGenreMovies(genreId, page);
     }
 
     @GetMapping("/recommendation")
