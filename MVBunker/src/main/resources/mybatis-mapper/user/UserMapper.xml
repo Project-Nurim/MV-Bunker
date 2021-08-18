@@ -32,13 +32,13 @@
                 profileImg = #{profileImg}
             </if>
             <if test="upw != null and upw != ''">
-                upw = #{upw}
+               , upw = #{upw}
             </if>
             <if test="unn != null and unn != ''">
-                unn = #{unn}
+               , unn = #{unn}
             </if>
             <if test="introduce != null and introduce != ''">
-                introduce = #{introduce}
+               , introduce = #{introduce}
             </if>
         </set>
         WHERE i_user = #{i_user}

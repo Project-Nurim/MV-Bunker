@@ -14,6 +14,7 @@ import com.nurim.mvbunker.user.model.UserDomain;
 
 import com.nurim.mvbunker.user.model.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -105,7 +106,14 @@ public class UserService {
 
     // 프로필 변경
     public int updUserProfile(UserEntity param) {
-        return mapper.updUser(param);
+        param.setI_user(auth.getLoginUserPk());
+        int result = mapper.updUser(param);
+        UserEntity loginUser = auth.getLoginUser();
+        UserEntity modedUser = mapper.selUser(loginUser);
+        loginUser.setUnn(modedUser.getUnn());
+        loginUser.setProfileImg(modedUser.getProfileImg());
+        loginUser.setIntroduce(modedUser.getIntroduce());
+        return result;
     }
 
     // 내가 작성한 리뷰 리스트
@@ -127,12 +135,17 @@ public class UserService {
 
     //회원 탈퇴
     public int byeUser(String upw) {
-        UserEntity param = mapper.selUser(auth.getLoginUser());
-        boolean pass = passwordEncoder.matches(upw, param.getUpw());
-        if(pass) {
-            return mapper.delUser(param);
+        if(checkPassword(upw)) {
+            return mapper.delUser(auth.getLoginUser());
         }else {
             return 0;
         }
+    }
+
+    // 비밀번호 체크
+    public boolean checkPassword(String upw) {
+        System.out.println("패스워드는? : " + upw);
+        System.out.println("진실은 ? : " + new BCryptPasswordEncoder().matches(upw, mapper.selUser(auth.getLoginUser()).getUpw()));
+        return new BCryptPasswordEncoder().matches(upw, mapper.selUser(auth.getLoginUser()).getUpw());
     }
 }

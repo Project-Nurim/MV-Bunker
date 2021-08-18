@@ -24,9 +24,10 @@
             <br>
             <br>
             <div class="all">
-                <div id="pfimg">
-                    <img class="imgch" src="/img/camerar.png" onclick="chimg">
-                </div>
+                <form th:if="${auth.provider eq 'local'}" th:action="@{/user/profileImg}" method="post" enctype="multipart/form-data">
+                    <div id="pfimg"><img class="cameraImg" src="/img/camerar.png"><input id="imgInput" class="invisible" type="file" name="img" accept="image/*"><input type="submit" value="업로드"></div>
+                    <!-- type="file" : 파일 인풋 ; multiple : 여러 파일 업로드 가능 ; accept="image/*" 이미지만 받는다. -->
+                </form>
                 <th:block th:if="${auth.profileImg} != null"><img class="mainProfile" th:src="${auth.profileImg}">
                 </th:block>
                 <th:block th:if="${auth.profileImg} == null"><img class="mainProfile" src="/img/logo/noprofile.png">
@@ -43,27 +44,41 @@
             </div>
             <br>
             <ul class="detail">
+                <form action="/user/profileMod" method="post">
                 <li class="fw" id="fw">나의 계정</li>
-                <input type="submit" id="pfre" class="button" value="수정하기">
-                <!-- 비밀번호 수정 모달 띄우기 -->
+                <input type="submit" id="pfre" class="button" value="수정하기"> <!-- 비밀번호 수정 모달 띄우기 -->
                 <li th:text="'아이디 : ' + ${auth.uid}"></li>
-                <li class="pwt" th:text="'비밀번호 : ********'"></li> <!-- 이렇게 하면 아예 안뜸, *****로 뜨게 하기 -->
-                <button class="btn-modPassword">비밀번호 변경</button>
+                <li id="upwStarView" class="pwt" th:text="'비밀번호 : ********'"></li> <!-- 이렇게 하면 아예 안뜸, *****로 뜨게 하기 -->
+                <input type="button" class="btn-modPassword" value="비밀번호 변경">
+                <input id="pwHiddenElem" type="hidden" name="upw">
                 <div><li class="name" th:text="'닉네임 : '"></li><input type="text" name="unn" th:value="${auth.unn}" readonly></div>
                 <li th:text="'가입일 : ' + ${auth.regdt}"></li>
                 <hr style="width: 70%; margin-top: 10px;">
                 <li class="fw">자기소개</li>
-                <input type="text" name="introduce" th:value="${auth.introduce}" readonly>
+                <input type="text" name="introduce" th:value="${auth.introduce}">
+                </form>
             </ul>
         </div>
     </div>
 
-    <div id="pw_modal">
-        <div class="container">
-
+    <section id="pw_modal" class="modal-wrapper">
+        <div class="modal">
+            <div class="head">
+                <a class="pwMod-close" href="#">
+                    <i class="far fa-times-circle"></i>
+                </a>
+            </div>
+            <div><label><span>비밀번호 : </span>
+                <input id="modalUpw" type="password" name="upw" placeholder="password"></label>
+            </div>
+            <div><label><span>비밀번호 확인 : </span>
+                <input id="modalUpwChk" type="password" name="upw_chk"></label></div>
+            <div><label><span>새 비밀번호 : </span>
+                <input id="modalNewUpw" type="password" name="new_upw"></label></div>
+            <button id="pw_mod_btn">변경</button>
         </div>
-    </div>
-    <section class="modal-wrapper">
+    </section>
+    <section id="byeUserModal" class="modal-wrapper">
         <div class="modal">
             <div class="head">
                 <a class="btn-close trigger" href="#">

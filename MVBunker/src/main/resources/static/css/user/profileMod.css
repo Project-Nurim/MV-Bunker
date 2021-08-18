@@ -69,9 +69,21 @@
 .button{
     float:right;
 }
-
+.cameraImg {
+    position: absolute;
+    left: 50px;
+}
+.invisible {
+    position: absolute;
+    opacity: 0;
+}
+.mainProfile {
+    width: 20vw;
+    height: 20vw;
+    object-fit: cover;
+    border-radius: 50%;
+}
 #pw_modal {
-    display: none;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -84,6 +96,7 @@
 #pfimg{
     width:20px;
     height:20px;
+    position: relative;
 }
 
 .modal-wrapper {
