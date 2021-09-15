@@ -136,11 +136,11 @@ button:focus {
     left: -8%;
 }
 .cardList__btn.btn--right {
-    right: -5%;
+    right: -8%;
 }
 .cardList__btn .icon {
     width: 100%;
-    height: 100%;
+    height: 100%
 }
 .cardList__btn .icon svg {
     width: 100%;
