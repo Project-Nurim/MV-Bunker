@@ -369,7 +369,7 @@ footer {
     position: absolute;
     bottom: 40px;
     width: 90%;
-    height: 17%;
+    height:45%;
     text-align: center;
     margin: 0 auto;
     /* 추가된 부분 */
@@ -381,6 +381,7 @@ footer {
     font-weight: bold;
     z-index: 100;
     margin-left: 13px;
+    line-height: 35px;
 }
 
 .aTag {

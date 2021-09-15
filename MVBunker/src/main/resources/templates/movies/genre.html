@@ -50,10 +50,11 @@
                                                  th:src="'https://image.tmdb.org/t/p/w500/' + ${genre.value.get(i).posterPath}">
                                             <div class="darkness">
 
-                                            </div>
                                             <div class="btn-plus">
+                                                <div th:text="${genre.value.get(i).title}"></div>
                                                 <div th:text="평점 + ${genre.value.get(i).plot}"></div>
                                                 <div th:text="개봉일 + ${genre.value.get(i).releaseDate}"></div>
+                                            </div>
                                             </div>
                                         </a>
                                     </div>
@@ -74,10 +75,11 @@
                                              th:src="'https://image.tmdb.org/t/p/w500/' + ${genre.value.get(i).posterPath}">
                                         <div class="darkness">
 
-                                        </div>
                                         <div class="btn-plus">
+                                            <div th:text="${genre.value.get(i).title}"></div>
                                             <div th:text="평점 + ${genre.value.get(i).plot}"></div>
                                             <div th:text="개봉일 + ${genre.value.get(i).releaseDate}"></div>
+                                        </div>
                                         </div>
                                     </a>
                                     </div>
