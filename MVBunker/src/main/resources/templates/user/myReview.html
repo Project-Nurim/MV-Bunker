@@ -16,7 +16,9 @@
 <body>
 <th:block layout:fragment="content">
     <section id="reviewContainer">
-
+        <th:block th:each="reviewList : ${selMyReviewList}">
+            <p th:text="reviewList.unn"></p>
+        </th:block>
     </section>
 </th:block>
 </body>

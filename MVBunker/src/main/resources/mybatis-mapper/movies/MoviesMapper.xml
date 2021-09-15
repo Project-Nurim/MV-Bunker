@@ -152,23 +152,24 @@
     <!-- 추천영화 목록 정렬기준 별 -->
     <!-- selRcmList_fav = 좋아요 많은 순-->
     <select id="selRcmList_fav" resultType="MovieDomain">
-    select A.id, count(A.id)as cnt,
+    select count(A.i_user)as cnt,
            B.id as id, B.title as title, B.originalTitle as originalTitle, B.backdropPath as backdropPath, B.posterPath as posterPath, B.releaseDate as releaseDate, B.adult as adult, B.overview as overview, B.originalLanguage as originalLanguage, B.popularity as popularity, B.mainGenre as mainGenre
         from t_movie_fav A
         left join t_movies B
             on A.id = B.id
         group by A.id
-        having cnt > 0;
+        having cnt DESC
+        LIMIT ${pagingDTO.minIndex}, ${pagingDTO.listLength};
     </select>
-
     <!-- selRcmList_revw = 리뷰많은 순 -->
     <select id="selRcmList_revw" resultType="MovieDomain">
-        select count(A.i_review)as i_review_cnt,
+        select count(A.i_review)as review_cnt,
                B.id as id, B.title as title, B.originalTitle as originalTitle, B.backdropPath as backdropPath, B.posterPath as posterPath, B.releaseDate as releaseDate, B.adult as adult, B.overview as overview, B.originalLanguage as originalLanguage, B.popularity as popularity, B.mainGenre as mainGenre
         from t_review A
                  left join t_movies B
                            on A.id = B.id
         group by id
-        having i_review_cnt > 0;
+        order by review_cnt DESC;
     </select>
+
 </mapper>
