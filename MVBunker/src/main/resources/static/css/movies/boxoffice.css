@@ -14,16 +14,13 @@
 
 body {
     width: 100%;
-    height: 65vw;
+    height: 100%;
     /*display: flex;*/
     /*justify-content: center;*/
     /*align-items: center;*/
     background: black;
     /*overflow: hidden;*/
 
-}
-footer {
-    display: none;
 }
 
 
