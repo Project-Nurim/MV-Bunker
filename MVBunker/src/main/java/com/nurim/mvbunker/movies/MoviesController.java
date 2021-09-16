@@ -62,18 +62,17 @@ public class MoviesController {
     }
 
     @GetMapping("/genreDetail")
-    public void genreDetail(Model model, int genreId, int movieId){
+    public void genreDetail(Model model, int genreId){
         List<MovieDomain> list = service.getGenreMovies(genreId);
-        List<ReviewDomain> review_list = reviewService.getReviews(movieId);
-        System.out.println("review_list : "+review_list);
+//        List<ReviewDomain> review_list = reviewService.getReviews(movieId);
+//        System.out.println("review_list : "+review_list);
         model.addAttribute("movieInfo", list);
-        model.addAttribute("review_list", review_list);
+//        model.addAttribute("review_list", review_list);
     }
     @ResponseBody
     @GetMapping("/genreDetailScrolling")
-    public void genreDetailAjax(Model model, int genreId, int page) {
-
-        service.getGenreMovies(genreId, page);
+    public List<MovieDomain> genreDetailAjax(int genreId, int page) {
+        return service.getGenreMovies(genreId, page);
     }
 
     @GetMapping("/recommendation")
