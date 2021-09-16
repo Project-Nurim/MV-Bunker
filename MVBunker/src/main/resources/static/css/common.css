@@ -221,7 +221,8 @@ footer {
     text-align: center;
     bottom: 0;
     padding: 5px;
-    margin-top: 150px;
+    margin-top: 180px;
+    font-size: 0.8em;
 }
 /*footer {*/
 /*    !*position: relative;*!  relative or null -> genre  / absolute -> boxoffice*/

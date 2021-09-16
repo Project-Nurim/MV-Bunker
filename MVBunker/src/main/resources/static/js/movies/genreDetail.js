@@ -23,6 +23,7 @@ function makeItemList(movieList) {
             const imgElem = e.currentTarget.parentNode.querySelector('.x');
             e.currentTarget.style.transform = 'scale(1.2)'
             imgElem.style.transform= 'scale(1.2)';
+
         })
         darknessElem.addEventListener('mouseout',(e) => {
             const imgElem = e.currentTarget.parentNode.querySelector('.x');
@@ -32,15 +33,24 @@ function makeItemList(movieList) {
 
         const btnPlusElem = document.createElement('div');
         btnPlusElem.className = 'btn-plus';
+        const mElem = document.createElement('div');
+        mElem.className = 'M';
         const scoreElem = document.createElement('div');
         scoreElem.innerText = movie.plot; // 나중에 수정
         const releaseDateElem = document.createElement('div');
         releaseDateElem.innerText = movie.releaseDate;
+        const titleElem = document.createElement('div');
+        titleElem.innerText = movie.title;
         // Tag들 만들기
 
         // Tag들 조립
-        btnPlusElem.append(scoreElem);
-        btnPlusElem.append(releaseDateElem);
+        mElem.append(titleElem);
+        mElem.append(scoreElem);
+        mElem.append(releaseDateElem);
+        btnPlusElem.append(mElem);
+        // btnPlusElem.append(titleElem);
+        // btnPlusElem.append(scoreElem);
+        // btnPlusElem.append(releaseDateElem);
         aTagElem.append(img);
         aTagElem.append(darknessElem);
         aTagElem.append(btnPlusElem);
