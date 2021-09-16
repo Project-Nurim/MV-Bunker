@@ -16,15 +16,15 @@
 <body>
 <!-- 리뷰 많은 순, 평점 높은 순의 영화포스터가 뜨는 추천영화페이지!  -->
 <th:block layout:fragment="content">
-        <th:block th:each="recommendation : ${recommendation}"> <!--장르-->
+        <th:block th:each="movieList : ${recommendation}"> <!--장르-->
             <article class="each-genre" data-slide-index="0">
                 <div class="p">
-                    <p th:text="${title}"></p>
+                    <p th:text="${movieList.key}"></p>
                     <a class="prev">&#10094;</a>
                     <a class="next">&#10095;</a>
-                    <a class="M" th:href="@{/movies/genreDetail(genreId=${reverseGenreMap.get(genre.key)})}">
+                    <!--<a class="M" th:href="@{/movies/genreDetail(genreId=${reverseGenreMap.get(genre.key)})}">
                         <button type="button" class="more">더보기</button>
-                    </a>
+                    </a>-->
                 </div>
                 <div class="ALL">
 
@@ -36,15 +36,15 @@
                                     <figure>
                                         <div class="img-wrapper img1">
                                             <a class="aTag"
-                                               th:href="@{/review/reviewDetail(movieId=${genre.value.get(i).id})}">
+                                               th:href="@{/review/reviewDetail(movieId=${movieList.value.get(i).id})}">
                                                 <img class="x"
-                                                     th:src="'https://image.tmdb.org/t/p/w500/' + ${genre.value.get(i).posterPath}">
+                                                     th:src="'https://image.tmdb.org/t/p/w500/' + ${movieList.value.get(i).posterPath}">
                                                 <div class="darkness">
 
                                                 </div>
                                                 <div class="btn-plus">
-                                                    <div th:text="평점 + ${genre.value.get(i).plot}"></div>
-                                                    <div th:text="개봉일 + ${genre.value.get(i).releaseDate}"></div>
+                                                    <div th:text="평점 + ${movieList.value.get(i).plot}"></div>
+                                                    <div th:text="개봉일 + ${movieList.value.get(i).releaseDate}"></div>
                                                 </div>
                                             </a>
                                         </div>
@@ -60,15 +60,15 @@
                                     <figure>
                                         <div class="img-wrapper img1">
                                             <a class="aTag"
-                                               th:href="@{/review/reviewDetail?movieId=${genre.value.get(i).id}}">
+                                               th:href="@{/review/reviewDetail?movieId=${movieList.value.get(i).id}}">
                                                 <img class="x"
-                                                     th:src="'https://image.tmdb.org/t/p/w500/' + ${genre.value.get(i).posterPath}">
+                                                     th:src="'https://image.tmdb.org/t/p/w500/' + ${movieList.value.get(i).posterPath}">
                                                 <div class="darkness">
 
                                                 </div>
                                                 <div class="btn-plus">
-                                                    <div th:text="평점 + ${genre.value.get(i).plot}"></div>
-                                                    <div th:text="개봉일 + ${genre.value.get(i).releaseDate}"></div>
+                                                    <div th:text="평점 + ${movieList.value.get(i).plot}"></div>
+                                                    <div th:text="개봉일 + ${movieList.value.get(i).releaseDate}"></div>
                                                 </div>
                                             </a>
                                         </div>
