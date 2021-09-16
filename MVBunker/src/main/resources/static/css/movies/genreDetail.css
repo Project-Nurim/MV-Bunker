@@ -1,11 +1,10 @@
 .movie-container {
     margin-top: 95px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /*width: 100%;*/
     height: auto;
-    gap: 30px;
-    padding: 20px 95px;
+    gap: 20px;
 }
 img {
     position: relative;
@@ -13,7 +12,10 @@ img {
     height: inherit;
     border-radius: 0.7em;
 }
-
+.movie-wrap{
+    width: 90%;
+    margin: 0 auto;
+}
 figure {
     position: relative;
     /*height: auto;*/
@@ -63,6 +65,9 @@ figure {
     /*transition: all .2s linear;*/
     border-radius: 0.7em;
     z-index: 10;
+}
+.M {
+    margin-top: 80%;
 }
 
 .btn-plus {
