@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -76,19 +77,19 @@ public class MoviesController {
     }
 
     @GetMapping("/recommendation")
-    public void recommendation(@AuthenticationPrincipal CustomUserPrincipals userDetails, Model model, MovieFavEntity param){
-        UserEntity loginUser = userDetails.getUser();
-        int loginUserPk = loginUser.getI_user();
-        param.setI_user(loginUserPk);
-
+    public void recommendation(Model model){
         List<MovieDomain> fav_list = service.getRcmList_fav();
         List<MovieDomain> revw_list = service.getRcmList_revw();
-        List<HoverVO> selHover1 = service.selHover1(param);
+//        List<HoverVO> selHover1 = service.selHover1(param);
         System.out.println("리스트! : "+fav_list);
+        Map<String, List<MovieDomain>> recmdMovieList = new HashMap<>();
+        recmdMovieList.put("fav", fav_list);
+        recmdMovieList.put("revw", revw_list);
+        model.addAttribute("recommendation" ,recmdMovieList);
 
         model.addAttribute("fav_list",fav_list);
         model.addAttribute("revw_list",revw_list);
-        model.addAttribute("hover", selHover1);
+//        model.addAttribute("hover", selHover1);
     }
 
     @GetMapping("/search")
