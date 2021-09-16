@@ -56,7 +56,7 @@ section {
 .next {
     cursor: pointer;
     position: absolute;
-    top: 280px;
+    top: 18vw;
     width: auto;
     margin-top: -60px;
     padding: 16px 50px;
@@ -79,7 +79,7 @@ section {
     cursor: pointer;
     position: absolute;
     /* top:112%; */
-    top: 230px;
+    top: 18vw;
     width: auto;
     margin-top: -22px;
     padding: 16px;
@@ -95,7 +95,7 @@ section {
 .next3 {
     cursor: pointer;
     position: absolute;
-    top: 230px;
+    top: 18vw;;
     width: auto;
     margin-top: -22px;
     padding: 16px;
@@ -111,7 +111,7 @@ section {
 .next4 {
     cursor: pointer;
     position: absolute;
-    top: 230px;
+    top: 18vw;;
     width: auto;
     margin-top: -22px;
     padding: 16px;

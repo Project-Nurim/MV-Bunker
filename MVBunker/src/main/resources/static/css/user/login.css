@@ -1154,7 +1154,7 @@ body {
 
 .wrapper {
     height: 100vh;
-    width: 150vh;
+    /*width: 150vh;*/
     margin: 0 auto;
     position: relative;
 }
