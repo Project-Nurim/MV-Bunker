@@ -73,13 +73,14 @@ body {
 
 .img{
     width: 230px;
-    height: auto;
+    height: 325px;
     margin: auto 0;
 
 }
 
 .img2{
     width: inherit;
+    height: inherit;
     border-top-left-radius: 0.75em;
     border-bottom-left-radius: 0.75em;
     box-shadow: 1px 1px 10px white;
