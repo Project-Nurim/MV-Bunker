@@ -37,6 +37,9 @@
             <if test="introduce != null and introduce != ''">
                , introduce = #{introduce}
             </if>
+            <if test="profileImg != null and profileImg != ''">
+                , profileImg = #{profileImg}
+            </if>
         </set>
         WHERE i_user = #{i_user}
     </update>
