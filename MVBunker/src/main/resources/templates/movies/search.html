@@ -17,6 +17,7 @@
 </head>
 <body>
 <th:block layout:fragment="content">
+    <div class="movie-wrap">
     <section class="movie-container" id="movies">
         <figure th:each="movie : ${movieList}">
             <div class="img-wrapper img1">
@@ -35,6 +36,7 @@
             </div>
         </figure>
     </section>
+    </div>
     <section id="searchResultContainer">
 
     </section>
