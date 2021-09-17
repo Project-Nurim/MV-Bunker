@@ -21,6 +21,7 @@ body {
     overflow-x: hidden;
 }
 #container2 {
+    height: 100%;
     display: flex;
     flex-direction: column;
     z-index: -1000;
