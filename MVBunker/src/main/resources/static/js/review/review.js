@@ -29,6 +29,7 @@ function makeItemList(result) { // 받은 애들 어떻게 뿌릴지
             window.location.href = `/review/reviewDetail?movieId=${review.id}`;
         })
         const imgElem = document.createElement('img');
+        imgElem.className = 'img2';
         imgElem.src = 'https://image.tmdb.org/t/p/w500/' + review.poster;
         const tableElem = document.createElement('ul');
         tableElem.classList.add('table');

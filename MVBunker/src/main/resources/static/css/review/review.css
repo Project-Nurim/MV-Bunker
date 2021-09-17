@@ -48,11 +48,15 @@ body {
     margin: 0 auto;
 }
 .table{
-    border: 1px solid rgba(255, 255, 255, 0.34);
+    /*border: 1px solid rgba(255, 255, 255, 0.34);*/
+    /*filter: drop-shadow(7px 7px 10px rgb(0, 150, 89));*/
+    box-shadow: 1px 1px 10px white;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     width:375px;
+    border-top-right-radius: 0.75em;
+    border-bottom-right-radius: 0.75em;
 }
 
 
@@ -71,15 +75,18 @@ body {
     width: 230px;
     height: auto;
     margin: auto 0;
+
 }
 
-img{
-    width: 100%;
-
+.img2{
+    width: inherit;
+    border-top-left-radius: 0.75em;
+    border-bottom-left-radius: 0.75em;
+    box-shadow: 1px 1px 10px white;
 }
 #allReviewContainer{
-    margin-left: 70px;
-    margin-right: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(700px, 1fr));
 }
 
 .ALL{
