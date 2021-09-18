@@ -83,8 +83,8 @@ public class MoviesController {
 //        List<HoverVO> selHover1 = service.selHover1(param);
         System.out.println("리스트! : "+fav_list);
         Map<String, List<MovieDomain>> recmdMovieList = new HashMap<>();
-        recmdMovieList.put("fav", fav_list);
-        recmdMovieList.put("revw", revw_list);
+        recmdMovieList.put("좋아요 많은 순", fav_list);
+        recmdMovieList.put("리뷰 많은 순", revw_list);
         model.addAttribute("recommendation" ,recmdMovieList);
 
         model.addAttribute("fav_list",fav_list);
