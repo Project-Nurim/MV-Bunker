@@ -16,15 +16,17 @@
 <body>
 <section layout:fragment="content">
     <div class="profile">
-        <img class="img" src="/img/login/6.jpg">
-        <h4>가입일 | 닉네임</h4>
+        <th:block class="img" th:if="${subuser.profileImg} != null"><img class="mainProfile" th:src="${subuser.profileImg}">
+        </th:block>
+        <th:block class="img" th:if="${subuser.profileImg} == null"><img class="mainProfile" src="/img/logo/noprofile.png">
+        </th:block>
+        <h4 th:text="${subuser.unn}" | th:text="${subuser.regdt}"></h4>
         <p class="self">자기소개</p>
     </div>
 <table class="box">
     <tr>
     <td class="text">현재댓글</td>
         <td class="text">현재답글</td>
-        <td class="text">받은공감</td>
     </tr>
     <tr>
         <td class="text">10</td>
