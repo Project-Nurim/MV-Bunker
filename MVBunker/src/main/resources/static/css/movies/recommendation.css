@@ -46,6 +46,7 @@ section {
     display: none;
 }
 .num{
+    margin-top: 90px;
     color: white;
     font-size: 4em;
     position: relative;
@@ -168,6 +169,7 @@ section {
 
 
 div p {
+    position: absolute;
     color: white;
     margin-top:60px;
     margin-left: 100px;
