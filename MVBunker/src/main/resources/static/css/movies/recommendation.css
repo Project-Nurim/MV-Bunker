@@ -47,15 +47,25 @@ section {
 }
 .num{
     margin-top: 50px;
+    margin-top: 50px;
     color: white;
-    font-size: 6em;
+    font-size: 8em;
     position: relative;
+    -webkit-text-stroke: 4px #000;
+    font-weight: 800;
     /* left: -98px; */
     text-align: left;
-    top: 110px;
-    left: 10px;
+    top: 87px;
+    left: -43px;
     z-index: 10;
+    font-family: 'Hamberger';
 }
+
+@font-face {
+    font-family: 'Hamberger';
+    src: url('/css/movies/Hamberger-Bold.ttf');
+}
+
 
 /* Next & previous buttons */
 .prev,
@@ -296,7 +306,7 @@ ul li figure .x {
 ul{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2em;
+    gap: 3em;
     padding: 25px;
     padding: 0px 65px;
 }
