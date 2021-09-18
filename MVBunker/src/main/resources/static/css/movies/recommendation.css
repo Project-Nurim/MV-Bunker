@@ -45,14 +45,23 @@ section {
 .mySlides {
     display: none;
 }
-
+.num{
+    color: white;
+    font-size: 4em;
+    position: relative;
+    /* left: -98px; */
+    text-align: left;
+    top: 77px;
+    left: 10px;
+    z-index: 10;
+}
 
 /* Next & previous buttons */
 .prev,
 .next {
     cursor: pointer;
     position: absolute;
-    top: 18vw;
+    top: 24vw;
     width: auto;
     margin-top: -60px;
     padding: 16px 50px;
@@ -74,7 +83,7 @@ section {
     cursor: pointer;
     position: absolute;
     /* top:112%; */
-    top: 18vw;
+    top: 24vw;
     width: auto;
     margin-top: -22px;
     padding: 16px;
@@ -89,7 +98,7 @@ section {
 .next3 {
     cursor: pointer;
     position: absolute;
-    top: 18vw;
+    top: 24vw;
     width: auto;
     margin-top: -22px;
     padding: 16px;
@@ -104,7 +113,7 @@ section {
 .next4 {
     cursor: pointer;
     position: absolute;
-    top: 18vw;
+    top: 24vw;
     width: auto;
     margin-top: -22px;
     padding: 16px;

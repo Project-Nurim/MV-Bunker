@@ -31,12 +31,12 @@
 
                     <section class="movies" id="movies">
                         <div class="mySlides fade">
+
                             <ul>
 
-                                <li th:each="i : ${#numbers.sequence(0,4)}">
-
+                                <li th:each="i,num : ${#numbers.sequence(0,4)}">
+                                        <div class="num" th:text="${num.count}"></div>
                                     <figure>
-
                                         <div class="img-wrapper img1">
                                             <a class="aTag"
                                                th:href="@{/review/reviewDetail(movieId=${movieList.value.get(i).id})}">
@@ -45,6 +45,7 @@
                                                 <div class="darkness">
 
                                                 <div class="btn-plus">
+
                                                     <div th:text="${movieList.value.get(i).title}"></div>
                                                     <div th:text="평점 + ${movieList.value.get(i).plot}"></div>
                                                     <div th:text="개봉일 + ${movieList.value.get(i).releaseDate}"></div>
@@ -55,12 +56,13 @@
                                     </figure>
                                 </li>
                             </ul>
-                        </div>
+                                        </div>
 
 
                         <div class="mySlides fade">
                             <ul>
-                                <li th:each="i : ${#numbers.sequence(5,9)}">
+                                <li th:each="i,num : ${#numbers.sequence(5,9)}">
+                                    <div class="num" th:text="${num.count + 4}"></div>
                                     <figure>
                                         <div class="img-wrapper img1">
                                             <a class="aTag"
@@ -69,11 +71,11 @@
                                                      th:src="'https://image.tmdb.org/t/p/w500/' + ${movieList.value.get(i).posterPath}">
                                                 <div class="darkness">
 
-                                                </div>
                                                 <div class="btn-plus">
                                                     <div th:text="${movieList.value.get(i).title}"></div>
                                                     <div th:text="평점 + ${movieList.value.get(i).plot}"></div>
                                                     <div th:text="개봉일 + ${movieList.value.get(i).releaseDate}"></div>
+                                                </div>
                                                 </div>
                                             </a>
                                         </div>

@@ -26,6 +26,9 @@ window.onload=function(){
 }
 
 
+
+
+
 // Next/previous controls
 // function moveSlides(n, articleElement) {
 //     slideIndex = slideIndex + n
