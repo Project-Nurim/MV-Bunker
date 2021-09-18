@@ -5,11 +5,11 @@
       layout:decorator="layout/profileLayout">
 <head>
     <th:block layout:fragment="css">
-        <link rel="stylesheet" th:href="@{/css/user/followingReviewrDetail.css}">
+        <link rel="stylesheet" th:href="@{/css/user/followingReviewer.css}">
         <link rel="icon" href="/img/logo/favicon.ico">
     </th:block>
     <th:block layout:fragment="js">
-        <script defer th:src="@{/js/user/followingReviewr.js}"></script>
+        <script defer th:src="@{/js/user/followingReviewer.js}"></script>
     </th:block>
     <title>following reviewer</title>
 </head>
@@ -28,8 +28,10 @@
                 <span></span>
                 <span></span>
                 <figure class="content">
-                    <img class="h" th:src="${subuser.profileImg}">
-                    <!-- if문으로 프로필사진 없는사람은 로고 뜨도록 설정해주기 -->
+                    <th:block class="h" th:if="${subuser.profileImg} != null"><img class="mainProfile" th:src="${subuser.profileImg}">
+                    </th:block>
+                    <th:block class="h" th:if="${subuser.profileImg} == null"><img class="mainProfile" src="/img/logo/noprofile.png">
+                    </th:block>
                     <div>
                         <p th:text="${subuser.unn}" class="pro"></p>
                         <p th:text="${subuser.regdt}" class="pro"></p>
@@ -38,7 +40,6 @@
                 </figure>
             </li>
         </ul>
-
     </th:block>
     </div>
 </th:block>
