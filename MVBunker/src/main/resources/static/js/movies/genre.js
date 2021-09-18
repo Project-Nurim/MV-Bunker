@@ -3,9 +3,9 @@ var slideIndex2 = 0;
 var slideIndex3 = 0;
 var slideIndex4 = 0;
 
-const eachGenreList = document.querySelectorAll('.each-genre');
+const eachGenreList2 = document.querySelectorAll('.each-genre');
 
-eachGenreList.forEach((articleElem) => {
+eachGenreList2.forEach((articleElem) => {
     const dataset = articleElem.dataset;
     const prevBtnElem = articleElem.querySelector('.prev');
     const nextBtnElem = articleElem.querySelector('.next');
@@ -20,10 +20,10 @@ eachGenreList.forEach((articleElem) => {
     showSlides(0, articleElem);
 })
 
-// HTML 로드가 끝난 후 동작
-window.onload=function(){
-
-}
+// // HTML 로드가 끝난 후 동작
+// window.onload=function(){
+//
+// }
 
 
 // Next/previous controls
@@ -86,6 +86,5 @@ window.addEventListener('scroll', function () {
 
     }
 })
-
 
 
