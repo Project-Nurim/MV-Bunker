@@ -143,13 +143,15 @@ nav ul li a {
     right: 100px;
     padding-right: 8px;
     opacity: 0.8;
+    display: block;
+    margin-top: 2px;
 }
 input:focus {outline:none;}
 #searchInput {
+    height: 40px;
     font-size: 1em;
     position: absolute;
-    right: 100px;
-    padding: 6px;
+    right: 103px;
     padding-left: 1vw;
     padding-right: 2vw;
     border: 1px solid;
