@@ -85,13 +85,15 @@ window.onload = function () {
 
 
 // 헤더 검색창
-    const searchElem = document.querySelector('#searchInput');
-    const iconElem = document.querySelector('.fas');
-   iconElem.addEventListener("click", function(){
-        searchElem.style.display = 'block';
-        iconElem.style.zIndex = '20';
-        iconElem.style.color = 'black';
-    })
+//     const searchElem = document.querySelector('#searchInput');
+//     const iconElem = document.querySelector('.fas');
+//    iconElem.addEventListener("click", function(){
+//         searchElem.style.display = 'block';
+//         iconElem.style.zIndex = '20';
+//         iconElem.style.color = 'black';
+//     })
+
+
 
 
 
