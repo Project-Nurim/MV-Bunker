@@ -30,6 +30,11 @@ body {
     margin-right: 20px;
 }
 
+.navbar__menu ul li {
+    /*float:right;*/
+    padding-left:15px;
+}
+
 .header ul li {
     width: 10%;
     list-style: none;
