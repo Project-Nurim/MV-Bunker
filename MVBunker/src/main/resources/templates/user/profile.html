@@ -34,12 +34,12 @@
                 <li th:text="'닉네임 : ' + ${auth.unn}"></li>
                 <li th:text="'가입일 : ' + ${auth.regdt}"></li>
     <!--            <li th:text="${auth.provider}"></li>-->
-                <hr style="width: 70%; margin-top: 10px;">
+                <hr>
                 <li class="fw">나의 활동내역</li>
                 <li th:text="'내가 작성한 리뷰 : ' + ${activity.countMyReview}"></li>
                 <li th:text="'내가 작성한 댓글 : ' + ${activity.countMyReview_cmt}"></li>
                 <li th:text="'받은 좋아요 수 : ' + ${activity.countMyReviewLike}"></li>
-                <hr style="width:70%; margin-top: 10px;">
+                <hr>
                 <li class="fw">자기소개</li>
                 <li class="introduce" th:text="${auth.introduce}"></li>
         </ul>
