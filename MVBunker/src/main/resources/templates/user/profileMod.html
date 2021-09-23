@@ -25,7 +25,7 @@
             <br>
             <div class="all">
                 <form th:if="${auth.provider eq 'local'}" th:action="@{/user/profileImg}" method="post" enctype="multipart/form-data">
-                    <div id="pfimg"><img class="imgch" src="/img/camerar.png"><input id="imgInput" class="invisible" type="file" name="img" accept="image/*"><input type="submit" value="업로드"></div>
+                    <div id="pfimg"><img class="imgch" src="/img/camerar.png"><input id="imgInput" class="invisible" type="file" name="img" accept="image/*"><input class="upload" type="submit" value="업로드"></div>
                     <!-- type="file" : 파일 인풋 ; multiple : 여러 파일 업로드 가능 ; accept="image/*" 이미지만 받는다. -->
                 </form>
                 <th:block th:if="${auth.profileImg} != null"><img class="mainProfile" th:src="${auth.profileImg}">
@@ -54,7 +54,7 @@
                 <li th:text="'가입일 : ' + ${auth.regdt}"></li>
                 <hr style="width: 70%; margin-top: 10px;">
                 <li class="fw">자기소개</li>
-                <input type="text" name="introduce" th:value="${auth.introduce}">
+                <input class="introduce" type="text" name="introduce" th:value="${auth.introduce}">
                 <input type="submit" id="pfre" class="button" value="저장하기"> <!-- 비밀번호 수정 모달 띄우기 -->
                 </form>
             </ul>

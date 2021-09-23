@@ -1,3 +1,33 @@
+#ALL{
+    position: relative;
+    /*border: 1px solid black;*/
+    border-radius: 3.75em;
+    width: 40vw;
+    height: auto;
+    padding-bottom: 10vh;
+    /*box-shadow: 5px 10px 10px rgb(0, 150, 89);*/
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.35);
+    /*filter: drop-shadow(7px 7px 10px rgb(0, 150, 89));*/
+    /*background-color: white;*/
+    margin: 70px auto;
+}
+
+.profilemod{
+    width: 40vw;
+    margin-top: 5vh;
+    font-weight:700;
+    font-size: 1.3em;
+    float: left;
+}
+
+.myprofile{
+    width: 40vw;
+    margin-top: 5vh;
+    font-weight:700;
+    font-size: 1.3em;
+    float: left;
+}
+
 .top{
     display: flex;
     justify-content: center;
@@ -5,19 +35,22 @@
     width:70%;
    flex-direction: column;
 }
+
 input[name="introduce"] {
     height: 100px;
     width: 350px;
 }
+
 input:focus {outline:none;}
 
 input[name='unn'] {
 
 }
+
 .all {
     text-align: center;
-
 }
+
 .imgch {
     position: absolute;
     top: 16vw;
@@ -25,40 +58,20 @@ input[name='unn'] {
     width: 40px;
     z-index: 10;
 }
+
 .name {
     float: left;
     margin-right: 10px;
 }
-#ALL{
-    position: relative;
-    /*border: 1px solid black;*/
-    border-radius: 3.75em;
-    width: 45vw;
-    height: auto;
-    padding-bottom: 30px;
-    /*box-shadow: 5px 10px 10px rgb(0, 150, 89);*/
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.35);
-    /*filter: drop-shadow(7px 7px 10px rgb(0, 150, 89));*/
-    /*background-color: white;*/
-    margin: 70px auto;
-}
-.profilemod{
-    margin-top: 50px;
-    font-size: 1.3em;
-    font-weight: 600;
-}
+
+
+
 .pwt{
     float: left;
     margin-right: 30px;
 }
-.myprofile{
-    /*width: 30vw;*/
-    width: 130px;
-    margin-top: 30px;
-    font-weight:900;
-    font-size: 1.3em;
-    float: left;
-}
+
+
 
 .detail {
     /* background-color: teal; */
@@ -72,7 +85,6 @@ input[name='unn'] {
     font-weight: 600;
     margin: 5px 0;
     font-size: 1.1em;
-
 }
 
 .mainProfile {
@@ -172,17 +184,28 @@ label input {
     margin-top: 10px;
     margin-right: 100px;
     margin-left: 280px;
-    width: 72px;
     border: none;
+    background-color: #009759;
+    color: white;
+    width: 4vw;
+    height: 4vh;
     border-radius: 1.5em;
-
 }
 
 .button{
     background-color: #009759;
     color: white;
-    width: 67px;
-    height: 30px;
+    width: 4vw;
+    height: 4vh;
+    border-radius: 1.5em;
+    border:none;
+}
+
+.upload{
+    background-color: #009759;
+    color: white;
+    width: 4vw;
+    height: 4vh;
     border-radius: 1.5em;
     border:none;
 }
@@ -195,6 +218,10 @@ label input {
     width: 40px;
     height: 40px;
     z-index:11;
+}
+
+.introduce{
+
 }
 
 #byeModal{
