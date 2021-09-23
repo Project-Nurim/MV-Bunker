@@ -1,28 +1,24 @@
 #ALL{
     position: relative;
-    /*border: 1px solid black;*/
     border-radius: 3.75em;
     width: 40vw;
     height: auto;
     padding-bottom: 10vh;
-    /*box-shadow: 5px 10px 10px rgb(0, 150, 89);*/
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.35);
-    /*filter: drop-shadow(7px 7px 10px rgb(0, 150, 89));*/
-    /*background-color: white;*/
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.35);
     margin: 70px auto;
 }
 
 .profilemod{
-    width: 40vw;
-    margin-top: 5vh;
+    width: 38vw;
+    margin-top: 6vh;
     font-weight:700;
     font-size: 1.3em;
     float: left;
 }
 
 .myprofile{
-    width: 40vw;
-    margin-top: 5vh;
+    width: 38vw;
+    margin-top: 6vh;
     font-weight:700;
     font-size: 1.3em;
     float: left;
@@ -33,7 +29,7 @@
     justify-content: center;
     margin: 0 auto;
     width:70%;
-   flex-direction: column;
+    flex-direction: column;
 }
 
 input[name="introduce"] {
@@ -64,20 +60,15 @@ input[name='unn'] {
     margin-right: 10px;
 }
 
-
-
 .pwt{
     float: left;
     margin-right: 30px;
 }
 
-
-
 .detail {
-    /* background-color: teal; */
-    width: 500px;
+    width: 35vw;
     margin: 0 auto;
-    line-height: 35px;
+    line-height: 5vh;
     list-style: none;
 }
 
@@ -85,6 +76,11 @@ input[name='unn'] {
     font-weight: 600;
     margin: 5px 0;
     font-size: 1.1em;
+}
+
+hr{
+    width:80%;
+    margin-top: 1.5vh;
 }
 
 .mainProfile {
@@ -199,6 +195,7 @@ label input {
     height: 4vh;
     border-radius: 1.5em;
     border:none;
+    float:right;
 }
 
 .upload{
