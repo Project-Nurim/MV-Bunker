@@ -320,3 +320,5 @@ waitForImages();
 initCardEvents();
 
 
+
+

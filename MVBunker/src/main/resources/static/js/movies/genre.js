@@ -3,9 +3,9 @@ var slideIndex2 = 0;
 var slideIndex3 = 0;
 var slideIndex4 = 0;
 
-const eachGenreList2 = document.querySelectorAll('.each-genre');
+const eachGenreList = document.querySelectorAll('.each-genre');
 
-eachGenreList2.forEach((articleElem) => {
+eachGenreList.forEach((articleElem) => {
     const dataset = articleElem.dataset;
     const prevBtnElem = articleElem.querySelector('.prev');
     const nextBtnElem = articleElem.querySelector('.next');
@@ -87,4 +87,30 @@ window.addEventListener('scroll', function () {
     }
 })
 
+
+function color() {
+    const menu = document.querySelector('.menu');
+    const other_color = 'rgba(0, 0, 0, 0.421)';
+    const currentColor = menu.style.background;
+    if (currentColor === '') {
+        menu.style.background = other_color;
+    } else {
+        menu.style.background = '';
+    }
+
+    const menuListUlElem = document.querySelector('.side');
+    const chk = document.querySelector('#chk');
+    if (chk) {
+        chk.addEventListener('change', () => {
+            console.log(chk.checked);
+
+            if (chk.checked && menuListUlElem) {
+                // menuListUlElem.style.opacity = 1;
+                menuListUlElem.style.display = 'block';
+            } else {
+                menuListUlElem.style.display = 'none';
+            }
+        });
+    }
+}
 
