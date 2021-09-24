@@ -88,29 +88,3 @@ window.addEventListener('scroll', function () {
 })
 
 
-function color() {
-    const menu = document.querySelector('.menu');
-    const other_color = 'rgba(0, 0, 0, 0.421)';
-    const currentColor = menu.style.background;
-    if (currentColor === '') {
-        menu.style.background = other_color;
-    } else {
-        menu.style.background = '';
-    }
-
-    const menuListUlElem = document.querySelector('.side');
-    const chk = document.querySelector('#chk');
-    if (chk) {
-        chk.addEventListener('change', () => {
-            console.log(chk.checked);
-
-            if (chk.checked && menuListUlElem) {
-                // menuListUlElem.style.opacity = 1;
-                menuListUlElem.style.display = 'block';
-            } else {
-                menuListUlElem.style.display = 'none';
-            }
-        });
-    }
-}
-
