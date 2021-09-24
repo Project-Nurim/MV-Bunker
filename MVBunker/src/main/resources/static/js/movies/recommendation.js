@@ -21,9 +21,49 @@ eachGenreList.forEach((articleElem) => {
 })
 
 // HTML 로드가 끝난 후 동작
-window.onload=function(){
+// window.onload=function(){
+//
+// }
 
-}
+//
+// const menu = document.querySelector('label .menu');
+// if(menu) {
+//     menu.addEventListener('click', () => {
+//         color();
+//     });
+// }
+//
+// // const other_color = 'rgba(255, 255, 255, 0.421)';
+// const other_color ='rgba(0, 0, 0, 0.421)';
+//
+// function color() {
+//     const currentColor = menu.style.background;
+//     if (currentColor === '') {
+//         menu.style.background = other_color;
+//     } else {
+//         menu.style.background = '';
+//     }
+// }
+//
+// const menuListUlElem = document.querySelector('.menu-list ul');
+// const chk = document.querySelector('#chk');
+// if(chk) {
+//     chk.addEventListener('change', () => {
+//         console.log(chk.checked);
+//
+//         if (chk.checked && menuListUlElem) {
+//             // menuListUlElem.style.opacity = 1;
+//             menuListUlElem.style.display = 'block';
+//         } else {
+//             menuListUlElem.style.display = 'none';
+//         }
+//     });
+// }
+//
+// window.onload = function () {
+//     document.querySelector('.menu-list ul').style.display = 'none';
+//     console.log('hello2');
+// }
 
 
 
@@ -92,3 +132,21 @@ window.addEventListener('scroll', function () {
 
 
 
+
+// const menuListUlElem = document.querySelector('.sec');
+// const chk = document.querySelector('#chk');
+// chk.addEventListener('change', () => {
+//     console.log(chk.checked);
+//
+//     if (chk.checked) {
+//         menuListUlElem.style.opacity = 1;
+//         menuListUlElem.style.display = 'block';
+//     } else {
+//         menuListUlElem.style.display = 'none';
+//     }
+// });
+
+// window.onload = function(){
+
+    // menuListUlElem.style.;display = 'none';
+// }

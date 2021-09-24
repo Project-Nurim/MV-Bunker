@@ -177,8 +177,12 @@ div p {
     font-weight: 900;
 }
 
+.link-1 {
+    display: none;
+}
+
 article:first-of-type div:first-child p {
-    margin-top: 50px;
+    margin-top: 80px;
     margin-bottom: 30px;
 }
 
@@ -281,7 +285,7 @@ ul > li > figure {
     /*float: left;*/
     width: 100%;
     /*height: auto;*/
-    height: 23vw;
+    height: 350px;
 }
 
 ul li figure .x {
@@ -291,14 +295,7 @@ ul li figure .x {
 
 }
 
-/*ul>li>figure>img {*/
-/*    border-radius: 0.7em;*/
-/*    height: 100%;*/
-/*    width: 100%;*/
-/*}*/
-/*ul>li>figure>img:hover{*/
-/*    background-color: white;*/
-/*}*/
+
 
 ul {
     display: grid;
@@ -345,11 +342,6 @@ footer {
     height: inherit;
 }
 
-
-/*.img1 {*/
-/*    top: 200px;*/
-/*    left: 200px;*/
-/*}*/
 
 .darkness {
     position: absolute;
@@ -440,95 +432,6 @@ footer {
     cursor: pointer;
 }
 
-/*#ALL{*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*}*/
-
-/*.movies {*/
-/*    width: 100%;*/
-/*    padding: 30px;*/
-/*}*/
-
-/*section {*/
-/*    text-align: center;*/
-/*}*/
-
-/*.mySlides {*/
-/*    display: none;*/
-/*}*/
-
-/*!* Next & previous buttons *!*/
-/*.prev,*/
-/*.next {*/
-/*    cursor: pointer;*/
-/*    position: absolute;*/
-/*    top: 230px;*/
-/*    width: auto;*/
-/*    margin-top: -22px;*/
-/*    padding: 16px;*/
-/*    color: white;*/
-/*    font-weight: bold;*/
-/*    font-size: 30px;*/
-/*    transition: 0.6s ease;*/
-/*    border-radius: 0 3px 3px 0;*/
-/*    user-select: none;*/
-/*}*/
-/*.p{*/
-/*    position: relative;*/
-/*}*/
-
-
-/*@-webkit-keyframes fade {*/
-/*    from {*/
-/*        opacity: .4*/
-/*    }*/
-
-/*    to {*/
-/*        opacity: 1*/
-/*    }*/
-/*}*/
-
-/*@keyframes fade {*/
-/*    from {*/
-/*        opacity: .4*/
-/*    }*/
-
-/*    to {*/
-/*        opacity: 1*/
-/*    }*/
-/*}*/
-/*div p {*/
-/*    color: white;*/
-/*    margin-top:100px;*/
-/*    margin-left: 90px;*/
-/*    font-size:3em;*/
-/*    margin-bottom: 0;*/
-/*    font-weight: 900;*/
-/*}*/
-/*.movies {*/
-/*    margin-top: 0;*/
-/*    padding-top: 0;*/
-
-/*}*/
-/*hr{*/
-/*    width: 90%;*/
-/*}*/
-/*.M{*/
-/*    position: relative;*/
-/*    margin-bottom: 30px;*/
-/*}*/
-
-/*.more{*/
-/*    position: absolute;*/
-/*    bottom:-50px;*/
-/*    right: 80px;*/
-/*    font-size:1.2em;*/
-/*    background-color: black;*/
-/*    color: white;*/
-/*    border: 0;*/
-/*    font-weight: 500;*/
-/*}*/
 
 
 
@@ -586,7 +489,7 @@ label .hamburger:after {
 }
 
 label input:checked+.menu {
-    background-color: #b2bec3;
+    /*background-color: #b2bec3;*/
     box-shadow: 50vw 0vw 0vh 1050px rgba(0, 0, 0, 0.64);
     border-radius: 0;
 }
@@ -611,151 +514,118 @@ label input:checked+.menu .hamburger:before {
 
 /*----------------------------------*/
 
-/*.menu-list ul{*/
-/*    animation: text-focus-in2 .4s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;*/
-/*}*/
-/*@keyframes text-focus-in2 {*/
-/*    0% {*/
-/*        filter: blur(12px);*/
-/*        opacity: 0;*/
-/*    }*/
 
-/*    100% {*/
-/*        filter: blur(0px);*/
-/*        opacity: 1;*/
-/*    }*/
-/*}*/
 
-/*@media (max-width: 1000px) {*/
-/*    .link-1 {*/
-/*        font-size: 1.5vw;*/
-/*        !* padding: 0.2rem 0; *!*/
-/*    }*/
+a {
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+}
 
-/*    .menu-list ul {*/
-/*        left: 0;*/
-/*    }*/
 
-/*    .menu-list li {*/
-/*        line-height: 20px;*/
-/*        margin-bottom: 0.1em;*/
-/*        font-size: 1em;*/
-/*    }*/
-/*}*/
+.side {
+    position: relative;
+    top: -90px;
+    height: 100vh;
+    width: 18%;
+    float: right;
+    text-align: left;
+    line-height: 90px;
+    font-size: 1.4em;
+    display: none;
+}
 
-/*.menu-list {*/
-/*    position: absolute;*/
-/*    !* left: 20px; *!*/
-/*    right: -390px;*/
-/*    top: 100px;*/
-/*    !* z-index: 100; *!*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
+.side{
+    animation: text-focus-in2 .4s cubic-bezier(0.550,0.085,0.680,0.530) both;
+}
+@keyframes text-focus-in2 {
+    0%{
+        filter:blur(12px);
+        opacity: 0;
+    }
+    100%{
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
 
-/*}*/
+.side div:hover{
+    opacity: 0.7;
+}
+.side div{
+    display: block;
+}
 
-/*.menu-list ul {*/
-/*    width: 700px;*/
-/*    !* margin-top: 25px; *!*/
-/*    z-index: 200;*/
-/*    !* position: absolute; *!*/
-/*    transition: .25s ease-in-out;*/
-/*    left: 100px;*/
-/*}*/
+/*--------------------------------------------*/
 
-/*.menu-list ul li {*/
-/*    line-height: 75px;*/
-/*    margin-bottom: 0.7em;*/
-/*    font-weight: bold;*/
-/*    list-style: none;*/
-/*}*/
-
-/*.menu-list a {*/
-/*    display: block;*/
-/*    color: rgb(255, 255, 255);*/
-/*    text-decoration: none;*/
-/*    font-size: 1.5em;*/
-/*    z-index: 10;*/
-/*}*/
-
-/*.menu-list a:hover {*/
-/*    color: rgba(255, 255, 255, 0.64);*/
-/*}*/
-
-/*.link-1{*/
-/*    text-transform: uppercase;*/
-/*}*/
-
-/*#none-popup::before {*/
-/*    content: 'Logout';*/
-/*}*/
-/*#none-popup:hover{*/
-/*    animation-play-state: paused;*/
-/*}*/
-/*#none-popup:hover::before{*/
-/*    content: '로그아웃';*/
-/*}*/
+#none-popup::before {
+    content: 'Logout';
+}
+#none-popup:hover{
+    animation-play-state: paused;
+}
+#none-popup:hover::before{
+    content: '로그아웃';
+}
 
 
 
-/*#mypage::before {*/
-/*    content: 'mypage';*/
-/*}*/
+#mypage::before {
+    content: 'mypage';
+}
 
-/*#mypage:hover{*/
-/*    animation-play-state: paused;*/
-/*}*/
-/*#mypage:hover::before {*/
-/*    content: '마이페이지';*/
-/*}*/
-
-
-
-/*.myfavoriteM::before {*/
-/*    content: 'my favorite movie';*/
-/*}*/
-
-/*.myfavoriteM:hover{*/
-/*    animation-play-state: paused;*/
-/*}*/
-/*.myfavoriteM:hover::before {*/
-/*    content: '내가 찜한 영화';*/
-/*}*/
-
-
-/*.myfavoriteR::before {*/
-/*    content: 'my reveiw';*/
-/*}*/
-
-/*.myfavoriteR:hover{*/
-/*    animation-play-state: paused;*/
-/*}*/
-/*.myfavoriteR:hover::before {*/
-/*    content: '내가 작성한 리뷰';*/
-/*}*/
+#mypage:hover{
+    animation-play-state: paused;
+}
+#mypage:hover::before {
+    content: '마이페이지';
+}
 
 
 
-/*.fReviewer::before {*/
-/*    content: 'following reviewer';*/
-/*}*/
+.myfavoriteM::before {
+    content: 'my favorite movie';
+}
 
-/*.fReviewer:hover{*/
-/*    animation-play-state: paused;*/
-/*}*/
-/*.fReviewer:hover::before {*/
-/*    content: '내가 구독한 리뷰어';*/
-/*}*/
-
-/*.myFreview::before {*/
-/*    content: 'my favorite review';*/
-/*}*/
-
-/*.myFreview:hover{*/
-/*    animation-play-state: paused;*/
-/*}*/
-/*.myFreview:hover::before {*/
-/*    content: '내가 찜한 리뷰';*/
-/*}*/
+.myfavoriteM:hover{
+    animation-play-state: paused;
+}
+.myfavoriteM:hover::before {
+    content: '내가 찜한 영화';
+}
 
 
+.myfavoriteR::before {
+    content: 'my reveiw';
+}
+
+.myfavoriteR:hover{
+    animation-play-state: paused;
+}
+.myfavoriteR:hover::before {
+    content: '내가 작성한 리뷰';
+}
+
+
+
+.fReviewer::before {
+    content: 'following reviewer';
+}
+
+.fReviewer:hover{
+    animation-play-state: paused;
+}
+.fReviewer:hover::before {
+    content: '내가 구독한 리뷰어';
+}
+
+.myFreview::before {
+    content: 'my favorite review';
+}
+
+.myFreview:hover{
+    animation-play-state: paused;
+}
+.myFreview:hover::before {
+    content: '내가 찜한 리뷰';
+}

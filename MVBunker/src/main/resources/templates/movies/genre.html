@@ -46,34 +46,7 @@
 
             </nav>
 
-            <div class="menu-list">
-                <ul>
-                    <div class="link-1">
 
-                        <li sec:authorize="isAnonymous()">
-                            <a href="#"><span id="popup_open_btn"></span></a>
-                        </li>
-                        <li sec:authorize="isAuthenticated()">
-                            <a href="/user/logout"><span id="none-popup"></span></a>
-                        </li>
-                        <li>
-                            <a href="/user/profile" ><span id="mypage"></span></a>
-                        </li>
-                        <li>
-                            <a href="/user/myFavMovie"><span class="myfavoriteM"></span></a>
-                        </li>
-                        <li>
-                            <a href="/user/myReview"><span class="myfavoriteR"></span></a>
-                        </li>
-                        <li>
-                            <a href="/user/followingReviewer" ><span class="fReviewer"></span></a>
-                        </li>
-                        <li>
-                            <a href="/user/favReview"><span class="myFreview"></span></a>
-                        </li>
-                    </div>
-                </ul>
-            </div>
 
 
             <div class="ALL">
