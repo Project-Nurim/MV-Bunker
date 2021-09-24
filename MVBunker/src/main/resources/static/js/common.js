@@ -149,7 +149,7 @@ function darknessEfx() {
 }
 
 
-console.log('1');
+
 
 // function show() {
 // const side = document.querySelector('.side');
@@ -212,18 +212,19 @@ function color() {
         menu.style.background = '';
     }
 
-    const menuListUlElem = document.querySelector('.side');
+    const side = document.querySelector('.side');
     const chk = document.querySelector('#chk');
     if (chk) {
         chk.addEventListener('change', () => {
             console.log(chk.checked);
 
-            if (chk.checked && menuListUlElem) {
+            if (chk.checked && side) {
                 // menuListUlElem.style.opacity = 1;
-                menuListUlElem.style.display = 'block';
+                side.style.display = 'block';
             } else {
-                menuListUlElem.style.display = 'none';
+                side.style.display = 'none';
             }
         });
     }
 }
+console.log('hi');
