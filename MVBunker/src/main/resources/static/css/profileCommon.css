@@ -34,15 +34,15 @@ body{
 
 
 .navbar {
-    display: flex;
-    align-items: center;
+    /*display: flex;*/
+    /*align-items: center;*/
     background-color: black;
     padding: 8px 12px;
     /*overflow: hidden;*/
 }
 
 .navbar__menu {
-    display: flex;
+    /*display: flex;*/
     list-style: none;
     padding-left: 0;
 }
@@ -56,6 +56,7 @@ body{
 .navbar__menu li {
     padding: 8px 12px;
 }
+
 .logo{
     width: 103px;
     margin-top:5px;
@@ -72,10 +73,27 @@ body{
     font-size: 24px;
     color: green;
 }
+.header {
+    float: left;
+}
+.r{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 100px;
+    height: 64px;
+    padding-top:0.8vw;
+}
 
 @media screen and (max-width: 850px){
+
+    .r{
+        display: block;
+        line-height: 15px;
+    }
     .navbar {
+        display: flex;
         flex-direction: column;
+        align-content: center;
         padding: 8px 24px;
         align-items: flex-start;
     }
@@ -99,7 +117,7 @@ body{
 label .menu {
     position: absolute;
     right: 8px;
-    top: -100px;
+    top: -95px;
     z-index: 100;
     width: 64px;
     height: 175px;
