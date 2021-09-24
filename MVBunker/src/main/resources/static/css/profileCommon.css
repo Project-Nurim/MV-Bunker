@@ -81,12 +81,13 @@ body{
     justify-content: flex-end;
     margin-right: 100px;
     height: 64px;
-    padding-top:0.8vw;
+    padding-top: 15px;
 }
 
 @media screen and (max-width: 850px){
 
     .r{
+        padding-top: 3px;
         display: block;
         line-height: 15px;
     }
