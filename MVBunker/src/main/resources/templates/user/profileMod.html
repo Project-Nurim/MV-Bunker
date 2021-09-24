@@ -48,6 +48,7 @@
             </div>
             <br>
             <ul class="detail">
+                <div class="f">
                 <form action="/user/profileMod" method="post">
                 <li class="fw" id="fw">나의 계정</li>
                 <li th:text="'아이디 : ' + ${auth.uid}"></li>
@@ -66,6 +67,7 @@
                 <input class="introduce" type="text" name="introduce" th:value="${auth.introduce}">
                 <input type="submit" id="save" class="button" value="저장하기">
                 </form>
+                </div>
             </ul>
             <hr>
             <input class="button trigger" id="byebtn" type="button" value="회원탈퇴하기">

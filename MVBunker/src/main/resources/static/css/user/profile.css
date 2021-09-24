@@ -39,6 +39,9 @@ input[name="introduce"] {
 .d {
     display: flex;
 }
+.f{
+    width: 80%;
+}
 input:focus {outline:none;}
 
 input[name='unn'] {
