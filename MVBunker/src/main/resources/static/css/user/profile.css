@@ -34,7 +34,7 @@
 
 input[name="introduce"] {
     height: 15vh;
-    width: 28vw;
+    width: 100%;
 }
 .d {
     display: flex;
@@ -118,7 +118,7 @@ hr{
     border: none;
     background-color: #009759;
     color: white;
-    width: 70px;
+    width: 80px;
     height: 30px;
     border-radius:3em;
     font-size: 0.9vw;
@@ -140,7 +140,7 @@ hr{
 .upload{
     background-color: #009759;
     color: white;
-    width: 60px;
+    width: 65px;
     height: 30px;
     font-size: 0.9vw;
     border-radius: 3em;
@@ -158,17 +158,17 @@ hr{
     font-size: 1.4vw;
 }
 
-@media (max-width: 1000px) {
-    .upload {
-        width: 45px;
-    }
-    .pwmodbtn{
-        width: 70px;
-    }
-    #save{
-        width: 55px;
-    }
-}
+/*@media (max-width: 1000px) {*/
+/*    .upload {*/
+/*        width: 45px;*/
+/*    }*/
+/*    .pwmodbtn{*/
+/*        width: 90px;*/
+/*    }*/
+/*    #save{*/
+/*        width: 65px;*/
+/*    }*/
+/*}*/
 
 @media (max-width: 1200px) {
     .mainProfile{
@@ -177,6 +177,18 @@ hr{
     }
     #ALL{
         width: 50vw;
+    }
+    .upload {
+        width: 55px;
+        height: 25px;
+    }
+    input[type=button]{
+        width: 100px;
+        height: 25px;
+    }
+    #save{
+        width: 75px;
+        height: 25px;
     }
 }
 @media (max-width: 900px) {
@@ -187,6 +199,18 @@ hr{
         width: 26vw;
         height: 26vw;
     }
+    .upload {
+        width: 50px;
+        height: 23px;
+    }
+    input[type=button]{
+        width: 90px;
+        height: 23px;
+    }
+    #save{
+        width: 70px;
+        height: 23px;
+    }
 }
 
 @media (max-width: 700px) {
@@ -196,6 +220,18 @@ hr{
     .mainProfile{
         width: 30vw;
         height: 30vw;
+    }
+    .upload {
+        width: 45px;
+        height: 21px;
+    }
+    input[type=button]{
+        width: 80px;
+        height: 21px;
+    }
+    #save{
+        width: 65px;
+        height: 21px;
     }
 }
 
@@ -216,7 +252,7 @@ hr{
 .pwmodbtn{
     background-color: #009759;
     color: white;
-    width: 100px;
+    width: 115px;
     font-size: 0.9vw;
     height: 30px;
     border-radius: 3em;
