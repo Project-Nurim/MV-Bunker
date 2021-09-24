@@ -3,14 +3,15 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-<th:block th:fragment="header">
+<th:block th:fragment="header" th:with="auth=${#authentication.getPrincipal().getUser()}">
+
     <nav class="navbar">
     <div class="header">
         <a href="/movies/boxoffice"><img class="logo" src="/img/logo/bunkerlogo.png"></a>
     </div>
         <ul class="navbar__menu">
-            <th:block th:if="${provider eq 'local'}"><li><a href="/user/profileMod">계정 변경하기</a></li></th:block>
-            <th:block th:if="${provider != 'local'}"><li><a href="/user/profileMod">자기소개 수정하기</a></li></th:block>
+            <th:block th:if="${auth.provider eq 'local'}"><li><a href="/user/profileMod">프로필 수정하기</a></li></th:block>
+            <th:block th:if="${auth.provider != 'local'}"><li><a href="/user/profileMod">자기소개 수정하기</a></li></th:block>
             <li><a href="/user/profile">나의 프로필</a></li> <!-- 계정 변경하기와 자기소개수정은 사용자에 따라 보이는 것이 달라짐  -->
         </ul>
 
