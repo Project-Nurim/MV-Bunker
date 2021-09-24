@@ -28,8 +28,10 @@
                         <img class="imgch" src="/img/camera.png">
                         <input id="imgInput" class="invisible" type="file" name="img" accept="image/*">
                     <!-- type="file" : 파일 인풋 ; multiple : 여러 파일 업로드 가능 ; accept="image/*" 이미지만 받는다. -->
-                        <input class="upload" type="submit" value="업로드">
                     </div>
+                        <div class="up">
+                        <input class="upload" type="submit" value="업로드">
+                        </div>
                 </form>
 
                 <th:block th:if="${auth.profileImg} != null"><img class="mainProfile" th:src="${auth.profileImg}">

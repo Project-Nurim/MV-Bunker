@@ -38,6 +38,7 @@ input[name="introduce"] {
 }
 .d {
     display: flex;
+    justify-content: space-between;
 }
 .f{
     width: 80%;
@@ -86,10 +87,12 @@ input[name='unn'] {
 }
 
 hr{
-    width:80%;
+    width:100%;
     margin-top: 1.5vh;
 }
-
+.up{
+    text-align: right;
+}
 .mainProfile {
     width: 18vw;
     height: 18vw;
@@ -134,10 +137,6 @@ hr{
     height: 4vh;
     border-radius: 1.5em;
     border:none;
-    position: absolute;
-    top: 0vh;
-    margin-left: 24vw;
-    float:right;
 }
 
 .invisible {
@@ -169,7 +168,6 @@ hr{
     height: 4vh;
     border-radius: 1.5em;
     border:none;
-    margin-left:13vw;
 }
 
 .unn{
