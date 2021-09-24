@@ -158,17 +158,7 @@ hr{
     font-size: 1.4vw;
 }
 
-/*@media (max-width: 1000px) {*/
-/*    .upload {*/
-/*        width: 45px;*/
-/*    }*/
-/*    .pwmodbtn{*/
-/*        width: 90px;*/
-/*    }*/
-/*    #save{*/
-/*        width: 65px;*/
-/*    }*/
-/*}*/
+
 
 @media (max-width: 1200px) {
     .mainProfile{
@@ -239,14 +229,15 @@ hr{
 
 #byebtn{
     margin-top: 0.7vh;
-    margin-left: -1.2vw;
     background-color: inherit;
     color: black;
-    width: 8vw;
-    height: 4vh;
-    border:none;
+    width: 100px;
+    border: none;
     font-weight: 600;
     font-size: 1vw;
+}
+.l{
+    width: 100%;
 }
 
 .pwmodbtn{
