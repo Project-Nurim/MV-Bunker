@@ -30,15 +30,15 @@
             <br>
             <ul class="detail">
                 <li class="fw">나의 계정</li>
-                <li th:text="'아이디 : ' + ${auth.uid}"></li>
-                <li th:text="'닉네임 : ' + ${auth.unn}"></li>
-                <li th:text="'가입일 : ' + ${auth.regdt}"></li>
+                <li th:text="'아이디 : ' + ${auth.uid}" class="font"></li>
+                <li th:text="'닉네임 : ' + ${auth.unn}" class="font"></li>
+                <li th:text="'가입일 : ' + ${auth.regdt}" class="font"></li>
     <!--            <li th:text="${auth.provider}"></li>-->
                 <hr>
                 <li class="fw">나의 활동내역</li>
-                <li th:text="'내가 작성한 리뷰 : ' + ${activity.countMyReview}"></li>
-                <li th:text="'내가 작성한 댓글 : ' + ${activity.countMyReview_cmt}"></li>
-                <li th:text="'받은 좋아요 수 : ' + ${activity.countMyReviewLike}"></li>
+                <li th:text="'내가 작성한 리뷰 : ' + ${activity.countMyReview}" class="font"></li>
+                <li th:text="'내가 작성한 댓글 : ' + ${activity.countMyReview_cmt}" class="font"></li>
+                <li th:text="'받은 좋아요 수 : ' + ${activity.countMyReviewLike}" class="font"></li>
                 <hr>
                 <li class="fw">자기소개</li>
                 <li class="introduce" th:text="${auth.introduce}"></li>
@@ -46,6 +46,5 @@
     </div>
 </div>
 </section>
-<background
 </body>
 </html>

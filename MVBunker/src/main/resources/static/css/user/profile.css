@@ -20,7 +20,7 @@
     width: 38vw;
     margin-top: 7vh;
     font-weight:700;
-    font-size: 1.3em;
+    font-size: 1.4vw;
     float: left;
 }
 
@@ -41,7 +41,7 @@ input[name="introduce"] {
     justify-content: space-between;
 }
 .f{
-    width: 80%;
+    width: 100%;
 }
 input:focus {outline:none;}
 
@@ -51,12 +51,11 @@ input[name='unn'] {
 
 .all {
     text-align: center;
+    position: relative;
 }
 
 .imgch {
     position: absolute;
-    top: 15vw;
-    left: 20vw;
     width: 2.5vw;
     z-index: 10;
     background-color: rgb(224, 220, 220);
@@ -67,15 +66,17 @@ input[name='unn'] {
 .name {
     float: left;
     margin-right: 10px;
+    font-size: 1.05vw;
 }
 
 .pwt{
     float: left;
     margin-right: 30px;
+    font-size: 1.05vw;
 }
 
 .detail {
-    width: 35vw;
+    width: 100%;
     margin: 0 auto;
     line-height: 5vh;
     list-style: none;
@@ -83,9 +84,11 @@ input[name='unn'] {
 
 .fw{
     font-weight: 600;
-    font-size: 1.1em;
+    font-size: 1.2vw;
 }
-
+.font{
+    font-size: 1.05vw;
+}
 hr{
     width:100%;
     margin-top: 1.5vh;
@@ -102,23 +105,27 @@ hr{
 }
 
 #pfimg{
-    width:15px;
-    height:15px;
-    position: relative;
+    width: 75%;
+    height: 30px;
+    text-align: right;
+    position: absolute;
+    margin-top: 60%;
 }
 
 
 #save{
     margin-top: 2vh;
-    margin-right: 5vw;
-    margin-left: 24vw;
     border: none;
     background-color: #009759;
     color: white;
-    width: 4vw;
-    height: 4vh;
-    border-radius: 1.5em;
-    font-size: 0.8rem;
+    width: 70px;
+    height: 30px;
+    border-radius:3em;
+    font-size: 0.9vw;
+}
+.s {
+    width: 100%;
+    text-align: right;
 }
 
 .button{
@@ -133,21 +140,66 @@ hr{
 .upload{
     background-color: #009759;
     color: white;
-    width: 4vw;
-    height: 4vh;
-    border-radius: 1.5em;
+    width: 60px;
+    height: 30px;
+    font-size: 0.9vw;
+    border-radius: 3em;
     border:none;
 }
 
 .invisible {
     position: absolute;
     opacity: 0;
-    top: 16vw;
-    left: 21vw;
     width: 40px;
     height: 40px;
-    z-index:11;
+    z-index: 11;
 }
+.p{
+    font-size: 1.4vw;
+}
+
+@media (max-width: 1000px) {
+    .upload {
+        width: 45px;
+    }
+    .pwmodbtn{
+        width: 70px;
+    }
+    #save{
+        width: 55px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .mainProfile{
+        width: 22vw;
+        height: 22vw;
+    }
+    #ALL{
+        width: 50vw;
+    }
+}
+@media (max-width: 900px) {
+    #ALL{
+        width: 60vw;
+    }
+    .mainProfile{
+        width: 26vw;
+        height: 26vw;
+    }
+}
+
+@media (max-width: 700px) {
+    #ALL{
+        width: 70vw;
+    }
+    .mainProfile{
+        width: 30vw;
+        height: 30vw;
+    }
+}
+
+
 
 #byebtn{
     margin-top: 0.7vh;
@@ -158,21 +210,23 @@ hr{
     height: 4vh;
     border:none;
     font-weight: 600;
-    font-size: 1em;
+    font-size: 1vw;
 }
 
 .pwmodbtn{
     background-color: #009759;
     color: white;
-    width: 6vw;
-    height: 4vh;
-    border-radius: 1.5em;
-    border:none;
+    width: 100px;
+    font-size: 0.9vw;
+    height: 30px;
+    border-radius: 3em;
+    border: none;
 }
 
 .unn{
     width:10vw;
     height:3vh;
+    font-size: 1.05vw;
 }
 
 /* 비밀번호수정, 회원탈퇴 모달 */

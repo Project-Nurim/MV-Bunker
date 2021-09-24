@@ -18,8 +18,8 @@
     <div id="ALL">
         <div class="top">
             <div class="profilemod">
-                <th:block th:if="${auth.provider eq 'local'}"><div>프로필 수정하기</div></th:block>
-                <th:block th:if="${auth.provider != 'local'}"><div>자기소개 수정하기</div></th:block>
+                <th:block th:if="${auth.provider eq 'local'}"><div class="p">프로필 수정하기</div></th:block>
+                <th:block th:if="${auth.provider != 'local'}"><div class="p">자기소개 수정하기</div></th:block>
             </div>
             <br>
             <div class="all">
@@ -53,7 +53,7 @@
                 <div class="f">
                 <form action="/user/profileMod" method="post">
                 <li class="fw" id="fw">나의 계정</li>
-                <li th:text="'아이디 : ' + ${auth.uid}"></li>
+                <li th:text="'아이디 : ' + ${auth.uid}" class="font"></li>
                     <div class="d">
                 <li id="upwStarView" class="pwt" th:text="'비밀번호 : ********'"></li>
                 <input type="button" class="pwmodbtn" value="비밀번호 변경">
@@ -63,11 +63,13 @@
                     <li class="name" th:text="'닉네임 : '"></li>
                     <input type="text" name="unn" th:value="${auth.unn}" class="unn">
                 </div>
-                <li th:text="'가입일 : ' + ${auth.regdt}"></li>
+                <li th:text="'가입일 : ' + ${auth.regdt}" class="font"></li>
                 <hr>
                 <li class="fw">자기소개</li>
                 <input class="introduce" type="text" name="introduce" th:value="${auth.introduce}">
+                    <div class="s">
                 <input type="submit" id="save" class="button" value="저장하기">
+                    </div>
                 </form>
                 </div>
             </ul>
