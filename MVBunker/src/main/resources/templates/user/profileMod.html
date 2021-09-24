@@ -21,7 +21,6 @@
                 <th:block th:if="${auth.provider eq 'local'}"><div>프로필 수정하기</div></th:block>
                 <th:block th:if="${auth.provider != 'local'}"><div>자기소개 수정하기</div></th:block>
             </div>
-            <input class="button trigger" id="byebtn" type="button" value="회원탈퇴">
             <br>
             <div class="all">
                 <form th:if="${auth.provider eq 'local'}" th:action="@{/user/profileImg}" method="post" enctype="multipart/form-data">
@@ -52,17 +51,22 @@
                 <form action="/user/profileMod" method="post">
                 <li class="fw" id="fw">나의 계정</li>
                 <li th:text="'아이디 : ' + ${auth.uid}"></li>
-                <li id="upwStarView" class="pwt" th:text="'비밀번호 : ********'"></li> <!-- 이렇게 하면 아예 안뜸, *****로 뜨게 하기 -->
+                <li id="upwStarView" class="pwt" th:text="'비밀번호 : ********'"></li>
                 <input type="button" class="pwmodbtn" value="비밀번호 변경">
                 <input id="pwHiddenElem" type="hidden" name="upw">
-                <div><li class="name" th:text="'닉네임 : '"></li><input type="text" name="unn" th:value="${auth.unn}" class="unn"></div>
+                <div>
+                    <li class="name" th:text="'닉네임 : '"></li>
+                    <input type="text" name="unn" th:value="${auth.unn}" class="unn">
+                </div>
                 <li th:text="'가입일 : ' + ${auth.regdt}"></li>
                 <hr>
                 <li class="fw">자기소개</li>
                 <input class="introduce" type="text" name="introduce" th:value="${auth.introduce}">
-                <input type="submit" id="save" class="button" value="저장하기"> <!-- 비밀번호 수정 모달 띄우기 -->
+                <input type="submit" id="save" class="button" value="저장하기">
                 </form>
             </ul>
+            <hr>
+            <input class="button trigger" id="byebtn" type="button" value="회원탈퇴하기">
         </div>
     </div>
 

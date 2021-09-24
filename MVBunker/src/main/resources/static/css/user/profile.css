@@ -77,7 +77,6 @@ input[name='unn'] {
 
 .fw{
     font-weight: 600;
-    margin: 5px 0;
     font-size: 1.1em;
 }
 
@@ -104,13 +103,14 @@ hr{
 #save{
     margin-top: 2vh;
     margin-right: 5vw;
-    margin-left: 25vw;
+    margin-left: 24vw;
     border: none;
     background-color: #009759;
     color: white;
     width: 4vw;
     height: 4vh;
     border-radius: 1.5em;
+    font-size: 0.8rem;
 }
 
 .button{
@@ -129,6 +129,10 @@ hr{
     height: 4vh;
     border-radius: 1.5em;
     border:none;
+    position: absolute;
+    top: 0vh;
+    margin-left: 24vw;
+    float:right;
 }
 
 .invisible {
@@ -142,17 +146,15 @@ hr{
 }
 
 #byebtn{
-    position: absolute;
-    top: 80px;
-    margin-left: 25vw;
-    float:right;
-}
-
-.upload{
-    background-color: rgba(0, 0, 0, 0.63);
-    position: absolute;
-    top: 35vh;
-    margin-left: 25vw;
+    margin-top: 0.7vh;
+    margin-left: -1.2vw;
+    background-color: inherit;
+    color: black;
+    width: 8vw;
+    height: 4vh;
+    border:none;
+    font-weight: 600;
+    font-size: 1em;
 }
 
 .pwmodbtn{
@@ -162,6 +164,7 @@ hr{
     height: 4vh;
     border-radius: 1.5em;
     border:none;
+    margin-left:13vw;
 }
 
 .unn{
@@ -257,4 +260,3 @@ label input {
     line-height: 5vh;
     margin-left: 3vw;
 }
-
