@@ -14,6 +14,11 @@ body{
     min-height: 100vh;
     background: #000;
 }
+.dev{
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+}
 
 .dev{
     width: 80vw;
@@ -242,10 +247,12 @@ body{
     color: #fff;
     font-weight: 600;
     border-radius: 73% 27% 44% 56% / 49% 44% 56% 51%;
+    /*color: black;*/
+    background-color: black;
 }
 
 .info:hover {
-    background: #fff;
+    background: white;
     color: #000;
 }
 
@@ -255,4 +262,7 @@ body{
 
 .mail {
     display:none;
+}
+.name{
+    display: block;
 }

@@ -147,4 +147,9 @@ public class UserService {
         System.out.println("진실은 ? : " + new BCryptPasswordEncoder().matches(upw, mapper.selUser(auth.getLoginUser()).getUpw()));
         return new BCryptPasswordEncoder().matches(upw, mapper.selUser(auth.getLoginUser()).getUpw());
     }
+
+    //좋아요 누른 리뷰
+    public List<ReviewDomain> selLikeReviews(UserEntity param, PagingDTO pagingDTO){
+        return mapper.selLikeReviews(param, pagingDTO);
+    }
 }

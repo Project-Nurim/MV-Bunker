@@ -58,9 +58,10 @@ public class UserController {
         return "redirect:/home";
     }
 
+    @ResponseBody
     @GetMapping("/favReview")
-    public void favReview(){
-//        List<ReviewDomain> selLikeReviews = reviewService.selLikeReviews(param,pagingDTO);
+    public void favReview(UserEntity param, PagingDTO pagingDTO){
+        List<ReviewDomain> selLikeReviews = service.selLikeReviews(param,pagingDTO);
 //        model.addAttribute("selLikeReviews", selLikeReviews);
     }
 
