@@ -181,17 +181,4 @@
         GROUP BY A.i_cmt;
     </select>
 
-    <!-- 좋아요 누른 리뷰 목록 띄우기 -->
-    <select id="selLikeReviews" resultType="ReviewDomain">
-        select C.*
-        from(
-                select A.i_review as i_review
-                from t_review_like A
-                         left join t_user B
-                                   on A.i_user = B.i_user
-                where A.disLike = 0 and A.i_user = ${i_user}
-            )R
-                left join t_review C
-                          on R.i_review = C.i_review;
-    </select>
 </mapper>

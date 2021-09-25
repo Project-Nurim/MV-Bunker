@@ -38,12 +38,6 @@ public class ReviewService {
         return mapper.selReview(id);
     }
 
-    //좋아요 누른 리뷰
-    public List<ReviewDomain> selLikeReviews(UserEntity param, PagingDTO pagingDTO){
-        return mapper.selLikeReviews(param, pagingDTO);
-    }
-
-
     // Evaluate CRUD
     public int insUpdEval(EvalEntity param) {
         param.setI_user(auth.getLoginUserPk());
