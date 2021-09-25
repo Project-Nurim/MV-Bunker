@@ -7,6 +7,7 @@ import com.nurim.mvbunker.common.model.PagingDTO;
 import com.nurim.mvbunker.common.security.IAuthenticationFacade;
 import com.nurim.mvbunker.common.security.UserDetailsServiceImpl;
 
+import com.nurim.mvbunker.movies.model.MovieDomain;
 import com.nurim.mvbunker.movies.model.MovieEntity;
 import com.nurim.mvbunker.movies.model.MovieFavEntity;
 import com.nurim.mvbunker.review.model.ReviewDomain;
@@ -30,6 +31,7 @@ public class UserService {
     @Autowired private EmailServiceImpl emailService;
     @Autowired private PasswordEncoder passwordEncoder;
     @Autowired private MyFileUtils fileUtils;
+
 
     @Autowired private IAuthenticationFacade auth;
     @Autowired private UserDetailsServiceImpl userDetailsService;
@@ -118,7 +120,9 @@ public class UserService {
     };
 
     //내가 찜한 영화
-    public List<MovieEntity> selFavMovieList(UserEntity param){ return mapper.selFavMovieList(param);}
+    public List<MovieDomain> selFavMovieList(UserEntity param){
+        return mapper.selFavMovieList(param);
+    }
 
     //내가 구독한 리뷰어
     public List<UserDomain> mySubUser(UserEntity param){return mapper.mySubUser(param);}

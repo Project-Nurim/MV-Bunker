@@ -6,6 +6,7 @@ import com.nurim.mvbunker.common.security.model.CustomUserPrincipals;
 
 import com.nurim.mvbunker.movies.MoviesService;
 import com.nurim.mvbunker.movies.model.HoverVO;
+import com.nurim.mvbunker.movies.model.MovieDomain;
 import com.nurim.mvbunker.movies.model.MovieEntity;
 import com.nurim.mvbunker.movies.model.MovieFavEntity;
 import com.nurim.mvbunker.review.ReviewService;
@@ -114,7 +115,7 @@ public class UserController {
     @GetMapping("/myFavMovie")
     public void myFavMovie(@AuthenticationPrincipal CustomUserPrincipals userDetails, Model model){
         UserEntity loginUser = userDetails.getUser();
-        List<MovieEntity> myFavMovie = service.selFavMovieList(loginUser);
+        List<MovieDomain> myFavMovie = service.selFavMovieList(loginUser);
         model.addAttribute("myFavMovie", myFavMovie);
     }
 
