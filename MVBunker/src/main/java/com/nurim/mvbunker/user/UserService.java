@@ -112,12 +112,13 @@ public class UserService {
 
     // 내가 작성한 리뷰 리스트
     public List<ReviewDomain> selReviewList(UserEntity param, PagingDTO pagingDTO) {
+        System.out.println("param is : " + param);
         List<ReviewDomain> result = mapper.selReviewList(param, pagingDTO);
         return result;
     };
 
     //내가 찜한 영화
-    public MovieEntity selFavMovieList(UserEntity param){ return mapper.selFavMovieList(param);}
+    public List<MovieEntity> selFavMovieList(UserEntity param){ return mapper.selFavMovieList(param);}
 
     //내가 구독한 리뷰어
     public List<UserDomain> mySubUser(UserEntity param){return mapper.mySubUser(param);}

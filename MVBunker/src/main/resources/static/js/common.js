@@ -1,4 +1,3 @@
-
 const infinityScrolling = {
     limit: 20,
     itemLength: 0,

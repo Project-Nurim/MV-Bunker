@@ -32,6 +32,5 @@ public interface UserMapper {
     int selIsFav(MovieFavEntity param);
     int insFavMovie (MovieFavEntity param);
     int delFavMovie (MovieFavEntity param);
-    MovieEntity selFavMovieList(UserEntity param);
-
+    List<MovieEntity> selFavMovieList(UserEntity param);
 }

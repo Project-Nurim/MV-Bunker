@@ -58,14 +58,14 @@ public class UserController {
     }
 
     @GetMapping("/favReview")
-    public void favReview(UserEntity param, Model model, PagingDTO pagingDTO){
-        List<ReviewDomain> selLikeReviews = reviewService.selLikeReviews(param,pagingDTO);
-        model.addAttribute("selLikeReviews", selLikeReviews);
+    public void favReview(){
+//        List<ReviewDomain> selLikeReviews = reviewService.selLikeReviews(param,pagingDTO);
+//        model.addAttribute("selLikeReviews", selLikeReviews);
     }
 
     @ResponseBody
     @GetMapping("/getFavReviewInfinite")
-    public List<ReviewDomain> getFavReviewInfinite(UserEntity userInfo, PagingDTO pagingDTO) {
+    public List<ReviewDomain> getFavReviewInfinite(UserEntity userInfo,PagingDTO pagingDTO) {
         if(userInfo.getI_user() == 0) {
             userInfo.setI_user(auth.getLoginUserPk());
         }
@@ -91,20 +91,21 @@ public class UserController {
     }
 
     @GetMapping("/myReview")
-    public void myReview(UserEntity param, Model model, PagingDTO pagingDTO){
+    public void myReview(UserEntity param, Model model){
+        /*PagingDTO pagingDTO = new PagingDTO(0);
         List<ReviewDomain> selReviewList = service.selReviewList(param, pagingDTO);
         MovieFavEntity mf_Entity = new MovieFavEntity();
         mf_Entity.setI_user(param.getI_user());
         List<HoverVO> selHover2 = moviesService.selHover1(mf_Entity);
         model.addAttribute("selReviewList", selReviewList);
-        model.addAttribute("selHover2", selHover2);
+        model.addAttribute("selHover2", selHover2);*/
     }
 
     @ResponseBody
     @GetMapping("/getReviewInfinite")
     public List<ReviewDomain> getReviewInfinite(UserEntity userInfo, PagingDTO pagingDTO) {
         if(userInfo.getI_user() == 0) {
-            userInfo.setI_user(auth.getLoginUserPk());
+            userInfo = auth.getLoginUser();
         }
         return service.selReviewList(userInfo, pagingDTO);
     }
@@ -113,7 +114,7 @@ public class UserController {
     @GetMapping("/myFavMovie")
     public void myFavMovie(@AuthenticationPrincipal CustomUserPrincipals userDetails, Model model){
         UserEntity loginUser = userDetails.getUser();
-        MovieEntity myFavMovie = service.selFavMovieList(loginUser);
+        List<MovieEntity> myFavMovie = service.selFavMovieList(loginUser);
         model.addAttribute("myFavMovie", myFavMovie);
     }
 
@@ -135,7 +136,7 @@ public class UserController {
 
     @ResponseBody
     @GetMapping("/mainProfile")
-    public Map<String, Object> mainProfile(UserEntity param){
+    public Map<String, Object> mainProfile(@RequestBody UserEntity param){
         return service.updUserMainProfile(param);
     }
 

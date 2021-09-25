@@ -1,8 +1,12 @@
 package com.nurim.mvbunker.common.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class PagingDTO {
     private int page;
     private int listLength = 10;
