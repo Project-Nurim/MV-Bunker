@@ -35,4 +35,7 @@ public interface UserMapper {
     int delFavMovie (MovieFavEntity param);
     List<MovieDomain> selFavMovieList(UserEntity param);
 
+
+    //내가 좋아요 누른 리뷰
+    List<ReviewDomain> selLikeReviews (UserEntity param, PagingDTO pagingDTO);
 }
