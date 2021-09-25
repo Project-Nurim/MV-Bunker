@@ -595,7 +595,7 @@ footer {
 
 /*.link-1{*/
 /*    text-transform: uppercase;*/
-}
+/*}*/
 
 /*#none-popup::before {*/
 /*    content: 'Logout';*/
@@ -670,3 +670,8 @@ footer {
 /*}*/
 
 
+.menu{
+    position: absolute;
+    right: 72px;
+    top: -100px;
+}
