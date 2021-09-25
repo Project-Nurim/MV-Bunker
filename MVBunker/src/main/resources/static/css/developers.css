@@ -15,6 +15,12 @@ body{
     background: #000;
 }
 
+.dev{
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+}
+
 .square {
     margin-right: 200px;
     position: relative;
@@ -23,6 +29,12 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media(max-width: 900px) {
+    .dev{
+        width: 25vw;
+    }
 }
 
 .square span:nth-child(1) {
@@ -118,6 +130,8 @@ body{
     color: #fff;
     font-weight: 600;
     border-radius: 73% 27% 44% 56% / 49% 44% 56% 51%;
+    background-color: transparent;
+
 }
 
 .info:hover{
@@ -235,6 +249,10 @@ body{
     color: #000;
 }
 
-.mail{
+.name {
+    display: block;
+}
+
+.mail {
     display:none;
 }

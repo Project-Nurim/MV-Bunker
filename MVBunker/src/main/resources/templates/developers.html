@@ -7,7 +7,7 @@
   <title>bunker by nurim</title>
   <link rel="stylesheet" th:href="@{/css/developers.css}">
   <link rel="icon" href="/img/logo/favicon.ico">
-  <link defer th:src="@{/js/developers.js}">
+  <script defer th:src="@{/js/developers.js}"></script>
 </head>
 
 <body>
@@ -19,12 +19,16 @@
     <h2>Developers</h2>
     <p>FrontEnd</p>
     <br>
-    <p class="name">Kim Ji-min</p>
-    <p class="name">Kim Ji-yeong</p>
-    <p class="mail">hello1913@naver.com</p>
-    <p class="mail">yeong6415@daum.net</p>
+    <div class="name">
+    <p>Kim Ji-min</p>
+    <p>Kim Ji-yeong</p>
+    </div>
+    <div class="mail">
+    <p>hello1913@naver.com</p>
+    <p>yeong6415@daum.net</p>
+    </div>
     <br>
-    <p class="info" onclick="go()">More Info.</p>
+    <button class="info" onclick='go()'>More Info.</button>
   </div>
 </div>
 
@@ -36,12 +40,16 @@
     <h2>Developers</h2>
     <p>BackEnd</p>
     <br>
-    <p class="name">Lee Joo-chan</p>
-    <p class="name">Park Eun-young</p>
-    <p class="mail">ljc9393@nate.com</p>
-    <p class="mail">dmss3@naver.com</p>
+    <div class="name">
+    <p>Lee Joo-chan</p>
+    <p>Park Eun-young</p>
+    </div>
+    <div class="mail">
+    <p>ljc9393@nate.com</p>
+    <p>dmss3@naver.com</p>
+    </div>
     <br>
-    <p class="info" onclick="go()">More Info.</p>
+    <button class="info" onclick="go2()">More Info.</button>
   </div>
 </div>
 </body>

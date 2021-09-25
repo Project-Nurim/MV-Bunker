@@ -1,17 +1,27 @@
-var info = document.querySelector('.info');
-var name= document.querySelector('.name');
-var mail = document.querySelector('.mail');
+const name = document.querySelectorAll('.name');
+const mail = document.querySelectorAll('.mail');
+let type = 0;
 
-function go() {
-    info.eq(0).click(function () {
-        name.style.display = "none";
-        mail.style.display = "block";
-    });
-
-    info.eq(1).click(function () {
-        mail.style.display = "none";
-        name.style.display = "block";
-    });
+function go(){
+  if(type == 0){
+      mail[0].style.display = 'block';
+      name[0].style.display = 'none';
+      type = 1;
+  }else{
+      mail[0].style.display = 'none';
+      name[0].style.display = 'block';
+      type = 0;
+  }
 };
 
-go();
+function go2(){
+    if(type == 0){
+        mail[1].style.display = 'block';
+        name[1].style.display = 'none';
+        type = 1;
+    }else{
+        mail[1].style.display = 'none';
+        name[1].style.display = 'block';
+        type = 0;
+    }
+};
