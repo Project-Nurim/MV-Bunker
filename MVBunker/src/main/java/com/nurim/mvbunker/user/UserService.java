@@ -114,6 +114,7 @@ public class UserService {
 
     // 내가 작성한 리뷰 리스트
     public List<ReviewDomain> selReviewList(UserEntity param, PagingDTO pagingDTO) {
+        System.out.println("param is : " + param);
         List<ReviewDomain> result = mapper.selReviewList(param, pagingDTO);
         return result;
     };

@@ -60,7 +60,7 @@
     <select id="selReviewList" resultType="ReviewDomain">
         select R.unn as unn, R.i_user as i_user, R.i_review as i_review, R.title as title, R.id as id, R.poster as poster, R.regdt as regdt, R.re_ctnt as re_ctnt,
                round((E.production+E.performance+E.visual_beauty+E.music+E.plot)/5, 3) as totalAvg_Review,
-               count(case when RL.disLike = 0 then 1 end) as review_like_cnt,
+               count(case when RL.disLike = 0 then 1 end) as review_like_cnt
         from(
                 select B.unn as unn, A.i_user as i_user, A.i_review as i_review, A.title as title, A.id as id, A.poster As poster, A.regdt as regdt, A.re_ctnt as re_ctnt
                 from t_review A
@@ -71,7 +71,7 @@
                           on R.id = E.id and R.i_user = E.i_user
                 left join t_review_like RL
                           on R.i_review = RL.i_review
-        where R.i_user = ${i_user}
+        where R.i_user = ${param.i_user}
         group by R.i_review
         <choose>
             <when test="pagingDTO.orderby == 0">

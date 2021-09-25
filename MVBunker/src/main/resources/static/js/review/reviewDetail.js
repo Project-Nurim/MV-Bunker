@@ -1,7 +1,10 @@
 // 로그인 안한사람인지
 const isAnonymous = document.querySelector('.starRate').dataset.anonymous;
 // 유튜브 트레일러 뿌려주기
-const videoKey = document.querySelector('#video').dataset.videoKey;
+let videoKey = null;
+if(document.querySelector('#video') != null) {
+    videoKey = document.querySelector('#video').dataset.videoKey;
+}
 const movieIdVal = document.querySelector('#movieIdInput').value;
 let player;
 function onYouTubeIframeAPIReady() {
