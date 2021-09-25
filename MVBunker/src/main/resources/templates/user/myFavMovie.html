@@ -15,6 +15,7 @@
 </head>
 <body>
 <th:block layout:fragment="content"> <!-- 반복문 돌려야해 -->
+   <th:block th:each="myFavMovie : ${myFavMovie}">
     <div id="ALL">
         <div class="p2">
             <p>내가 찜한 영화</p>
@@ -34,6 +35,7 @@
             </li>
         </ul>
     </div>
+   </th:block>
 </th:block>
 </body>
 </html>

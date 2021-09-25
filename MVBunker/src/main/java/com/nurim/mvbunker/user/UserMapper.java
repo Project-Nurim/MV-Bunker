@@ -1,6 +1,7 @@
 package com.nurim.mvbunker.user;
 
 import com.nurim.mvbunker.common.model.PagingDTO;
+import com.nurim.mvbunker.movies.model.MovieDomain;
 import com.nurim.mvbunker.movies.model.MovieEntity;
 import com.nurim.mvbunker.movies.model.MovieFavEntity;
 import com.nurim.mvbunker.review.model.ReviewDomain;
@@ -32,6 +33,6 @@ public interface UserMapper {
     int selIsFav(MovieFavEntity param);
     int insFavMovie (MovieFavEntity param);
     int delFavMovie (MovieFavEntity param);
-    MovieEntity selFavMovieList(UserEntity param);
+    List<MovieDomain> selFavMovieList(UserEntity param);
 
 }
