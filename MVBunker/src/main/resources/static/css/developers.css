@@ -14,6 +14,11 @@ body{
     min-height: 100vh;
     background: #000;
 }
+.dev{
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+}
 
 .square {
     margin-right: 200px;
@@ -24,6 +29,13 @@ body{
     justify-content: center;
     align-items: center;
 }
+
+
+/*@media(max-width: 900px) {*/
+/*    .dev{*/
+/*        width: 25vw;*/
+/*    }*/
+/*}*/
 
 .square span:nth-child(1) {
     position: absolute;
@@ -228,13 +240,18 @@ body{
     color: #fff;
     font-weight: 600;
     border-radius: 73% 27% 44% 56% / 49% 44% 56% 51%;
+    /*color: black;*/
+    background-color: black;
 }
 
 .info:hover {
-    background: #fff;
+    background: white;
     color: #000;
 }
 
 .mail{
     display:none;
+}
+.name{
+    display: block;
 }
