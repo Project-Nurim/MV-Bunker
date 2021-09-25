@@ -1,17 +1,23 @@
-var info = document.querySelector('.info');
-var name= document.querySelector('.name');
-var mail = document.querySelector('.mail');
+
+
+const name= document.querySelectorAll('.name');
+const mail = document.querySelectorAll('.mail');
 
 function go() {
-    info.eq(0).click(function () {
-        name.style.display = "none";
-        mail.style.display = "block";
-    });
+    if (true) {
+        name[0].style.display = 'none';
+        mail[0].style.display = 'block';
 
-    info.eq(1).click(function () {
-        mail.style.display = "none";
-        name.style.display = "block";
-    });
-};
+    }
+}
 
-go();
+
+
+function go2(){
+    if(true){
+        name[1].style.display = 'none';
+        mail[1].style.display = 'block';
+    }
+}
+
+
