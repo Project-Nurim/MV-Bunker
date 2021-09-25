@@ -20,12 +20,6 @@ body{
     justify-content: center;
 }
 
-.dev{
-    width: 80vw;
-    display: flex;
-    justify-content: center;
-}
-
 .square {
     margin-right: 200px;
     position: relative;
@@ -123,26 +117,6 @@ body{
     text-align: center;
     transition: 0.5s;
     z-index: 1000;
-}
-
-.info{
-    position: relative;
-    display: inline-block;
-    margin-top: 10px;
-    border: 2px solid #fff;
-    padding: 6px 18px;
-    text-decoration: none;
-    color: #fff;
-    font-weight: 600;
-    border-radius: 73% 27% 44% 56% / 49% 44% 56% 51%;
-    background-color: transparent;
-
-}
-
-.info:hover{
-    background: #fff;
-    color: #000;
-    cursor: pointer;
 }
 
 .square2{
@@ -247,12 +221,11 @@ body{
     color: #fff;
     font-weight: 600;
     border-radius: 73% 27% 44% 56% / 49% 44% 56% 51%;
-    /*color: black;*/
-    background-color: black;
+    background-color: transparent;
 }
 
 .info:hover {
-    background: white;
+    background: #fff;
     color: #000;
 }
 
@@ -262,7 +235,4 @@ body{
 
 .mail {
     display:none;
-}
-.name{
-    display: block;
 }
