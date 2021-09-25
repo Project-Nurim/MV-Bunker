@@ -283,9 +283,9 @@ ul > li > figure {
     position: relative;
     /*height: auto;*/
     /*float: left;*/
-    width: 100%;
+    width: 93%;
     /*height: auto;*/
-    height: 350px;
+    height: 370px;
 }
 
 ul li figure .x {
@@ -300,7 +300,7 @@ ul li figure .x {
 ul {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2em;
+    gap: 3em;
     padding: 25px;
     padding: 0px 65px;
 }
@@ -330,8 +330,8 @@ footer {
 .img-wrapper {
     /*width: 195px;*/
     /*height: 195px;*/
-    width: inherit;
-    height: inherit;
+    width: 243px;
+    height: 370px;
     position: absolute;
     cursor: pointer;
 }
@@ -433,8 +433,6 @@ footer {
 }
 
 
-
-
 label .menu {
     position: absolute;
     right: 8px;
@@ -489,7 +487,8 @@ label .hamburger:after {
 }
 
 label input:checked+.menu {
-    /*background-color: #b2bec3;*/
+    /*z-index: 40;*/
+    background-color: #b2bec3;
     box-shadow: 50vw 0vw 0vh 1050px rgba(0, 0, 0, 0.64);
     border-radius: 0;
 }
@@ -510,7 +509,6 @@ label input:checked+.menu .hamburger:before {
     transform: rotate(90deg);
     top: 0;
 }
-
 
 /*----------------------------------*/
 
