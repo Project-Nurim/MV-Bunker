@@ -61,7 +61,6 @@ body{
     opacity: 0.8;
 }
 
-
 .square span:nth-child(3) {
     position: absolute;
     top: 0;
@@ -90,7 +89,6 @@ body{
     }
 }
 
-
 @keyframes animate2{
     0%{
         transform: rotate(360deg);
@@ -110,7 +108,7 @@ body{
     z-index: 1000;
 }
 
-.content a{
+.info{
     position: relative;
     display: inline-block;
     margin-top: 10px;
@@ -122,9 +120,10 @@ body{
     border-radius: 73% 27% 44% 56% / 49% 44% 56% 51%;
 }
 
-.content a:hover{
+.info:hover{
     background: #fff;
     color: #000;
+    cursor: pointer;
 }
 
 .square2{
@@ -200,7 +199,6 @@ body{
     }
 }
 
-
 @keyframes animate4 {
     0%{
         transform: rotate(360deg);
@@ -220,7 +218,7 @@ body{
     z-index: 1000;
 }
 
-.content2 a {
+.info {
     position: relative;
     display: inline-block;
     margin-top: 10px;
@@ -232,7 +230,11 @@ body{
     border-radius: 73% 27% 44% 56% / 49% 44% 56% 51%;
 }
 
-.content2 a:hover {
+.info:hover {
     background: #fff;
     color: #000;
+}
+
+.mail{
+    display:none;
 }
