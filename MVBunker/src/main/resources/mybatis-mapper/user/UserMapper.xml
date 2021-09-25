@@ -136,8 +136,8 @@
         delete from t_movie_fav where id = #{id} and i_user = #{i_user};
     </delete>
 
-    <select id="selFavMovieList" resultType="MovieEntity"><!-- hover 시 띄워 줄 정보는 제외하고! -->
-        select A.posterPath as posterPath, A.id as id, A.title as title, A.originalTitle as originalTitle, A.releaseDate as releaseDate
+    <select id="selFavMovieList" resultType="MovieDomain"><!-- hover 시 띄워 줄 정보는 제외하고! -->
+        select A.posterPath as posterPath, A.id as id, A.title as title, A.originalTitle as originalTitle, A.backdropPath as backdropPath, A.posterPath as posterPath, A.releaseDate as releaseDate, A.adult as adult, A.overview as overview, A.originalLanguage as originalLanguage, A.popularity as popularity, A.mainGenre as mainGenre
         from t_movies A
                  left join t_movie_fav B
                            on A.id = B.id
