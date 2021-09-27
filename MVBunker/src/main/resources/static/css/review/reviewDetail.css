@@ -659,3 +659,9 @@ body{
 .rating5 > input:checked ~ label:hover ~ label{
     color: #e4c63f;
 }
+
+.menu{
+    position: absolute;
+    right: 72px;
+    top: -100px;
+}
