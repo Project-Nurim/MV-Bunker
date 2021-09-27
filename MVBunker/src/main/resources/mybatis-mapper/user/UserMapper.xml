@@ -155,7 +155,7 @@
                 from t_review_like A
                          left join t_user B
                                    on A.i_user = B.i_user
-                where A.disLike = 0 and A.i_user = ${i_user}
+                where A.disLike = 0 and A.i_user = ${param.i_user}
             )R
                 left join t_review C
                           on R.i_review = C.i_review;

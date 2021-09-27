@@ -8,7 +8,6 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-;
 }
 
 html {
@@ -17,13 +16,13 @@ html {
     width: 100%;
 }
 
-
 body {
     padding: 0;
     margin: 0;
     background-color: black;
     overflow-x: hidden;
 }
+
 #container2 {
     height: 100%;
     display: flex;

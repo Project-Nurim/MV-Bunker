@@ -1,3 +1,4 @@
+/*
 const infinityScrolling = {
     limit: 5,
     itemLength: 0,
@@ -29,4 +30,4 @@ const infinityScrolling = {
             console.log(err);
         }).then(() => {});
     }
-}
+}*/
