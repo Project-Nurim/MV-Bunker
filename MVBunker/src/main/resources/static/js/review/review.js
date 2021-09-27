@@ -40,7 +40,7 @@ function makeItemList(result) { // 받은 애들 어떻게 뿌릴지
         const reviewCtntElem = document.createElement('li');
         reviewCtntElem.innerText = `리뷰 : ${review.re_ctnt}`
         const evalAvgElem = document.createElement('li');
-        evalAvgElem.innerText = `평점 : ${review.totalAvg_review}`;
+        evalAvgElem.innerText = `평점 : ${review.totalAvg_Review}`;
         tableElem.append(unnLiElem);
         tableElem.append(titleElem);
         tableElem.append(reviewCtntElem);
