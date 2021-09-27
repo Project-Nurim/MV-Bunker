@@ -53,26 +53,7 @@ reviewWriteBtn.addEventListener('click',() => {
         })
 })
 
-// 리뷰 수정완료 버튼Elem.addEventListener('click',() => {
-//     //수정 버튼 누르면 내가 썼던 리뷰 화면에서 지우면서 input 창에 re_ctnt 넣어서 만들어주기
-//     const data = {
-//         // id: 영화 아이디값
-//         // re_ctnt: 리뷰 쓴 내용 값
-//     }
-//     const init = {
-//         method: 'PUT',
-//         headers: {
-//             'Accept': 'application/json',
-//             'Content-Type': 'application/json;charset=utf-8'
-//         },
-//         body: JSON.stringify(data)
-//     }
-//     fetch('/review/reviewRest', init)
-//         .then(res => res.json())
-//         .then(review => {
-//             makeJustReview(review);
-//         })
-// })
+
 
 function makeJustReview(review) {
     // 리뷰 화면에 그리기
@@ -132,27 +113,7 @@ const totalRatingInputElem = document.querySelectorAll('.eval__radio');
 const emptyStarElem = document.getElementById('star');
 const fullStarElem = document.getElementById('starr');
 let checked = false;
-// totalRatingInputElem.forEach((ratingElem) => {
-//     ratingElem.addEventListener('click', (e) => {
-//         const evalue = e.currentTarget.value;
-//         const evalCode = e.currentTarget.name;
-//         const data = {
-//             id: movieIdVal,
-//             evalue: evalue,
-//             evalCode: evalCode
-//         }
-//         const init = {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json;charset=utf-8'
-//             },
-//             body: JSON.stringify(data)
-//         }
-//     })
-// })
-// if (checked) {
-//     document.getElementById("starr").style.display = "block";
-// }
+
 totalRatingInputElem.forEach(radioBtn => {
     radioBtn.addEventListener('click', (e) => {
         const evalCode = e.currentTarget.name;

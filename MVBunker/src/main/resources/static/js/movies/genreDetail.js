@@ -48,9 +48,6 @@ function makeItemList(movieList) {
         mElem.append(scoreElem);
         mElem.append(releaseDateElem);
         btnPlusElem.append(mElem);
-        // btnPlusElem.append(titleElem);
-        // btnPlusElem.append(scoreElem);
-        // btnPlusElem.append(releaseDateElem);
         aTagElem.append(img);
         aTagElem.append(darknessElem);
         aTagElem.append(btnPlusElem);

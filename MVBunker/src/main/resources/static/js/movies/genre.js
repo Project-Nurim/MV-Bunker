@@ -20,30 +20,11 @@ eachGenreList.forEach((articleElem) => {
     showSlides(0, articleElem);
 })
 
-// // HTML 로드가 끝난 후 동작
-// window.onload=function(){
-//
-// }
 
-
-// Next/previous controls
-// function moveSlides(n, articleElement) {
-//     slideIndex = slideIndex + n
-//     showSlides(slideIndex, articleElement);
-// }
 
 function showSlides(n, articleElement) {
     const dataset = articleElement.dataset;
     const slides = articleElement.getElementsByClassName("mySlides");
-    // const size = slides.length;
-    //
-    // if ((n+1) > size) {
-    //     n = 0;
-    //     dataset.slideIndex = String(n);
-    // }else if (n < 0) {
-    //     n = (size-1);
-    //     dataset.slideIndex = String(n);
-    // }
 
     for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
