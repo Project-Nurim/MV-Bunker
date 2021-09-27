@@ -29,14 +29,14 @@
                 <figure class="content">
                     <img class="h" th:src="'https://image.tmdb.org/t/p/w500/' + ${myFavMovie.posterPath}"><!-- 영화 포스터 -->
                     <div>
-                        <a href="#" class="pro" ${}></a> <!-- 영화명 -->
+<!--                        <a href="#" class="pro" ${}></a> &lt;!&ndash; 영화명 &ndash;&gt;-->
                         <p th:text="${myFavMovie.title}"></p>
                     </div>
                 </figure>
             </li>
         </ul>
-    </div>
    </th:block>
+    </div>
 </th:block>
 </body>
 </html>
