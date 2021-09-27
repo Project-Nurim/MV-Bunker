@@ -15,23 +15,27 @@
 </head>
 <body>
 <th:block layout:fragment="content"> <!-- 반복문 돌려야해 -->
-    <div id="ALL">
         <div class="p2">
             <p>내가 찜한 영화</p>
         </div>
+    <div id="ALL">
    <th:block th:each="myFavMovie : ${myFavMovie}">
-        <ul class="container">
+        <ul class="container5">
             <li class="card">
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
                 <figure class="content">
-                    <img class="h" th:src="'https://image.tmdb.org/t/p/w500/' + ${myFavMovie.posterPath}"><!-- 영화 포스터 -->
-                    <div>
-<!--                        <a href="#" class="pro" ${}></a> &lt;!&ndash; 영화명 &ndash;&gt;-->
-                        <p th:text="${myFavMovie.title}"></p>
-                    </div>
+                    <a class="aTag">
+                    <img class="x" th:src="'https://image.tmdb.org/t/p/w500/' + ${myFavMovie.posterPath}"><!-- 영화 포스터 -->
+                        <div class="darkness">
+                            <div class="btn-plus">
+                                <a href="#" class="pro" ${}></a> <!-- 영화명 -->
+                                <p th:text="${myFavMovie.title}"></p>
+                            </div>
+                        </div>
+                    </a>
                 </figure>
             </li>
         </ul>

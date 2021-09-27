@@ -96,3 +96,9 @@ figure {
     opacity: 1;
     transform: scale(1);
 }
+
+.menu{
+    position: absolute;
+    right: 72px;
+    top: -100px;
+}
