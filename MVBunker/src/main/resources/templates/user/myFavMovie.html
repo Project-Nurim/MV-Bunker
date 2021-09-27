@@ -31,8 +31,10 @@
                     <img class="x" th:src="'https://image.tmdb.org/t/p/w500/' + ${myFavMovie.posterPath}"><!-- 영화 포스터 -->
                         <div class="darkness">
                             <div class="btn-plus">
-                                <a href="#" class="pro" ${}></a> <!-- 영화명 -->
-                                <p th:text="${myFavMovie.title}"></p>
+                        <!--hover했을 때 뜨는거-->
+                                <div th:text="${myFavMovie.title}"></div>
+                                <div th:text="평점 + ${myFavMovie.plot}"></div>
+                                <div th:text="개봉일 + ${myFavMovie.releaseDate}"></div>
                             </div>
                         </div>
                     </a>
