@@ -12,10 +12,7 @@ html,
 body {
     padding: 0;
     margin: 0;
-    /* height: 100%; */
-    /* display: grid; */
-    /* min-height: 100%; */
-    /* grid-template-rows: 1fr auto; */
+   emplate-rows: 1fr auto;
     background-color: black;
 }
 
@@ -29,20 +26,12 @@ body {
 
 }
 
-/* #ALL{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-} */
 
 footer {
-    /* grid-row-start: 2;
-    grid-row-end: 3; */
     background-color: rgb(0, 0, 0);
     color: #fff;
     width: 100%;
     text-align: center;
-    /* position: fixed; */
     bottom: 0;
     padding: 5px;
     margin-top: 150px;
@@ -155,7 +144,6 @@ nav ul li a {
 
 
 .container {
-    /* width: 1100px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -198,7 +186,7 @@ nav ul li a {
 
 
 .container .card span {
-    transition: 0.5;
+    transition: 0.5s;
     opacity: 0;
 }
 
@@ -296,9 +284,7 @@ nav ul li a {
 
 html {
     display: flex;
-    /* justify-content: center; */
     justify-content: space-around;
-    /* gap:50px; */
 }
 
 ul>li>figure {
@@ -307,15 +293,10 @@ ul>li>figure {
     border-top-right-radius: 0.5rem;
     max-height: 400px;
     overflow: hidden;
-    /* border: 1px solid white; */
-    /* padding: 20px; */
     border-radius: 0.45em;
     float: left;
-    /* margin-right: 40px; */
     max-width: 100%;
     height: auto;
-    /* margin-bottom: 50px; */
-    /* margin: 50px; */
     padding: 0%;
 }
 
@@ -334,7 +315,6 @@ ul>li>figure>img {
 }
 
 .h {
-    /* border-radius: 10em; */
     width: 200px;
     margin-top: 30px;
 }
@@ -364,7 +344,6 @@ figure{
     padding: 15px;
     border-radius: 5px;
     cursor: pointer;
-    font-weight: 700px;
     transition: 0.3s;
     opacity: 0;
 }

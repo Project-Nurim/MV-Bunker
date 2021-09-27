@@ -181,27 +181,6 @@ hr{
         height: 25px;
     }
 }
-/*@media (max-width: 900px) {*/
-/*    #ALL{*/
-/*        width: 60vw;*/
-/*    }*/
-/*    .mainProfile{*/
-/*        width: 26vw;*/
-/*        height: 26vw;*/
-/*    }*/
-/*    .upload {*/
-/*        width: 50px;*/
-/*        height: 23px;*/
-/*    }*/
-/*    input[type=button]{*/
-/*        width: 90px;*/
-/*        height: 23px;*/
-/*    }*/
-/*    #save{*/
-/*        width: 70px;*/
-/*        height: 23px;*/
-/*    }*/
-/*}*/
 
 @media (max-width: 700px) {
     #ALL{

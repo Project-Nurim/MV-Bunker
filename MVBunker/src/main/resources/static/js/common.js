@@ -150,56 +150,6 @@ function darknessEfx() {
 
 
 
-// function show() {
-// const side = document.querySelector('.side');
-//     if (side.style.display = 'none') {
-//         side.style.display = 'block';
-//         console.log('hiii');
-//     }
-//     else if (side.style.display = 'block') {
-//         side.style.display = 'none';
-//         console.log('hi');
-//     }
-// };
-
-// const side = document.querySelector('.side');
-// side.addEventListener('click',function(){
-//     if(side.style.display = 'none'){
-//         side.style.display = 'block';
-//         console.log('1-1');
-//     }
-//     else if (side.style.display = 'block'){
-//         side.style.display = 'none';
-//         console.log('1-2');
-//     }
-// })
-
-
-// var side = document.querySelector('.side');
-// side.addEventListener('click',function(){
-//     if($(".side").css("display","none")){
-//         $(".side").css("display","block");
-//         console.log('hi');
-//     }else{
-//         $(".side").css("display","none");
-//     }
-// })
-
-
-// const side = document.querySelector('.side');
-// const chk = document.querySelector('#chk');
-// if(chk){
-//     chk.addEventListener('change', () => {
-//         console.log(chk.checked);
-//
-//         if(chk.checked&&side) {
-//             side.style.display = 'block';
-//         }else{
-//             side.style.display = 'none';
-//         }
-//     });
-// }
-
 
 function color() {
     const menu = document.querySelector('.menu');

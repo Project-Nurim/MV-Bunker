@@ -21,9 +21,6 @@
   border-radius: 0.75em;
 }
 
-/* .container .card:hover{
-  box-shadow: 0 5px 20px #ffffff;
-} */
 
 .content .card .content {
   padding: 30px;
@@ -154,15 +151,10 @@ ul>li>figure {
   border-top-right-radius: 0.5rem;
   max-height: 400px;
   overflow: hidden;
-  /* border: 1px solid white; */
-  /* padding: 20px; */
   border-radius: 0.45em;
   float: left;
-  /* margin-right: 40px; */
   max-width: 100%;
   height: auto;
-  /* margin-bottom: 50px; */
-  /* margin: 50px; */
   padding: 0%;
 }
 
@@ -203,26 +195,26 @@ figure{
   color: white;
 }
 
-/*#back-to-top {*/
-/*  text-decoration: none;*/
-/*  position: fixed;*/
-/*  bottom: 3em;*/
-/*  right: 3em;*/
-/*  background-color: #166307;*/
-/*  color: #fff;*/
-/*  padding: 15px;*/
-/*  border-radius: 5px;*/
-/*  cursor: pointer;*/
-/*  font-weight: 700px;*/
-/*  transition: 0.3s;*/
-/*  opacity: 0;*/
-/*}*/
+#back-to-top {
+  text-decoration: none;
+  position: fixed;
+  bottom: 3em;
+  right: 3em;
+  background-color: #166307;
+  color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 700px;
+  transition: 0.3s;
+  opacity: 0;
+}
 
-/*#back-to-top:hover {*/
-/*  padding: 15px 45px;*/
+#back-to-top:hover {
+  padding: 15px 45px;
 
-/*}*/
+}
 
-/*#back-to-top.visible {*/
-/*  opacity: 1;*/
-/*}*/
+#back-to-top.visible {
+  opacity: 1;
+}
