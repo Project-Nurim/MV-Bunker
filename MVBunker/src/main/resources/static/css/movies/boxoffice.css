@@ -15,14 +15,8 @@
 body {
     width: 100%;
     height: 100%;
-    /*display: flex;*/
-    /*justify-content: center;*/
-    /*align-items: center;*/
     background: black;
-    /*overflow-y: hidden;*/
-
 }
-
 
 .infoList{
    transform: translateY(15%);
@@ -38,9 +32,8 @@ button:focus {
     border: none;
 }
 
-.hidden { display: none !important; }
-/*
-.hidden { display: none !important; } */
+.hidden {
+    display: none !important; }
 
 .app {
     position: relative;
@@ -48,8 +41,8 @@ button:focus {
     height: 100%;
     display: flex;
     justify-content: center;
-    /*align-items: center;*/
 }
+
 .app__bg {
     position: absolute;
     width: 100%;
@@ -60,6 +53,7 @@ button:focus {
     user-select: none;
     overflow: hidden;
 }
+
 .app__bg::before {
     content: "";
     position: absolute;
@@ -71,6 +65,7 @@ button:focus {
     z-index: 1;
     opacity: 0.8;
 }
+
 .app__bg__image {
     position: absolute;
     left: 50%;
@@ -82,47 +77,56 @@ button:focus {
     overflow: hidden;
 }
 
-
 .app__bg__image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
+
 .app__bg__image.current--image {
     opacity: 1;
     --image-translate-offset: 0;
 }
+
 .app__bg__image.previous--image, .app__bg__image.next--image, .app__bg__image.aaa--image,.app__bg__image.bbb--image,.app__bg__image.ccc--image, .app__bg__image.ddd--image {
     opacity: 0;
 }
+
 .app__bg__image.previous--image {
     z-index: 10;
     --image-translate-offset: -25%;
 }
+
 .app__bg__image.next--image {
     z-index: 10;
     --image-translate-offset: 25%;
 }
+
 .app__bg__image.aaa--image {
     --image-translate-offset:50%;
 }
+
 .app__bg__image.bbb--image {
     z-index: 5;
     --image-translate-offset:50%;
 }
+
 .app__bg__image.ccc--image {
     z-index: 5;
     --image-translate-offset:-25%;
 }
+
 .app__bg__image.ddd--image {
     --image-translate-offset:-25%;
 }
+
 .cardList {
     position: absolute;
     width: calc(4.3 * var(--card-width)); /*버튼 사이 간격*/
     height: auto;
     transform: translatey(320px);
 }
+
 .cardList__btn {
     --btn-size: 50px;
     width: var(--btn-size);
@@ -132,20 +136,25 @@ button:focus {
     transform: translateY(-50%);
     z-index: 100;
 }
+
 .cardList__btn.btn--left {
     left: -8%;
 }
+
 .cardList__btn.btn--right {
     right: -8%;
 }
+
 .cardList__btn .icon {
     width: 100%;
     height: 100%
 }
+
 .cardList__btn .icon svg {
     width: 100%;
     height: 100%;
 }
+
 .cardList .cards__wrapper {
     position: relative;
     width: 100%;
@@ -165,6 +174,7 @@ button:focus {
     transition: transform var(--card-transition-duration) var(--card-transition-easing);
     user-select: none;
 }
+
 .card::before {
     content: "";
     position: absolute;
@@ -177,11 +187,13 @@ button:focus {
     transition: opacity var(--card-transition-duration) var(--card-transition-easing);
     opacity: calc(1 - var(--opacity));
 }
+
 .card__image {
     position: relative;
     width: 100%;
     height: 100%;
 }
+
 .card__image img {
     position: absolute;
     left: 0;
@@ -190,6 +202,7 @@ button:focus {
     height: 100%;
     object-fit: cover;
 }
+
 .card.current--card {
     z-index: 100;
     --current-card-rotation-offset: 0;
@@ -198,19 +211,23 @@ button:focus {
     --card-scale-offset: 1.2;
     --opacity: 0.8;
 }
+
 .current--card:hover {
     cursor: pointer;
 }
+
 .card.previous--card {
     z-index: 90;
     --card-translateX-offset: calc(-1 * var(--card-width) * 1.1);
     --card-rotation-offset: 25deg;
 }
+
 .card.bbb--card{
     z-index: 80;
     --card-translateX-offset: calc(1.5*var(--card-width) * 1.1);
     --card-rotation-offset: -25deg;
 }
+
 .card.ddd--card{
     z-index: 70;
     --current-card-rotation-offset: 0;
@@ -225,6 +242,7 @@ button:focus {
     --card-translateX-offset: calc(var(--card-width) * 1.1);
     --card-rotation-offset: -25deg;
 }
+
 .card.aaa--card{
     z-index: 70;
     --current-card-rotation-offset: 0;
@@ -233,13 +251,12 @@ button:focus {
     --card-scale-offset: 1.2;
     --opacity: 0.8;
 }
+
 .card.ccc--card{
     z-index: 80;
     --card-translateX-offset: calc(-1.5*var(--card-width) * 1.1);
     --card-rotation-offset: 25deg;
 }
-
-
 
 .card.previous--card, .card.next--card, .card.aaa--card, .card.card.bbb--card, .card.card.ccc--card, .card.ddd--card {
     --card-scale-offset: 0.9;
@@ -247,12 +264,12 @@ button:focus {
 }
 
 .infoList {
-    /*position: absolute;*/
-    width: calc(3 * var(--card-width));/*여기 3에서 4로 고침*/
+    width: calc(3 * var(--card-width));
     height: var(--card-height);
     pointer-events: none;
     transform: translateY(32%);
 }
+
 .infoList .info__wrapper {
     position: relative;
     width: 100%;
@@ -262,7 +279,6 @@ button:focus {
     align-items: flex-end;
     perspective: 1000px;
     transform-style: preserve-3d;
-
 }
 
 .info {
@@ -271,6 +287,7 @@ button:focus {
     transform: translateZ(2rem);
     transition: transform var(--card-transition-duration) var(--card-transition-easing);
 }
+
 .info .text {
     position: relative;
     font-family: "Montserrat";
@@ -280,18 +297,20 @@ button:focus {
     width: fit-content;
     text-shadow: 5px 5px 7px rgb(0, 0, 0);
 }
+
 .info .name{
     font-size: 3em;
 }
-
 
 .info .name,
 .info .location {
     text-transform: uppercase;
 }
+
 .info .location {
     font-weight: 800;
 }
+
 .info .location {
     --mg-left: 40px;
     --text-size-offset: 0.12;
@@ -300,6 +319,7 @@ button:focus {
     margin-bottom: calc(var(--mg-left) / 2);
     padding-bottom: 0.8rem;
 }
+
 .info .location::before, .info .location::after {
     content: "";
     position: absolute;
@@ -307,20 +327,24 @@ button:focus {
     left: 0%;
     transform: translate(calc(-1 * var(--mg-left)), -50%);
 }
+
 .info .location::before {
     top: 50%;
     width: 20px;
     height: 5px;
 }
+
 .info .location::after {
     bottom: 0;
     width: 60px;
     height: 2px;
 }
+
 .info .description {
     --text-size-offset: 0.065;
     font-weight: 500;
 }
+
 .info, .info.previous--info, .info.next--info, .info.aaa--info, .info.bbb--info,.info.ccc--info, .info.ddd--info {
     opacity: 0;
     display: none;
@@ -330,7 +354,6 @@ button:focus {
     opacity: 1;
     display: block;
 }
-
 
 .loading__wrapper {
     position: fixed;
@@ -345,18 +368,21 @@ button:focus {
     background: #000;
     z-index: 200;
 }
+
 .loading__wrapper .loader--text {
     color: #fff;
     font-family: "Montserrat";
     font-weight: 500;
     margin-bottom: 1.4rem;
 }
+
 .loading__wrapper .loader {
     position: relative;
     width: 200px;
     height: 2px;
     background: rgba(255, 255, 255, 0.25);
 }
+
 .loading__wrapper .loader span {
     position: absolute;
     left: 0;
@@ -374,6 +400,7 @@ button:focus {
         --card-height: 450px;
     }
 }
+
 .support {
     position: absolute;
     right: 10px;
@@ -381,6 +408,7 @@ button:focus {
     padding: 10px;
     display: flex;
 }
+
 .support a {
     margin: 0 10px;
     color: #fff;
@@ -388,24 +416,10 @@ button:focus {
     backface-visibility: hidden;
     transition: all 150ms ease;
 }
+
 .support a:hover {
     transform: scale(1.1);
 }
-
-/*footer {*/
-/*    position: absolute;*/
-/*    left: 0;*/
-/*    bottom: 0;*/
-/*    background-color: rgb(0, 0, 0);*/
-/*    color: #fff;*/
-/*    width: 1536px;*/
-/*    height: auto;*/
-/*    font-size: 0.85em;*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*}*/
 
 label .menu {
     position: absolute;
@@ -415,7 +429,6 @@ label .menu {
     width: 64px;
     height: 175px;
     background: rgb(0, 0, 0);
-    /* border-radius: 50% 50% 50% 50%; */
     -webkit-transition: .1s ease-in-out;
     transition: .3s ease-in-out;
     box-shadow: 0 0 0 0 rgb(0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0.421);
@@ -482,6 +495,3 @@ label input:checked+.menu .hamburger:before {
     transform: rotate(90deg);
     top: 0;
 }
-
-
-/**/

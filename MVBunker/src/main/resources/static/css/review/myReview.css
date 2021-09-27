@@ -67,13 +67,11 @@ nav ul {
     margin-bottom: 100px;
 }
 
-
 tr td {
     color: white;
     border: 1px solid rgb(0, 0, 0);
     width: 10vw;
     height: 10px;
-    /* padding: 10px; */
     padding-left: 20px;
 }
 

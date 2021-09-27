@@ -9,50 +9,47 @@ html {
 body{
     -ms-overflow-style: none;
 }
+
 ::-webkit-scrollbar {
     display: none;
-} /*특정 부분 스크롤바 없애기*/
+}
+
 .box{
     -ms-overflow-style: none;
 }
+
 .box::-webkit-scrollbar {
     display:none;
 }
-
 
 html,
 body {
     padding: 0;
     margin: 0;
-
     background-color: black;
 }
-
 
 .movies {
     width: 100%;
     height: auto;
     padding: 30px;
-
 }
 
 section {
     text-align: center;
 }
 
-
 /*-------------------------------------------------------*/
 .mySlides {
     display: none;
 }
+
 .num{
-    /*margin-top: 50px;*/
     color: white;
     font-size: 8em;
     position: relative;
     -webkit-text-stroke: 4px #000;
     font-weight: 800;
-    /* left: -98px; */
     text-align: left;
     top: 87px;
     left: -43px;
@@ -65,7 +62,6 @@ section {
     font-family: 'Hamberger';
     src: url('/css/movies/Hamberger-Bold.ttf');
 }
-
 
 /* Next & previous buttons */
 .prev,
@@ -83,17 +79,15 @@ section {
     border-radius: 0 3px 3px 0;
     user-select: none;
 }
+
 .p{
     position: relative;
-
 }
-
 
 .prev2,
 .next2 {
     cursor: pointer;
     position: absolute;
-    /* top:112%; */
     top: 23vw;
     width: auto;
     margin-top: -22px;
@@ -105,6 +99,7 @@ section {
     border-radius: 0 3px 3px 0;
     user-select: none;
 }
+
 .prev3,
 .next3 {
     cursor: pointer;
@@ -120,6 +115,7 @@ section {
     border-radius: 0 3px 3px 0;
     user-select: none;
 }
+
 .prev4,
 .next4 {
     cursor: pointer;
@@ -135,6 +131,7 @@ section {
     border-radius: 0 3px 3px 0;
     user-select: none;
 }
+
 /* Position the "next button" to the right */
 .next {
     right: 0;
@@ -145,17 +142,18 @@ section {
     right: 0;
     border-radius: 3px 0 0 3px;
 }
+
 .next3 {
     right: 0;
     border-radius: 3px 0 0 3px;
 }
+
 .next4 {
     right: 0;
     border-radius: 3px 0 0 3px;
 }
+
 /* On hover, add a black background color with a little bit see-through */
-
-
 @-webkit-keyframes fade {
     from {
         opacity: .4
@@ -176,27 +174,23 @@ section {
     }
 }
 
-
-
 div p {
-    /*position: absolute;*/
     color: white;
     margin-top:115px;
     margin-left: 80px;
     font-size:3em;
-    /*margin-bottom: 30px;*/
     font-weight: 900;
 }
+
 .movies {
     margin-top: 0;
     padding-top: 0;
-
 }
+
 .x:hover{
     box-shadow: black;
     cursor: pointer;
 }
-
 
 .M{
     position: absolute;
@@ -205,8 +199,6 @@ div p {
 }
 
 .more{
-    /*position: relative;*/
-    /*top: 0px;*/
     font-size:1.2em;
     background-color: black;
     color: white;
@@ -215,7 +207,6 @@ div p {
     margin-right: 40px;
 }
 
-
 /*------------------------------------------------------*/
 nav {
     position: relative;
@@ -223,7 +214,6 @@ nav {
     display: flex;
     justify-content: space-around;
     width: 100%;
-
 }
 
 nav .line {
@@ -232,7 +222,6 @@ nav .line {
     bottom: 0;
     margin: 10px 0 0 0;
     background: #FF1847;
-
 }
 
 nav ul {
@@ -244,14 +233,12 @@ nav ul {
 }
 
 nav ul li {
-
     margin: 0 0 0 0;
     opacity: 1;
     transition: all 0.4s ease;
     margin-top: 30px;
     color: rgb(0, 0, 0);
     padding: 0 23px;
-
 }
 
 nav ul li:hover {
@@ -278,30 +265,17 @@ nav ul li a {
     font-size: 16px;
 }
 
-
-
 ul>li>figure {
     position: relative;
-    /*height: auto;*/
-    /*float: left;*/
     width: 100%;
-    /*height: auto;*/
     height: 23vw;
 }
+
 ul li figure .x {
     width: 100%;
     height: inherit;
     border-radius: 0.7em;
-
 }
-/*ul>li>figure>img {*/
-/*    border-radius: 0.7em;*/
-/*    height: 100%;*/
-/*    width: 100%;*/
-/*}*/
-/*ul>li>figure>img:hover{*/
-/*    background-color: white;*/
-/*}*/
 
 ul{
     display: grid;
@@ -310,7 +284,6 @@ ul{
     padding: 25px;
     padding: 0px 65px;
 }
-
 
 @media(max-width: 600px) {
     ul {
@@ -334,8 +307,6 @@ footer {
 }
 
 .img-wrapper {
-    /*width: 195px;*/
-    /*height: 195px;*/
     width: inherit;
     height: inherit;
     position: absolute;
@@ -348,24 +319,14 @@ footer {
     height: inherit;
 }
 
-
-/*.img1 {*/
-/*    top: 200px;*/
-/*    left: 200px;*/
-/*}*/
-
 .darkness {
     position: absolute;
     bottom: 0;
     left: 0;
     width: inherit;
     height: inherit;
-    /* height: 70px; */
     background: rgb(0, 0, 0);
-    /* 추가된 부분 */
     opacity: 0;
-    /*transition: all .2s linear;*/
-    /*border-radius: 0.7em;*/
     z-index: 10;
 }
 
@@ -376,9 +337,7 @@ footer {
     height:38%;
     text-align: center;
     margin: 0 auto;
-    /* 추가된 부분 */
     opacity: 0;
-    /*transform: scale(1.2);*/
     transition: all .2s linear;
     color: white;
     font-size: 1.3em;
@@ -387,25 +346,23 @@ footer {
     margin-left: 13px;
     line-height: 35px;
 }
+
 .aTag{
     display: block;
     width: inherit;
     height: inherit;
 }
+
 .btn-plus span {
     font-size: 2.3em;
     color: #ffffff;
     user-select: none;
-    /*text-shadow: 5px 5px 7px rgb(0, 0, 0);*/
 }
 
-/* 추가된 부분 */
 .darkness:hover {
     opacity: 0.4;
 }
 
-
-/* 추가된 부분 */
 .img-wrapper:hover .btn-plus {
     opacity: 1;
     transform: scale(1);
@@ -416,15 +373,12 @@ footer {
     position: fixed;
     bottom: 1em;
     right: 0.35em;
-    /* background-color: #000000; */
     color: rgb(0, 0, 0);
     padding: 0 10px;
     border-radius: 5px;
     cursor: pointer;
-    /* font-weight: 1000; */
     transition: 0.3s;
     opacity: 0;
-    /* z-index: -1; */
     z-index: 100;
 }
 
@@ -436,239 +390,6 @@ footer {
 #back-to-top.visible {
     opacity: 1;
 }
-
-
-
-
-
-
-
-/*label .menu {*/
-/*    position: absolute;*/
-/*    right: 8px;*/
-/*    top: -100px;*/
-/*    z-index: 100;*/
-/*    width: 64px;*/
-/*    height: 175px;*/
-/*    background: rgb(0, 0, 0);*/
-/*    !* border-radius: 50% 50% 50% 50%; *!*/
-/*    -webkit-transition: .1s ease-in-out;*/
-/*    transition: .3s ease-in-out;*/
-/*    box-shadow: 0 0 0 0 rgb(0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0.421);*/
-/*    cursor: pointer;*/
-/*}*/
-
-/*label .hamburger {*/
-/*    position: absolute;*/
-/*    top: 135px;*/
-/*    left: 20px;*/
-/*    width: 30px;*/
-/*    height: 2.5px;*/
-/*    background: rgb(255, 255, 255);*/
-/*    display: block;*/
-/*    -webkit-transform-origin: center;*/
-/*    transform-origin: center;*/
-/*    -webkit-transition: .5s ease-in-out;*/
-/*    transition: .5s ease-in-out;*/
-/*}*/
-
-/*label .hamburger:after,*/
-/*label .hamburger:before {*/
-/*    -webkit-transition: .5s ease-in-out;*/
-/*    transition: .5s ease-in-out;*/
-/*    content: "";*/
-/*    position: absolute;*/
-/*    display: block;*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    background: rgb(241, 241, 241);*/
-/*}*/
-
-/*label .hamburger:before {*/
-/*    top: -10px;*/
-/*}*/
-
-/*label .hamburger:after {*/
-/*    bottom: -10px;*/
-/*}*/
-
-/*#chk {*/
-/*    display: none;*/
-/*}*/
-
-/*label input:checked+.menu {*/
-/*    !*background-color: #b2bec3;*!*/
-/*    background-color: black;*/
-/*    box-shadow: 50vw 0vw 0vh 1050px rgba(0, 0, 0, 0.64);*/
-/*    border-radius: 0;*/
-/*}*/
-
-/*label input:checked+.menu .hamburger {*/
-/*    -webkit-transform: rotate(45deg);*/
-/*    transform: rotate(45deg);*/
-/*}*/
-
-/*label input:checked+.menu .hamburger:after {*/
-/*    -webkit-transform: rotate(90deg);*/
-/*    transform: rotate(90deg);*/
-/*    bottom: 0;*/
-/*}*/
-
-/*label input:checked+.menu .hamburger:before {*/
-/*    -webkit-transform: rotate(90deg);*/
-/*    transform: rotate(90deg);*/
-/*    top: 0;*/
-/*}*/
-
-
-
-/*.menu-list ul{*/
-/*    animation: text-focus-in2 .4s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;*/
-/*}*/
-/*@keyframes text-focus-in2 {*/
-/*    0% {*/
-/*        filter: blur(12px);*/
-/*        opacity: 0;*/
-/*    }*/
-
-/*    100% {*/
-/*        filter: blur(0px);*/
-/*        opacity: 1;*/
-/*    }*/
-/*}*/
-
-/*@media (max-width: 1000px) {*/
-/*    .link-1 {*/
-/*        font-size: 1.5vw;*/
-/*        !* padding: 0.2rem 0; *!*/
-/*    }*/
-
-/*    .menu-list ul {*/
-/*        left: 0;*/
-/*    }*/
-
-/*    .menu-list li {*/
-/*        line-height: 20px;*/
-/*        margin-bottom: 0.1em;*/
-/*        font-size: 1em;*/
-/*    }*/
-/*}*/
-
-/*.menu-list {*/
-/*    position: absolute;*/
-/*    !* left: 20px; *!*/
-/*    right: -390px;*/
-/*    top: 100px;*/
-/*    !* z-index: 100; *!*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-
-/*}*/
-
-/*.menu-list ul {*/
-/*    width: 700px;*/
-/*    !* margin-top: 25px; *!*/
-/*    z-index: 200;*/
-/*    !* position: absolute; *!*/
-/*    transition: .25s ease-in-out;*/
-/*    left: 100px;*/
-/*}*/
-
-/*.menu-list ul li {*/
-/*    line-height: 75px;*/
-/*    margin-bottom: 0.7em;*/
-/*    font-weight: bold;*/
-/*    list-style: none;*/
-/*}*/
-
-/*.menu-list a {*/
-/*    display: block;*/
-/*    color: rgb(255, 255, 255);*/
-/*    text-decoration: none;*/
-/*    font-size: 1.5em;*/
-/*    z-index: 10;*/
-/*}*/
-
-/*.menu-list a:hover {*/
-/*    color: rgba(255, 255, 255, 0.64);*/
-/*}*/
-
-/*.link-1{*/
-/*    text-transform: uppercase;*/
-/*}*/
-
-/*#none-popup::before {*/
-/*    content: 'Logout';*/
-/*}*/
-/*#none-popup:hover{*/
-/*    animation-play-state: paused;*/
-/*}*/
-/*#none-popup:hover::before{*/
-/*    content: '로그아웃';*/
-/*}*/
-
-
-
-/*#mypage::before {*/
-/*    content: 'mypage';*/
-/*}*/
-
-/*#mypage:hover{*/
-/*    animation-play-state: paused;*/
-/*}*/
-/*#mypage:hover::before {*/
-/*    content: '마이페이지';*/
-/*}*/
-
-
-
-/*.myfavoriteM::before {*/
-/*    content: 'my favorite movie';*/
-/*}*/
-
-/*.myfavoriteM:hover{*/
-/*    animation-play-state: paused;*/
-/*}*/
-/*.myfavoriteM:hover::before {*/
-/*    content: '내가 찜한 영화';*/
-/*}*/
-
-
-/*.myfavoriteR::before {*/
-/*    content: 'my reveiw';*/
-/*}*/
-
-/*.myfavoriteR:hover{*/
-/*    animation-play-state: paused;*/
-/*}*/
-/*.myfavoriteR:hover::before {*/
-/*    content: '내가 작성한 리뷰';*/
-/*}*/
-
-
-
-/*.fReviewer::before {*/
-/*    content: 'following reviewer';*/
-/*}*/
-
-/*.fReviewer:hover{*/
-/*    animation-play-state: paused;*/
-/*}*/
-/*.fReviewer:hover::before {*/
-/*    content: '내가 구독한 리뷰어';*/
-/*}*/
-
-/*.myFreview::before {*/
-/*    content: 'my favorite review';*/
-/*}*/
-
-/*.myFreview:hover{*/
-/*    animation-play-state: paused;*/
-/*}*/
-/*.myFreview:hover::before {*/
-/*    content: '내가 찜한 리뷰';*/
-/*}*/
-
 
 .menu{
     position: absolute;
