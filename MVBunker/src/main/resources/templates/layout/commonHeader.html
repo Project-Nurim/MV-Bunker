@@ -44,6 +44,7 @@
         </label>
 
         <div class="side">
+
             <div sec:authorize="isAnonymous()"> <a href="#"><span id="popup_open_btn"></span></a></div>
             <div sec:authorize="isAuthenticated()"><a href="/user/logout"><span id="none-popup"></span></a></div>
             <div><a href="/user/profile" ><span id="mypage"></span></a></div>

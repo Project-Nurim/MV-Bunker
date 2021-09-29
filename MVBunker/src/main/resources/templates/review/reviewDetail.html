@@ -18,6 +18,7 @@
 <!-- 우리 사이트의 꽃!!! 리뷰페이지!!! -->
 <th:block layout:fragment="content">
     <input id="movieIdInput" type="hidden" th:value="${param.movieId}">
+    <div id="t">
     <div id="video" th:unless="${videos.size() == 0}" th:data-video-key="${videos.get(0).key}"></div>
     <div th:if="${videos.size() == 0}" style="color:white;">영상 준비중..</div> <!-- 이거 나중에 수정해줘 -->
 
@@ -184,6 +185,7 @@
             </div>
         </div>
     </div>
+
     <span id="share">공유하기<i class="fas fa-share-square"></i></span>
 
     <!-- 모달창 + 평가후 별 -->
@@ -265,7 +267,7 @@
 <!--            <input type="button" class="wBtn2" value="수정">-->
         </div>
     </div>
-
+    </div>
 
 </th:block>
 </body>
