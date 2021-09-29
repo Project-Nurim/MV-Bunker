@@ -13,13 +13,27 @@
     </th:block>
     <title>favorite review</title>
 </head>
+<!-- 내가 찜한 리뷰 목록 List명 >> selLikeReviews
+     기타 변수
+     해당 리뷰를 작성한 영화의 id값 = id
+     제목 >> title
+     포스터 >> poster
+     작성자 유저 값 >> i_user
+     작성자 닉네임 >> unn
+     작성일 >> regdt
+     리뷰 내용 >> re_ctnt
+     해당 리뷰의 평가값 >>
+     해당 리뷰가 받은 좋아요, 싫어요, 달린 댓글 수 >> 이거 찾으면 적어둘게염 ㅇㅅㅇ
+     -->
 <body>
 <th:block layout:fragment="content">
     <div class="table">
+    <th:block th:each="favReviewList : ${selLikeReviews}">
         <table>
             <tr>
                 <td rowspan="5"><img class="poster" src="/누림/img/닥터스트레인지.jpg"></td>
                 <td class="width" colspan="3">제목명</td>
+                <td th:text="${favReviewList.title}"></td>
             </tr>
             <tr>
                 <td class="width" colspan="3">작성자</td>
@@ -52,7 +66,8 @@
                 <td class="width" colspan="3">리뷰</td>
             </tr>
         </table>
+        </th:block>
     </div>
-</th:block>
+    </th:block>
 </body>
 </html>

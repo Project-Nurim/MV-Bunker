@@ -13,11 +13,23 @@
     </th:block>
     <title>my review</title>
 </head>
+<!-- 내가 작성한 리뷰 목록 List명 >> selReviewList
+     해당 리뷰의 pk값 >> i_review
+     영화의 id값 >> id
+     제목 >> title
+     포스터 >> poster
+     작성자 유저 값 >> i_user
+     작성자 닉네임 >> unn
+     작성일 >> regdt
+     리뷰 내용 >> re_ctnt
+     해당 리뷰의 총평점평균 >> totalAvg_Review
+     해당 리뷰가 받은 좋아요, 싫어요 수, 달린 댓글 수 >> review_like_cnt, review_disLike_cnt, review_cmt_cnt
+     -->
 <body>
 <th:block layout:fragment="content">
     <section id="reviewContainer">
-        <th:block th:each="reviewList : ${selMyReviewList}">
-            <p th:text="reviewList.unn"></p>
+        <th:block th:each="reviewList : ${selReviewList}">
+            <p th:text="${reviewList.unn}"></p>
         </th:block>
     </section>
 </th:block>

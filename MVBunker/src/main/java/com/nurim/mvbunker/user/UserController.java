@@ -79,6 +79,7 @@ public class UserController {
     public void followReviewer(@AuthenticationPrincipal CustomUserPrincipals userDetails, Model model){
         UserEntity loginUser = userDetails.getUser();
         List<UserDomain> followReviewer = service.mySubUser(loginUser);
+//        List<UserDomain> followReviewer_active = service.selUserProfile()
         model.addAttribute("followReviewer",followReviewer);
     }
 
@@ -95,13 +96,13 @@ public class UserController {
 
     @GetMapping("/myReview")
     public void myReview(UserEntity param, Model model){
-        /*PagingDTO pagingDTO = new PagingDTO(0);
+        PagingDTO pagingDTO = new PagingDTO(0);
         List<ReviewDomain> selReviewList = service.selReviewList(param, pagingDTO);
         MovieFavEntity mf_Entity = new MovieFavEntity();
         mf_Entity.setI_user(param.getI_user());
         List<HoverVO> selHover2 = moviesService.selHover1(mf_Entity);
         model.addAttribute("selReviewList", selReviewList);
-        model.addAttribute("selHover2", selHover2);*/
+        model.addAttribute("selHover2", selHover2);
     }
 
     @ResponseBody

@@ -44,7 +44,7 @@
         WHERE i_user = #{i_user}
     </update>
 
-    <!-- Detail : 내가 작성한 리뷰 / 댓글 / 받은 좋아요 수(리뷰) 띄우기 -->
+    <!-- Detail : 내가 작성한 리뷰 수 / 내가 작성한 댓글 수 / 받은 좋아요 총합(리뷰) 띄우기 -->
     <select id="selUserProfile" resultType="UserDomain">
         SELECT COUNT(B.i_review)AS'countMyReview',
                 (SELECT COUNT(i_user) FROM t_review_cmt WHERE i_user = #{i_user})AS'countMyReview_cmt',
@@ -60,7 +60,8 @@
     <select id="selReviewList" resultType="ReviewDomain">
         select R.unn as unn, R.i_user as i_user, R.i_review as i_review, R.title as title, R.id as id, R.poster as poster, R.regdt as regdt, R.re_ctnt as re_ctnt,
                round((E.production+E.performance+E.visual_beauty+E.music+E.plot)/5, 3) as totalAvg_Review,
-               count(case when RL.disLike = 0 then 1 end) as review_like_cnt
+               count(case when RL.disLike = 0 then 1 end) as review_like_cnt,
+               count(case when RL.disLike = 1 then 1 end) as review_disLike_cnt
         from(
                 select B.unn as unn, A.i_user as i_user, A.i_review as i_review, A.title as title, A.id as id, A.poster As poster, A.regdt as regdt, A.re_ctnt as re_ctnt
                 from t_review A
@@ -149,9 +150,10 @@
 
     <!-- 좋아요 누른 리뷰 목록 띄우기 -->
     <select id="selLikeReviews" resultType="ReviewDomain">
-        select C.*
+        select R.i_user as i_user, R.disLike as disLike,
+               C.i_review as i_review, C.id as id, C.title as title, C.poster as poster, C.re_ctnt as re_ctnt, C.regdt as regdt
         from(
-                select A.i_review as i_review
+                select A.i_review as i_review, A.disLike as disLike, B.i_user as i_user
                 from t_review_like A
                          left join t_user B
                                    on A.i_user = B.i_user
