@@ -71,7 +71,7 @@
                                 <figure>
                                     <div class="img-wrapper img1">
                                     <a class="aTag"
-                                            th:href="@{/review/reviewDetail?movieId=${genre.value.get(i).id}}">
+                                       th:href="@{/review/reviewDetail(movieId=${genre.value.get(i).id})}">
                                         <img class="x"
                                              th:src="'https://image.tmdb.org/t/p/w500/' + ${genre.value.get(i).posterPath}">
                                         <div class="darkness">
