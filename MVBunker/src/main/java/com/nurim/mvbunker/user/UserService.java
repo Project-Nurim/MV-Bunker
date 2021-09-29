@@ -144,7 +144,7 @@ public class UserService {
     // 비밀번호 체크
     public boolean checkPassword(String upw) {
         System.out.println("패스워드는? : " + upw);
-        System.out.println("진실은 ? : " + new BCryptPasswordEncoder().matches(upw, mapper.selUser(auth.getLoginUser()).getUpw()));
+        System.out.println("진실은 ? : " + passwordEncoder.matches(upw, mapper.selUser(auth.getLoginUser()).getUpw()));
         return new BCryptPasswordEncoder().matches(upw, mapper.selUser(auth.getLoginUser()).getUpw());
     }
 

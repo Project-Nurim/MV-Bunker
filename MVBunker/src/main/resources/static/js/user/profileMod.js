@@ -38,7 +38,6 @@ document.querySelector('#pw_mod_btn').addEventListener('click', async (e) => {
             for(let i = 0; i < modalNewUpwElem.length; i++) {
                 document.querySelector('#upwStarView').innerText += '*';
             }
-
         }else {
             alert('비밀번호가 틀렸습니다.');
         }
