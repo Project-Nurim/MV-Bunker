@@ -237,7 +237,6 @@ hr{
 
 /* 비밀번호수정, 회원탈퇴 모달 */
 #pw_modal {
-    display: none;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -262,7 +261,7 @@ hr{
 
 .modal-wrapper.open {
     opacity: 1;
-    visibility: visible;
+    visibility: visible !important;
 }
 
 .modal {

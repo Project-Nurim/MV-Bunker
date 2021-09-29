@@ -43,13 +43,11 @@ function show() {
 
     if (uidElem.value === "") {
         alert("아이디를 확인해주세요");
-        return false;
     } else if (upwElem.value === "") {
         alert("비밀번호를 확인해주세요");
-        return false;
     } else {
         uidElem.value += mailValue.value;
-        return true;
+        document.getElementById('loginForm').submit();
     }
 }
 
@@ -453,3 +451,14 @@ const glitch = new TextGlitch(elTitle);
 
 glitch.on();
 
+/* ------------------------ 로그인 실패 시 ------------------------------- */
+const urlStr = window.location.href;
+const url = new URL(urlStr);
+const urlParams = url.searchParams;
+function loginFailure() {
+    console.log(urlParams.get('error'));
+    if(urlParams.get('error') === 'true') {
+        alert('아이디 또는 비밀번호를 확인해 주십시오.');
+    }
+}
+loginFailure();

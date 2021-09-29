@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
@@ -20,6 +21,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsService userDetails;
     @Autowired private CustomOAuth2UserService customOauth2UserService;
+    @Autowired private AuthenticationFailureHandler customFailureHandler;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -47,7 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .usernameParameter("uid")
                 .passwordParameter("upw")
                 .defaultSuccessUrl("/home") // 로그인 성공시 갈 곳 *
-                .failureUrl("/home?error");
+                .failureHandler(customFailureHandler);	// 실패 핸들러
 
         security.oauth2Login()
                 .loginPage("/user/login")
