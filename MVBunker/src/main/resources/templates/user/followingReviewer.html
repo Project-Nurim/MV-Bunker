@@ -2,7 +2,7 @@
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorator="layout/profileLayout">
+      layout:decorator="layout/basiclayout">
 <head>
     <th:block layout:fragment="css">
         <link rel="stylesheet" th:href="@{/css/user/followingReviewer.css}">
@@ -21,7 +21,7 @@
         </div>
     <div id="ALL">
         <th:block th:each="subuser : ${followReviewer}">
-        <ul class="container">
+        <ul class="container3">
             <li class="card">
                 <span></span>
                 <span></span>

@@ -51,7 +51,8 @@ section {
 .next {
     cursor: pointer;
     position: absolute;
-    top: 18vw;
+    /*top: 18vw;*/
+    transform: translateY(275%);
     width: auto;
     margin-top: -60px;
     padding: 16px 50px;
@@ -71,7 +72,8 @@ section {
 .next2 {
     cursor: pointer;
     position: absolute;
-    top: 18vw;
+    /*top: 18vw;*/
+    transform: translateY(275%);
     width: auto;
     margin-top: -22px;
     padding: 16px;
@@ -87,7 +89,8 @@ section {
 .next3 {
     cursor: pointer;
     position: absolute;
-    top: 18vw;;
+    top: 18vw;
+    transform: translateY(275%);
     width: auto;
     margin-top: -22px;
     padding: 16px;
@@ -103,7 +106,8 @@ section {
 .next4 {
     cursor: pointer;
     position: absolute;
-    top: 18vw;;
+    /*top: 18vw;*/
+    transform: translateY(275%);
     width: auto;
     margin-top: -22px;
     padding: 16px;

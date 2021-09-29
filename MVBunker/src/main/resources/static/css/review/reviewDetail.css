@@ -43,6 +43,7 @@ fa-thumbs-up:before{
     width:66%;
     height: 600px;
     border: 1px solid white;
+    margin: 0 auto;
 }
 
 .square{
@@ -293,6 +294,8 @@ body{
     align-items: center;
     justify-content: center;
     height: 100%;
+    position: relative;
+    float: right;
 }
 
 .rating-wrap{
@@ -662,6 +665,15 @@ body{
 
 .menu{
     position: absolute;
-    right: 72px;
+    right: 0px;
     top: -100px;
+}
+.hero {
+    position: absolute;
+    top: 0;
+}
+
+#t {
+    position: absolute;
+    top: 250px;
 }
