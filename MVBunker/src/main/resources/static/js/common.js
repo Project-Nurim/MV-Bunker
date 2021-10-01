@@ -163,6 +163,7 @@ function color() {
 
     const side = document.querySelector('.side');
     const chk = document.querySelector('#chk');
+    const bar = document.querySelector('#bar');
     if (chk) {
         chk.addEventListener('change', () => {
             console.log(chk.checked);
@@ -171,8 +172,11 @@ function color() {
                 // menuListUlElem.style.opacity = 1;
                 side.style.display = 'block';
                 menu.style.background = 'rgba(0,0,0)';
+                bar.style.display = 'block';
+
             } else {
                 side.style.display = 'none';
+                bar.style.display = 'none';
             }
         });
     }
