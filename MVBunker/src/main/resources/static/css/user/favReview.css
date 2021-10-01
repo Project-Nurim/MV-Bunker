@@ -1,0 +1,10 @@
+.table {
+    color: white;
+    margin-top: 100px;
+}
+
+.menu{
+    position: absolute;
+    right: 72px;
+    top: -100px;
+}
