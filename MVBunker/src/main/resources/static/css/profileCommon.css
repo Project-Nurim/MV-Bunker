@@ -118,7 +118,7 @@ label .menu {
     background: rgb(0, 0, 0);
     -webkit-transition: .1s ease-in-out;
     transition: .3s ease-in-out;
-    box-shadow: 0 0 0 0 rgb(0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0.421);
+    /*box-shadow: 0 0 0 0 rgb(0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0.421);*/
     cursor: pointer;
 }
 
@@ -162,7 +162,7 @@ label .hamburger:after {
 
 label input:checked+.menu {
      background-color: #b2bec3;
-    box-shadow: 50vw 0vw 0vh 1050px rgba(0, 0, 0, 0.64);
+    /*box-shadow: 50vw 0vw 0vh 1050px rgba(0, 0, 0, 0.64);*/
     border-radius: 0;
 }
 
@@ -337,3 +337,59 @@ footer{
     padding: 15px 0px;
 }
 
+#bar{
+    background: black;
+    width: 340px;
+    /*border: 1px solid wheat;*/
+    height: 100vh;
+    position: absolute;
+    right: 0;
+    z-index: 40;
+    top: 0;
+    display: none;
+}
+
+
+.side {
+    position: fixed;
+    /*right: 10px;*/
+    right: 0;
+    top: 100px;
+    /*position: relative;*/
+    z-index: 100;
+    /*top: -90px;*/
+    /*height: 100vh;*/
+    width: 83%;
+    /*float: right;*/
+    text-align: left;
+    line-height: 90px;
+    font-size: 1.4em;
+    display: none;
+}
+
+.side, #bar{
+    animation: text-focus-in2 .4s cubic-bezier(0.550,0.085,0.680,0.530) both;
+}
+@keyframes text-focus-in2 {
+    0%{
+        filter:blur(12px);
+        opacity: 0;
+    }
+    100%{
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+
+.side div:hover{
+    opacity: 0.7;
+}
+.side div{
+    display: block;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+}

@@ -68,7 +68,8 @@ section {
 .next {
     cursor: pointer;
     position: absolute;
-    top: 23vw;
+    transform: translateY(440%);
+    /*top: 23vw;*/
     width: auto;
     margin-top: -60px;
     padding: 16px 50px;
@@ -88,7 +89,8 @@ section {
 .next2 {
     cursor: pointer;
     position: absolute;
-    top: 23vw;
+    /*top: 23vw;*/
+    transform: translateY(440%);
     width: auto;
     margin-top: -22px;
     padding: 16px;
@@ -104,8 +106,9 @@ section {
 .next3 {
     cursor: pointer;
     position: absolute;
-    top: 23vw;
+    /*top: 23vw;*/
     width: auto;
+    transform: translateY(440%);
     margin-top: -22px;
     padding: 16px;
     color: white;
@@ -120,8 +123,9 @@ section {
 .next4 {
     cursor: pointer;
     position: absolute;
-    top: 23vw;
+    /*top: 23vw;*/
     width: auto;
+    transform: translateY(440%);
     margin-top: -22px;
     padding: 16px;
     color: white;
@@ -271,6 +275,33 @@ ul>li>figure {
     height: 23vw;
 }
 
+@media(max-width: 1382px)  {
+    .mySlides ul li figure{
+        height: 27vw;
+    }
+}
+@media (max-width: 1134px) {
+    .mySlides ul li figure {
+        height: 34vw;
+    }
+}
+@media (max-width: 885px) {
+    .mySlides ul li figure {
+        height: 46vw;
+    }
+}
+@media (max-width: 638px) {
+    .mySlides ul{
+        width: 73%;
+        margin: 0 auto;
+    }
+    .mySlides ul li figure{
+        height: 60vw;
+    }
+}
+
+
+
 ul li figure .x {
     width: 100%;
     height: inherit;
@@ -397,3 +428,5 @@ footer {
     top: -100px;
     z-index: 50;
 }
+
+
