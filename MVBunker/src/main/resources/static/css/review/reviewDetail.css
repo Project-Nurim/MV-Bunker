@@ -7,21 +7,30 @@
     align-items: center;
     justify-content: center;
 }
-
+#layoutSection {
+    flex-grow: 1;
+}
 *{
     margin:0;
     padding:0;
     box-sizing: border-box;
 }
+body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
 
-body{
-    width:100%
+body {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    width:100%;
+    height: 100%;
 }
 
 .fa-star:before {
     color: yellow;
 
 }
+
 #one {
     position: absolute;
     display:flex;
@@ -40,10 +49,11 @@ fa-thumbs-up:before{
 
 #frame{
     position: relative;
-    width:66%;
+    width:100%;
     height: 600px;
     border: 1px solid white;
     margin: 0 auto;
+    margin-bottom: 50px;
 }
 
 .square{
@@ -197,15 +207,16 @@ fa-thumbs-up:before{
 
 .head {
     width: 100%;
-    height: 55px;
-    padding: 12px 30px;
+    height: 35px;
+    /*padding: 12px 30px;*/
     overflow: hidden;
     background: white;
 }
 
 .btn-close {
+    margin: 5px;
     font-size: 28px;
-    display: block;
+    display: inline;
     float: right;
     color: black;
 }
@@ -287,9 +298,10 @@ fa-thumbs-up:before{
 
 body{
     font-family: Arial, sans-serif;
+    height: 100vh;
 }
 
-.container {
+.container1 {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -663,11 +675,19 @@ body{
     color: #e4c63f;
 }
 
-.menu{
+label .menu {
     position: absolute;
-    right: 0px;
+    right: -72px;
     top: -100px;
-    z-index: 50;
+    z-index: 100;
+    width: 64px;
+    height: 175px;
+    background: rgb(0, 0, 0);
+    /* border-radius: 50% 50% 50% 50%; */
+    -webkit-transition: .1s ease-in-out;
+    transition: .3s ease-in-out;
+    /* box-shadow: 0 0 0 0 rgb(0 0 0), 0 0 0 0 rgb(0 0 0 / 42%); */
+    cursor: pointer;
 }
 .hero {
     position: absolute;
@@ -677,4 +697,23 @@ body{
 #t {
     position: absolute;
     top: 250px;
+    margin-top: 50px;
 }
+
+.side{
+    right: -20px;
+}
+#bar{
+    right: -72px;
+}
+
+
+#all{
+    display: flex;
+    flex-direction: column;
+}
+
+footer{
+    display: none;
+}
+
