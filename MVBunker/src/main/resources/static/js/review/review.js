@@ -17,6 +17,10 @@ infinityScrolling.makeItemList = makeItemList;
 infinityScrolling.setScrollInfinity(window);
 infinityScrolling.getItemList(1);
 function makeItemList(result) { // 받은 애들 어떻게 뿌릴지
+    const p2Elem = document.createElement('div');
+    p2Elem.classList.add('p2');
+    const ptagElem = document.createElement('p');
+    ptagElem.innerText = `내가 찜한 영화`
     const reviewList = result.selAllReview;
     console.log('reviewList = ' + reviewList);
     reviewList.forEach(review => {
@@ -47,6 +51,7 @@ function makeItemList(result) { // 받은 애들 어떻게 뿌릴지
         const writeElem = document.createElement('div');
         writeElem.innerText = `리뷰 : ${review.re_ctnt}`
 
+        p2Elem.append(ptagElem);
         oneposterElem.append(divtag1Elem);
         divtag1Elem.append(posterimgElem);
         oneposterElem.append(br1Elem);
@@ -57,6 +62,7 @@ function makeItemList(result) { // 받은 애들 어떻게 뿌릴지
         personalElem.append(starElem);
         onereviewElem.append(writeElem);
 
+        sectionElem.append(p2Elem);
         sectionElem.append(oneposterElem);
         sectionElem.append(onereviewElem);
         sectionElem.append(personalElem);
