@@ -677,7 +677,7 @@ body{
 
 label .menu {
     position: absolute;
-    right: -72px;
+    right: -83px;
     top: -100px;
     z-index: 100;
     width: 64px;
@@ -702,8 +702,10 @@ label .menu {
 
 .side{
     right: -20px;
+    width: 90%;
 }
 #bar{
+    height: 100vh;
     right: -72px;
 }
 
@@ -717,3 +719,6 @@ footer{
     display: none;
 }
 
+.container{
+    right: -72px;
+}
