@@ -331,6 +331,7 @@ label input:checked+.menu {
     background-color: #b2bec3;
     /*box-shadow: 50vw 0vw 0vh 1050px rgba(0, 0, 0, 0.64);*/
     border-radius: 0;
+
 }
 
 label input:checked+.menu .hamburger {
@@ -359,13 +360,14 @@ a {
 
 .side {
     position: fixed;
-    right: 10px;
+    /*right: 10px;*/
+    right: 0;
     top: 100px;
     /*position: relative;*/
     z-index: 100;
     /*top: -90px;*/
     height: 100vh;
-    width: 18%;
+    width: 83%;
     /*float: right;*/
     text-align: left;
     line-height: 90px;
@@ -373,7 +375,7 @@ a {
     display: none;
 }
 
-.side{
+.side, #bar{
     animation: text-focus-in2 .4s cubic-bezier(0.550,0.085,0.680,0.530) both;
 }
 @keyframes text-focus-in2 {
@@ -477,4 +479,14 @@ a {
 /*    top: -100px;*/
 /*}*/
 
-
+#bar{
+    background: black;
+    width: 340px;
+    /*border: 1px solid wheat;*/
+    height: 100%;
+    position: absolute;
+    right: 0;
+    z-index: 40;
+    top: 0;
+    display: none;
+}
