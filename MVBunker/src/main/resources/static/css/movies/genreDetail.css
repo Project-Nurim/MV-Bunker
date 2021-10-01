@@ -101,4 +101,5 @@ figure {
     position: absolute;
     right: 72px;
     top: -100px;
+    z-index: 50;
 }

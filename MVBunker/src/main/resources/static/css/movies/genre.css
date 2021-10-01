@@ -89,7 +89,7 @@ section {
 .next3 {
     cursor: pointer;
     position: absolute;
-    top: 18vw;
+    /*top: 18vw;*/
     transform: translateY(275%);
     width: auto;
     margin-top: -22px;
@@ -400,20 +400,34 @@ footer {
     top: -100px;
     z-index: 50;
 }
+@media (max-width: 1318px) {
+    .mySlides ul li figure{
+        height: 27vw;
+    }
 
+}
 
-@media (max-width: 1000px) {
+@media (max-width: 1086px) {
     .mySlides ul li figure {
-       height: 32vw;
+       height: 35vw;
     }
 }
-@media (max-width: 800px) {
+@media (max-width: 854px) {
     .mySlides ul li figure {
         height: 46vw;
     }
 }
-@media (max-width: 700px) {
+@media (max-width: 638px) {
+    .mySlides ul{
+        width: 73%;
+        margin: 0 auto;
+    }
+    .mySlides ul li figure{
+        height: 60vw;
+    }
+}
+@media (max-width: 622px) {
     .mySlides ul li figure {
-        height: 54vw;
+        height: 60vw;
     }
 }

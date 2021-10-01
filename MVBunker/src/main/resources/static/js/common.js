@@ -164,6 +164,7 @@ function color() {
     const side = document.querySelector('.side');
     const chk = document.querySelector('#chk');
     const bar = document.querySelector('#bar');
+    const body = document.querySelector('body');
     if (chk) {
         chk.addEventListener('change', () => {
             console.log(chk.checked);
@@ -173,12 +174,12 @@ function color() {
                 side.style.display = 'block';
                 menu.style.background = 'rgba(0,0,0)';
                 bar.style.display = 'block';
-
+                body.style.overflow='hidden';
             } else {
-                side.style.display = 'none';
-                bar.style.display = 'none';
+                $('.side').fadeOut();
+                $('#bar').fadeOut();
+                body.style.overflow='auto';
             }
         });
     }
 }
-console.log('hi');
