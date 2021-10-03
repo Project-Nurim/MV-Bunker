@@ -279,6 +279,9 @@ ul>li>figure {
     .mySlides ul li figure{
         height: 27vw;
     }
+    div p{
+        font-size: 3vw;
+    }
 }
 @media (max-width: 1134px) {
     .mySlides ul li figure {
