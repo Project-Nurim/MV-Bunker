@@ -10,7 +10,7 @@ let player;
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('video', {
         height: '430',
-        width: '1000',
+        width: '100%',
         playerVars: {'controls': 0 },
         videoId: videoKey
     });
