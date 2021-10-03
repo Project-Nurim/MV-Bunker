@@ -369,6 +369,11 @@ label .menu {
     cursor: pointer;
 }
 
+@media (max-width: 578px) {
+    .content {
+        width: 85%;
+    }
+}
 
 
 .img-wrapper {

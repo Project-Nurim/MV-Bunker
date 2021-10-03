@@ -418,17 +418,34 @@ label .menu {
     .mySlides ul li figure{
         height: 27vw;
     }
-
+    div p {
+        font-size: 3em;
+    }
+    .more{
+        font-size: 1.1em;
+    }
 }
 
 @media (max-width: 1086px) {
     .mySlides ul li figure {
        height: 35vw;
     }
+    div p {
+        font-size: 2.7em;
+    }
+    .more{
+        font-size: 1em;
+    }
 }
 @media (max-width: 854px) {
     .mySlides ul li figure {
         height: 46vw;
+    }
+    div p {
+        font-size: 2.4em;
+    }
+    .more{
+        font-size: 0.8em;
     }
 }
 @media (max-width: 638px) {
@@ -439,9 +456,18 @@ label .menu {
     .mySlides ul li figure{
         height: 60vw;
     }
+    div p {
+        font-size: 2em;
+    }
+    .more{
+        font-size: 0.7em;
+    }
 }
 @media (max-width: 622px) {
     .mySlides ul li figure {
         height: 60vw;
     }
+    /*div p {*/
+    /*    font-size: 1.7em;*/
+    /*}*/
 }
