@@ -20,7 +20,7 @@ function makeItemList(result) { // 받은 애들 어떻게 뿌릴지
     const p2Elem = document.createElement('div');
     p2Elem.classList.add('p2');
     const ptagElem = document.createElement('p');
-    ptagElem.innerText = `내가 찜한 영화`
+    ptagElem.innerText = `리뷰`
     const reviewList = result.selAllReview;
     console.log('reviewList = ' + reviewList);
     reviewList.forEach(review => {
