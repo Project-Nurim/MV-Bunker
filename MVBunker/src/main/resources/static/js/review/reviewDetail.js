@@ -202,15 +202,15 @@ function getMovieEvalAvg(movieId) {
         .then(res => res.json())
         .then(myJson => {
             performanceStarElem.style.width = myJson.movieEval.performance/5 * 100 + '%';
-            performanceStarScoreElem.innerText = myJson.movieEval.performance + '/5';
+            performanceStarScoreElem.innerText = myJson.movieEval.performance.toFixed(1) + '/5';
             productionStarElem.style.width = myJson.movieEval.production/5 * 100 + '%';
-            productionStarScoreElem.innerText = myJson.movieEval.production + '/5';
+            productionStarScoreElem.innerText = myJson.movieEval.production.toFixed(1) + '/5';
             visual_beautyStarElem.style.width = myJson.movieEval.visual_beauty/5 * 100 + '%';
-            visual_beautyStarScoreElem.innerText = myJson.movieEval.visual_beauty + '/5';
+            visual_beautyStarScoreElem.innerText = myJson.movieEval.visual_beauty.toFixed(1) + '/5';
             musicStarElem.style.width = myJson.movieEval.music/5 * 100 + '%';
-            musicStarScoreElem.innerText = myJson.movieEval.music + '/5';
+            musicStarScoreElem.innerText = myJson.movieEval.music.toFixed(1) + '/5';
             plotStarElem.style.width = myJson.movieEval.plot/5 * 100 + '%';
-            plotStarScoreElem.innerText = myJson.movieEval.plot + '/5';
+            plotStarScoreElem.innerText = myJson.movieEval.plot.toFixed(1) + '/5';
         })
 }
 if(isAnonymous) {

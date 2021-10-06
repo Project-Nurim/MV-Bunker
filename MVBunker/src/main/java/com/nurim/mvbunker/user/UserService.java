@@ -103,6 +103,9 @@ public class UserService {
     // 프로필 변경
     public int updUserProfile(UserEntity param) {
         param.setI_user(auth.getLoginUserPk());
+        String originPw = param.getUpw();
+        String hashedPw = passwordEncoder.encode(originPw);
+        param.setUpw(hashedPw);
         int result = mapper.updUser(param);
         UserEntity loginUser = auth.getLoginUser();
         UserEntity modedUser = mapper.selUser(loginUser);
