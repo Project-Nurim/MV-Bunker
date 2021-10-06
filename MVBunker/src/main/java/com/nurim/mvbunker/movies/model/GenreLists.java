@@ -32,6 +32,7 @@ public class GenreLists {
         for(int i = 0 ; i < originList.size() ; i++) {
             MyMovieDb movieDb = new MyMovieDb(originList.get(i));
             result.add(movieDb.getId());
+            if(originList.get(i).getGenres().size() == 0) break;
             movieDb.setMainGenre(originList.get(i).getGenres().get(0));
             moviesMapper.insMovies(movieDb);
             System.out.println("insert movie");

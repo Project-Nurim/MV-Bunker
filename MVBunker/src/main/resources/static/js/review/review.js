@@ -24,6 +24,7 @@ function makeItemList(result) { // 받은 애들 어떻게 뿌릴지
     const reviewList = result.selAllReview;
     console.log('reviewList = ' + reviewList);
     reviewList.forEach(review => {
+        const figureElem = document.createElement('figure');
         const oneposterElem = document.createElement('div');
         oneposterElem.classList.add('oneposter');
         const divtag1Elem = document.createElement('div');
@@ -43,7 +44,7 @@ function makeItemList(result) { // 받은 애들 어떻게 뿌릴지
         profileimgElem.src= `${review.profileImg}`;
         const userElem = document.createElement('span');
         userElem.className = 'user';
-        userElem.innerText = `닉네임 : ${review.unn}` | `작성일 : ${review.regdt}`;
+        userElem.innerText = `닉네임 : ${review.unn} | 작성일 : ${review.regdt}`;
         const br2Elem = document.createElement('br');
         const starElem = document.createElement('div');
         starElem.classList.add('star');
@@ -62,10 +63,13 @@ function makeItemList(result) { // 받은 애들 어떻게 뿌릴지
         personalElem.append(starElem);
         onereviewElem.append(writeElem);
 
-        sectionElem.append(p2Elem);
-        sectionElem.append(oneposterElem);
-        sectionElem.append(onereviewElem);
-        sectionElem.append(personalElem);
+        figureElem.append(p2Elem);
+        figureElem.append(oneposterElem);
+        figureElem.append(onereviewElem);
+        figureElem.append(personalElem);
+
+        sectionElem.append(figureElem);
+
 
 
         // imgFrameElem.addEventListener('click', (e) => {

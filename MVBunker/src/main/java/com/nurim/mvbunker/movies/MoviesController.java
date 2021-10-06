@@ -94,7 +94,12 @@ public class MoviesController {
 
     @GetMapping("/search")
     public void search(Model model, String searchText) {
-        model.addAttribute("movieList", service.getMovieSearch(searchText));
+        try {
+            model.addAttribute("movieList", service.getMovieSearch(searchText));
+        }catch (Exception e) {
+            model.addAttribute("movieList", new ArrayList<>());
+            model.addAttribute("errorMsg", "찾는 결과가 없습니다.");
+        }
     }
 
 }

@@ -17,6 +17,7 @@
 </head>
 <body>
 <th:block layout:fragment="content">
+    <div th:if="${movieList.size() == 0}"><span class="errorMsg" th:text="${errorMsg}"></span></div>
     <div class="movie-wrap">
     <section class="movie-container" id="movies">
         <figure th:each="movie : ${movieList}">
