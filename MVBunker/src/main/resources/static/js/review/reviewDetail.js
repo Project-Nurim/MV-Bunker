@@ -23,17 +23,18 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 // 리뷰 CRUD 틀 (수정 필요 *******)
 const reviewContainerElem = document.querySelector('#frame');
+const reviewContainerElem2 = document.querySelector('.review-container');
 const reviewWriteBtn = document.querySelector('.wBtn');
-const reviewCtntVal = document.querySelector('#test').value;
 const movieTitleVal = document.querySelector('.square').dataset.movieTitle;
 const moviePosterPath = document.querySelector('.square').dataset.moviePoster;
 reviewWriteBtn.addEventListener('click',() => {
     const data = {
         id: movieIdVal,
-        re_ctnt: reviewCtntVal,
+        re_ctnt: document.querySelector('#test').value,
         title: movieTitleVal,
         poster: moviePosterPath
     }
+    console.log(data.re_ctnt);
     const init = {
         method: 'POST',
         headers: {
@@ -45,14 +46,30 @@ reviewWriteBtn.addEventListener('click',() => {
     fetch('/review/reviewRest', init)
         .then(res => res.json())
         .then(review => {
-            makeJustReview(review);
-            document.querySelector('.square').classList.add('hide');
-            document.querySelector('#test').classList.add('hide');
-            document.querySelector('#test_cnt').classList.add('hide');
-            document.querySelector('.r-button').classList.add('hide');
+            console.log(review);
+            reviewContainerElem2.prepend(makeJustReview(review));
+            hideWriteBox();
         })
 })
-
+// 리뷰쓰는 텍스트 창 닫는 함수
+function hideWriteBox() {
+    document.querySelector('.square').classList.add('hide');
+    document.querySelector('#test').classList.add('hide');
+    document.querySelector('#test_cnt').classList.add('hide');
+    document.querySelector('.r-button').classList.add('hide');
+}
+// 내가 쓴 리뷰 있는지 확인
+function checkMyReview() {
+    fetch(`/review/reviewRest/${movieIdVal}`)
+        .then(res => res.json())
+        .then(myJson => {
+            console.log('내가 쓴 리뷰 있는감 : ' + myJson);
+            if(myJson > 0) {
+                hideWriteBox();
+            }
+        })
+}
+checkMyReview();
 
 
 
@@ -62,7 +79,6 @@ reviewWriteBtn.addEventListener('click',() => {
 
 
 // 인피니티 스크롤링 설정
-const reviewContainerElem2 = document.querySelector('.review-container');
 infinityScrolling.url = `/review/reviewDetailInfiniteScrolling?movieId=${movieIdVal}`; // 요청보낼 url
 infinityScrolling.makeItemList = makeItemList;
 infinityScrolling.setScrollInfinity(window);
