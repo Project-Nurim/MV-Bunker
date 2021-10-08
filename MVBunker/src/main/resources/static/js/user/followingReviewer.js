@@ -30,7 +30,7 @@ function color() {
             }
         });
     }
-  
+
 console.log('hi');
 
     /* 인피니트 스크롤 */
@@ -96,3 +96,4 @@ console.log('hi');
 
         })
     }
+}
