@@ -91,6 +91,9 @@ fa-thumbs-up:before{
     width: 94%;
     margin: 30px auto;
 }
+.review-container{
+    color: #fff;
+}
 
 #movieStarContainer {
     display: grid;

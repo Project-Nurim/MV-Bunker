@@ -108,6 +108,9 @@ public class ReviewController {
 
     // Personal Review CRUD
     @ResponseBody
+    @GetMapping("/reviewRest/{movieId}")
+    public int isExistMyReview(@PathVariable(name = "movieId") int id) {return service.isExistMyReview(id);}
+    @ResponseBody
     @PostMapping("/reviewRest")
     public ReviewDomain insReview(@RequestBody ReviewEntity param) {
         return service.insAndSelReview(param);

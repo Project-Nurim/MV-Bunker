@@ -14,6 +14,7 @@ import java.util.List;
 @Mapper
 public interface ReviewMapper {
     //Review CRUD
+    int checkMyReview(ReviewEntity param);
     int insReview(ReviewEntity param);
     int updReview(ReviewEntity param);
     int delReview(ReviewEntity param);

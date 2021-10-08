@@ -2,6 +2,13 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.nurim.mvbunker.review.ReviewMapper">
 
+    <!-- 내가 쓴 리뷰가 있는지 확인 -->
+    <select id="checkMyReview" resultType="Integer">
+        SELECT COUNT(*)
+        FROM t_review
+        WHERE i_user = ${i_user} AND id = ${id}
+    </select>
+
     <!-- 리뷰 작성 후 DB에 저장 -->
     <insert id="insReview" useGeneratedKeys="true" keyProperty="i_review">
         insert into t_review
@@ -11,7 +18,21 @@
     </insert>
     <!-- 방금 쓴 리뷰 셀렉트 -->
     <select id="selJustReview" resultType="ReviewDomain">
-        SELECT * FROM t_review WHERE i_review = ${i_review}
+        select R.unn as unn, R.i_user as i_user, R.i_review as i_review, R.title as title, R.id as id, R.poster as poster, R.regdt as regdt, R.re_ctnt as re_ctnt,
+               E.i_user AS Ei_user,E.id as Eid, E.production as production, E.performance as performance, E.visual_beauty as visual_beauty, E.music as music, E.plot as plot,
+               count(case when RL.disLike = 0 then 1 end) as review_dislike_cnt
+        from(
+                select B.unn as unn, A.i_user as i_user, A.i_review as i_review, A.title as title, A.id as id, A.poster As poster, A.regdt as regdt, A.re_ctnt as re_ctnt
+                from t_review A
+                         left join t_user B
+                                   on A.i_user = B.i_user
+            )R
+                left join t_eval E
+                          on R.id = E.id and R.i_user = E.i_user
+                left join t_review_like RL
+                          on R.i_review = RL.i_review
+        where R.i_review = ${i_review}
+        group by R.i_review
     </select>
 
     <!-- 전체리뷰 - 최신순&좋아요많은순 정렬 | default=최신순 >>> hover 시 mapper와 분리! -->

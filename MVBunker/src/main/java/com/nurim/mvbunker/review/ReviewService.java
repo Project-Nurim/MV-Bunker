@@ -60,6 +60,18 @@ public class ReviewService {
 
 
     // Review CRUD
+    public int isExistMyReview(int id) {
+        ReviewEntity param = new ReviewEntity();
+        param.setId(id);
+        if(auth.getLoginUser() == null) {
+            return 0;
+        }
+        param.setI_user(auth.getLoginUserPk());
+        int result = mapper.checkMyReview(param);
+        System.out.println("개수는? : " + result);
+        return result;
+    }
+
     public ReviewDomain insAndSelReview(ReviewEntity param) {
         param.setI_user(auth.getLoginUserPk());
         mapper.insReview(param);
