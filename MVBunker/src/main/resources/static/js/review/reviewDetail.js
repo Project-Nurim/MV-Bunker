@@ -55,7 +55,70 @@ reviewWriteBtn.addEventListener('click',() => {
 
 
 
+
+
+
+
+
+
+// 인피니티 스크롤링 설정
+const reviewContainerElem2 = document.querySelector('.review-container');
+infinityScrolling.url = `/review/reviewDetailInfiniteScrolling?movieId=${movieIdVal}`; // 요청보낼 url
+infinityScrolling.makeItemList = makeItemList;
+infinityScrolling.setScrollInfinity(window);
+infinityScrolling.getItemList(1);
+
+function makeItemList(reviewList) { // 받은 애들 어떻게 뿌릴지
+    console.log(reviewList);
+    reviewList.forEach(review => {
+        const reviewElem = makeJustReview(review);
+        reviewContainerElem2.append(reviewElem);
+       // 지민이가 만든 컨테이너 주소 변수.innerHTML += `<div>${review.title}</div>`;
+    })
+}
+/* 바로 아래 얘나 그 밑에 주석되어 있는 애 아무거나 골라서 원하는 방식으로 작업해주면 댑니다.
+    unn;    작성자 닉네임
+    profileImg; 작정자 프로필사진
+    review_like_cnt;    리뷰 좋아요 개수
+    review_dislike_cnt; 리뷰 싫어요 개수
+    review_cmt_cnt;     리뷰 댓글 개수
+    totalAvg_Review;
+    totalAvg_Movie;
+    i_review;
+    id;
+    title;  영화 제목
+    poster; 영화 포스터
+    i_user;
+    re_ctnt;    리뷰 내용
+    regdt;  글쓴 일시
+
+    둘다 review.변수명으로 내용 불러오면 댑니다.
+    설명 적어놓은건 웬만하면 다 불러와질텐데.. 자세한 건 은영이에게 문의..
+*  */
 function makeJustReview(review) {
+    const reviewFigure = document.createElement('figure');
+    reviewFigure.className = 'review-figure';
+    const userProfileDiv = document.createElement('div');
+    userProfileDiv.classList.add('userProfileDiv');
+    const userProfileImg = document.createElement('img');
+    userProfileImg.src = review.profileImg;
+    const reviewTextBox = document.createElement('div');
+    reviewTextBox.classList.add('reviewTextBox');
+    const reviewTitle = document.createElement('h5');
+    reviewTitle.classList.add('reviewTitle');
+    reviewTitle.innerText = review.title;
+    const reviewCtnt = document.createElement('span');
+    reviewCtnt.classList.add('reviewCtnt');
+    reviewCtnt.innerText = review.re_ctnt;
+    userProfileDiv.append(userProfileImg);
+    reviewTextBox.append(reviewTitle);
+    reviewTextBox.append(reviewCtnt);
+    reviewFigure.append(userProfileDiv);
+    reviewFigure.append(reviewTextBox);
+    return reviewFigure;
+}
+
+/*function makeJustReview(review) {
     // 리뷰 화면에 그리기
     const reviewDivElem = document.createElement('div');
     reviewDivElem.innerHTML =
@@ -66,26 +129,7 @@ function makeJustReview(review) {
         </div>
     </div>`
     reviewContainerElem.append(reviewDivElem);
-}
-
-
-
-
-
-// 인피니티 스크롤링 설정
-infinityScrolling.url = `/review/reviewDetailInfiniteScrolling?movieId=${movieIdVal}`; // 요청보낼 url
-infinityScrolling.makeItemList = makeItemList;
-infinityScrolling.setScrollInfinity(window);
-infinityScrolling.getItemList(1);
-
-function makeItemList(reviewList) { // 받은 애들 어떻게 뿌릴지
-    console.log(reviewList);
-    reviewList.forEach(review => {
-        makeJustReview(review);
-       // 지민이가 만든 컨테이너 주소 변수.innerHTML += `<div>${review.title}</div>`;
-    })
-}
-
+}*/
 
 
 $( document ).ready(function() {

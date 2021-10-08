@@ -257,18 +257,21 @@
     </section>
 
 
-    <div id="frame">
-        <div class="square" th:data-movie-title="${myMovie.title}" th:data-movie-poster="${myMovie.posterPath}">
-            <textarea id="test" name="test" cols="130" rows="10"></textarea>
-            <div id="test_cnt">(0 / 100)</div>
+        <div id="frame">
+            <div class="square" th:data-movie-title="${myMovie.title}" th:data-movie-poster="${myMovie.posterPath}">
+                <textarea id="test" name="test" cols="130" rows="10"></textarea>
+                <div id="test_cnt">(0 / 100)</div>
+            </div>
+            <form method="get">
+                <div class="r-button">
+                    <input type="button" class="wBtn" value="쓰기">
+        <!--            <input type="button" class="wBtn2" value="수정">-->
+                </div>
+            </form>
+            <div class="review-container">
+
+            </div>
         </div>
-        <form method="get">
-        <div class="r-button">
-            <input type="button" class="wBtn" value="쓰기">
-<!--            <input type="button" class="wBtn2" value="수정">-->
-        </div>
-        </form>
-    </div>
     </div>
 
 

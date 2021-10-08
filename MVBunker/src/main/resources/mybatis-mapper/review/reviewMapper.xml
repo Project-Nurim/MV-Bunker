@@ -58,13 +58,13 @@
             on R.id = E.id and R.i_user = E.i_user
         left join t_review_like RL
             on R.i_review = RL.i_review
-        where R.id = #{id}
+        where R.id = #{param.id}
         group by R.i_review
         <choose>
-        <when test="orderby == 0">
+        <when test="pagingDTO.orderby == 0">
             ORDER BY R.i_review DESC;
         </when>
-        <when test="orderby == 1">
+        <when test="pagingDTO.orderby == 1">
             order by review_dislike_cnt DESC;
         </when>
         </choose>

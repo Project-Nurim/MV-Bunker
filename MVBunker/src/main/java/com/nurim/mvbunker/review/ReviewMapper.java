@@ -22,7 +22,7 @@ public interface ReviewMapper {
     ReviewDomain selJustReview(ReviewEntity param);
     List<ReviewDomain> selAllReview(PagingDTO page);
     //특정영화 리뷰목록 출력 >> 인피니티스크롤 기능 빼기!! , PagingDTO page
-    List<ReviewDomain> selReview(int id);
+    List<ReviewDomain> selReview(ReviewEntity param, PagingDTO pagingDTO);
 
     //Evaluate CRUD
     int insEval(EvalEntity param);
