@@ -422,6 +422,7 @@ label .menu {
     display: block;
     width: inherit;
     height: inherit;
+    cursor : pointer;
 }
 
 .btn-plus span {
