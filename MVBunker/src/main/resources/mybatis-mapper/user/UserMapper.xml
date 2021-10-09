@@ -46,13 +46,22 @@
 
     <!-- Detail : 내가 작성한 리뷰 수 / 내가 작성한 댓글 수 / 받은 좋아요 총합(리뷰) 띄우기 -->
     <select id="selUserProfile" resultType="UserDomain">
-        SELECT COUNT(B.i_review)AS'countMyReview',
-                (SELECT COUNT(i_user) FROM t_review_cmt WHERE i_user = #{i_user})AS'countMyReview_cmt',
-                COUNT(case when A.disLike = 0 then 1 END)AS'countMyReviewLike'
-        FROM t_review_like A
-                 left JOIN t_review B
-                            ON A.i_review = B.i_review
-        WHERE B.i_user = #{i_user};
+        select A.i_user as i_user,
+               count(distinct B.i_review) as countMyReview,
+               count(case when C.disLike =0 then 0 end) as countMyReviewLike,
+               ifnull(D.i_cmt, 0) as countMyReview_cmt
+        from
+                ( select i_user from t_user) A
+            left join
+                ( select i_user, i_review from t_review ) B
+            on A.i_user = B.i_user
+            left join
+                ( select i_review, disLike from t_review_like where disLike is not null) C
+            on B.i_review = C.i_review
+            left JOIN
+                ( select distinct i_user, count(i_cmt)as i_cmt from t_review_cmt)D
+            on A.i_user = D.i_user
+        where A.i_user = #{i_user};
     </select>
 
     <!-- 작성한 리뷰 목록 띄우기 + 각 평가기준 별 평점-->
