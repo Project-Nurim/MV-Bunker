@@ -36,10 +36,12 @@
                 <span></span>
                 <span></span>
                 <figure class="content">
+                    <a th:href='@{/user/followingReviewerDetail(i_user=${subuser.i_user})}'>
                     <th:block class="h" th:if="${subuser.profileImg} != null"><img class="mainProfile" th:src="${subuser.profileImg}">
                     </th:block>
                     <th:block class="h" th:if="${subuser.profileImg} == null"><img class="mainProfile" src="/img/logo/noprofile.png">
                     </th:block>
+                    </a>
                     <div>
                         <p th:text="${subuser.unn}" class="pro"></p>
                         <p th:text="${subuser.regdt}" class="pro"></p>

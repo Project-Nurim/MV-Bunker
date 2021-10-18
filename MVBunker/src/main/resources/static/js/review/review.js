@@ -28,6 +28,8 @@ function makeItemList(result) { // 받은 애들 어떻게 뿌릴지
         const oneposterElem = document.createElement('div');
         oneposterElem.classList.add('oneposter');
         const divtag1Elem = document.createElement('div');
+        const toReviewDetailaTagElem = document.createElement('a');
+        toReviewDetailaTagElem.href = "/review/reviewDetail?movieId=" + review.id;
         const posterimgElem = document.createElement('img');
         posterimgElem.className = 'posterimg';
         posterimgElem.src = 'https://image.tmdb.org/t/p/w500/' + review.poster;
@@ -36,6 +38,8 @@ function makeItemList(result) { // 받은 애들 어떻게 뿌릴지
         const br1Elem = document.createElement('br');
         const personalElem = document.createElement('div');
         personalElem.classList.add('personal');
+        const toFollowingReviewerDetailaTagElem = document.createElement('a');
+        toFollowingReviewerDetailaTagElem.href = '/user/followingReviewerDetail?i_user=' + review.i_user;
         const profileimgElem = document.createElement('img');
         profileimgElem.className = 'profileimg';
         if(review.profileImg == null){
@@ -54,10 +58,12 @@ function makeItemList(result) { // 받은 애들 어떻게 뿌릴지
 
         p2Elem.append(ptagElem);
         oneposterElem.append(divtag1Elem);
-        divtag1Elem.append(posterimgElem);
+        toReviewDetailaTagElem.append(posterimgElem);
+        divtag1Elem.append(toReviewDetailaTagElem);
         oneposterElem.append(br1Elem);
         onereviewElem.append(personalElem);
-        personalElem.append(profileimgElem);
+        toFollowingReviewerDetailaTagElem.append(profileimgElem);
+        personalElem.append(toFollowingReviewerDetailaTagElem);
         personalElem.append(userElem);
         personalElem.append(br2Elem);
         personalElem.append(starElem);

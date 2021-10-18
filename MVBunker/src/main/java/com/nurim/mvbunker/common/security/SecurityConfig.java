@@ -39,13 +39,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         security.csrf().disable();
 
         security.authorizeRequests() // 로그인 없이 갈 수 있는 곳
-//                .antMatchers("/user/login", "/user/join", "/user/auth", "/movies/boxoffice")
-                .antMatchers("/**") // test 용
+                .antMatchers("/home", "/developers", "/user/login", "/user/join", "/user/auth", "/movies/boxoffice", "/movies/genre", "/movies/genreDetail"
+                , "/movies/recommendation", "/movies/search", "/review/review", "/review/reviewDetail", "/review/getMovieEvalAvg", "/review/reviewDetailInfiniteScrolling"
+                , "/review/getAllReview")
+//                .antMatchers("/**") // test 용
                 .permitAll()
                 .anyRequest().authenticated();
 
         security.formLogin()
-                .loginPage("/user/login")
+                .loginPage("/home")
+                .loginProcessingUrl("/user/login")
                 .usernameParameter("uid")
                 .passwordParameter("upw")
                 .defaultSuccessUrl("/home") // 로그인 성공시 갈 곳 *

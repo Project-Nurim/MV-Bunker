@@ -11,6 +11,7 @@ import com.nurim.mvbunker.movies.model.MovieDomain;
 import com.nurim.mvbunker.movies.model.MovieEntity;
 import com.nurim.mvbunker.movies.model.MovieFavEntity;
 import com.nurim.mvbunker.review.model.ReviewDomain;
+import com.nurim.mvbunker.user.model.SubEntity;
 import com.nurim.mvbunker.user.model.UserDomain;
 
 import com.nurim.mvbunker.user.model.UserEntity;
@@ -133,6 +134,17 @@ public class UserService {
     //팔로워 프로필 디테일
     public UserDomain subUserProfile(UserEntity param){
         return mapper.subUserProfile(param);
+    }
+
+    //리뷰어 팔로우(구독), 취소
+    public int doSubscribe(SubEntity param) {
+        return mapper.insSub(param);
+    }
+    public int unDoSubscribe(SubEntity param) {
+        return mapper.delSub(param);
+    }
+    public int checkSubscribe(SubEntity param) {
+        return mapper.chkSub(param);
     }
 
     //회원 탈퇴
