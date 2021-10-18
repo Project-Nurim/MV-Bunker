@@ -5,6 +5,7 @@ import com.nurim.mvbunker.movies.model.MovieDomain;
 import com.nurim.mvbunker.movies.model.MovieEntity;
 import com.nurim.mvbunker.movies.model.MovieFavEntity;
 import com.nurim.mvbunker.review.model.ReviewDomain;
+import com.nurim.mvbunker.user.model.SubEntity;
 import com.nurim.mvbunker.user.model.UserDomain;
 import com.nurim.mvbunker.user.model.UserEntity;
 import org.apache.ibatis.annotations.Mapper;
@@ -24,8 +25,9 @@ public interface UserMapper {
     List<ReviewDomain> selReviewList(UserEntity param, PagingDTO pagingDTO);
 
     //구독
-    int insSub(UserEntity param, int sub_ed_user);
-    int delSub(UserEntity param, int sub_ed_user);
+    int insSub(SubEntity param);
+    int delSub(SubEntity param);
+    int chkSub(SubEntity param);
     List<UserDomain> mySubUser(UserEntity param);
     UserDomain subUserProfile(UserEntity param);
 

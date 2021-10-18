@@ -11,6 +11,7 @@ import com.nurim.mvbunker.movies.model.MovieEntity;
 import com.nurim.mvbunker.movies.model.MovieFavEntity;
 import com.nurim.mvbunker.review.ReviewService;
 import com.nurim.mvbunker.review.model.ReviewDomain;
+import com.nurim.mvbunker.user.model.SubEntity;
 import com.nurim.mvbunker.user.model.UserDomain;
 import com.nurim.mvbunker.user.model.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -84,19 +85,50 @@ public class UserController {
     }
 
     @GetMapping("/followingReviewerDetail")
-    public void followReviewerDetail(@AuthenticationPrincipal CustomUserPrincipals userDetails, PagingDTO pagingDTO, Model model){
-        UserEntity loginUser = userDetails.getUser();
-        int loginUserPk = loginUser.getI_user();
+    public void followReviewerDetail(SubEntity param, Model model){
+        if(auth.getLoginUser() == null) {
+            model.addAttribute("anonymous", "1");
+        }else if(param.getI_user() == auth.getLoginUserPk()) {
+            model.addAttribute("anonymous", "2");
+        }
 
-        List<ReviewDomain> selReviewList = service.selReviewList(loginUser,pagingDTO);
-        UserDomain subUserProfile = service.subUserProfile(loginUser);
+//        List<ReviewDomain> selReviewList = service.selReviewList(loginUser,pagingDTO);
+        UserDomain subUserProfile = service.subUserProfile(param);
         model.addAttribute("subUserProfile",subUserProfile);
-        model.addAttribute("subUserReview",selReviewList);
+//        model.addAttribute("subUserReview",selReviewList);
     }
+
+    /* 리뷰어 구독/구독취소 하기 */
+    @ResponseBody
+    @PostMapping("/subscribe")
+    public int doSubscribe(@RequestBody SubEntity param) {
+        param.setSub_ing_user(auth.getLoginUserPk());
+        return service.doSubscribe(param);
+    }
+    @ResponseBody
+    @DeleteMapping("/subscribe/{sub_ed_user}")
+    public int unDoSubscribe(@PathVariable(name = "sub_ed_user") int sub_ed_user) {
+        SubEntity param = new SubEntity();
+        param.setSub_ing_user(auth.getLoginUserPk());
+        param.setSub_ed_user(sub_ed_user);
+        return service.unDoSubscribe(param);
+    }
+    /* 구독 체크 */
+    @ResponseBody
+    @GetMapping("/subscribe/{sub_ed_user}")
+    public int checkSubscribe(@PathVariable(name = "sub_ed_user") int sub_ed_user) {
+        System.out.println("뜨는지 보자" + sub_ed_user);
+        SubEntity param = new SubEntity();
+        param.setSub_ing_user(auth.getLoginUserPk());
+        param.setSub_ed_user(sub_ed_user);
+        return service.checkSubscribe(param);
+    }
+
 
     @GetMapping("/myReview")
     public void myReview(UserEntity param, Model model){
         PagingDTO pagingDTO = new PagingDTO(0);
+        param = auth.getLoginUser();
         List<ReviewDomain> selReviewList = service.selReviewList(param, pagingDTO);
         MovieFavEntity mf_Entity = new MovieFavEntity();
         mf_Entity.setI_user(param.getI_user());
