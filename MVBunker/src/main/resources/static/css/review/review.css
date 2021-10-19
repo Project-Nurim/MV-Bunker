@@ -121,10 +121,11 @@ body {
 
 .posterimg{
     width:240px;
-    height:260px;
+    height:inherit;
     transform: translate(25px, 10px);
     left:20px; top:10px;
     /* margin: 0 auto; */
+    border-radius: 0.7em;
 }
 
 .profileimg{
@@ -232,4 +233,14 @@ label input:checked+.menu .hamburger:before {
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
     top: 0;
+}
+
+
+figure {
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.personal {
+    color: white;
 }

@@ -209,7 +209,7 @@ figure{
   padding: 15px;
   border-radius: 5px;
   cursor: pointer;
-  font-weight: 700px;
+  font-weight: 700;
   transition: 0.3s;
   opacity: 0;
 }
@@ -221,4 +221,20 @@ figure{
 
 #back-to-top.visible {
   opacity: 1;
+}
+
+.mainProfile {
+  width: 30%;
+  border-radius: 2em;
+}
+
+.profile {
+  padding-top: 50px;
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.box{
+  margin: 0 auto;
 }
