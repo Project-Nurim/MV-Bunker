@@ -68,7 +68,13 @@
     <!-- 정렬 : (default)최신순=orderby 0  |  좋아요 많은 순=orderby1 -->
     <select id="selReviewList" resultType="ReviewDomain">
         select R.unn as unn, R.i_user as i_user, R.i_review as i_review, R.title as title, R.id as id, R.poster as poster, R.regdt as regdt, R.re_ctnt as re_ctnt,
-               round((E.production+E.performance+E.visual_beauty+E.music+E.plot)/5, 3) as totalAvg_Review,
+               coalesce(round((E.production+E.performance+E.visual_beauty+E.music+E.plot)/5, 3),
+                   round((E.performance+E.visual_beauty+E.music+E.plot)/4,3),
+                   round((E.production+E.visual_beauty+E.music+E.plot)/4, 3),
+                   round((E.production+E.performance+E.music+E.plot)/4, 3),
+                   round((E.production+E.performance+E.visual_beauty+E.plot)/4, 3),
+                   round((E.production+E.performance+E.visual_beauty+E.music)/4, 3)
+                       )as totalAvg_Review,
                count(case when RL.disLike = 0 then 1 end) as review_like_cnt,
                count(case when RL.disLike = 1 then 1 end) as review_disLike_cnt
         from(
@@ -157,7 +163,8 @@
         from t_movies A
                  left join t_movie_fav B
                            on A.id = B.id
-        where B.i_user = ${i_user};
+        where B.i_user = ${i_user}
+        order by B.id desc;
     </select>
 
     <!-- 좋아요 누른 리뷰 목록 띄우기 -->
