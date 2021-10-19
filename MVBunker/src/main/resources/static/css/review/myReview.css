@@ -107,3 +107,7 @@
 footer{
     position: absolute;
 }
+
+#reviewContainer {
+    color: white;
+}

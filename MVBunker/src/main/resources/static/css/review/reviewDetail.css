@@ -373,6 +373,8 @@ h5{
     margin: auto 0px;
     float: left;
     width: 55px;
+    margin-right: 10px;
+    width: 180px;
 }
 .center {
     width: 162px;
@@ -725,3 +727,25 @@ footer{
 .container{
     right: -72px;
 }
+
+.reviewCtnt {
+    font-size: 1em;
+}
+
+.userProfileDiv {
+    float: left;
+    margin-right: 30px;
+}
+
+.review-container {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.review-figure {
+ margin-bottom: 30px;
+    border-bottom: 1px solid white;
+    padding-bottom: 30px;
+}
+
