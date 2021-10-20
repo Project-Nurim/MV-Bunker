@@ -21,7 +21,7 @@ function makeItemList(result) { // 받은 애들 어떻게 뿌릴지
     const p2Elem = document.createElement('div');
     p2Elem.classList.add('p2');
     const ptagElem = document.createElement('p');
-    ptagElem.innerText = `리뷰`
+    // ptagElem.innerText = `리뷰`
     const reviewList = result.selAllReview;
     /* 인피니트 스크롤링 객체에서는 에이잭스로 넘겨받은 애의 길이를 바로 잡는데 여기선 리뷰리스트를 바로 넘겨받는게 아니라 이렇게 수정 해주기 */
     infinityScrolling.itemLength = reviewList.length;
@@ -51,7 +51,7 @@ function makeItemList(result) { // 받은 애들 어떻게 뿌릴지
         profileimgElem.src= `${review.profileImg}`;
         const userElem = document.createElement('span');
         userElem.className = 'user';
-        userElem.innerText = `닉네임 : ${review.unn} | 작성일 : ${review.regdt}`;
+        userElem.innerText = `${review.unn} | ${review.regdt}`;
         const br2Elem = document.createElement('br');
         const starElem = document.createElement('div');
         starElem.classList.add('star');
