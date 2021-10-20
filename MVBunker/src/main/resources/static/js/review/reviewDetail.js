@@ -135,7 +135,7 @@ function makeJustReview(review) {
     reviewTextBox.classList.add('reviewTextBox');
     const reviewTitle = document.createElement('h5');
     reviewTitle.classList.add('reviewTitle');
-    reviewTitle.innerText = review.title;
+    reviewTitle.innerText = review.unn;
     const reviewCtnt = document.createElement('span');
     reviewCtnt.classList.add('reviewCtnt');
     reviewCtnt.innerText = review.re_ctnt;
