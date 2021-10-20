@@ -29,7 +29,11 @@
 <th:block layout:fragment="content">
     <section id="reviewContainer">
         <th:block th:each="reviewList : ${selReviewList}">
-            <p th:text="${reviewList.unn}"></p>
+            <img th:img="${reviewList.profileImg}">
+<!--            <img th:src="'https://image.tmdb.org/t/p/w500' + ${reviewList.poster}">-->
+            <p th:text="${reviewList.re_ctnt}"></p>
+            <p th:text="${reviewList.regdt}"></p>
+            <p th:text="${reviewList.totalAvg_Review}"></p>
         </th:block>
     </section>
 </th:block>
