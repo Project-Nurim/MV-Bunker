@@ -20,7 +20,7 @@ function makeItemList(result) { // 받은 애들 어떻게 뿌릴지
     const p2Elem = document.createElement('div');
     p2Elem.classList.add('p2');
     const ptagElem = document.createElement('p');
-    ptagElem.innerText = `리뷰`
+    // ptagElem.innerText = `리뷰`
     const reviewList = result.selAllReview;
     console.log('reviewList = ' + reviewList);
     reviewList.forEach(review => {
@@ -48,7 +48,7 @@ function makeItemList(result) { // 받은 애들 어떻게 뿌릴지
         profileimgElem.src= `${review.profileImg}`;
         const userElem = document.createElement('span');
         userElem.className = 'user';
-        userElem.innerText = `닉네임 : ${review.unn} | 작성일 : ${review.regdt}`;
+        userElem.innerText = `${review.unn} | ${review.regdt}`;
         const br2Elem = document.createElement('br');
         const starElem = document.createElement('div');
         starElem.classList.add('star');
