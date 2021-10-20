@@ -149,6 +149,7 @@ function makeJustReview(review) {
         const reviewDeleteBtnElem = document.createElement('input');
         reviewDeleteBtnElem.type = 'button';
         reviewDeleteBtnElem.value = '삭제';
+        reviewDeleteBtnElem.classList.add('myDelBtn');
         reviewDeleteBtnElem.addEventListener('click', (e) => {
             fetch(`/review/reviewRest/${review.i_review}`, {
                 method: 'DELETE'
