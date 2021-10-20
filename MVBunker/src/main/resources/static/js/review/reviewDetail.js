@@ -145,10 +145,11 @@ function makeJustReview(review) {
     reviewTextBox.append(reviewCtnt);
     reviewFigure.append(userProfileDiv);
     reviewFigure.append(reviewTextBox);
+    /* 삭제 버튼 */
     if(review.i_user === authUserPk) {
         const reviewDeleteBtnElem = document.createElement('input');
         reviewDeleteBtnElem.type = 'button';
-        reviewDeleteBtnElem.value = '삭제';
+        reviewDeleteBtnElem.value = '삭제 / 수정';
         reviewDeleteBtnElem.classList.add('myDelBtn');
         reviewDeleteBtnElem.addEventListener('click', (e) => {
             fetch(`/review/reviewRest/${review.i_review}`, {
@@ -158,6 +159,7 @@ function makeJustReview(review) {
                     console.log(myJson);
                     if(myJson == 1) {
                         reviewFigure.remove();
+                        document.getElementById('test').value = review.re_ctnt;
                         showWriteBox();
                     }else if(myJson == 0) {
                         alert('삭제 실패');
