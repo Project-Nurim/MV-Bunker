@@ -374,7 +374,7 @@ h5{
     float: left;
     width: 55px;
     margin-right: 10px;
-    width: 180px;
+    width: 120px;
 }
 .center {
     width: 162px;
@@ -730,6 +730,8 @@ footer{
 
 .reviewCtnt {
     font-size: 1em;
+    float: left;
+    margin-right: 20px;
 }
 
 .userProfileDiv {
