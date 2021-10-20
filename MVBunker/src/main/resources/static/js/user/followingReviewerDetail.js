@@ -1,6 +1,11 @@
-// 로그인 안한사람인지
+
 const heartDivElem = document.querySelector('.heart');
+
+// 로그인 안한사람인지
 const isAnonymous = heartDivElem.dataset.anonymous;
+if(isAnonymous == 1 || isAnonymous == 2) {
+    heartDivElem.classList.add('hide');
+}
 
 // 유저 구독 Proc
 const heart = document.getElementById("ht");
@@ -74,3 +79,4 @@ function checkFav() {
 if(!isAnonymous) {
     checkFav();
 }
+console.log(isAnonymous);

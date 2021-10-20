@@ -123,8 +123,12 @@ public class ReviewController {
     }
 
     @ResponseBody
-    @DeleteMapping("/reviewRest")
-    public int delReview(@RequestBody ReviewEntity param) {
+    @DeleteMapping("/reviewRest/{i_review}")
+    public int delReview(@PathVariable(name="i_review") int i_review) {
+        ReviewEntity param = new ReviewEntity();
+        param.setI_review(i_review);
+        System.out.println("i_review : " + i_review);
+        System.out.println("param : " + param);
         return service.delReview(param);
     }
 

@@ -40,6 +40,12 @@ public class UserController {
     @Autowired
     private MyConst myconst;
 
+    @ResponseBody
+    @GetMapping("/getUserPk")
+    public int getUserPk() {
+        return auth.getLoginUserPk();
+    }
+
     @GetMapping("/login")
     public void toLoginPage() {}
 
@@ -85,7 +91,13 @@ public class UserController {
     }
 
     @GetMapping("/followingReviewerDetail")
-    public void followReviewerDetail(SubEntity param, Model model){
+    public void followReviewerDetail(int i_user, Model model){
+        SubEntity param = new SubEntity();
+        param.setI_user(i_user);
+        System.out.println("param is : " + param);
+        System.out.println("param.i_user : " + param.getI_user());
+        System.out.println("auth is : " + auth.getLoginUser());
+        System.out.println("auth.i_user is : " + auth.getLoginUserPk());
         if(auth.getLoginUser() == null) {
             model.addAttribute("anonymous", "1");
         }else if(param.getI_user() == auth.getLoginUserPk()) {

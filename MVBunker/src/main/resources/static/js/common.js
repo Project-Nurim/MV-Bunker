@@ -12,6 +12,11 @@ const infinityScrolling = {
                 scrollHeight,
                 clientHeight
             } = document.documentElement;
+            // console.log(scrollTop);
+            // console.log(clientHeight);
+            // console.log(scrollHeight);
+            // console.log(this.limit);
+            // console.log(this.itemLength);
             if (scrollTop + clientHeight >= scrollHeight - 5 && this.itemLength === this.limit) {
                 this.itemLength = 0;
                 this.getItemList(++this.currentPage);
