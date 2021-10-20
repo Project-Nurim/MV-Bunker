@@ -10,7 +10,9 @@ body{
     width: 100%;
     height: 100%;
 }
-
+.hide {
+    display: none;
+}
 ::-webkit-scrollbar {
     display: none;
 } /*특정 부분 스크롤바 없애기*/

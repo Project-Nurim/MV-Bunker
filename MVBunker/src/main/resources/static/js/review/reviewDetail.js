@@ -1,5 +1,12 @@
 // 로그인 안한사람인지
 const isAnonymous = document.querySelector('.starRate').dataset.anonymous;
+// 로그인 유저pk
+let authUserPk = 0;
+fetch('/user/getUserPk')
+    .then(res => res.json())
+    .then(myJson => {
+        authUserPk = myJson;
+    })
 // 유튜브 트레일러 뿌려주기
 let videoKey = null;
 if(document.querySelector('#video') != null) {
@@ -57,6 +64,12 @@ function hideWriteBox() {
     document.querySelector('#test').classList.add('hide');
     document.querySelector('#test_cnt').classList.add('hide');
     document.querySelector('.r-button').classList.add('hide');
+}
+function showWriteBox() {
+    document.querySelector('.square').classList.remove('hide');
+    document.querySelector('#test').classList.remove('hide');
+    document.querySelector('#test_cnt').classList.remove('hide');
+    document.querySelector('.r-button').classList.remove('hide');
 }
 // 내가 쓴 리뷰 있는지 확인
 function checkMyReview() {
@@ -126,11 +139,32 @@ function makeJustReview(review) {
     const reviewCtnt = document.createElement('span');
     reviewCtnt.classList.add('reviewCtnt');
     reviewCtnt.innerText = review.re_ctnt;
+
     userProfileDiv.append(userProfileImg);
     reviewTextBox.append(reviewTitle);
     reviewTextBox.append(reviewCtnt);
     reviewFigure.append(userProfileDiv);
     reviewFigure.append(reviewTextBox);
+    if(review.i_user === authUserPk) {
+        const reviewDeleteBtnElem = document.createElement('input');
+        reviewDeleteBtnElem.type = 'button';
+        reviewDeleteBtnElem.value = '삭제';
+        reviewDeleteBtnElem.addEventListener('click', (e) => {
+            fetch(`/review/reviewRest/${review.i_review}`, {
+                method: 'DELETE'
+            }).then(response => response.json())
+                .then(myJson => {
+                    console.log(myJson);
+                    if(myJson == 1) {
+                        reviewFigure.remove();
+                        showWriteBox();
+                    }else if(myJson == 0) {
+                        alert('삭제 실패');
+                    }
+                })
+        })
+        reviewFigure.append(reviewDeleteBtnElem);
+    }
     return reviewFigure;
 }
 

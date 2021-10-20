@@ -99,7 +99,7 @@
 
     <delete id="delReview">
        delete from t_review
-        where i_user = #{i_user} and id = #{id}
+        where i_review = ${i_review}
     </delete>
 
     <!-- 평가 -->

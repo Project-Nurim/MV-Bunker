@@ -46,10 +46,8 @@
         <p class="self">자기소개</p>
         <!-- 좋아요(팔로우) 버튼 (리뷰디테일꺼 그대로. 변경 필요시 변경할 것) -->
         <div class="heart" th:data-iuser='${subUserProfile.i_user}' th:data-anonymous="${anonymous}">
-            <th:block th:unless="${anonymous eq 2}">
-                <a class="btn h" id="ht" href="#"><i class="far fa-heart"></i></a>
-                <a class="btn h" id="htt" href="#"><i class="fas fa-heart"></i></a>
-            </th:block>
+            <a class="btn h" id="ht" href="#"><i class="far fa-heart"></i></a>
+            <a class="btn h" id="htt" href="#"><i class="fas fa-heart"></i></a>
         </div>
     </div>
 <table class="box">
