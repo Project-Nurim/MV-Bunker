@@ -169,16 +169,30 @@
 
     <!-- 좋아요 누른 리뷰 목록 띄우기 -->
     <select id="selLikeReviews" resultType="ReviewDomain">
-        select R.i_user as i_user, R.disLike as disLike,
-               C.i_review as i_review, C.id as id, C.title as title, C.poster as poster, C.re_ctnt as re_ctnt, C.regdt as regdt
-        from(
-                select A.i_review as i_review, A.disLike as disLike, B.i_user as i_user
-                from t_review_like A
-                         left join t_user B
-                                   on A.i_user = B.i_user
-                where A.disLike = 0 and A.i_user = ${param.i_user}
-            )R
-                left join t_review C
-                          on R.i_review = C.i_review;
+        select D.i_review as i_review, D.id as id, D.title as title, D.re_ctnt as re_ctnt, D.regdt as regdt, D.i_user as i_user, D.unn as unn, D.profileImg as profileImg, D.poster as poster,
+               ifnull(coalesce(round((E.production+E.performance+E.visual_beauty+E.music+E.plot)/5, 3),
+                               round((E.performance+E.visual_beauty+E.music+E.plot)/4,3),
+                               round((E.production+E.visual_beauty+E.music+E.plot)/4, 3),
+                               round((E.production+E.performance+E.music+E.plot)/4, 3),
+                               round((E.production+E.performance+E.visual_beauty+E.plot)/4, 3),
+                               round((E.production+E.performance+E.visual_beauty+E.music)/4, 3)
+                          ), 0) as totalAvg_Review
+        from
+            (
+                select i_review, disLike, i_user
+                from t_review_like
+            ) A
+                left join
+            (
+                select B.i_review as i_review, B.id as id, B.title as title, B.regdt as regdt, B.re_ctnt as re_ctnt, B.i_user as i_user, B.poster as poster,
+                       C.unn as unn, C.profileImg as profileImg
+                from t_review B
+                         left join t_user C
+                                   on B.i_user = C.i_user
+            )D
+            on A.i_review = D.i_review
+                left join t_eval E
+                          on D.id = E.id and D.i_user = E.i_user
+        where  A.i_user = ${param.i_user} and A.disLike = 0;
     </select>
 </mapper>
