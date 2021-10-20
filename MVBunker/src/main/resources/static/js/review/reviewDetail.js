@@ -7,6 +7,9 @@ fetch('/user/getUserPk')
     .then(myJson => {
         authUserPk = myJson;
     })
+if(authUserPk == 0) {
+    hideWriteBox();
+}
 // 유튜브 트레일러 뿌려주기
 let videoKey = null;
 if(document.querySelector('#video') != null) {
