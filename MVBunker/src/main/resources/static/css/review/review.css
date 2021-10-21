@@ -146,9 +146,6 @@ body {
     color:black;
 }
 
-.star{
-    display:inline;
-}
 
 .onereview{
     display: flex;
@@ -251,6 +248,9 @@ figure {
     position: absolute;
     top: -320px;
     right: 40px;
+    margin-bottom: 2vh;
+    display:inline;
+    margin-bottom: 2vw;
 }
 
 .personal {

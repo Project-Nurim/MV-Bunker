@@ -118,3 +118,4 @@ function makeItemList(result) { // 받은 애들 어떻게 뿌릴지
         // 컨테이너 주소 변수.innerHTML += `<div>${review.title}</div>`;
     })
 }
+

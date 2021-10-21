@@ -42,7 +42,8 @@
         </th:block>
         <th:block class="img" th:if="${subUserProfile.profileImg} == null"><img class="mainProfile" src="/img/logo/noprofile.png">
         </th:block>
-        <h4 th:text="${subUserProfile.unn} + '|'+ ${subUserProfile.regdt}"></h4>
+        <h4 th:text="${subUserProfile.unn}"></h4>
+        <h4 th:text="${subUserProfile.regdt}"></h4>
         <p class="self">자기소개</p>
         <!-- 좋아요(팔로우) 버튼 (리뷰디테일꺼 그대로. 변경 필요시 변경할 것) -->
         <div class="heart" th:data-iuser='${subUserProfile.i_user}' th:data-anonymous="${anonymous}">
