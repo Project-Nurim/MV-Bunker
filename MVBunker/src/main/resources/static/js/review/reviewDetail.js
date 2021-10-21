@@ -139,7 +139,7 @@ function makeJustReview(review) {
     const reviewTitle = document.createElement('h5');
     reviewTitle.classList.add('reviewTitle');
     reviewTitle.innerText = review.unn;
-    const reviewCtnt = document.createElement('span');
+    const reviewCtnt = document.createElement('div');
     reviewCtnt.classList.add('reviewCtnt');
     reviewCtnt.innerText = review.re_ctnt;
 

@@ -742,8 +742,8 @@ footer{
 
 .reviewCtnt {
     font-size: 1em;
-    /*float: left;*/
-    margin-right: 20px;
+    width: 80%;
+    display: flex;
 }
 
 .userProfileDiv {
