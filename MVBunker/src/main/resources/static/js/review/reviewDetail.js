@@ -6,10 +6,11 @@ fetch('/user/getUserPk')
     .then(res => res.json())
     .then(myJson => {
         authUserPk = myJson;
+        if(authUserPk === 0) {
+            hideWriteBox();
+        }
     })
-if(authUserPk == 0) {
-    hideWriteBox();
-}
+
 // 유튜브 트레일러 뿌려주기
 let videoKey = null;
 if(document.querySelector('#video') != null) {
@@ -79,7 +80,6 @@ function checkMyReview() {
     fetch(`/review/reviewRest/${movieIdVal}`)
         .then(res => res.json())
         .then(myJson => {
-            console.log('내가 쓴 리뷰 있는감 : ' + myJson);
             if(myJson > 0) {
                 hideWriteBox();
             }
