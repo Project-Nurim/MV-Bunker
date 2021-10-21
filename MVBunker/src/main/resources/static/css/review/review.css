@@ -118,12 +118,13 @@ body {
 }
 
 .posterimg{
-    width:240px;
-    height:inherit;
-    transform: translate(25px, 10px);
-    left:20px; top:10px;
+    width: 174px;
+    height: 260px;
+    /*transform: translate(25px, 10px);*/
+    /*left:20px; top:10px;*/
     /* margin: 0 auto; */
     border-radius: 0.7em;
+    margin-top: 10px;
 }
 
 .profileimg{
@@ -132,7 +133,7 @@ body {
     height:35px;
     border-radius: 50%;
     border: none;
-    margin-right: 10px;;
+    margin-right: 10px;
 }
 
 .write{
@@ -153,8 +154,11 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    /*align-items: center;*/
+    position: absolute;
+    bottom: 20px;
 }
+
 
 /* 사이드바 */
 label .menu {
@@ -236,9 +240,24 @@ label input:checked+.menu .hamburger:before {
 
 figure {
     margin: 0 auto;
-    margin-bottom: 30px;
-    background-color: white;
-    color: black;
+    margin-bottom: 60px;
+    /*background-color: white;*/
+    color: white;
+    position: relative;
+    text-align: center;
 }
 
+.star {
+    position: absolute;
+    top: -320px;
+    right: 40px;
+}
 
+.personal {
+    width: 230px;
+}
+
+.fff{
+    display: flex;
+    justify-content: center;
+}
