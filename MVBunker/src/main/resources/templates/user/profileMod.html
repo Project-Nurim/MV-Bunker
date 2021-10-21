@@ -56,7 +56,7 @@
                 <li th:text="'아이디 : ' + ${auth.uid}" class="font"></li>
                     <div class="d">
                 <li id="upwStarView" class="pwt" th:text="'비밀번호 : ********'"></li>
-                <input type="button" class="btn-modPassword" value="비밀번호 변경">
+                <input type="button" id="button" class="btn-modPassword" value="비밀번호 변경">
                     </div>
                 <input id="pwHiddenElem" type="hidden" name="upw">
                 <div>
@@ -83,20 +83,21 @@
     <section id="pw_modal" class="modal-wrapper">
         <div class="modal">
             <div class="head">
-                <a class="pwMod-close" href="#">
+                <a class="close-btn trigger" href="#">
                     <i class="far fa-times-circle"></i>
                 </a>
             </div>
             <div><label><span>비밀번호 : </span>
-                <input id="modalUpw" type="password" name="upw" placeholder="password"></label>
+                <input id="modalUpw" type="password" name="upw" placeholder=" 비밀번호"></label>
             </div>
             <div><label><span>비밀번호 확인 : </span>
-                <input id="modalUpwChk" type="password" name="upw_chk"></label></div>
+                <input id="modalUpwChk" type="password" name="upw_chk" placeholder=" 비밀번호 확인"></label></div>
             <div><label><span>새 비밀번호 : </span>
-                <input id="modalNewUpw" type="password" name="new_upw"></label></div>
+                <input id="modalNewUpw" type="password" name="new_upw" placeholder=" 새 비밀번호"></label></div>
             <button id="pw_mod_btn">변경</button>
         </div>
     </section>
+
     <section id="byeUserModal" class="modal-wrapper">
         <div class="modal">
             <div class="head">
@@ -110,7 +111,7 @@
                         <input type="password" name="upw" placeholder=" 비밀번호"></label>
                     </div>
                     <div><label><span>비밀번호 확인 : </span>
-                        <input type="password" name="upw_chk" placeholder=" 비밀번호확인"></label>
+                        <input type="password" name="upw_chk" placeholder=" 비밀번호 확인"></label>
                     </div>
                     <div><label><span>'탈퇴하겠습니다.' 를 적어주십시오. </span>
                         <input type="text" name="del_chk"></label>
