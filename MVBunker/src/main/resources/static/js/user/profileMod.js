@@ -4,12 +4,20 @@ document.querySelector('.trigger').addEventListener('click', (e) => {
 document.querySelector('.btn-close').addEventListener('click', (e) => {
     document.querySelector('#byeUserModal').classList.remove('open');
 });
+
+
+
 document.querySelector('.btn-modPassword').addEventListener('click', (e) => {
     document.querySelector('#pw_modal').classList.add('open');
 })
-document.querySelector('.pwMod-close').addEventListener('click', (e) => {
-    document.querySelector('#pw_modal').classList.remove('open');
-});
+
+document.querySelector('.close-btn').addEventListener('click',(e)=>{
+    document.querySelector('#pw_modal').classList.remove('modal-wrapper');
+})
+
+// document.querySelector('.pwMod-close').addEventListener('click', (e) => {
+//     document.querySelector('#pw_modal').classList.remove('open');
+// });
 
 async function bye_confirm () {
     const upw = document.getElementsByName('upw')[0].value;

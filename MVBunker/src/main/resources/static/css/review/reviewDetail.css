@@ -49,7 +49,7 @@ fa-thumbs-up:before{
 
 #frame{
     position: relative;
-    width:100%;
+    width:62em;
     height: 600px;
     border: 1px solid white;
     margin: 0 auto;
@@ -88,6 +88,12 @@ fa-thumbs-up:before{
 .myDelBtn {
     border-radius: 1.5em;
     width: 3vw;
+    float: right;
+    margin-top: 13px;
+    border: 0;
+    background-color: #009759;
+    color: white;
+    padding: 0.2em
 }
 
 #test{
@@ -736,7 +742,7 @@ footer{
 
 .reviewCtnt {
     font-size: 1em;
-    float: left;
+    /*float: left;*/
     margin-right: 20px;
 }
 
