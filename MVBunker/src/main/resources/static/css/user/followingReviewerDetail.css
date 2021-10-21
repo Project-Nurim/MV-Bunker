@@ -1,5 +1,6 @@
 .btn.h {
   color: red;
+  margin: 0 auto;
 }
 
 .container {
@@ -224,8 +225,9 @@ figure{
 }
 
 .mainProfile {
-  width: 30%;
-  border-radius: 2em;
+  width: 20vw;
+  height: 20vw;
+  border-radius: 100%;
 }
 
 .profile {
@@ -237,4 +239,12 @@ figure{
 
 .box{
   margin: 0 auto;
+}
+
+.heart{
+  right:20vw;
+}
+
+h4, p, .heart, tr{
+  padding: 7px;
 }
