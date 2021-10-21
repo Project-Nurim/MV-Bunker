@@ -12,7 +12,7 @@ document.querySelector('.btn-modPassword').addEventListener('click', (e) => {
 })
 
 document.querySelector('.close-btn').addEventListener('click',(e)=>{
-    document.querySelector('#pw_modal').classList.remove('modal-wrapper');
+    document.querySelector('#pw_modal').classList.remove('open');
 })
 
 // document.querySelector('.pwMod-close').addEventListener('click', (e) => {
