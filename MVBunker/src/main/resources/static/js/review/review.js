@@ -41,6 +41,14 @@ function makeItemList(result) { // 받은 애들 어떻게 뿌릴지
         const br1Elem = document.createElement('br');
         const personalElem = document.createElement('div');
         personalElem.classList.add('personal');
+
+        const fff = document.createElement('div');
+        fff.classList.add('fff');
+        figureElem.append(fff);
+        fff.append(onereviewElem);
+        fff.append(personalElem);
+        fff.append(oneposterElem);
+
         const toFollowingReviewerDetailaTagElem = document.createElement('a');
         toFollowingReviewerDetailaTagElem.href = '/user/followingReviewerDetail?i_user=' + review.i_user;
         const profileimgElem = document.createElement('img');
@@ -49,7 +57,7 @@ function makeItemList(result) { // 받은 애들 어떻게 뿌릴지
             review.profileImg == '/img/noprofile.png';
         }
         profileimgElem.src= `${review.profileImg}`;
-        const userElem = document.createElement('span');
+        const userElem = document.createElement('div');
         userElem.className = 'user';
         userElem.innerText = `${review.unn} | ${review.regdt}`;
         const br2Elem = document.createElement('br');
@@ -73,9 +81,10 @@ function makeItemList(result) { // 받은 애들 어떻게 뿌릴지
         onereviewElem.append(writeElem);
 
         figureElem.append(p2Elem);
-        figureElem.append(oneposterElem);
-        figureElem.append(onereviewElem);
-        figureElem.append(personalElem);
+        // figureElem.append(oneposterElem);
+        //
+        // figureElem.append(onereviewElem);
+        // figureElem.append(personalElem);
 
         sectionElem.append(figureElem);
 

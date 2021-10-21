@@ -149,7 +149,7 @@ function makeJustReview(review) {
     if(review.i_user === authUserPk) {
         const reviewDeleteBtnElem = document.createElement('input');
         reviewDeleteBtnElem.type = 'button';
-        reviewDeleteBtnElem.value = '삭제 / 수정';
+        reviewDeleteBtnElem.value = '수정';
         reviewDeleteBtnElem.classList.add('myDelBtn');
         reviewDeleteBtnElem.addEventListener('click', (e) => {
             fetch(`/review/reviewRest/${review.i_review}`, {
