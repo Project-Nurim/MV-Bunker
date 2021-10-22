@@ -1,6 +1,6 @@
 // const orderbyElem = 정렬 요소 불러오기
-const containerElem = document.querySelector('#wrapper');
-const tableElem = document.querySelector('.reviewtable');
+// const containerElem = document.querySelector('#wrapper');
+// const tableElem = document.querySelector('.reviewtable');
 const sectionElem = document.querySelector('#allReviewContainer');
 
 // 정렬버튼에 요소 이벤트 추가(클릭일지 체인지일지)
@@ -38,6 +38,25 @@ function makeItemList(result) { // 받은 애들 어떻게 뿌릴지
         posterimgElem.src = 'https://image.tmdb.org/t/p/w500/' + review.poster;
         const onereviewElem = document.createElement('div');
         onereviewElem.classList.add('onereview');
+        const moreiconElem = document.createElement('div');
+        const itagElem = document.createElement('i');
+        moreiconElem.classList.add('moreicon');
+        moreiconElem.addEventListener('click', function(e){
+            console.log('왔니');
+            console.log(e.currentTarget);
+            console.log(e.currentTarget.getElementsByClassName('fas fa-caret-down'));
+            console.log(e.currentTarget.getElementsByClassName("asd"+'fas fa-caret-up'));
+            if(e.currentTarget.getElementsByClassName('fas fa-caret-down')[0]){
+                e.currentTarget.previousSibling.previousSibling.className='hide'; //writeElem
+                e.currentTarget.previousSibling.className='detailreview'; //detailreview
+                e.currentTarget.getElementsByClassName('fas fa-caret-down')[0].className='fas fa-caret-up';
+            }else if(e.currentTarget.getElementsByClassName('fas fa-caret-up')[0]){
+                e.currentTarget.previousSibling.previousSibling.className='write'; //writeElem
+                e.currentTarget.previousSibling.className='detailreview hide'; //detailreview
+                e.currentTarget.getElementsByClassName('fas fa-caret-up')[0].className='fas fa-caret-down';
+            };
+        });
+        itagElem.classList='fas fa-caret-down';
         const br1Elem = document.createElement('br');
         const personalElem = document.createElement('div');
         personalElem.classList.add('personal');
@@ -46,8 +65,9 @@ function makeItemList(result) { // 받은 애들 어떻게 뿌릴지
         fff.classList.add('fff');
         figureElem.append(fff);
         fff.append(onereviewElem);
-        fff.append(personalElem);
         fff.append(oneposterElem);
+
+        onereviewElem.append(personalElem);
 
         const toFollowingReviewerDetailaTagElem = document.createElement('a');
         toFollowingReviewerDetailaTagElem.href = '/user/followingReviewerDetail?i_user=' + review.i_user;
@@ -60,27 +80,43 @@ function makeItemList(result) { // 받은 애들 어떻게 뿌릴지
         const userElem = document.createElement('div');
         userElem.className = 'user';
         userElem.innerText = `${review.unn} | ${review.regdt}`;
-        const br2Elem = document.createElement('br');
+        // const br2Elem = document.createElement('br');
         const starElem = document.createElement('div');
         starElem.classList.add('star');
         starElem.innerText = `평점 : ${review.totalAvg_Review}`;
         const writeElem = document.createElement('div');
-        writeElem.innerText = `리뷰 : ${review.re_ctnt}`
+        writeElem.classList.add('write');
+        writeElem.innerText = `리뷰 : ${review.re_ctnt}`;
 
-        p2Elem.append(ptagElem);
+        const frameElem = document.createElement('div');
+        frameElem.className = 'detailreview hide';
+        const headElem = document.createElement('div');
+        headElem.innerText = '리뷰';
+        const textElem = document.createElement('div');
+        textElem.innerText = review.re_ctnt;
+
+        frameElem.append(headElem);
+        frameElem.append(textElem);
+
+        // p2Elem.append(ptagElem);
         oneposterElem.append(divtag1Elem);
         toReviewDetailaTagElem.append(posterimgElem);
         divtag1Elem.append(toReviewDetailaTagElem);
-        oneposterElem.append(br1Elem);
+        // oneposterElem.append(br1Elem);
         onereviewElem.append(personalElem);
         toFollowingReviewerDetailaTagElem.append(profileimgElem);
         personalElem.append(toFollowingReviewerDetailaTagElem);
         personalElem.append(userElem);
-        personalElem.append(br2Elem);
+        // personalElem.append(br2Elem);
         personalElem.append(starElem);
         onereviewElem.append(writeElem);
+        onereviewElem.append(frameElem);
+        onereviewElem.append(moreiconElem);
 
-        figureElem.append(p2Elem);
+        moreiconElem.append(itagElem);
+        // onereviewElem.append(divdiv);
+        // figureElem.append(p2Elem);
+        figureElem.append(fff);
         // figureElem.append(oneposterElem);
         //
         // figureElem.append(onereviewElem);

@@ -136,6 +136,9 @@ body {
     border: none;
     margin-right: 10px;
 }
+.moreicon{
+    cursor: pointer;
+}
 
 .write{
     /* padding: 10px 27px; */
@@ -144,7 +147,8 @@ body {
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-    color:black;
+    color:white;
+    width: 230px;
 }
 
 
