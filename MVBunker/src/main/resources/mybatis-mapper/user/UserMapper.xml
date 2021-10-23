@@ -125,7 +125,7 @@
 
     <!-- Following Reviewer Detail - 내가 팔로우한 유저의 프로필 + 작성한 리뷰&팔로워&받은 좋아요 수 -->
     <select id="subUserProfile" resultType="UserDomain">
-        select C.unn as unn, C.profileImg as profileImg, C.introduce as introduce, C.regdt as regdt, ifnull(count(C.countMyReview), 0) as countMyReview,
+        select C.i_user as i_user, C.unn as unn, C.profileImg as profileImg, C.introduce as introduce, C.regdt as regdt, ifnull(count(C.countMyReview), 0) as countMyReview,
                ifnull(F.countMyReview_cmt,0) as countMyReview_cmt
         from (
                  select A.i_user as i_user, A.unn as unn, A.profileImg As profileImg, A.introduce as introduce, A.regdt as regdt,
