@@ -91,7 +91,7 @@ public class UserController {
     }
 
     @GetMapping("/followingReviewerDetail")
-    public void followReviewerDetail(int i_user, Model model){
+    public void followReviewerDetail(int i_user, Model model, PagingDTO pagingDTO){
         SubEntity param = new SubEntity();
         param.setI_user(i_user);
         System.out.println("param is : " + param);
@@ -103,11 +103,13 @@ public class UserController {
         }else if(param.getI_user() == auth.getLoginUserPk()) {
             model.addAttribute("anonymous", "2");
         }
+        UserEntity param2 = new UserEntity();
+        param2.setI_user(i_user);
 
-//        List<ReviewDomain> selReviewList = service.selReviewList(loginUser,pagingDTO);
+        List<ReviewDomain> selReviewList = service.selReviewList(param2, pagingDTO);
         UserDomain subUserProfile = service.subUserProfile(param);
         model.addAttribute("subUserProfile",subUserProfile);
-//        model.addAttribute("subUserReview",selReviewList);
+        model.addAttribute("subUserReview",selReviewList);
     }
 
     /* 리뷰어 구독/구독취소 하기 */
