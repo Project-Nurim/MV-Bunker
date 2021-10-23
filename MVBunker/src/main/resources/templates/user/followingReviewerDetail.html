@@ -45,6 +45,7 @@
         <h4 th:text="${subUserProfile.unn}"></h4>
         <h4 th:text="${subUserProfile.regdt}"></h4>
         <p class="self">자기소개</p>
+        <h4 th:text="${subUserProfile.introduce}"></h4>
         <!-- 좋아요(팔로우) 버튼 (리뷰디테일꺼 그대로. 변경 필요시 변경할 것) -->
         <div class="heart" th:data-iuser='${subUserProfile.i_user}' th:data-anonymous="${anonymous}">
             <a class="btn h" id="ht" href="#"><i class="far fa-heart"></i></a>
@@ -53,12 +54,12 @@
     </div>
 <table class="box">
     <tr>
-    <td class="text">현재댓글</td>
-        <td class="text">현재리뷰수</td>
+       <td class="text">작성한 리뷰 수</td>
+        <td class="text">작성한 댓글 수</td>
     </tr>
     <tr>
         <td th:text="${subUserProfile.countMyReview}"></td>
-
+        <td th:text="${subUserProfile.countMyReview_cmt}"></td>
     </tr>
 
 </table>
@@ -66,6 +67,29 @@
     <div class="line">
     <hr  noshade="1" style="border: solid 1px black; width: 30%;margin: 30px auto;" >
     </div>
+<th:block th:each="subUserReview : ${subUserReview}">
+    <table>
+        <tr>
+            <td>포스터 :</td>
+            <td>
+                <img th:src="'https://imgage.tmdb.org/t/p/w500'+ ${subUserReview.poster}">
+            </td>
+        </tr>
+        <tr>
+            <td>제목 :</td>
+            <td th:text="${subUserReview.title}"></td>
+        </tr>
+        <tr>
+            <td>리뷰작성일 : </td>
+            <td th:text="${subUserReview.regdt}"></td>
+        </tr>
+        <tr>
+            <td>리뷰내용</td>
+            <td th:text="${subUserReview.re_ctnt}"></td>
+        </tr>
+        <tr><td> </td></tr>
+    </table>
+</th:block>
 </section>
 </body>
 </html>

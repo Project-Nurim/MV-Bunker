@@ -125,20 +125,21 @@
 
     <!-- Following Reviewer Detail - 내가 팔로우한 유저의 프로필 + 작성한 리뷰&팔로워&받은 좋아요 수 -->
     <select id="subUserProfile" resultType="UserDomain">
-        SELECT C.i_user AS i_user, C.unn AS unn, C.profileImg AS profileImg, C.regdt AS regdt, C.introduce AS introduce,
-               A.review_cnt AS review_cnt, A.follower_cnt AS follower_cnt, A.like_cnt AS like_cnt
-        FROM (
-                 SELECT B.i_user as i_user,
-                        COUNT(B.i_user=${i_user})AS review_cnt,
-                         (SELECT COUNT(sub_ing_user) FROM t_sub WHERE sub_ed_user = #{i_user})AS follower_cnt,
-                         COUNT(case when A.disLike = 0 then 1 END)AS like_cnt
-                 FROM t_review B
-                          left JOIN t_review_like A
-                                     ON A.i_review = B.i_review
-                 WHERE B.i_user = #{i_user}
-             )A
-                 INNER JOIN t_user C
-                            ON A.i_user = C.i_user;
+        select C.unn as unn, C.profileImg as profileImg, C.introduce as introduce, C.regdt as regdt, ifnull(count(C.countMyReview), 0) as countMyReview,
+               ifnull(F.countMyReview_cmt,0) as countMyReview_cmt
+        from (
+                 select A.i_user as i_user, A.unn as unn, A.profileImg As profileImg, A.introduce as introduce, A.regdt as regdt,
+                        B.i_review as countMyReview
+                 from t_user A
+                          left join t_review B
+                                    on A.i_user = B.i_user
+             ) C
+                 left join(
+            select i_user as i_user, count(i_review) as countMyReview_cmt
+            from t_review_cmt
+        ) F
+                          on C.i_user = F.i_user
+        where C.i_user = #{i_user};
     </select>
 
     <!-- 내가 찜한 영화 -->

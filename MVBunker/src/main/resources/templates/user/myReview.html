@@ -31,6 +31,7 @@
         <th:block th:each="reviewList : ${selReviewList}">
 
             <div class="myreview_css">
+            <img th:src="'https://image.tmdb.org/t/p/w500/' + ${reviewList.poster}"
             <p th:text="${reviewList.unn}"></p>
             <p th:text="${reviewList.title}"></p>
             <p th:text="${reviewList.re_ctnt}"></p>
