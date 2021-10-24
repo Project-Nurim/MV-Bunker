@@ -1,15 +1,7 @@
 // 로그인 안한사람인지
 const isAnonymous = document.querySelector('.starRate').dataset.anonymous;
 // 로그인 유저pk
-let authUserPk = 0;
-fetch('/user/getUserPk')
-    .then(res => res.json())
-    .then(myJson => {
-        authUserPk = myJson;
-        if(authUserPk === 0) {
-            hideWriteBox();
-        }
-    })
+
 
 // 유튜브 트레일러 뿌려주기
 let videoKey = null;

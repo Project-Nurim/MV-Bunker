@@ -1,24 +1,9 @@
-// infinityScrolling.url = `/user/getReviewInfinite?i_user=0`; // 요청보낼 url
-// infinityScrolling.makeItemList = makeItemList;
-// infinityScrolling.setScrollInfinity(window);
-// infinityScrolling.getItemList(1);
-// function makeItemList(reviewList) {
-//     reviewList.forEach(function(review) {
-//         const poster = document.createElement('img');
-//         poster.src = 'https://image.tmdb.org/t/p/w500/' + review.poster;
-//     })
-// }
-//
-
-// const orderbyElem = 정렬 요소 불러오기
-// const containerElem = document.querySelector('#wrapper');
-// const tableElem = document.querySelector('.reviewtable');
 const sectionElem = document.querySelector('#allReviewContainer');
 
 /* 인피니트 스크롤링 설정 */
 // const allReviewContainerElem = document.getElementById('allReviewContainer');
 infinityScrolling.limit = 10;
-infinityScrolling.url = `/user/getReviewInfinite?i_user=${authUserPk}`; // 요청보낼 url
+infinityScrolling.url = `/user/getFavReviewInfinite?i_user=${authUserPk}`; // 요청보낼 url
 infinityScrolling.makeItemList = makeItemList;
 infinityScrolling.setScrollInfinity(window);
 infinityScrolling.getItemList(1);

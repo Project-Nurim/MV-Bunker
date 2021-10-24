@@ -21,6 +21,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -67,19 +68,17 @@ public class UserController {
 
     @GetMapping("/favReview")
     public void favReview(Model model) {
-        UserEntity param = auth.getLoginUser();
-        PagingDTO pagingDTO = new PagingDTO(0);
-        List<ReviewDomain> selLikeReviews = service.selLikeReviews(param,pagingDTO);
-        model.addAttribute("selLikeReviews", selLikeReviews);
     }
 
     @ResponseBody
     @GetMapping("/getFavReviewInfinite")
-    public List<ReviewDomain> getFavReviewInfinite(UserEntity userInfo,PagingDTO pagingDTO) {
+    public Map<String, Object> getFavReviewInfinite(UserEntity userInfo,PagingDTO pagingDTO) {
         if(userInfo.getI_user() == 0) {
             userInfo.setI_user(auth.getLoginUserPk());
         }
-        return service.selReviewList(userInfo, pagingDTO);
+        Map<String, Object> result = new HashMap<>();
+        result.put("selReviewList", service.selLikeReviews(userInfo, pagingDTO));
+        return result;
     }
 
     @GetMapping("/followingReviewer")
@@ -151,13 +150,19 @@ public class UserController {
         model.addAttribute("selHover2", selHover2);
     }
 
+
     @ResponseBody
     @GetMapping("/getReviewInfinite")
-    public List<ReviewDomain> getReviewInfinite(UserEntity userInfo, PagingDTO pagingDTO) {
+    public Map<String, Object> getReviewInfinite(UserEntity userInfo, PagingDTO pagingDTO) {
+        Map<String, Object> result = new HashMap<>();
         if(userInfo.getI_user() == 0) {
             userInfo = auth.getLoginUser();
         }
-        return service.selReviewList(userInfo, pagingDTO);
+        MovieFavEntity mf_Entity = new MovieFavEntity();
+        mf_Entity.setI_user(userInfo.getI_user());
+        result.put("selReviewList", service.selReviewList(userInfo, pagingDTO));
+        result.put("hover", moviesService.selHover1(mf_Entity));
+        return result;
     }
 
 
