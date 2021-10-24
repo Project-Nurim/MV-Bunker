@@ -2,6 +2,7 @@
 // const containerElem = document.querySelector('#wrapper');
 // const tableElem = document.querySelector('.reviewtable');
 const sectionElem = document.querySelector('#allReviewContainer');
+const hero = document.querySelector(".hero");
 
 // 정렬버튼에 요소 이벤트 추가(클릭일지 체인지일지)
 // orderbyElem.addEventListener('click', () => {
@@ -74,6 +75,7 @@ function makeItemList(result) { // 받은 애들 어떻게 뿌릴지
 
         onereviewElem.append(personalElem);
 
+
         const toFollowingReviewerDetailaTagElem = document.createElement('a');
         toFollowingReviewerDetailaTagElem.href = '/user/followingReviewerDetail?i_user=' + review.i_user;
         const profileimgElem = document.createElement('img');
@@ -132,8 +134,6 @@ function makeItemList(result) { // 받은 애들 어떻게 뿌릴지
 
         sectionElem.append(figureElem);
 
-
-
         // imgFrameElem.addEventListener('click', (e) => {
         //     window.location.href = `/review/reviewDetail?movieId=${review.id}`;
         // })
@@ -161,5 +161,22 @@ function makeItemList(result) { // 받은 애들 어떻게 뿌릴지
         // allReviewContainerElem.append(ALLElem);
         // 컨테이너 주소 변수.innerHTML += `<div>${review.title}</div>`;
     })
+
+
+    const selectElem = document.createElement('div');
+    selectElem.className = 'selectMenu';
+    const goodElem = document.createElement('button');
+    goodElem.className = 'good';
+    goodElem.innerText = '좋아요순';
+    const recentElem = document.createElement('button');
+    recentElem.className ='recent';
+    recentElem.innerText = '최신순';
+    selectElem.append(goodElem);
+    selectElem.append(recentElem);
+
+    // const container = document.getElementById('container2');
+    // container.append(selectElem);
+    const hero = document.querySelector('.hero');
+    hero.append(selectElem);
 }
 
