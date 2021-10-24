@@ -398,6 +398,19 @@ a {
 }
 
 /*--------------------------------------------*/
+#popup_open_btn::before {
+    content: 'Login';
+}
+
+#popup_open_btn:hover {
+    animation-play-state:  paused;
+}
+
+#popup_open_btn:hover::before {
+    content: '로그인';
+}
+
+
 
 #none-popup::before {
     content: 'Logout';
@@ -480,7 +493,7 @@ a {
 /*    top: -100px;*/
 /*}*/
 
-#bar{
+#bar {
     background: black;
     width: 340px;
     /*border: 1px solid wheat;*/
@@ -491,3 +504,360 @@ a {
     top: 0;
     display: none;
 }
+
+/*------------------------------------------------------------*/
+
+#my_modal {
+    display: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+#my_modal .modal_close_btn {
+    position: absolute;
+    top: -250px;
+    left: 400px;
+}
+
+
+.bold {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 25px;
+    margin-top: 55px;
+    margin-bottom: 25px;
+}
+
+
+.welcome-text {
+    color: #fff;
+}
+
+.welcome {
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    height: 50%;
+    width: 400px;
+    z-index: 30;
+}
+
+
+/*.welcome-text {*/
+/*    margin-top: 100px;*/
+/*}*/
+
+.move {
+    height: 100%;
+    position: absolute;
+    width: 450px;
+    text-align: center;
+    left: -25px;
+    z-index: 20;
+    background-color: #000000;
+    background-image: url("http://www.pixmy.tech/Projects/Codepen/SlideForm/bg.jpg");
+    background-size: cover;
+    background-position: left;
+    transition: all .4s ease;
+    border-radius: 10px 0px 0px 10px;
+}
+
+@keyframes moving {
+    0% {
+        width: 400px;
+        transform: translate(0px);
+    }
+
+    50% {
+        width: 550px;
+        transform: translate(200px);
+    }
+
+    100% {
+        width: 400px;
+        transform: translate(500px);
+    }
+}
+
+@keyframes start {
+    0% {
+        width: 400px;
+        transform: translate(500px);
+    }
+
+    50% {
+        width: 550px;
+        transform: translate(200px);
+    }
+
+    100% {
+        width: 400px;
+        transform: translate(0px);
+    }
+}
+
+@keyframes startForm {
+    0% {
+        width: 500px;
+        transform: translate(0px);
+    }
+
+    50% {
+        width: 650px;
+        transform: translate(200px);
+    }
+
+    100% {
+        width: 500px;
+        transform: translate(400px);
+    }
+}
+
+@keyframes movingForm {
+    0% {
+        width: 500px;
+        transform: translate(400px);
+    }
+
+    50% {
+        width: 650px;
+        transform: translate(200px);
+    }
+
+    100% {
+        width: 500px;
+        transform: translate(0px);
+    }
+}
+
+.moving {
+    animation: moving .4s linear forwards;
+    transition: all .4s ease-out;
+}
+
+.movingForm {
+    animation: movingForm .4s linear forwards;
+    transition: all .4s ease-out;
+}
+
+.start {
+    animation: start .4s linear forwards;
+    transition: all .4s ease-out;
+}
+
+.startForm {
+    animation: startForm .4s linear forwards;
+    transition: all .4s ease-out;
+}
+
+.p-button {
+    animation-iteration-count: 5;
+    color: white;
+    padding: 12px 60px;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 25px;
+    border: 1px solid #fff;
+    width: 50%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 70%;
+    text-align: center;
+    cursor: pointer;
+    transition: all .4s ease;
+    margin-top: 40px;
+    background-color: black;
+}
+
+.go {
+    color: white;
+    margin: 0 5px;
+    font-size: 15px;
+}
+
+.email {
+    border: 0px;
+    border-bottom: 1px solid lightgray;
+    margin-bottom: 15px;
+    padding: 8px 5px;
+    width: 120px;
+    border-radius: .75em;
+}
+.divA{
+    text-decoration: none;
+    margin-left: 10px;
+    text-transform: uppercase;
+    font-size: 36px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    position: relative;
+    display: block;
+}
+
+.log2 {
+    border: 0px;
+    border-bottom: 1px solid lightgray;
+    margin-bottom: 15px;
+    padding: 8px 5px;
+    border-radius: .75em;
+    width: 270px;
+}
+
+
+
+
+.p-button:hover {
+    transition: all .4s ease;
+    /* background-color:rgba(0,0,0,.7); */
+}
+
+.login {
+    position: absolute;
+    left: 70px;
+    top: 270px;
+    z-index: 9999999;
+}
+
+.select {
+    height: 35px;
+    border-radius: .75em;
+    width: 120px;
+}
+
+.bold2 {
+    margin-top: 200px;
+    font-size: 1.7rem;
+}
+
+
+h4 {
+    font-size: 22px;
+}
+
+p {
+    font-size: 14px;
+}
+
+.naver {
+    width: 40px;
+    border-radius: 2em;
+    position: absolute;
+    left: 23px;
+    top: 60px;
+}
+
+.kakao {
+    width: 40px;
+    border-radius: 3em;
+    position: absolute;
+    top: 60px;
+    right: -16px;
+}
+
+.facebook {
+    width: 40px;
+    border-radius: 3em;
+    position: absolute;
+    right: 36px;
+    top: 60px;
+}
+
+#icons {
+    margin-top: 50px;
+}
+
+.icon {
+
+    display: flex;
+    justify-content: space-around;
+}
+
+.sns {
+    position: absolute;
+    top: 60px;
+    margin: 0 auto;
+    width: 100%;
+    font-size: 14px;
+}
+
+
+hr {
+    width: 67%;
+    position: absolute;
+    border-bottom: 0;
+    margin-top: 170px;
+}
+
+.underline {
+    display: flex;
+    justify-content: center;
+}
+
+
+.container4 {
+    height: 500px;
+    width: 900px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.text {
+    width: 60%;
+    line-height: 20px;
+    margin: 0 auto;
+}
+
+
+/*.light {*/
+/*    color: #b2bec3;*/
+/*}*/
+
+
+.forgot {
+    display: none;
+}
+
+.form {
+    text-align: center;
+    position: absolute;
+    height: 100%;
+    transform: translate(400px);
+    width: 500px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 0px 10px 10px 0px;
+}
+
+.sideInput {
+    border: 0px;
+    border-bottom: 1px solid lightgray;
+    margin-bottom: 15px;
+    padding: 8px 5px;
+    width: 60%;
+}
+
+input#join {
+    width: 30%;
+}
+
+input#age {
+    width: 30%;
+}
+
+.b-button {
+    background-color: #000000;
+    color: white;
+    padding: 12px 60px;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 25px;
+    margin-top: 20px;
+}
+
+
+
+
