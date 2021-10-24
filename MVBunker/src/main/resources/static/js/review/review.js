@@ -49,10 +49,16 @@ function makeItemList(result) { // 받은 애들 어떻게 뿌릴지
             if(e.currentTarget.getElementsByClassName('fas fa-caret-down')[0]){
                 e.currentTarget.previousSibling.previousSibling.className='hide'; //writeElem
                 e.currentTarget.previousSibling.className='detailreview'; //detailreview
+
+                onereviewElem.style.height = '0';
+
                 e.currentTarget.getElementsByClassName('fas fa-caret-down')[0].className='fas fa-caret-up';
             }else if(e.currentTarget.getElementsByClassName('fas fa-caret-up')[0]){
                 e.currentTarget.previousSibling.previousSibling.className='write'; //writeElem
                 e.currentTarget.previousSibling.className='detailreview hide'; //detailreview
+
+                onereviewElem.removeAttribute('style');
+
                 e.currentTarget.getElementsByClassName('fas fa-caret-up')[0].className='fas fa-caret-down';
             };
         });
@@ -108,7 +114,10 @@ function makeItemList(result) { // 받은 애들 어떻게 뿌릴지
         personalElem.append(toFollowingReviewerDetailaTagElem);
         personalElem.append(userElem);
         // personalElem.append(br2Elem);
-        personalElem.append(starElem);
+
+        // personalElem.append(starElem);
+        fff.append(starElem);
+
         onereviewElem.append(writeElem);
         onereviewElem.append(frameElem);
         onereviewElem.append(moreiconElem);

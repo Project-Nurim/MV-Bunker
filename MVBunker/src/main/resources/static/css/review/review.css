@@ -242,7 +242,7 @@ label input:checked+.menu .hamburger:before {
 
 figure {
     margin: 0 auto;
-    margin-bottom: 60px;
+    margin-bottom: 120px;
     /*background-color: white;*/
     color: white;
     position: relative;
@@ -252,8 +252,8 @@ figure {
 
 .star {
     position: absolute;
-    top: -330px;
-    right: 40px;
+    top: -15px;
+    right: 65px;
     display:inline;
 }
 
@@ -262,6 +262,11 @@ figure {
 }
 
 .fff{
+    position: relative;
     display: flex;
     justify-content: center;
+}
+
+.detailreview{
+    width: 230px;
 }
