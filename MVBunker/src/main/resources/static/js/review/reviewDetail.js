@@ -146,6 +146,11 @@ function makeJustReview(review) {
     const reviewTitle = document.createElement('h5');
     reviewTitle.classList.add('reviewTitle');
     reviewTitle.innerText = review.unn;
+
+    const size = document.createElement('div');
+    size.className = 'size';
+    size.innerText = review.regdt;
+
     const reviewCtnt = document.createElement('div');
     reviewCtnt.classList.add('reviewCtnt');
     reviewCtnt.innerText = review.re_ctnt;
@@ -155,6 +160,8 @@ function makeJustReview(review) {
     reviewTextBox.append(reviewCtnt);
     reviewFigure.append(userProfileDiv);
     reviewFigure.append(reviewTextBox);
+    reviewTextBox.append(size);
+
     /* 삭제 버튼 */
     if(review.i_user === authUserPk) {
         const reviewDeleteBtnElem = document.createElement('input');

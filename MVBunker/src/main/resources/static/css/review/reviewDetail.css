@@ -786,3 +786,15 @@ footer{
     margin: auto;
     margin-bottom: 20px;
 }
+
+.size {
+    color: grey;
+    position: absolute;
+    top: 5px;
+    left: 165px;
+    font-size: 12px;
+}
+
+.reviewTextBox{
+    position: relative;
+}
