@@ -324,6 +324,7 @@ if(isAnonymous) {
     getMovieEvalAvg(movieIdVal);
 }else {
     checkEval(movieIdVal);
+    getMovieEvalAvg(movieIdVal);
 }
 
 
