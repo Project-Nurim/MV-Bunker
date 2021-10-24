@@ -50,7 +50,7 @@ fa-thumbs-up:before{
 #frame{
     position: relative;
     width:62em;
-    height: 600px;
+    height: auto;
     border: 1px solid white;
     margin: 0 auto;
     margin-bottom: 50px;
@@ -763,3 +763,26 @@ footer{
     padding-bottom: 20px;
 }
 
+.userProfileDiv {
+    width: 45px;
+    height: 40px;
+}
+
+.profileImg {
+    width: inherit;
+    height: inherit;
+    border-radius: 100%;
+}
+
+.input {
+    display: block;
+    background-color: #009759;
+    color: white;
+    border: none;
+    padding: 0.4em;
+    border-radius: 0.75em;
+    margin-bottom: 20px;
+    width: 55px;
+    margin: auto;
+    margin-bottom: 20px;
+}

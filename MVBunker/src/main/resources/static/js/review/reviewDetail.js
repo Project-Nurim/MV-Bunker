@@ -104,6 +104,7 @@ function makeItemList(reviewList) { // 받은 애들 어떻게 뿌릴지
         const moreReviewBtn = document.createElement('input');
         moreReviewBtn.type = 'button';
         moreReviewBtn.value = 'more';
+        moreReviewBtn.className = 'input';
         reviewContainerElem2.append(moreReviewBtn);
         moreReviewBtn.addEventListener('click', e => {
             infinityScrolling.setScrollInfinity(window);
@@ -138,6 +139,8 @@ function makeJustReview(review) {
     userProfileDiv.classList.add('userProfileDiv');
     const userProfileImg = document.createElement('img');
     userProfileImg.src = review.profileImg;
+    userProfileImg.classList.add('profileImg');
+
     const reviewTextBox = document.createElement('div');
     reviewTextBox.classList.add('reviewTextBox');
     const reviewTitle = document.createElement('h5');
