@@ -96,7 +96,7 @@ checkMyReview();
 
 // 인피니티 스크롤링 설정
 infinityScrolling.url = `/review/reviewDetailInfiniteScrolling?movieId=${movieIdVal}`; // 요청보낼 url
-infinityScrolling.limit = 10;
+infinityScrolling.limit = 5;
 infinityScrolling.makeItemList = makeItemList;
 infinityScrolling.getItemList(1);
 
@@ -105,16 +105,20 @@ function makeItemList(reviewList) { // 받은 애들 어떻게 뿌릴지
     reviewList.forEach(review => {
         const reviewElem = makeJustReview(review);
         reviewContainerElem2.append(reviewElem);
-        if(infinityScrolling.limit === infinityScrolling.itemLength && infinityScrolling.currentPage === 1) {
-            const moreReviewBtn = document.createElement('div');
-            moreReviewBtn.innerText = 'more';
-            moreReviewBtn.addEventListener('click', e => {
-                infinityScrolling.setScrollInfinity(window);
-                infinityScrolling.getItemList(++infinityScrolling.currentPage);
-            })
-        }
+
        // 지민이가 만든 컨테이너 주소 변수.innerHTML += `<div>${review.title}</div>`;
     })
+    if(infinityScrolling.limit === infinityScrolling.itemLength && infinityScrolling.currentPage === 1) {
+        const moreReviewBtn = document.createElement('input');
+        moreReviewBtn.type = 'button';
+        moreReviewBtn.value = 'more';
+        reviewContainerElem2.append(moreReviewBtn);
+        moreReviewBtn.addEventListener('click', e => {
+            infinityScrolling.setScrollInfinity(window);
+            infinityScrolling.getItemList(++infinityScrolling.currentPage);
+            e.currentTarget.remove();
+        })
+    }
 }
 /* 바로 아래 얘나 그 밑에 주석되어 있는 애 아무거나 골라서 원하는 방식으로 작업해주면 댑니다.
     unn;    작성자 닉네임
