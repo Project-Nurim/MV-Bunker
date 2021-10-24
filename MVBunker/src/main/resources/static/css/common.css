@@ -560,6 +560,7 @@ a {
     background-position: left;
     transition: all .4s ease;
     border-radius: 10px 0px 0px 10px;
+    border: 1px solid white;
 }
 
 @keyframes moving {

@@ -50,7 +50,7 @@ function makeItemList(result) { // 받은 애들 어떻게 뿌릴지
                 e.currentTarget.previousSibling.previousSibling.className='hide'; //writeElem
                 e.currentTarget.previousSibling.className='detailreview'; //detailreview
 
-                onereviewElem.style.height = '0';
+                onereviewElem.style.height = '-1';
 
                 e.currentTarget.getElementsByClassName('fas fa-caret-down')[0].className='fas fa-caret-up';
             }else if(e.currentTarget.getElementsByClassName('fas fa-caret-up')[0]){
