@@ -40,6 +40,16 @@ const infinityScrolling = {
     }
 }
 
+let authUserPk = 0;
+fetch('/user/getUserPk')
+    .then(res => res.json())
+    .then(myJson => {
+        authUserPk = myJson;
+        if(authUserPk === 0) {
+            hideWriteBox();
+        }
+    })
+
 
 
 

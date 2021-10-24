@@ -5,10 +5,11 @@
       layout:decorator="layout/basicLayout">
 <head>
     <th:block layout:fragment="css">
-        <link rel="stylesheet" th:href="@{/css/review/myReview.css}">
+        <link rel="stylesheet" th:href="@{/css/review/review.css}">
         <link rel="icon" href="/img/logo/favicon.ico">
     </th:block>
     <th:block layout:fragment="js">
+        <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
         <script defer th:src="@{/js/user/myReview.js}"></script>
     </th:block>
     <title>my review</title>
@@ -27,18 +28,8 @@
      -->
 <body>
 <th:block layout:fragment="content">
-    <section id="reviewContainer">
-        <th:block th:each="reviewList : ${selReviewList}">
+    <section id="allReviewContainer">
 
-            <div class="myreview_css">
-            <img th:src="'https://image.tmdb.org/t/p/w500/' + ${reviewList.poster}"
-            <p th:text="${reviewList.unn}"></p>
-            <p th:text="${reviewList.title}"></p>
-            <p th:text="${reviewList.re_ctnt}"></p>
-            <img th:src="${reviewList.profileImg}"></img>
-            </div>
-
-        </th:block>
     </section>
 </th:block>
 </body>
