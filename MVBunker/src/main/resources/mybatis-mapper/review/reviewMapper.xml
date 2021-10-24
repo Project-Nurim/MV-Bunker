@@ -83,12 +83,13 @@
         group by R.i_review
         <choose>
         <when test="pagingDTO.orderby == 0">
-            ORDER BY R.i_review DESC;
+            ORDER BY R.i_review DESC
         </when>
         <when test="pagingDTO.orderby == 1">
-            order by review_dislike_cnt DESC;
+            order by review_dislike_cnt DESC
         </when>
         </choose>
+        LIMIT ${pagingDTO.minIndex}, ${pagingDTO.listLength}
     </select>
 
     <update id="updReview">

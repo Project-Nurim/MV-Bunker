@@ -34,8 +34,7 @@ public class ReviewService {
     }
 
     //특정 영화에 달린 리뷰
-    public List<ReviewDomain> getReviews(ReviewEntity param) {
-        PagingDTO pagingDTO = new PagingDTO();
+    public List<ReviewDomain> getReviews(ReviewEntity param, PagingDTO pagingDTO) {
         return mapper.selReview(param, pagingDTO);
     }
 

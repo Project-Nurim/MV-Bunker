@@ -96,8 +96,8 @@ checkMyReview();
 
 // 인피니티 스크롤링 설정
 infinityScrolling.url = `/review/reviewDetailInfiniteScrolling?movieId=${movieIdVal}`; // 요청보낼 url
+infinityScrolling.limit = 10;
 infinityScrolling.makeItemList = makeItemList;
-infinityScrolling.setScrollInfinity(window);
 infinityScrolling.getItemList(1);
 
 function makeItemList(reviewList) { // 받은 애들 어떻게 뿌릴지
@@ -105,6 +105,14 @@ function makeItemList(reviewList) { // 받은 애들 어떻게 뿌릴지
     reviewList.forEach(review => {
         const reviewElem = makeJustReview(review);
         reviewContainerElem2.append(reviewElem);
+        if(infinityScrolling.limit === infinityScrolling.itemLength && infinityScrolling.currentPage === 1) {
+            const moreReviewBtn = document.createElement('div');
+            moreReviewBtn.innerText = 'more';
+            moreReviewBtn.addEventListener('click', e => {
+                infinityScrolling.setScrollInfinity(window);
+                infinityScrolling.getItemList(++infinityScrolling.currentPage);
+            })
+        }
        // 지민이가 만든 컨테이너 주소 변수.innerHTML += `<div>${review.title}</div>`;
     })
 }

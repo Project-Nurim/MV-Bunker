@@ -73,10 +73,11 @@ public class ReviewController {
 
     @ResponseBody
     @GetMapping("/reviewDetailInfiniteScrolling")
-    public List<ReviewDomain> getAllReview(int movieId) {
+    public List<ReviewDomain> getAllReview(int movieId, int page, int orderby) {
         ReviewEntity param = new ReviewEntity();
         param.setId(movieId);
-        return reviewService.getReviews(param);
+        PagingDTO pagingDTO = new PagingDTO(page, orderby);
+        return reviewService.getReviews(param, pagingDTO);
     }
 
 
