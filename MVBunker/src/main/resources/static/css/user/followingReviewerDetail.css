@@ -249,3 +249,9 @@ h4, p, .heart, tr{
   padding: 7px;
   text-align: center;
 }
+
+.tn{
+  position:relative;
+  left:55px;
+  padding: 5px;
+}
