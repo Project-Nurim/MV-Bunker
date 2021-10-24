@@ -66,11 +66,11 @@
     <!-- 그 영화의 리뷰들 - default가 좋아요 순
     orderby == 0 : 최신순, == 1 : 좋아요 많은 순 -->
     <select id="selReview" resultType="ReviewDomain">
-        select R.unn as unn, R.i_user as i_user, R.i_review as i_review, R.title as title, R.id as id, R.poster as poster, R.regdt as regdt, R.re_ctnt as re_ctnt,
+        select R.profileImg as profileImg, R.unn as unn, R.i_user as i_user, R.i_review as i_review, R.title as title, R.id as id, R.poster as poster, R.regdt as regdt, R.re_ctnt as re_ctnt,
                E.i_user AS Ei_user,E.id as Eid, E.production as production, E.performance as performance, E.visual_beauty as visual_beauty, E.music as music, E.plot as plot,
                count(case when RL.disLike = 0 then 1 end) as review_dislike_cnt
         from(
-            select B.unn as unn, A.i_user as i_user, A.i_review as i_review, A.title as title, A.id as id, A.poster As poster, A.regdt as regdt, A.re_ctnt as re_ctnt
+            select B.profileImg as profileImg, B.unn as unn, A.i_user as i_user, A.i_review as i_review, A.title as title, A.id as id, A.poster As poster, A.regdt as regdt, A.re_ctnt as re_ctnt
             from t_review A
                 left join t_user B
                     on A.i_user = B.i_user
