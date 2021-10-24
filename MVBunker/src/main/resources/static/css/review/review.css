@@ -151,7 +151,9 @@ body {
     width: 230px;
 }
 
-
+.side{
+    background:black;
+}
 .onereview{
     display: flex;
     flex-direction: column;
