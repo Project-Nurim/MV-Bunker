@@ -42,10 +42,9 @@ function makeItemList(result) { // 받은 애들 어떻게 뿌릴지
         const itagElem = document.createElement('i');
         moreiconElem.classList.add('moreicon');
         moreiconElem.addEventListener('click', function(e){
-            console.log('왔니');
-            console.log(e.currentTarget);
-            console.log(e.currentTarget.getElementsByClassName('fas fa-caret-down'));
-            console.log(e.currentTarget.getElementsByClassName("asd"+'fas fa-caret-up'));
+            // console.log(e.currentTarget);
+            // console.log(e.currentTarget.getElementsByClassName('fas fa-caret-down'));
+            // console.log(e.currentTarget.getElementsByClassName("asd"+'fas fa-caret-up'));
             if(e.currentTarget.getElementsByClassName('fas fa-caret-down')[0]){
                 e.currentTarget.previousSibling.previousSibling.className='hide'; //writeElem
                 e.currentTarget.previousSibling.className='detailreview'; //detailreview
