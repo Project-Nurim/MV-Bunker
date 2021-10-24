@@ -76,7 +76,7 @@ public class ReviewController {
     public List<ReviewDomain> getAllReview(int movieId, int page, int orderby) {
         ReviewEntity param = new ReviewEntity();
         param.setId(movieId);
-        PagingDTO pagingDTO = new PagingDTO(page, orderby);
+        PagingDTO pagingDTO = new PagingDTO(page, orderby, 5);
         return reviewService.getReviews(param, pagingDTO);
     }
 
