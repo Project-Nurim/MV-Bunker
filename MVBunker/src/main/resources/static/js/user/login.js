@@ -106,7 +106,7 @@ function sendPost(action, params) {
     form.setAttribute('method', 'post');
     form.setAttribute('action', action);
     document.charset = "utf-8";
-    for ( var key in params) {
+    for (var key in params) {
         var hiddenField = document.createElement('input');
         hiddenField.setAttribute('type', 'hidden');
         hiddenField.setAttribute('name', key);

@@ -38,14 +38,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(HttpSecurity security) throws Exception {
         security.csrf().disable();
 
-        security.authorizeRequests() // 로그인 없이 갈 수 있는 곳
+        security.authorizeRequests() // 인증이 필요한 모든 요청에 대해
                 .antMatchers("/home", "/developers", "/user/login", "/user/join", "/user/auth", "/movies/boxoffice", "/movies/genre", "/movies/genreDetail"
                 , "/movies/recommendation", "/movies/search", "/review/review", "/review/reviewDetail", "/review/getMovieEvalAvg", "/review/reviewDetailInfiniteScrolling"
                 , "/review/getAllReview")
 //                .antMatchers("/**") // test 용
-                .permitAll()
-                .anyRequest().authenticated();
-
+                .permitAll() // 위에 애들은 인증이 필요 없다.(모두에게 허용)
+                .anyRequest().authenticated(); // 그외에는 다 인증 필요
+                // .and() 로 바로 연결 가능
         security.formLogin()
                 .loginPage("/home")
                 .loginProcessingUrl("/user/login")
